@@ -1,0 +1,115 @@
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.8\textwidth]{figuras/traj_finaltrial_6A_CCA_f_1.eps}
+    \caption{Trayectoria de los 6 agentes en el escenario CCA, corrida 1, en físico.}
+    \label{fig:traj_finaltrial_6A_CCA_f_1}
+\end{figure}
+
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.8\textwidth]{figuras/cm_finaltrial_6A_CCA_f_1.eps}
+    \caption{Trayectoria del centro de masa de la formación en el escenario CCA, corrida 1, en físico.}
+    \label{fig:cm_finaltrial_6A_CCA_f_1}
+\end{figure}
+
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.49\textwidth]{figuras/traj_finaltrial_6A_CCA_f_1.eps}
+    \includegraphics[width=0.49\textwidth]{figuras/traj_finaltrial_6A_CCA_v_1.eps}
+    \caption{Trayectoria de los 6 agentes en el escenario CCA, corrida 1 en físico (izquierda) y simulación (derecha).}
+    \label{fig:traj_finaltrial_6A_CCA_f_1}
+\end{figure}
+
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.49\textwidth]{figuras/cm_finaltrial_6A_CCA_f_1.eps}
+    \includegraphics[width=0.49\textwidth]{figuras/cm_finaltrial_6A_CCA_v_1.eps}
+    \caption{Trayectoria del centro de masa de la formación en el escenario CCA, corrida 1 en físico (izquierda) y simulación (derecha).}
+    \label{fig:traj_finaltrial_6A_CCA_f_1}
+\end{figure}
+
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.49\textwidth]{figuras/normV_finaltrial_6A_CCA_f_1.eps}
+    \includegraphics[width=0.49\textwidth]{figuras/mse_finaltrial_6A_CCA_f_1.eps}
+    \caption{Histórico de norma de velocidad de la formación y error cuadrático medio en el escenario CCA, corrida 1, en físico.}
+    \label{fig:normVmse_finaltrial_6A_CCA_f_1}
+\end{figure}
+
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.49\textwidth]{figuras/normV_finaltrial_6A_CCA_v_1.eps}
+    \includegraphics[width=0.49\textwidth]{figuras/mse_finaltrial_6A_CCA_v_1.eps}
+    \caption{Histórico de norma de velocidad de la formación y error cuadrático medio en el escenario CCA, corrida 1, en simulación.}
+    \label{fig:normVmse_finaltrial_6A_CCA_v_1}
+\end{figure}
+
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.49\textwidth]{figuras/xvel_finaltrial_6A_CCA_f_1.eps}
+    \includegraphics[width=0.49\textwidth]{figuras/yvel_finaltrial_6A_CCA_f_1.eps}
+    \caption{Histórico de velocidades de los agentes en el escenario CCA, corrida 1, en físico.}
+    \label{fig:vel_finaltrial_6A_CCA_f_1}
+\end{figure}
+
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.49\textwidth]{figuras/xvel_finaltrial_6A_CCA_v_1.eps}
+    \includegraphics[width=0.49\textwidth]{figuras/yvel_finaltrial_6A_CCA_v_1.eps}
+    \caption{Histórico de velocidades de los agentes en el escenario CCA, corrida 1, en simulación.}
+    \label{fig:vel_finaltrial_6A_CCA_v_1}
+\end{figure}
+
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.49\textwidth]{figuras/phiL_finaltrial_6A_CCA_f_1.eps}
+    \includegraphics[width=0.49\textwidth]{figuras/phiR_finaltrial_6A_CCA_f_1.eps}
+    \caption{Histórico de velocidades en las ruedas de los agentes en el escenario CCA, corrida 1, en físico.}
+    \label{fig:phi_finaltrial_6A_CCA_f_1}
+\end{figure}
+
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.49\textwidth]{figuras/phiL_finaltrial_6A_CCA_v_1.eps}
+    \includegraphics[width=0.49\textwidth]{figuras/phiR_finaltrial_6A_CCA_v_1.eps}
+    \caption{Histórico de velocidades en las ruedas de los agentes en el escenario CCA, corrida 1, en simulación.}
+    \label{fig:phi_finaltrial_6A_CCA_v_1}
+\end{figure}
+
+\begin{table}[]
+\centering
+\begin{tabular}{|c|c|c|c|c|}
+\hline
+
+\textbf{Métrica}  &  \textbf{Físico}  &  \textbf{Simulado}  &  \textbf{$\Delta$}  &  \textbf{Dif. Relativa}  \\ \hline
+
+Promedio norma de velocidades (m/s)  &  2.61  &  1.96  &  0.65  &  24.90\%  \\ \hline
+
+Promedio del mse de la formación  &  0.30  &  0.17  &  0.13  &  43.33\%  \\ \hline
+
+Duración total de la corrida (s)  &  100.50  &  34.24  &  66.26  &  65.93\%  \\ \hline
+
+\emph{Timestamp} inicio formación (s)  &  0.09  &  0.06  &  0.03  &  33.33\%  \\ \hline
+
+\emph{Timestamp} inicio seguimiento obj (s)  &  17.08  &  7.74  &  9.34  &  54.68\%  \\ \hline
+
+\emph{Timestamp} llegada líder (s)  &  67.84  &  24.70  &  43.14  &  63.59\%  \\ \hline
+
+\emph{Timestamp} llegada formación (s)  &  85.93  &  28.29  &  57.64  &  67.08\%  \\ \hline
+
+dif. llegada líder y formación (s)  &  18.09  &  3.59  &  14.50  &  80.15\%  \\ \hline
+
+\end{tabular}
+\caption{Comparación de métricas entre corridas en simulación y físico, escenario CCA, corrida 1, con 6 agentes.}
+\label{tabla:finaltrial_6A_CCA_t_1}
+\end{table}

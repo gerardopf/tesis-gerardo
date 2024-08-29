@@ -1,0 +1,43 @@
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.8\textwidth]{figuras/traj_finaltrial_6A_AB2A_v_1.eps}
+    \caption{Trayectoria de los 6 agentes en el escenario AB2A, corrida 1, en simulación.}
+    \label{fig:traj_finaltrial_6A_AB2A_v_1}
+\end{figure}
+
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.8\textwidth]{figuras/cm_finaltrial_6A_AB2A_v_1.eps}
+    \caption{Trayectoria del centro de masa de la formación en el escenario AB2A, corrida 1, en simulación.}
+    \label{fig:cm_finaltrial_6A_AB2A_v_1}
+\end{figure}
+
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.49\textwidth]{figuras/normV_finaltrial_6A_AB2A_v_1.eps}
+    \includegraphics[width=0.49\textwidth]{figuras/mse_finaltrial_6A_AB2A_v_1.eps}
+    \caption{Histórico de norma de velocidad de la formación y error cuadrático medio en el escenario AB2A, corrida 1, en simulación.}
+    \label{fig:normVmse_finaltrial_6A_AB2A_v_1}
+\end{figure}
+
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.49\textwidth]{figuras/xvel_finaltrial_6A_AB2A_v_1.eps}
+    \includegraphics[width=0.49\textwidth]{figuras/yvel_finaltrial_6A_AB2A_v_1.eps}
+    \caption{Histórico de velocidades de los agentes en el escenario AB2A, corrida 1, en simulación.}
+    \label{fig:vel_finaltrial_6A_AB2A_v_1}
+\end{figure}
+
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.49\textwidth]{figuras/phiL_finaltrial_6A_AB2A_v_1.eps}
+    \includegraphics[width=0.49\textwidth]{figuras/phiR_finaltrial_6A_AB2A_v_1.eps}
+    \caption{Histórico de velocidades en las ruedas de los agentes en el escenario AB2A, corrida 1, en simulación.}
+    \label{fig:phi_finaltrial_6A_AB2A_v_1}
+\end{figure}
+
