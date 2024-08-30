@@ -7,7 +7,7 @@ maximizedDockId: -1
 centralWidgetVisible: 1
 renderingMode: PLAIN
 orthographicViewHeight: 1
-textFiles: 0 "controllers/Supervisor_simulacion_y_fisico_v4/Supervisor_simulacion_y_fisico_v4.py" "controllers/pruebaMatrizDifeomorfismo/pruebaMatrizDifeomorfismo.py"
+textFiles: 0 "controllers/supervisor/supervisor.py" "controllers/agente/agente.py"
 consoles: Console:All:All
 renderingDevicePerspectives: Agente0:camera;1;0.820513;0;0
 renderingDevicePerspectives: Agente10:camera;1;0.820513;0;0
