@@ -92,6 +92,7 @@ supervisor = Supervisor() # instancia de supervisor
 """ modo real o simulación """
 fisico = 0               # 0 Webots | 1 Robotat
 initial_conditions_file = 'finaltrial_6A_AB2A_f_2.npz' # condiciones iniciales (.npz) para comparar lo físico con la simulación
+new_run_file = 'run0.npz'
 r_initial_conditions = 1 # 0: nueva simulación | 1: simulación basada en condiciones iniciales en físico
 r_obs = 0                # 0: obstáculos virtuales | 1: obstáculos reales (markers)
 r_obj = 0                # 0: objetivo virtual | 1: objetivo real (marker)
@@ -123,7 +124,7 @@ obj_marker = obj_marker_list[0]        # marker del objetivo
 obs_marker_list = [19,20,21]
 quantOMax = 3 # máximo de obstáculos
 obs_active = 1        # 0: SIN obstáculos | 1: CON obstáculos
-obs_start_marker = 7 # marker del primer obstáculo
+obs_start_marker = 1 # marker del primer obstáculo
 
 # optitrack marcadores 
 robotat_markers = agents_marker_list + obj_marker_list + obs_marker_list
@@ -767,8 +768,61 @@ while supervisor.step(TIME_STEP) != 1:
         NStart = NStart + 1
         obs_start_marker = obs_start_marker + 1 
         obj_marker = obj_marker + 1
-
-        # desconectar del Robotar
+        
+        # guardar datos en archivo .npz de la nueva corrida en físico
+        if (fisico == 1 and r_initial_conditions == 0):
+            try:
+                np.savez(new_run_file, trajectory_data = trajectory_data, # agents positions register of the run
+                                           velocity_data = velocity_data, # agents velocities registrr of the run
+                                           normV_data = normV_data,       # agents velocities norm register of the run
+                                           obj_data = obj_data,           # objetive positions register of the run
+                                           obs_data = obs_data,           # objetive positions register of the run 
+                                           formation_mse_data = formation_mse_data, # mse register of the run
+                                           rot_data = rot_data,           # rotation data register of the run
+                                           total_cycle = ciclo,           # total of cycles of the run
+                                           form_cycle = form_cycle,       # cycle when formation began its construction
+                                           obj_cycle = obj_cycle,         # cycle when the leader began following the objective
+                                           quantO = cantO,                # total quantity of obstacles
+                                           posObsAct = posObsAct,         # last position of obstacles when the run ended
+                                           sizeO = sizeO,                 # size of the obstacles
+                                           NStart = NStart,               # first agent (lower limit of the interval of agents)
+                                           N = N,                         # last agent (higher limit of the interval of agents)
+                                           NMax = NMax,                   # maximum agent number that the formation shape can contain
+                                           pObjVec = pObjVec,             # last position of objective when the run ended
+                                           PosRealAgents = PosRealAgents, # position of the agents at the start of stage 1 (initial conditions)
+                                           RotRealAgents = RotRealAgents, # rotation of the agents at the start of stage 1 (initial conditions)
+                                           begin_alg_time = begin_alg_time, # cycle when the algorithm itself started (aka start of stage 1)
+                                           posIniPosVec = posIniPosVec, # position of initial position marks
+                                           fisico = fisico,               # physical (Robotat) or virtual (Webots) world run
+                                           r_initial_conditions = r_initial_conditions, # real initial conditions active or not (fresh run)
+                                           r_obs = r_obs,                 # real or virtual obstacles
+                                           r_obj = r_obj,                 # real or virtual objective
+                                           TIME_STEP = TIME_STEP,         # time step of the program
+                                           agent_setup = agent_setup,     # agent setup used for the run
+                                           obs_active = obs_active,       # obstacles active or not
+                                           initial_pos_setup = initial_pos_setup, # initial position setup (random or not)
+                                           r = r,                         # radio to consider to avoid collisions
+                                           R = R,                         # Radar radio
+                                           MAX_SPEED = MAX_SPEED,         # allowed maximum speed of agents wheels
+                                           form_shape = form_shape,       # shape of the formation    
+                                           rigidity_level = rigidity_level, # rigidity level of the formation 
+                                           total_agent_number = total_agent_number, # total agent number of agents involved in the run
+                                           obj_marker = obj_marker,       # Robotat marker used for the objetive in real life
+                                           obs_start_marker = obs_start_marker, # Robotat starting marker used for the obstacles in real life
+                                           setup_starting_point = setup_starting_point, # beginning of the initial positions shape
+                                           setup_shape = setup_shape,     # initial positions shape
+                                           setup_shape_space = setup_shape_space, # what space to cover with the initial positions
+                                           formation_edge = formation_edge, # how long is the age of the formation
+                                           r_f = r_f,                     # robot dimensions for unicycle model
+                                           l_f = l_f,
+                                           a_f = a_f,
+                                           obj_success = obj_success,     # indicates if the objective was successful
+                                           obj_success_cycle = obj_success_cycle) # objective success cycle      
+            except e:
+                print(e)
+                print("error al guardar los datos")
+    
+        # desconectar del Robotat
         if (fisico == 1):
             robotat_disconnect(robotat)
         lock.release()
