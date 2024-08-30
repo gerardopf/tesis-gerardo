@@ -90,14 +90,15 @@ supervisor = Supervisor() # instancia de supervisor
 
 # archivo para simular una corrida en físico
 initial_conditions_file = 'finaltrial_6A_AB2A_f_2.npz' 
+r_initial_conditions = 0 # 0: nueva simulación | 1: simular escenario físico
+
 # archivo para guardar una nueva corrida en físico
 new_run_file = 'run0.npz'
 
 """ modo real o simulación """
-fisico = 0               # 0 Webots | 1 Robotat
-r_initial_conditions = 1 # 0: nueva simulación | 1: simulación basada en condiciones iniciales en físico
-r_obs = 0                # 0: obstáculos virtuales | 1: obstáculos reales (markers)
-r_obj = 0                # 0: objetivo virtual | 1: objetivo real (marker)
+fisico = 1               # 0 Webots | 1 Robotat
+r_obs = 1                # 0: obstáculos virtuales | 1: obstáculos reales (markers)
+r_obj = 1                # 0: objetivo virtual | 1: objetivo real (marker)
 r_webots_visual = 0      # 0: NO ver objetivo y obstáculos en tiempo real | 1: ver objetivo y obstáculos en tiempo real
 MAX_SPEED = 30           # velocidad máxima de ruedas (rpm)
 
@@ -114,16 +115,16 @@ desfases_euler = quat2eul(desfases,'zyx')
 print("archivo desfases euler: \n", desfases_euler)
 
 """ Agentes """
-agents_marker_list = [2,8,3,6]
+agents_marker_list = [2,6,7]
 NMax = 10  # número máximo de agentes que la formación puede tener
 NStart = 1 # primer agente
 N = len(agents_marker_list)	# último agente
 
 """ obstáculos y objetivo """
-obj_marker_list = [12]
+obj_marker_list = [20]
 obj_marker = obj_marker_list[0]        # marker del objetivo 
 
-obs_marker_list = [19,20,21]
+obs_marker_list = [11,12,13]
 quantOMax = 3 # máximo de obstáculos
 obs_active = 1        # 0: SIN obstáculos | 1: CON obstáculos
 obs_start_marker = 1 # marker del primer obstáculo
@@ -148,7 +149,7 @@ initial_pos_setup = 1 # posiciones iniciales | 0: ALEATORIO | 1: PLANIFICADO
 setup_shape = 0         # 0: posición inicial LÍNEA | 1: posición inicial CÍRCULO
 setup_shape_space = 1.5 # espacio a cubrir con las posiciones iniciales (m)
 
-setup_starting_point = np.array([-1.0, -1]) # punto inicial para las posiciones iniciales
+setup_starting_point = np.array([-1.0, -1.5]) # punto inicial para las posiciones iniciales
 
 agent_setup = 5 # configuración de agentes
 
@@ -177,12 +178,18 @@ if (r_initial_conditions == 1):
     agent_setup = initial_data['agent_setup']
     initial_pos_setup = initial_data['initial_pos_setup']
     
+""" parámetros pololu FÍSICO """
+r_f = 0.017
+l_f = 0.0485
+a_f = 0.0485
+
 """ parámetros epuck SIMULACIÓN """
 if (fisico == 0):
     MAX_SPEED = 6.28 # rad/s
     r_f = 0.0205
     l_f = 0.0355
     a_f = 0.0355
+    
     
 """ algunas variables y banderas """
 setup_pos = np.zeros((NMax, 6)) # guarda la pose de cada agente (x, y, z, eulx, euly, eulz)
@@ -773,6 +780,7 @@ while supervisor.step(TIME_STEP) != 1:
         
         # guardar datos en archivo .npz de la nueva corrida en físico
         if (fisico == 1 and r_initial_conditions == 0):
+            print("Guardando datos de la corrida...")
             try:
                 np.savez(new_run_file, trajectory_data = trajectory_data, # agents positions register of the run
                                            velocity_data = velocity_data, # agents velocities registrr of the run
@@ -822,7 +830,7 @@ while supervisor.step(TIME_STEP) != 1:
                                            obj_success_cycle = obj_success_cycle) # objective success cycle      
             except e:
                 print(e)
-                print("error al guardar los datos")
+                print("Error al guardar los datos de la corrida")
     
         # desconectar del Robotat
         if (fisico == 1):

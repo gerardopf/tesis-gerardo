@@ -19,9 +19,9 @@ shm1 = shared_memory.SharedMemory(name="my_shared_memory1")
 shm2 = shared_memory.SharedMemory(name="my_shared_memory2")
 lock = Lock()
 
-fisico = 0 # 0: Webots | 1: Robotat
+fisico = 1 # 0: Webots | 1: Robotat
 
-agents_marker_list = [2,8,3,6]
+agents_marker_list = [2,6,7]
 NStart = 1 # primer agente
 N = len(agents_marker_list)	# último agente
 
