@@ -1,4 +1,4 @@
-""" mainv2 SUPERVISOR """
+""" main v2 SUPERVISOR """
 
 """ inicio comentarios
 
