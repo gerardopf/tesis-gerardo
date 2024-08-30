@@ -1,4 +1,4 @@
-""" main v2 SUPERVISOR """
+""" optimization v1 SUPERVISOR """
 
 """ inicio comentarios
 
@@ -29,14 +29,16 @@ El algoritmo ya funciona correctamente
     Se cambió la distancia para el objetivo cumplido
         de 0.5m a 0.2m
         
-Cambios sin probar:
-
-    La corrida en físico se detiene al llegar al objetivo y cumplir con un error de formación
-        Probado en simulación
-        Falta en físico
+    Se agregó el guardado de datos en archivo .npz al terminar la corrida 
+    
+    La corrida en físico ya se detiene al llegar al objetivo y cumplir con un error de formación
     
     Se agrego un if fisico == 1 elif fisico == 0
         En donde se realizó los cambios de signo con el fin de que funciona la simulación de nuevo
+        Probado en simulación y físico
+        
+Cambios sin probar:
+            
     
     
 ********* Deficiencias *********
@@ -52,16 +54,17 @@ Cambios sin probar:
         El líder se detiene mucho para esperar a la formación
         La formación siempre está en constante movimiento y a veces se mantienen girando
         
-    Cuando el líder llega al objetivo, los agentes no paran
-        Hay que detenerlos al completar el objetivo
+    Cuando el líder llega al objetivo, los agentes YA paran
+        A veces se queda un agente prendido
+        
+    El error de formación para detener la corrida 
+        Probar un valor más grande
         
     Falta agregar la generación de gráficas
     
 ********* Problemas *********
-    Luego de los cambios de signo para el cálculo de las velocidades
-        Ya no funciona la simulación
-            Los agentes divergen
-        Si funciona el comportamiento en físico
+
+
 
 fin comentarios """
 

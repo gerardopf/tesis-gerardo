@@ -1,4 +1,4 @@
-""" main v2 controlador de los agentes """
+""" optimization v1 controlador de los agentes """
 
 from controller import Robot, Compass, Motor
 import math
