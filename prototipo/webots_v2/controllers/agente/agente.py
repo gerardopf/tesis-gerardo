@@ -1,4 +1,4 @@
-""" controlador de los agentes """
+""" main v2 controlador de los agentes """
 
 from controller import Robot, Compass, Motor
 import math
