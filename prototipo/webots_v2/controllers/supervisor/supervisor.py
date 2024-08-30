@@ -86,13 +86,15 @@ shm2 = shared_memory.SharedMemory(name="my_shared_memory2", create=True, size=40
 # lock para permitir lectura y escritura de uno a la vez
 lock = Lock()
 TIME_STEP = 64 # paso de simulación 64 ms
-
 supervisor = Supervisor() # instancia de supervisor
+
+# archivo para simular una corrida en físico
+initial_conditions_file = 'finaltrial_6A_AB2A_f_2.npz' 
+# archivo para guardar una nueva corrida en físico
+new_run_file = 'run0.npz'
 
 """ modo real o simulación """
 fisico = 0               # 0 Webots | 1 Robotat
-initial_conditions_file = 'finaltrial_6A_AB2A_f_2.npz' # condiciones iniciales (.npz) para comparar lo físico con la simulación
-new_run_file = 'run0.npz'
 r_initial_conditions = 1 # 0: nueva simulación | 1: simulación basada en condiciones iniciales en físico
 r_obs = 0                # 0: obstáculos virtuales | 1: obstáculos reales (markers)
 r_obj = 0                # 0: objetivo virtual | 1: objetivo real (marker)
