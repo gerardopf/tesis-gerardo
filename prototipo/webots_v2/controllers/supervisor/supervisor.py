@@ -35,7 +35,7 @@ Cambios sin probar:
         Probado en simulación
         Falta en físico
     
-    Se agrego un if fisico == 1 elif fisito == 0
+    Se agrego un if fisico == 1 elif fisico == 0
         En donde se realizó los cambios de signo con el fin de que funciona la simulación de nuevo
     
     
