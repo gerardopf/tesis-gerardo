@@ -10,7 +10,7 @@
     </ul>
 </ul>
     
-<h2>Vitácora de cambios</h2> 
+<h2>Bitácora de cambios</h2> 
 <ul>
     <li>Verificar si el agente ya está en la posición inicial</li>
     <ul>
