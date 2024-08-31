@@ -373,7 +373,8 @@ for b in range(NStart, N):
         
     elif (agent_setup == 2): # marcas de inicio aleatorias
         posIniPos[b].setSFVec3f([X[1,b], X[0,b], 0.3])
-        posIniPosVec[b] = posIniPos[b].getSFVec3f()             
+        posIniPosVec[b] = posIniPos[b].getSFVec3f() 
+                    
     elif (agent_setup == 3): # posición basada en configuración guardada
         with open('D:/AlejandroDigital/tesisAlejandro/codigo/comunicacion_pololu/first_setup.pickle','rb') as f:
             setup_pos = pickle.load(f)
