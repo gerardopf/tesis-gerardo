@@ -74,6 +74,7 @@ N/A
     <ul>
         <li>Hay que probar algún valor diferente, ahorita es muy pequeño (0.01) y la formación tarda en llegar a ese error </li>
     </ul>
+    <li>a veces el líder no espera a la formación</li>
 </ul>
 
 <h2>Cosas a limpiar en código</h2>
