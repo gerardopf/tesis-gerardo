@@ -10,7 +10,7 @@
     </ul>
 </ul>
     
-<h2>Vitácora de cambios</h2> 
+<h2>Bitácora de cambios</h2> 
 <ul>
     <li>Verificar si el agente ya está en la posición inicial</li>
     <ul>
@@ -57,20 +57,20 @@
         <li>El líder se detiene mucho para esperar a la formación</li>
         <li>La formación siempre está en constante movimiento y a veces se mantienen girando </li>
     </ul>
-    <li>Cuando el líder llega al objetivo</li>
-    <ul>
-        <li>Los agentes paran pero a veces un agente no le llegan las velocidades a cero</li>
-    </ul>
-    <li>Error de formación para detener la corrida</li>
-    <ul>
-        <li>Hay que probar algún valor diferente, ahorita es muy pequeño (0.01) y la formación tarda en llegar a ese error</li>
-    </ul>
 </ul>
 
 <h2>Cosas que faltan</h2>
 <ul>
-    <li>Implementar la generación de gráficas y trayectorias</li>
-</ul>
-        
+    <li>Cuando el líder llega al objetivo</li>
+    <ul>
+        <li>Los agentes paran pero a veces un agente no le llegan las velocidades a cero</li>
+    </ul></ul>
     
 <h2>Problemas</h2>
+<ul>
+    <li>Los agentes paran pero a veces un agente no le llegan las velocidades a cero</li>
+    <li>Error de formación para detener la corrida</li>
+    <ul>
+        <li>Hay que probar algún valor diferente, ahorita es muy pequeño (0.01) y la formación tarda en llegar a ese error </li>
+    </ul>
+</ul>
