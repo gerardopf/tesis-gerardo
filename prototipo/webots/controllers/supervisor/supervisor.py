@@ -43,7 +43,7 @@ rigidity_level = 8 # valores entre 1 y 8 (1 es el menos rígido)
 
 """ Desfases de markers """
 # desfases de markers en quaterniones: 1*,2,3,4,5,6,7,8,9*,10,11,12,13,14,15,16,17,18,19,20,21,22
-# *los larkers no estaban disponibles, se utilizó el desfase encontrado por José Alejandro R.
+# *los markers no estaban disponibles, se utilizó el desfase encontrado por José Alejandro R.
 desfases_file = 'nueva_calibracion_markers_1_al_22.npy' 
 desfases = np.load(desfases_file) 
 desfases_euler = quat2eul(desfases,'zyx')

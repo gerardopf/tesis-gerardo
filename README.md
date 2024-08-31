@@ -74,3 +74,7 @@
         <li>Hay que probar algún valor diferente, ahorita es muy pequeño (0.01) y la formación tarda en llegar a ese error </li>
     </ul>
 </ul>
+
+<h2>Cosas a limpiar en código</h2>
+El agent setup 4 que es una versión obsoleta del 5
+
