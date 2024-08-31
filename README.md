@@ -67,8 +67,10 @@
     </ul></ul>
     
 <h2>Problemas</h2>
-
-#Los agentes paran pero a veces un agente no le llegan las velocidades a cero
-
-Error de formación para detener la corrida
-Hay que probar algún valor diferente, ahorita es muy pequeño (0.01) y la formación tarda en llegar a ese error
+<ul>
+    <li>Los agentes paran pero a veces un agente no le llegan las velocidades a cero</li>
+    <li>Error de formación para detener la corrida</li>
+    <ul>
+        <li>Hay que probar algún valor diferente, ahorita es muy pequeño (0.01) y la formación tarda en llegar a ese error </li>
+    </ul>
+</ul>
