@@ -64,9 +64,9 @@
     <li>Cuando el líder llega al objetivo</li>
     <ul>
         <li>Los agentes paran pero a veces un agente no le llegan las velocidades a cero</li>
-    </ul></ul>
-    <li>dejar obsoleta la variable: obs_start_marker</li>
-    
+    </ul>
+    <li>Dejar obsoleta la variable: obs_start_marker</li>
+</ul>
 <h2>Problemas</h2>
 <ul>
     <li>Los agentes paran pero a veces un agente no le llegan las velocidades a cero</li>
