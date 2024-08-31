@@ -65,6 +65,7 @@
     <ul>
         <li>Los agentes paran pero a veces un agente no le llegan las velocidades a cero</li>
     </ul></ul>
+    <li>dejar obsoleta la variable: obs_start_marker</li>
     
 <h2>Problemas</h2>
 <ul>
