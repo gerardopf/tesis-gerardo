@@ -25,16 +25,16 @@ supervisor = Supervisor() # instancia de supervisor
 
 # archivo para simular una corrida en físico
 initial_conditions_file = 'run1.npz' 
-r_initial_conditions = 1 # 0: nueva simulación | 1: simular escenario físico
+r_initial_conditions = 0 # 0: nueva simulación | 1: simular escenario físico
 
 # archivo para guardar una nueva corrida en físico
-new_run_file = 'run3.npz'
+new_run_file = 'run_test2.npz'
 
 """ modo real o simulación """
-fisico = 0               # 0 Webots | 1 Robotat
-r_obs = 0                # 0: obstáculos virtuales | 1: obstáculos reales (markers)
-r_obj = 0                # 0: objetivo virtual | 1: objetivo real (marker)
-r_webots_visual = 0      # 0: NO ver objetivo y obstáculos en tiempo real | 1: ver objetivo y obstáculos en tiempo real
+fisico = 1               # 0 Webots | 1 Robotat
+r_obs = 1                # 0: obstáculos virtuales | 1: obstáculos reales (markers)
+r_obj = 1                # 0: objetivo virtual | 1: objetivo real (marker)
+r_webots_visual = 1      # 0: NO ver objetivo y obstáculos en tiempo real | 1: ver objetivo y obstáculos en tiempo real
 MAX_SPEED = 30           # velocidad máxima de ruedas (rpm)
 
 """ matriz de formación """
@@ -50,16 +50,16 @@ desfases_euler = quat2eul(desfases,'zyx')
 print("archivo desfases euler: \n", desfases_euler)
 
 """ Agentes """
-agents_marker_list = [2,6,7]
+agents_marker_list = [10,4]
 NMax = 10  # número máximo de agentes que la formación puede tener
 NStart = 1 # primer agente
 N = len(agents_marker_list)	# último agente
 
 """ obstáculos y objetivo """
-obj_marker_list = [20]
+obj_marker_list = [17]
 obj_marker = obj_marker_list[0]        # marker del objetivo 
 
-obs_marker_list = [11,12,13]
+obs_marker_list = [13,16,22]
 quantOMax = 3 # máximo de obstáculos
 obs_active = 1        # 0: SIN obstáculos | 1: CON obstáculos
 obs_start_marker = 1 # marker del primer obstáculo
