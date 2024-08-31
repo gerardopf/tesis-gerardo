@@ -6,6 +6,7 @@
         <li>Los agentes siguen a la formación y al líder</li>
         <li>La formación si llega al objetivo</li>
         <li>La formación si evade obstáculos y a los agentes entre sí</li>
+        <li>La formación evade obstáculos móviles y si llega al objetivo</li>
     </ul>
 </ul>
     
