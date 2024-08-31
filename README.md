@@ -1,4 +1,4 @@
-<h1> ESTADO DEL PROGRAMA</h1>
+<h2> ESTADO DEL PROGRAMA</h2>
     
 El algoritmo ya funciona correctamente
     Se realiza la etapa 0, 1, 2 y 3 
