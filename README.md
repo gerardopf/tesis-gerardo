@@ -62,6 +62,7 @@ N/A
 <h2>Cosas que faltan</h2>
 <ul>
     <li>Dejar obsoleta la variable: obs_start_marker</li>
+    <li>Generación de gráficas y trayectorias</li>
 </ul>
 <h2>Problemas</h2>
 <ul>
