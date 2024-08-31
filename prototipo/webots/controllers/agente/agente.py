@@ -21,7 +21,7 @@ lock = Lock()
 
 fisico = 1 # 0: Webots | 1: Robotat
 
-agents_marker_list = [10,4]
+agents_marker_list = [5,10,4]
 NStart = 1 # primer agente
 N = len(agents_marker_list)	# último agente
 

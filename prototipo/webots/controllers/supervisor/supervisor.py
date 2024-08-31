@@ -50,7 +50,7 @@ desfases_euler = quat2eul(desfases,'zyx')
 print("archivo desfases euler: \n", desfases_euler)
 
 """ Agentes """
-agents_marker_list = [10,4]
+agents_marker_list = [5,10,4]
 NMax = 10  # número máximo de agentes que la formación puede tener
 NStart = 1 # primer agente
 N = len(agents_marker_list)	# último agente
