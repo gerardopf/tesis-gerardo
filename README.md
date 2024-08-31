@@ -1,4 +1,11 @@
 <h2> ESTADO DEL PROGRAMA</h2>
+
+<ul>
+    <li>El algoritmo ya funciona correctamente</li>
+    <ul>
+        <li>Se realiza la etapa 0, 1, 2 y 3 </li>
+    </ul>
+</ul>
     
 El algoritmo ya funciona correctamente
     Se realiza la etapa 0, 1, 2 y 3 
@@ -6,7 +13,7 @@ El algoritmo ya funciona correctamente
     La formación si llega al objetivo 
     La formación si evade obstáculos y a los agentes
     
-********* Vitácora de cambios ********* 
+<h2>Vitácora de cambios</h2> 
 Verificar si el agente ya está en la posición inicial
   Se cambió la distancia de 0.05 a 0.07
   Se volvió a colocar en 0.05 
