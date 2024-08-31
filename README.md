@@ -26,36 +26,38 @@
         <li>V[0][g] = 1*(E0)*TIME_STEP/1000</li>
         <li>V[1][g] = 1*(E1)*TIME_STEP/1000 </li>
     </ul>
-    
+    <li>Se cambió el signo del peso elcálculo de las velocidades para la ETAPA 3 (en el loop principal)</li>
+    <li>Se cambió la distancia para el objetivo cumplido</li>
+    <ul>
+        <li>De 0.5 a 0.2 metros</li>
+    </ul>
+    <li>Se agregó el guardado de datos en archivo .npz al terminar la corrida</li>
+    <li>La corrida en físico ya se detiene al llegar al objetivo y cumplir con un error de formación</li>
+    <li>Se agregó un if fisico == 1 elif fisico == 0</li>
+    <ul>
+        <li>Esto se colocó donde se realizaron los cambios de signo con el fin de que la simulación volviera a funcionar ya que luego de los cambios, únicamente funcionaba la corrida en físico y, los agentes en la simulación, divergían</li>
+    </ul>
 </ul>
-        
-    Se cambió el signo del peso en las velocidades de ETAPA 3 en el loop principal
-    
-    Se cambió la distancia para el objetivo cumplido
-        de 0.5m a 0.2m
-        
-    Se agregó el guardado de datos en archivo .npz al terminar la corrida 
-    
-    La corrida en físico ya se detiene al llegar al objetivo y cumplir con un error de formación
-    
-    Se agrego un if fisico == 1 elif fisico == 0
-        En donde se realizó los cambios de signo con el fin de que funciona la simulación de nuevo
-        Probado en simulación y físico
-        
-Cambios sin probar:
+
+<h3>Cambios sin probar</h3>
             
     
-    
-********* Deficiencias *********
+<h2>Deficiencias</h2> Deficiencias
+<ul>
+    <li>Los agentes se mueven muy despacio</li>
+    <li>La distancia entre el líder y la formación podría reducirse</li>
+    <li>Hay que verificar la distancia para evasión de obstáculos</li>
+    <ul>
+        <li>Los agentes si se evaden entre sí</li>
+        <li>Los agentes si evaden los obstáculos</li>
+    </ul>
+    <li>Cuando estamos en la ETAPA 3</li>
+    <ul>
+        <li>El líder se detiene mucho para esperar a la formación</li>
+        <li>La formación siempre está en constante movimiento y a veces se mantienen girando </li>
+    </ul>
+</ul>
 
-Se mueven muy despacio
-
-La distancia entre el líder y la formación podría reducirse
-
-Hay que verificar la distancia para evasión de obstáculos
-  Los agentes si se evaden entre sí
-  Los agentes parece que si evaden los obstáculos a una distancia buena
-        
 Cuando estamos en ETAPA 3:
   El líder se detiene mucho para esperar a la formación
   La formación siempre está en constante movimiento y a veces se mantienen girando
