@@ -63,6 +63,7 @@ N/A
 <ul>
     <li>Dejar obsoleta la variable: obs_start_marker</li>
     <li>Generación de gráficas y trayectorias</li>
+    <li>Probar cambiar la cantidad de obstáculos máxima</li>
 </ul>
 <h2>Problemas</h2>
 <ul>
