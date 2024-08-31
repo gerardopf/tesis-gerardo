@@ -41,9 +41,9 @@
 </ul>
 
 <h3>Cambios sin probar</h3>
-            
+N/A           
     
-<h2>Deficiencias</h2> Deficiencias
+<h2>Deficiencias</h2>
 <ul>
     <li>Los agentes se mueven muy despacio</li>
     <li>La distancia entre el líder y la formación podría reducirse</li>
