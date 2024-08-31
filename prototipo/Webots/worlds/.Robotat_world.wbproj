@@ -7,7 +7,7 @@ maximizedDockId: -1
 centralWidgetVisible: 1
 renderingMode: PLAIN
 orthographicViewHeight: 1
-textFiles: 0 "supervisor.py" "agente.py"
+textFiles: 0 "controllers/agente/agente.py" "controllers/supervisor/supervisor.py"
 consoles: Console:All:All
 renderingDevicePerspectives: Agente0:camera;1;0.820513;0;0
 renderingDevicePerspectives: Agente10:camera;1;0.820513;0;0
