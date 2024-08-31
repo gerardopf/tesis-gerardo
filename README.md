@@ -61,15 +61,14 @@
 
 <h2>Cosas que faltan</h2>
 <ul>
-    <li>Cuando el líder llega al objetivo</li>
-    <ul>
-        <li>Los agentes paran pero a veces un agente no le llegan las velocidades a cero</li>
-    </ul>
     <li>Dejar obsoleta la variable: obs_start_marker</li>
 </ul>
 <h2>Problemas</h2>
 <ul>
-    <li>Los agentes paran pero a veces un agente no le llegan las velocidades a cero</li>
+    <li>Cuando el líder llega al objetivo</li>
+    <ul>
+        <li>Los agentes paran pero a veces un agente no le llegan las velocidades a cero</li>
+    </ul>
     <li>Error de formación para detener la corrida</li>
     <ul>
         <li>Hay que probar algún valor diferente, ahorita es muy pequeño (0.01) y la formación tarda en llegar a ese error </li>
