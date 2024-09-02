@@ -756,14 +756,14 @@ while supervisor.step(TIME_STEP) != 1:
                                            obj_marker = obj_marker,       # Robotat marker used for the objetive in real life
                                            obs_start_marker = obs_start_marker, # Robotat starting marker used for the obstacles in real life
                                            setup_starting_point = setup_starting_point, # beginning of the initial positions shape
-                                           setup_shape = setup_shape,     # initial positions shape
-                                           setup_shape_space = setup_shape_space, # what space to cover with the initial positions
-                                           formation_edge = formation_edge, # how long is the age of the formation
-                                           r_f = r_f,                     # robot dimensions for unicycle model
+                                           setup_shape = setup_shape,     # posición inicial en línea o círculo
+                                           setup_shape_space = setup_shape_space, # espacio a cubrir con las posiciones iniciales
+                                           formation_edge = formation_edge, # largo de la arista para la formación
+                                           r_f = r_f,                     # dimensiones del robot - modelo de uniciclo
                                            l_f = l_f,
                                            a_f = a_f,
-                                           obj_success = obj_success,     # indicates if the objective was successful
-                                           obj_success_cycle = obj_success_cycle) # objective success cycle      
+                                           obj_success = obj_success,     # indicador de cumplimiento del objetivo
+                                           obj_success_cycle = obj_success_cycle) # ciclo en que se logra el objetivo      
             except e:
                 print(e)
                 print("Error al guardar los datos de la corrida")
