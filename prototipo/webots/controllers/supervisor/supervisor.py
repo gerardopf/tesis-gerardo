@@ -1,4 +1,4 @@
-""" optimization v1 SUPERVISOR """
+""" optimization v2 SUPERVISOR """
 
 # librerías
 from controller import Robot, Supervisor
