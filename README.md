@@ -8,6 +8,7 @@
         <li>La formación si evade obstáculos y a los agentes entre sí</li>
         <li>La formación evade obstáculos móviles y si llega al objetivo</li>
     </ul>
+    <li>Generación de gráficas funcionando (programa aparte)</li>
 </ul>
     
 <h2>BITÁCORA DE CAMBIOS</h2> 
@@ -62,8 +63,7 @@ N/A
 <h2>COSAS QUE FALTAN</h2>
 <ul>
     <li>Dejar obsoleta la variable: obs_start_marker</li>
-    <li>Generación de gráficas y trayectorias</li>
-    <li>Probar cambiar la cantidad de obstáculos máxima</li>
+    <li>Probar cambiar la cantidad de obstáculos</li>
 </ul>
 <h2>PROBLEMAS</h2>
 <ul>
@@ -81,5 +81,4 @@ N/A
 <h2>COSAS A LIMPIAR EN CÓDIGO</h2>
 El agent setup 4 que es una versión obsoleta del 5
 
-<h2>LISTADO DE TAREAS</h2>
 
