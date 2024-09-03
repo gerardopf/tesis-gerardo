@@ -10,7 +10,7 @@
     </ul>
 </ul>
     
-<h2>Bitácora de cambios</h2> 
+<h2>BITÁCORA DE CAMBIOS</h2> 
 <ul>
     <li>Verificar si el agente ya está en la posición inicial</li>
     <ul>
@@ -43,7 +43,7 @@
 <h3>Cambios sin probar</h3>
 N/A           
     
-<h2>Deficiencias</h2>
+<h2>DEFICIENCIAS</h2>
 <ul>
     <li>Los agentes se mueven muy despacio</li>
     <li>La distancia entre el líder y la formación podría reducirse</li>
@@ -59,13 +59,13 @@ N/A
     </ul>
 </ul>
 
-<h2>Cosas que faltan</h2>
+<h2>COSAS QUE FALTAN</h2>
 <ul>
     <li>Dejar obsoleta la variable: obs_start_marker</li>
     <li>Generación de gráficas y trayectorias</li>
     <li>Probar cambiar la cantidad de obstáculos máxima</li>
 </ul>
-<h2>Problemas</h2>
+<h2>PROBLEMAS</h2>
 <ul>
     <li>Cuando el líder llega al objetivo</li>
     <ul>
@@ -78,6 +78,8 @@ N/A
     <li>A veces el líder no espera a la formación</li>
 </ul>
 
-<h2>Cosas a limpiar en código</h2>
+<h2>COSAS A LIMPIAR EN CÓDIGO</h2>
 El agent setup 4 que es una versión obsoleta del 5
+
+<h2>LISTADO DE TAREAS</h2>
 
