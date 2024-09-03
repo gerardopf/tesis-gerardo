@@ -4,7 +4,7 @@ import numpy as np
 import matplotlib.pyplot as plt
 from matplotlib.animation import FuncAnimation
 import math
-from prettytable import PrettyTable
+#from prettytable import PrettyTable
 import os
 import re
 
@@ -12,7 +12,7 @@ import re
 #trajectory = np.load('trial.npy')
 #trajectory = np.load('setup_traj0_formacion_2.npy')
 
-archivo = 'finaltrial_6A_AAA_v_1.npz'
+archivo = 'run_3A_NNN_f_1.npz'
 show_images = 0
 
 data = np.load(archivo)
@@ -24,7 +24,7 @@ folder_name = f'{filename_without_extension}'
 # Create the main folder if it doesn't exist
 if not os.path.exists(main_folder):
     os.makedirs(main_folder)
-
+    
 # Define the trial folder name
 trial_folder = os.path.join(main_folder, folder_name)
 
@@ -40,11 +40,15 @@ match = re.search(pattern, archivo)
 if match:
     extracted_value = match.group(1)
     print(extracted_value)
+else:
+    print("not extracted value")
 
 match_number = re.search(pattern_number, filename_without_extension)
 if match_number:
     extracted_number = match_number.group(1)
     print(extracted_number)
+else:
+    print("not extracted number")
 
 with open(f'finaltrials/{filename_without_extension}/latex.txt', 'w') as file:
     pass
@@ -139,6 +143,7 @@ show_real_cycle = 0
 show_in_seconds = 1
 snapframes = 1
 #print(obj_success_cycle)
+
 # Extract x and y coordinates for each element
 x_positions = trajectory_data[:, 0, :]
 y_positions = trajectory_data[:, 1, :]
