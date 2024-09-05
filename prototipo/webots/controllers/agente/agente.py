@@ -1,4 +1,4 @@
-""" optimization v2 AGENTE """
+""" optimization v3 AGENTE """
 
 from controller import Robot, Compass, Motor
 import math
