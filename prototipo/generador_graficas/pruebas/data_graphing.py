@@ -12,7 +12,7 @@ import re
 #trajectory = np.load('trial.npy')
 #trajectory = np.load('setup_traj0_formacion_2.npy')
 
-archivo = 'run_3A_NNN_f_1.npz'
+archivo = 'prueba0_6A_NNN_f_0.npz'
 show_images = 0
 
 data = np.load(archivo)

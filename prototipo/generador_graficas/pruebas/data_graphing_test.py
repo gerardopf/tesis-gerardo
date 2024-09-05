@@ -7,7 +7,7 @@ import matplotlib.pyplot as plt
 #trajectory = np.load('trial.npy')
 #trajectory = np.load('setup_traj0_formacion_2.npy')
 
-data = np.load('test3_2A_NNN_f_0.npz')
+data = np.load('prueba3obs_6A_NNN_f_0.npz')
 print(data.files)
 #print(data)
 
