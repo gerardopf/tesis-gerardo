@@ -28,7 +28,7 @@ initial_conditions_file = 'run1.npz'
 r_initial_conditions = 0 # 0: nueva simulación | 1: simular escenario físico
 
 # archivo para guardar una nueva corrida en físico
-new_run_file = 'test1_3A_NNN_f_0.npz'
+new_run_file = 'pruebax_xA_NNN_f_0.npz'
 
 """ modo real o simulación """
 fisico = 1               # 0 Webots | 1 Robotat
@@ -50,16 +50,16 @@ desfases_euler = quat2eul(desfases,'zyx')
 print("archivo desfases euler: \n", desfases_euler)
 
 """ Agentes """
-agents_marker_list = [5,10,4]
+agents_marker_list = [10,7,4,5,6,2]
 NMax = 10  # número máximo de agentes que la formación puede tener
 NStart = 1 # primer agente
 N = len(agents_marker_list)	# último agente
 
 """ obstáculos y objetivo """
-obj_marker_list = [17]
+obj_marker_list = [14]
 obj_marker = obj_marker_list[0]        # marker del objetivo 
 
-obs_marker_list = [13,16,22]
+obs_marker_list = [22,12,15]
 quantOMax = 3 # máximo de obstáculos
 obs_active = 1        # 0: SIN obstáculos | 1: CON obstáculos
 obs_start_marker = 1 # marker del primer obstáculo
