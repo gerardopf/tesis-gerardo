@@ -290,7 +290,7 @@ DEF IniPos10 Solid {
 E-puck {
   translation -2.64 0 0.25
   rotation 1 0 0 0
-  controller "Supervisor_simulacion_y_fisico_v4"
+  controller "supervisor"
   controllerArgs [
     "Robot"
   ]
@@ -299,7 +299,7 @@ E-puck {
 DEF Agent1 E-puck {
   translation 0.11 0 0
   name "Agente1"
-  controller "pruebaMatrizDifeomorfismo"
+  controller "agente"
   controllerArgs [
     "0"
   ]
@@ -316,7 +316,7 @@ DEF Agent1 E-puck {
 DEF Agent2 E-puck {
   translation 0.28 0 0
   name "Agente2"
-  controller "pruebaMatrizDifeomorfismo"
+  controller "agente"
   controllerArgs [
     "1"
   ]
@@ -333,7 +333,7 @@ DEF Agent2 E-puck {
 DEF Agent3 E-puck {
   translation 0.48 0 0
   name "Agente3"
-  controller "pruebaMatrizDifeomorfismo"
+  controller "agente"
   controllerArgs [
     "2"
   ]
@@ -350,7 +350,7 @@ DEF Agent3 E-puck {
 DEF Agent4 E-puck {
   translation 0.66 0 0
   name "Agente4"
-  controller "pruebaMatrizDifeomorfismo"
+  controller "agente"
   controllerArgs [
     "3"
   ]
@@ -367,7 +367,7 @@ DEF Agent4 E-puck {
 DEF Agent5 E-puck {
   translation 0.87 0 0
   name "Agente5"
-  controller "pruebaMatrizDifeomorfismo"
+  controller "agente"
   controllerArgs [
     "4"
   ]
@@ -384,7 +384,7 @@ DEF Agent5 E-puck {
 DEF Agent6 E-puck {
   translation 1.04 0 0
   name "Agente6"
-  controller "pruebaMatrizDifeomorfismo"
+  controller "agente"
   controllerArgs [
     "5"
   ]
@@ -401,7 +401,7 @@ DEF Agent6 E-puck {
 DEF Agent7 E-puck {
   translation 1.21 0 0
   name "Agente7"
-  controller "pruebaMatrizDifeomorfismo"
+  controller "agente"
   controllerArgs [
     "6"
   ]
@@ -418,7 +418,7 @@ DEF Agent7 E-puck {
 DEF Agent8 E-puck {
   translation 1.37 0 0
   name "Agente9"
-  controller "pruebaMatrizDifeomorfismo"
+  controller "agente"
   controllerArgs [
     "7"
   ]
@@ -435,7 +435,7 @@ DEF Agent8 E-puck {
 DEF Agent9 E-puck {
   translation 1.53 0 0
   name "Agente8"
-  controller "pruebaMatrizDifeomorfismo"
+  controller "agente"
   controllerArgs [
     "8"
   ]
@@ -452,7 +452,7 @@ DEF Agent9 E-puck {
 DEF Agent10 E-puck {
   translation 1.7 0 0
   name "Agente10"
-  controller "pruebaMatrizDifeomorfismo"
+  controller "agente"
   controllerArgs [
     "9"
   ]
