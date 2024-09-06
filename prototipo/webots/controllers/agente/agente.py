@@ -1,4 +1,4 @@
-""" AGENTE """
+""" NumPy implementation - AGENTE """
 
 from controller import Robot, Compass, Motor
 import math

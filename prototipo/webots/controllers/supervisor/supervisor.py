@@ -1,4 +1,4 @@
-""" SUPERVISOR """
+""" NumPy implementation - SUPERVISOR """
 
 # librerías
 from controller import Robot, Supervisor
