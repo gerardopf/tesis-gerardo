@@ -12,6 +12,7 @@ from funVel import Fmatrix
 import funciones
 from multiprocessing import shared_memory, Lock
 from funciones_conjunto import *
+import threading
 
 print("inicio de configuracion...")
 # memoria compartida para intercambio de datos entre supervisor y agente
@@ -31,10 +32,10 @@ r_initial_conditions = 0 # 0: nueva simulación | 1: simular escenario físico
 new_run_file = 'pruebax_xA_NNN_f_0.npz'
 
 """ modo real o simulación """
-fisico = 1               # 0 Webots | 1 Robotat
-r_obs = 1                # 0: obstáculos virtuales | 1: obstáculos reales (markers)
-r_obj = 1                # 0: objetivo virtual | 1: objetivo real (marker)
-r_webots_visual = 1      # 0: NO ver objetivo y obstáculos en tiempo real | 1: ver objetivo y obstáculos en tiempo real
+fisico = 0               # 0 Webots | 1 Robotat
+r_obs = 0                # 0: obstáculos virtuales | 1: obstáculos reales (markers)
+r_obj = 0                # 0: objetivo virtual | 1: objetivo real (marker)
+r_webots_visual = 0      # 0: NO ver objetivo y obstáculos en tiempo real | 1: ver objetivo y obstáculos en tiempo real
 MAX_SPEED = 30           # velocidad máxima de ruedas (rpm)
 
 """ matriz de formación """
@@ -691,7 +692,7 @@ while supervisor.step(TIME_STEP) != 1:
         print("Objetivo logrado")
     
     # presionar la tecla 'a' para terminar la corrida
-    if keyboard.is_pressed('a') or obj_success == 1 and formation_mse < 0.01:
+    if keyboard.is_pressed('a') or (obj_success == 1 and formation_mse < 0.1):
         print("Fin de la corrida -supervisor")
         V = np.zeros([2,N]) # velocidades en 0 de agentes
         

@@ -42,7 +42,9 @@
 </ul>
 
 <h3>Cambios sin probar</h3>
-N/A           
+Se cambió la condición para detener simulación
+- Error de formación en 0.1 (antes 0.01)     
+- Probado en simulación
     
 <h2>DEFICIENCIAS</h2>
 <ul>
@@ -50,8 +52,7 @@ N/A
     <li>La distancia entre el líder y la formación podría reducirse</li>
     <li>Hay que verificar la distancia para evasión de obstáculos</li>
     <ul>
-        <li>Los agentes si se evaden entre sí</li>
-        <li>Los agentes si evaden los obstáculos</li>
+        <li>Los agentes pierden mucho tiempo en buscar como evadir el obstáculo</li>
     </ul>
     <li>Cuando estamos en la ETAPA 3</li>
     <ul>
@@ -71,7 +72,7 @@ N/A
     <ul>
         <li>Los agentes paran pero a veces un agente no le llegan las velocidades a cero</li>
     </ul>
-    <li>Error de formación para detener la corrida</li>
+    <li>(PENDIENTE PROBAR) Error de formación para detener la corrida</li>
     <ul>
         <li>Hay que probar algún valor diferente, ahorita es muy pequeño (0.01) y la formación tarda en llegar a ese error </li>
     </ul>
