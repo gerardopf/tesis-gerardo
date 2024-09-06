@@ -42,14 +42,6 @@ MAX_SPEED = 30           # velocidad máxima de ruedas (rpm)
 form_shape = 1    # 1: triángulo | 2: hexágono alargado
 rigidity_level = 8 # valores entre 1 y 8 (1 es el menos rígido)
 
-""" Desfases de markers """
-# desfases de markers en quaterniones: 1*,2,3,4,5,6,7,8,9*,10,11,12,13,14,15,16,17,18,19,20,21,22
-# *los markers no estaban disponibles, se utilizó el desfase encontrado por José Alejandro R.
-desfases_file = 'nueva_calibracion_markers_1_al_22.npy' 
-desfases = np.load(desfases_file) 
-desfases_euler = quat2eul(desfases,'zyx')
-print("archivo desfases euler: \n", desfases_euler)
-
 """ Agentes """
 agents_marker_list = [10,7,4,5,6,2]
 NMax = 10  # número máximo de agentes que la formación puede tener
@@ -68,13 +60,29 @@ obs_start_marker = 1 # marker del primer obstáculo
 # optitrack marcadores 
 robotat_markers = agents_marker_list + obj_marker_list + obs_marker_list
 robotat_markers_len = len(robotat_markers)
-print("todos los markers: ", robotat_markers)
-print("agentes: ", agents_marker_list)
-print("objetivo: ", obj_marker_list)
-print("obstáculos: ", obs_marker_list)
+print(f"todos los markers: {robotat_markers} ")
+print(f"agentes: {agents_marker_list}")
+print(f"objetivo: {obj_marker_list}")
+print(f"obstáculos: {obs_marker_list}")
 
-print("NStart: ", NStart)
-print("N: ", N)
+print(f"NStart: {NStart}")
+print(f"N: {N}")
+
+""" Desfases de markers """
+# desfases de markers en quaterniones: 1*,2,3,4,5,6,7,8,9*,10,11,12,13,14,15,16,17,18,19,20,21,22
+# *los markers no estaban disponibles, se utilizó el desfase encontrado por José Alejandro R.
+desfases_file = 'nueva_calibracion_markers_1_al_22.npy' 
+desfases = np.load(desfases_file) 
+desfases_euler = quat2eul(desfases,'zyx')
+#print("archivo desfases euler: \n", desfases_euler)
+# variable para guardar desfases y realizar suma de matrices con agents_pose
+desfases_numpy = np.zeros((robotat_markers_len,6))
+
+index = 0
+for marker in robotat_markers:
+    desfases_numpy[index,3] = desfases_euler[marker-1, 3]
+    index = index + 1
+print(f"desfases numpy:\n {desfases_numpy} \n")
 
 """ radar """
 r = 0.07	# radio para evitar colisiones (cm)
@@ -201,13 +209,10 @@ if (fisico == 1):
         print("CONFIGURACIÓN: Error al conectar con el robotat")
     agents_pose = update_data(robotat,robotat_markers)
     #print("poses marcadores: \n", agents_pose)
+    
     # aplicar desfases
-    index = 0
-    for marker in robotat_markers:
-        agents_pose[index, 3] = agents_pose[index, 3] - desfases_euler[marker-1, 3]
-        index = index + 1
-        print("desfase marker ", marker, ": ", desfases_euler[marker-1, 3])
-    print("pose con desfases ", agents_pose)
+    agents_pose = agents_pose + desfases_numpy
+    print(f"pose con desfases\n {agents_pose}\n")
 
 """ Arena """
 arena = supervisor.getFromDef("Arena")
@@ -471,18 +476,13 @@ while supervisor.step(TIME_STEP) != 1:
         pObjVec = pObj.getSFVec3f()
         
     # FÍSICO
-    if (fisico == 1):
+    elif (fisico == 1):
         # pedir pose actual de markers
         try:
             agents_pose = update_data(robotat,robotat_markers)
             #print("poses marcadores: \n", agents_pose)
             # aplicar desfases
-            index = 0
-            for marker in robotat_markers:
-                agents_pose[index, 3] = agents_pose[index, 3] - desfases_euler[marker-1, 3]
-                index = index + 1
-                #print("desfase marker ", marker, ": ", desfases_euler[marker-1, 3])
-            #print("pose con desfases ", agents_pose)
+            agents_pose = agents_pose + desfases_numpy
         except:
             print("MAIN LOOP ERROR: Error al obtener poses de agentes, se usa pose anterior")
             agents_pose = agents_pose_old # usar posición anterior
@@ -499,7 +499,7 @@ while supervisor.step(TIME_STEP) != 1:
                 if (r_webots_visual == 1):
                     posObs[obs].setSFVec3f([x_obs, y_obs, -6.39203e-05])
         # obtener posición actual de obstáculos VIRTUALES
-        if (r_obs == 0):
+        elif (r_obs == 0):
             for obs in range(0,cantO):
                 posObsAct[0][obs] = posObs[obs].getSFVec3f()[0]
                 posObsAct[1][obs] = posObs[obs].getSFVec3f()[1]
@@ -511,7 +511,7 @@ while supervisor.step(TIME_STEP) != 1:
             if (r_webots_visual == 1):
                 pObj.setSFVec3f([pObjVec[0], pObjVec[1], -6.39203e-05])
         # obtener posición actual de objetivo VIRTUAL
-        if (r_obj == 0):
+        elif (r_obj == 0):
             pObjVec = pObj.getSFVec3f() 
         
     # actualizar la pose de los agentes
@@ -532,7 +532,6 @@ while supervisor.step(TIME_STEP) != 1:
             rotActuales[0][c] = rotActuales[0][c] + 360 # angulos siempre positivos
     
     # ----------- algoritmo de sincronización y control de formaciones -----------
-    
     for g in range(NStart, N):
         E0 = 0
         E1 = 0
@@ -637,11 +636,11 @@ while supervisor.step(TIME_STEP) != 1:
                     RotTodosVec[b] = [0, 0, 1, agents_pose[b,3]]
                 PosRealAgents = np.array(PosTodosVec)
                 RotRealAgents = np.array(RotTodosVec)  
-        print("número de agentes: ", cont_N)
-        print("No. agentes en marcas iniciales: ", ready_ini_pos)
+        print(f"número de agentes: {cont_N}")
+        print(f"No. agentes en marcas iniciales: {ready_ini_pos}\n")
         
     # ETAPA 3 -----> SEGUIMIENTO DEL OBJETIVO
-    if (cambio == 3):
+    elif (cambio == 3):
         # si el líder está a más de X metros del objetivo, espera a la formación
         if (abs(posActuales[0][NStart]-pObjVec[0]) > 0.7 or abs(posActuales[1][NStart]-pObjVec[1]) > 0.7):     
             if (fisico == 1):
@@ -682,10 +681,9 @@ while supervisor.step(TIME_STEP) != 1:
     formation_mseHist.append(formation_mse)
     rotHist.append(rotActuales.copy())
     
-    print("Ciclo: ", ciclo)
-    print("ETAPA: ", cambio) 
-    print("Error de formación: ", formation_mse)
-    print(" ")
+    print(f"Ciclo: {ciclo}")
+    print(f"ETAPA: {cambio}") 
+    print(f"Error de formación: {formation_mse} \n")
     ciclo = ciclo + 1     
     
     if obj_success == 1:
