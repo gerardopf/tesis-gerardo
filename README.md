@@ -14,6 +14,8 @@ Se están reemplazando ciclos for en el loop principal por operaciones de matric
 
 - Se modificaron los 'print' con 'f"...{}"' formato de cadena (sin probar)
 
+- En el cálculo de formation_mse se colocó la variable formation_matriz en lugar de volver a calcular la matriz de formación (sin probar)
+
 # Ideas para probar
 
-
+- Para el calculo de la distancia entre agentes, no utilizar ciclos for anidados. Mejor utilizar operaicones matriciales con NumPy

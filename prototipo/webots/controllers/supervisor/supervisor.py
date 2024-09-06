@@ -588,7 +588,7 @@ while supervisor.step(TIME_STEP) != 1:
     actual_adjacency = (1/formation_edge)*funciones.DistBetweenAgents(posActuales,NStart,N) 
 
     # calcular en error entre la formación actual y la deseada
-    formation_mse = funciones.FormationError(actual_adjacency, Fmatrix(form_shape,rigidity_level),NStart,N)
+    formation_mse = funciones.FormationError(actual_adjacency, formation_matrix,NStart,N)
 
     # ETAPA 2 -----> FORMACIÓN
     if(normV < 0.5 and cambio == 1):
