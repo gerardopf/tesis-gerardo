@@ -582,7 +582,7 @@ while supervisor.step(TIME_STEP) != 1:
         nV2 = V[0][m]**2 + V[1][m]**2
         normV2 = normV2 + nV2
     normV = math.sqrt(normV2)
-    print("normV: ", normV, " \n")
+    print(f"normV: {normV} \n")
     
     # calcular matriz de adyacencia de la formación actual
     actual_adjacency = (1/formation_edge)*funciones.DistBetweenAgents(posActuales,NStart,N) 

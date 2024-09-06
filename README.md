@@ -14,5 +14,6 @@ Se están reemplazando ciclos for en el loop principal por operaciones de matric
 
 - Se modificaron los 'print' con 'f"...{}"' formato de cadena (sin probar)
 
+# Ideas para probar
 
 
