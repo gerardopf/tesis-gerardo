@@ -14,7 +14,7 @@ Se están reemplazando ciclos for en el loop principal por operaciones de matric
 
 3- Se modificaron los 'print' con 'f"...{}"' formato de cadena
 
-4- En el cálculo de formation_mse se colocó la variable formation_matriz en lugar de volver a calcular la matriz de formación
+4- En el cálculo de formation_mse se colocó la variable formation_matrix en lugar de volver a calcular la matriz de formación
 
 5- Se creó una versión optimizada para la función del cálculo de la distancia entre agentes (DistBetweenAgentsOptimized). Ya no se utilizan ciclos for anidados, se utilizan operaciones con NumPy. 
 
@@ -23,7 +23,6 @@ Se están reemplazando ciclos for en el loop principal por operaciones de matric
 7- Se creó una versión optimizada para la función que calcula el error de la formación (FormationErrorOptimized). Utilizar operaciones con NumPy en lugar de ciclos for anidados. 
 
 # Cambios realizados (NO probados)
-
 
 # Ideas para probar
 
