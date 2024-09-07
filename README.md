@@ -8,23 +8,27 @@ Se están reemplazando ciclos for en el loop principal por operaciones de matric
 
 # Cambios realizados (probados)
 
-- Se eliminó el ciclo for para aplicar los desfases de los markers y se reemplazó por una suma matricial de NumPy (probado, se tuvo que cambiar el signo a resta de desfases porque lo coloqué mal anteriormente)
+1- Se eliminó el ciclo for para aplicar los desfases de los markers y se reemplazó por una suma matricial de NumPy (probado, se tuvo que cambiar el signo a resta de desfases porque lo coloqué mal anteriormente)
 
-- Dentro del loop principal, se sustituyeron 'if' por 'elif' que son excluyentes como las condiciones si son en físico o no, y las condiciones de 'cambio' para las etapas del algoritmo
+2- Dentro del loop principal, se sustituyeron 'if' por 'elif' que son excluyentes como las condiciones si son en físico o no, y las condiciones de 'cambio' para las etapas del algoritmo
 
-- Se modificaron los 'print' con 'f"...{}"' formato de cadena
+3- Se modificaron los 'print' con 'f"...{}"' formato de cadena
 
-- En el cálculo de formation_mse se colocó la variable formation_matriz en lugar de volver a calcular la matriz de formación
+4- En el cálculo de formation_mse se colocó la variable formation_matriz en lugar de volver a calcular la matriz de formación
 
-- Se creó una versión optimizada para la función del cálculo de la distancia entre agentes (DistBetweenAgentsOptimized). Ya no se utilizan ciclos for anidados, se utilizan operaciones con NumPy. 
+5- Se creó una versión optimizada para la función del cálculo de la distancia entre agentes (DistBetweenAgentsOptimized). Ya no se utilizan ciclos for anidados, se utilizan operaciones con NumPy. 
 
-- Se eliminó la importación de librería en el archivo FunVel -> from controller import Robot, Motor, Supervisor, Node
+6- Se eliminó la importación de librería en el archivo FunVel -> from controller import Robot, Motor, Supervisor, Node
 
-- Se creó una versión optimizada para la función que calcula el error de la formación (FormationErrorOptimized). Utilizar operaciones con NumPy en lugar de ciclos for anidados. 
+7- Se creó una versión optimizada para la función que calcula el error de la formación (FormationErrorOptimized). Utilizar operaciones con NumPy en lugar de ciclos for anidados. 
 
 # Cambios realizados (NO probados)
 
 
 # Ideas para probar
+
+# Observaciones
+
+- Parece que el cambio de las funciones en cuanto a tiempo no es muy significativa al utilizar pocos agentes (2 o 3), pero al utilizar más agentes si puede haber ahorro de tiempo computacional más grande (hay que probarlo con corridas reales ya que solo se tiene el tiempo en pruebas de algoritmos)
 
 
