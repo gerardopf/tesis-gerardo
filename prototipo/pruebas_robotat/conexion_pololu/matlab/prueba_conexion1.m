@@ -1,4 +1,4 @@
-markers = [7,10,14];
+markers = [3,4,8];
 
 robotat = robotat_connect();
 

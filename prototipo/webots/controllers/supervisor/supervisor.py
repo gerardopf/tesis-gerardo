@@ -29,13 +29,13 @@ initial_conditions_file = 'run1.npz'
 r_initial_conditions = 0 # 0: nueva simulación | 1: simular escenario físico
 
 # archivo para guardar una nueva corrida en físico
-new_run_file = 'pruebax_xA_NNN_f_0.npz'
+new_run_file = 'prueba2numpy_3A_NNN_f_0.npz'
 
 """ modo real o simulación """
-fisico = 0               # 0 Webots | 1 Robotat
-r_obs = 0                # 0: obstáculos virtuales | 1: obstáculos reales (markers)
-r_obj = 0                # 0: objetivo virtual | 1: objetivo real (marker)
-r_webots_visual = 0      # 0: NO ver objetivo y obstáculos en tiempo real | 1: ver objetivo y obstáculos en tiempo real
+fisico = 1               # 0 Webots | 1 Robotat
+r_obs = 1                # 0: obstáculos virtuales | 1: obstáculos reales (markers)
+r_obj = 1                # 0: objetivo virtual | 1: objetivo real (marker)
+r_webots_visual = 1      # 0: NO ver objetivo y obstáculos en tiempo real | 1: ver objetivo y obstáculos en tiempo real
 MAX_SPEED = 30           # velocidad máxima de ruedas (rpm)
 
 """ matriz de formación """
@@ -43,16 +43,16 @@ form_shape = 1    # 1: triángulo | 2: hexágono alargado
 rigidity_level = 8 # valores entre 1 y 8 (1 es el menos rígido)
 
 """ Agentes """
-agents_marker_list = [10,7,4,5,6,2]
+agents_marker_list = [3,4,8]
 NMax = 10  # número máximo de agentes que la formación puede tener
 NStart = 1 # primer agente
 N = len(agents_marker_list)	# último agente
 
 """ obstáculos y objetivo """
-obj_marker_list = [14]
+obj_marker_list = [11]
 obj_marker = obj_marker_list[0]        # marker del objetivo 
 
-obs_marker_list = [22,12,15]
+obs_marker_list = [17,18,22]
 quantOMax = 3 # máximo de obstáculos
 obs_active = 1        # 0: SIN obstáculos | 1: CON obstáculos
 obs_start_marker = 1 # marker del primer obstáculo
@@ -211,7 +211,7 @@ if (fisico == 1):
     #print("poses marcadores: \n", agents_pose)
     
     # aplicar desfases
-    agents_pose = agents_pose + desfases_numpy
+    agents_pose = agents_pose - desfases_numpy
     print(f"pose con desfases\n {agents_pose}\n")
 
 """ Arena """
@@ -482,7 +482,7 @@ while supervisor.step(TIME_STEP) != 1:
             agents_pose = update_data(robotat,robotat_markers)
             #print("poses marcadores: \n", agents_pose)
             # aplicar desfases
-            agents_pose = agents_pose + desfases_numpy
+            agents_pose = agents_pose - desfases_numpy
         except:
             print("MAIN LOOP ERROR: Error al obtener poses de agentes, se usa pose anterior")
             agents_pose = agents_pose_old # usar posición anterior
