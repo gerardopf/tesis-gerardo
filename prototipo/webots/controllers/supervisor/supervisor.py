@@ -29,7 +29,7 @@ initial_conditions_file = 'run1.npz'
 r_initial_conditions = 0 # 0: nueva simulación | 1: simular escenario físico
 
 # archivo para guardar una nueva corrida en físico
-new_run_file = 'prueba2numpy_3A_NNN_f_0.npz'
+new_run_file = 'prueba2numpyFuncNoOptim_3A_NNN_f_0.npz'
 
 """ modo real o simulación """
 fisico = 1               # 0 Webots | 1 Robotat
@@ -43,7 +43,7 @@ form_shape = 1    # 1: triángulo | 2: hexágono alargado
 rigidity_level = 8 # valores entre 1 y 8 (1 es el menos rígido)
 
 """ Agentes """
-agents_marker_list = [3,4,8]
+agents_marker_list = [5,6,8]
 NMax = 10  # número máximo de agentes que la formación puede tener
 NStart = 1 # primer agente
 N = len(agents_marker_list)	# último agente
@@ -52,7 +52,7 @@ N = len(agents_marker_list)	# último agente
 obj_marker_list = [11]
 obj_marker = obj_marker_list[0]        # marker del objetivo 
 
-obs_marker_list = [17,18,22]
+obs_marker_list = [18,22,12]
 quantOMax = 3 # máximo de obstáculos
 obs_active = 1        # 0: SIN obstáculos | 1: CON obstáculos
 obs_start_marker = 1 # marker del primer obstáculo
@@ -585,10 +585,10 @@ while supervisor.step(TIME_STEP) != 1:
     print(f"normV: {normV} \n")
     
     # calcular matriz de adyacencia de la formación actual
-    actual_adjacency = (1/formation_edge)*funciones.DistBetweenAgents(posActuales,NStart,N) 
+    actual_adjacency = (1/formation_edge)*funciones.DistBetweenAgentsOptimized(posActuales,NStart,N) 
 
     # calcular en error entre la formación actual y la deseada
-    formation_mse = funciones.FormationError(actual_adjacency, formation_matrix,NStart,N)
+    formation_mse = funciones.FormationErrorOptimized(actual_adjacency, formation_matrix,NStart,N)
 
     # ETAPA 2 -----> FORMACIÓN
     if(normV < 0.5 and cambio == 1):

@@ -25,6 +25,18 @@ def FormationError(FAct, FDes, NStart, N):
     error = suma/tot			   # mean error
     return error
 
+def FormationErrorOptimized(FAct, FDes, NStart, N):
+# Calculates the mse error between the current formation and the desired one
+# Parameters:
+#   FAct = Adjacency matrix of the current formation
+#   FDes = Adjacency matrix of the target (desired) formation
+# Output:
+#   error = Mean squared error of the current formation compared to the desired
+# one
+    FDes_resized = FDes[:N, :N]  # Solo la submatriz necesaria para que sea del tamaño de FAct
+    diff_squared = np.square(FAct - FDes_resized)
+    mse = np.mean(diff_squared)
+    return mse
 
 def DistBetweenAgents(X,NStart,N):
 # Generates the matrix with the distance between the agents.
@@ -33,7 +45,6 @@ def DistBetweenAgents(X,NStart,N):
 # Output:
 #   mDist = Adjacency matrix of the graph produced by the current position
 # of the agents
-
     n = N-NStart		# Agent quantity
     mDist = np.zeros([N,N])	# Matrix initialization
 
@@ -44,6 +55,19 @@ def DistBetweenAgents(X,NStart,N):
             normdij = math.sqrt(dij1**2 + dij2**2)    # distance between i & j agents
             mDist[i,j] = normdij		         # distance added to the matrix
     return mDist
+
+def DistBetweenAgentsOptimized(X,NStart,N):
+# Generates the matrix with the distance between the agents.
+# Parameters:
+#   X = Matrix with the current position of the agents vectors (x,y)
+# Output:
+#   mDist = Adjacency matrix of the graph produced by the current position
+# of the agents
+    mDist = np.zeros([N,N])	# Matrix initialization
+    diff = X[:, :, np.newaxis] - X[:, np.newaxis, :]
+    dist_matrix = np.linalg.norm(diff, axis = 0)
+
+    return dist_matrix
 
 def table_gen(real_file, virtual_file):
 # Generates the table comparing the physical run with the simulation run
