@@ -47,7 +47,8 @@ rigidity_level = 8
 formation_edge = 0.3
 formation_matrix = Fmatrix(form_shape,rigidity_level)
 
-agents = [1,2,3,4,5,6]
+agents = [1,2,3,4,5,6,7,8,9,10]
+#agents = [1,2,3,4,5,6]
 obs = [18,19,20]
 obj = [11]
 markers = agents + obj + obs
@@ -64,19 +65,19 @@ print(f"pos actuales\n {posActuales} \n")
 
 tic = time.perf_counter_ns()
 actual_adjacency = (1/formation_edge)*DistBetweenAgents(posActuales,NStart,N) 
-print(f"actual adjacency: \n{actual_adjacency}")
 formation_mse = FormationError(actual_adjacency,formation_matrix,NStart,N)
 toc = time.perf_counter_ns()
 t1 = (toc - tic)*(10**-6)
+print(f"actual adjacency: \n{actual_adjacency}\n")
 print(f"error: {formation_mse}")
 print(f"tiempo (ms): {t1: .4f}\n")
 
 tic = time.perf_counter_ns()
 actual_adjacency = (1/formation_edge)*DistBetweenAgentsV2(posActuales,NStart,N) 
-print(f"actual adjacency: \n{actual_adjacency}")
 formation_mse = FormationErrorV2(actual_adjacency,formation_matrix,NStart,N)
 toc = time.perf_counter_ns()
 t2 = (toc - tic)*(10**-6)
+print(f"actual adjacency: \n{actual_adjacency}\n")
 print(f"error optimizado: {formation_mse}")
 print(f"tiempo (ms): {t2: .4f}\n")
 

@@ -29,7 +29,7 @@ initial_conditions_file = 'run1.npz'
 r_initial_conditions = 0 # 0: nueva simulación | 1: simular escenario físico
 
 # archivo para guardar una nueva corrida en físico
-new_run_file = 'prueba2numpyFuncNoOptim_3A_NNN_f_0.npz'
+new_run_file = 'pruebas_3A_NNN_f_0.npz'
 
 """ modo real o simulación """
 fisico = 1               # 0 Webots | 1 Robotat

@@ -24,6 +24,8 @@ def DistBetweenAgentsV2(X,NStart,N):
     return mDist
 
 agents = [1,2,3,4,5,6,7,8,9,10]
+#agents = [1,2,3,4,5]
+
 # for i in range (1,8):
 #     agents = agents + agents
 obs = [18,19,20]
