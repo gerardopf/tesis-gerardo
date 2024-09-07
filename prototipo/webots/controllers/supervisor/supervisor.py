@@ -29,7 +29,7 @@ initial_conditions_file = 'run1.npz'
 r_initial_conditions = 0 # 0: nueva simulación | 1: simular escenario físico
 
 # archivo para guardar una nueva corrida en físico
-new_run_file = 'pruebas_3A_NNN_f_0.npz'
+new_run_file = '7sepProto3obs_3A_NNN_f_3.npz'
 
 """ modo real o simulación """
 fisico = 1               # 0 Webots | 1 Robotat
@@ -43,16 +43,16 @@ form_shape = 1    # 1: triángulo | 2: hexágono alargado
 rigidity_level = 8 # valores entre 1 y 8 (1 es el menos rígido)
 
 """ Agentes """
-agents_marker_list = [5,6,8]
+agents_marker_list = [7,3,4]
 NMax = 10  # número máximo de agentes que la formación puede tener
 NStart = 1 # primer agente
 N = len(agents_marker_list)	# último agente
 
 """ obstáculos y objetivo """
-obj_marker_list = [11]
+obj_marker_list = [16]
 obj_marker = obj_marker_list[0]        # marker del objetivo 
 
-obs_marker_list = [18,22,12]
+obs_marker_list = [12,13,15]
 quantOMax = 3 # máximo de obstáculos
 obs_active = 1        # 0: SIN obstáculos | 1: CON obstáculos
 obs_start_marker = 1 # marker del primer obstáculo
@@ -93,7 +93,7 @@ initial_pos_setup = 1 # posiciones iniciales | 0: ALEATORIO | 1: PLANIFICADO
 setup_shape = 0         # 0: posición inicial LÍNEA | 1: posición inicial CÍRCULO
 setup_shape_space = 1.5 # espacio a cubrir con las posiciones iniciales (m)
 
-setup_starting_point = np.array([-1.0, -1.5]) # punto inicial para las posiciones iniciales
+setup_starting_point = np.array([0.5, -1.7]) # punto inicial para las posiciones iniciales
 
 agent_setup = 5 # configuración de agentes
 
