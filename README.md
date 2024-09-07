@@ -26,6 +26,8 @@ Se están reemplazando ciclos for en el loop principal por operaciones de matric
 
 # Ideas para probar
 
+- En el programa de agente, enviar velocidad a las ruedas solo si es diferente a la velocidad anterior (esto para evitar saturar el envío de datos)
+
 # Observaciones
 
 - Parece que el cambio de las funciones en cuanto a tiempo no es muy significativa al utilizar pocos agentes (2 o 3), pero al utilizar más agentes si puede haber ahorro de tiempo computacional más grande (hay que probarlo con corridas reales ya que solo se tiene el tiempo en pruebas de algoritmos)
