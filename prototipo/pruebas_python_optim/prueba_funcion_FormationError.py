@@ -47,8 +47,8 @@ rigidity_level = 8
 formation_edge = 0.3
 formation_matrix = Fmatrix(form_shape,rigidity_level)
 
-agents = [1,2,3,4,5,6,7,8,9,10]
-#agents = [1,2,3,4,5,6]
+#agents = [1,2,3,4,5,6,7,8,9,10]
+agents = [1,2,3,4,5,6]
 obs = [18,19,20]
 obj = [11]
 markers = agents + obj + obs

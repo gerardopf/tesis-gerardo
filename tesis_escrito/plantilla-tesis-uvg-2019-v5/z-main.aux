@@ -15,10 +15,10 @@
 \@glsorder{word}
 \babel@aux{spanish}{}
 \@writefile{toc}{\contentsline {chapter}{Prefacio}{\es@scroman  {iii}}{section*.6}\protected@file@percent }
-\@writefile{toc}{\contentsline {chapter}{Lista de figuras}{\es@scroman  {vi}}{section*.8}\protected@file@percent }
-\@writefile{toc}{\contentsline {chapter}{Lista de cuadros}{\es@scroman  {vii}}{section*.9}\protected@file@percent }
-\@writefile{toc}{\contentsline {chapter}{Resumen}{\es@scroman  {viii}}{section*.10}\protected@file@percent }
-\@writefile{toc}{\contentsline {chapter}{Abstract}{\es@scroman  {ix}}{section*.11}\protected@file@percent }
+\@writefile{toc}{\contentsline {chapter}{Lista de figuras}{\es@scroman  {vii}}{section*.8}\protected@file@percent }
+\@writefile{toc}{\contentsline {chapter}{Lista de cuadros}{\es@scroman  {viii}}{section*.9}\protected@file@percent }
+\@writefile{toc}{\contentsline {chapter}{Resumen}{\es@scroman  {ix}}{section*.10}\protected@file@percent }
+\@writefile{toc}{\contentsline {chapter}{Abstract}{\es@scroman  {x}}{section*.11}\protected@file@percent }
 \@writefile{toc}{\contentsline {chapter}{\numberline {1}Introducción}{1}{chapter.12}\protected@file@percent }
 \@writefile{lof}{\addvspace {10\p@ }}
 \@writefile{lot}{\addvspace {10\p@ }}
@@ -241,32 +241,64 @@
 \@writefile{toc}{\contentsline {subsection}{\numberline {6.9.1}Plataforma móvil Pololu 3pi+ modificado}{22}{subsection.85}\protected@file@percent }
 \@writefile{lof}{\contentsline {figure}{\numberline {15}{\ignorespaces Sensores y componentes del Pololu 3pi+ 32U4 OLED Robot \blx@tocontentsinit {0}\cite {pololu3pi+}.}}{22}{figure.caption.86}\protected@file@percent }
 \newlabel{fig:pololu_sensores}{{15}{22}{Sensores y componentes del Pololu 3pi+ 32U4 OLED Robot \cite {pololu3pi+}}{figure.caption.86}{}}
-\@writefile{toc}{\contentsline {chapter}{\numberline {7}Derivación de la dinámica del mecanismo}{23}{chapter.87}\protected@file@percent }
+\@writefile{toc}{\contentsline {chapter}{\numberline {7}Algoritmo de sincronización y control de formaciones}{23}{chapter.87}\protected@file@percent }
 \@writefile{lof}{\addvspace {10\p@ }}
 \@writefile{lot}{\addvspace {10\p@ }}
-\@writefile{toc}{\contentsline {section}{\numberline {7.1}Dinámica de cuerpos rígidos}{23}{section.88}\protected@file@percent }
-\@writefile{toc}{\contentsline {section}{\numberline {7.2}Restricciones}{23}{section.89}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsection}{\numberline {7.2.1}Mecanismos de lazo cerrado}{23}{subsection.90}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsubsection}{Mecanismo de cuatro barras}{23}{section*.91}\protected@file@percent }
-\@writefile{toc}{\contentsline {chapter}{\numberline {8}Control del sistema mecánico}{24}{chapter.92}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {7.0.1}Controlador del supervisor}{23}{subsection.88}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {7.0.2}Controlador de los agentes}{23}{subsection.89}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {7.0.3}Secuencia de ejecución del programa}{23}{subsection.90}\protected@file@percent }
+\abx@aux@cite{0}{RodriguezJA_2023_tesis}
+\abx@aux@segm{0}{0}{RodriguezJA_2023_tesis}
+\@writefile{toc}{\contentsline {chapter}{\numberline {8}Restauración del algoritmo desarrollado en fases previas}{24}{chapter.91}\protected@file@percent }
 \@writefile{lof}{\addvspace {10\p@ }}
 \@writefile{lot}{\addvspace {10\p@ }}
-\@writefile{toc}{\contentsline {section}{\numberline {8.1}La ecuación del manipulador}{24}{section.93}\protected@file@percent }
-\@writefile{lot}{\contentsline {table}{\numberline {2}{\ignorespaces Tabla de prueba}}{24}{table.caption.94}\protected@file@percent }
-\newlabel{cuadro:tablaprueba}{{2}{24}{Tabla de prueba}{table.caption.94}{}}
-\@writefile{toc}{\contentsline {chapter}{\numberline {9}Conclusiones}{25}{chapter.95}\protected@file@percent }
+\@writefile{toc}{\contentsline {section}{\numberline {8.1}Replicar simulaciones de Webots}{24}{section.92}\protected@file@percent }
+\abx@aux@cite{0}{RodriguezJA_2023_tesis}
+\abx@aux@segm{0}{0}{RodriguezJA_2023_tesis}
+\@writefile{toc}{\contentsline {subsection}{\numberline {8.1.1}Comunicación entre supervisor y agentes}{25}{subsection.93}\protected@file@percent }
+\@writefile{lof}{\contentsline {figure}{\numberline {16}{\ignorespaces Ejecución de la primera simulación den Webots 2023b.}}{25}{figure.caption.94}\protected@file@percent }
+\newlabel{fig:delaygpu}{{16}{25}{Ejecución de la primera simulación den Webots 2023b}{figure.caption.94}{}}
+\@writefile{toc}{\contentsline {section}{\numberline {8.2}Replicar el funcionamiento del algoritmo en el Robotat}{25}{section.95}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {8.2.1}Pruebas de conexión con el Pololu 3Pi+ y el Robotat}{25}{subsection.96}\protected@file@percent }
+\@writefile{lof}{\contentsline {figure}{\numberline {17}{\ignorespaces Error de conexión con Pololu 3Pi+.}}{26}{figure.caption.97}\protected@file@percent }
+\newlabel{fig:error_conexion}{{17}{26}{Error de conexión con Pololu 3Pi+}{figure.caption.97}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {8.2.2}Calibración de marcadores}{26}{subsection.98}\protected@file@percent }
+\@writefile{lof}{\contentsline {figure}{\numberline {18}{\ignorespaces Marcadores del OptiTrack disponibles para su uso.}}{27}{figure.caption.99}\protected@file@percent }
+\newlabel{fig:marcadores_disponibles}{{18}{27}{Marcadores del OptiTrack disponibles para su uso}{figure.caption.99}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {19}{\ignorespaces Marcadores alineados sobre el eje $y$ para calibración.}}{28}{figure.caption.100}\protected@file@percent }
+\newlabel{fig:marcadores_calibracion}{{19}{28}{Marcadores alineados sobre el eje $y$ para calibración}{figure.caption.100}{}}
+\@writefile{lot}{\contentsline {table}{\numberline {2}{\ignorespaces Desfases de marcadores disponibles alineados con el eye $y$.}}{29}{table.caption.101}\protected@file@percent }
+\newlabel{cuadro:desfases_iniciales}{{2}{29}{Desfases de marcadores disponibles alineados con el eye $y$}{table.caption.101}{}}
+\@writefile{lot}{\contentsline {table}{\numberline {3}{\ignorespaces Desfases de marcadores obtenidos en la fase previa.}}{29}{table.caption.102}\protected@file@percent }
+\newlabel{cuadro:desfases_anteriores}{{3}{29}{Desfases de marcadores obtenidos en la fase previa}{table.caption.102}{}}
+\@writefile{lot}{\contentsline {table}{\numberline {4}{\ignorespaces Desfases para calibración de marcadores del $1$ al $22$.}}{30}{table.caption.103}\protected@file@percent }
+\newlabel{cuadro:desfases_finales}{{4}{30}{Desfases para calibración de marcadores del $1$ al $22$}{table.caption.103}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {8.2.3}Selección de marcadores a utilizar}{30}{subsection.104}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {8.2.4}Cálculo de velocidades de cada agente}{31}{subsection.105}\protected@file@percent }
+\@writefile{toc}{\contentsline {chapter}{\numberline {9}Optimización del algoritmo y su implementación}{32}{chapter.106}\protected@file@percent }
 \@writefile{lof}{\addvspace {10\p@ }}
 \@writefile{lot}{\addvspace {10\p@ }}
-\@writefile{toc}{\contentsline {chapter}{\numberline {10}Recomendaciones}{26}{chapter.96}\protected@file@percent }
+\@writefile{toc}{\contentsline {section}{\numberline {9.1}Limpieza de código y eliminación de funciones y variables obsoletas}{32}{section.107}\protected@file@percent }
+\@writefile{toc}{\contentsline {section}{\numberline {9.2}Obtención de poses del Robotat}{32}{section.108}\protected@file@percent }
+\@writefile{toc}{\contentsline {section}{\numberline {9.3}Posición de cada agente según el grafo de formación}{32}{section.109}\protected@file@percent }
+\@writefile{toc}{\contentsline {section}{\numberline {9.4}Implementación de operaciones matriciales con NumPy}{32}{section.110}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {9.4.1}Aplicar desfases de los marcadores}{32}{subsection.111}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {9.4.2}Cálculo de la distancia entre agentes}{32}{subsection.112}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {9.4.3}Cálculo del error de formación}{32}{subsection.113}\protected@file@percent }
+\@writefile{toc}{\contentsline {section}{\numberline {9.5}Implementación de paralelismo computacional}{32}{section.114}\protected@file@percent }
+\@writefile{toc}{\contentsline {chapter}{\numberline {10}Conclusiones}{33}{chapter.115}\protected@file@percent }
 \@writefile{lof}{\addvspace {10\p@ }}
 \@writefile{lot}{\addvspace {10\p@ }}
-\@writefile{toc}{\contentsline {chapter}{\numberline {11}Bibliograf\'{\i }a}{27}{chapter.98}\protected@file@percent }
+\@writefile{toc}{\contentsline {chapter}{\numberline {11}Recomendaciones}{34}{chapter.116}\protected@file@percent }
 \@writefile{lof}{\addvspace {10\p@ }}
 \@writefile{lot}{\addvspace {10\p@ }}
-\@writefile{toc}{\contentsline {chapter}{\numberline {12}Anexos}{29}{chapter.99}\protected@file@percent }
+\@writefile{toc}{\contentsline {chapter}{\numberline {12}Bibliograf\'{\i }a}{35}{chapter.118}\protected@file@percent }
 \@writefile{lof}{\addvspace {10\p@ }}
 \@writefile{lot}{\addvspace {10\p@ }}
-\@writefile{toc}{\contentsline {section}{\numberline {12.1}Planos de construcción}{29}{section.100}\protected@file@percent }
+\@writefile{toc}{\contentsline {chapter}{\numberline {13}Anexos}{37}{chapter.119}\protected@file@percent }
+\@writefile{lof}{\addvspace {10\p@ }}
+\@writefile{lot}{\addvspace {10\p@ }}
+\@writefile{toc}{\contentsline {section}{\numberline {13.1}Planos de construcción}{37}{section.120}\protected@file@percent }
 \abx@aux@read@bbl@mdfivesum{37A8E3AB42E93A367F8E72227BE1446B}
 \abx@aux@defaultrefcontext{0}{UNIDIRswarm}{none/global//global/global}
 \abx@aux@defaultrefcontext{0}{EnjambresCultivos}{none/global//global/global}
@@ -293,4 +325,4 @@
 \abx@aux@defaultrefcontext{0}{libro_paralelismo}{none/global//global/global}
 \abx@aux@defaultrefcontext{0}{primex41}{none/global//global/global}
 \abx@aux@defaultrefcontext{0}{pololu3pi+}{none/global//global/global}
-\gdef \@abspage@last{40}
+\gdef \@abspage@last{49}
