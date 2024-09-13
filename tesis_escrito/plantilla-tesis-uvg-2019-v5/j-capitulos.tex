@@ -8,7 +8,7 @@ El algoritmo de sincronización y control de formaciones funciona de manera cent
 
 
 \chapter{Restauración del algoritmo desarrollado en fases previas}
-La implementación en físico del algoritmo de sincronización y control de formaciones llevada a cabo por José Alejandro Rodríguez \cite{RodriguezJA_2023_tesis} se realizó en Webots con la versión 2023b. Esta es la misma versión que la utilizada en la fase actual. Además, se optó por utilizar Python 3.10 como lenguaje de programación para el controlador del supervisor y de los agentes ya que es una de las versiones más recientes de software, además que es la misma versión utilizada en la fase anterior. 
+La implementación en físico del algoritmo de sincronización y control de formaciones llevada a cabo por José Alejandro Rodríguez \cite{RodriguezJA_2023_tesis} se realizó en Webots con la versión 2023b. Esta es la misma versión que la utilizada en la fase actual. También, se optó por utilizar Python 3.10 como lenguaje de programación para el controlador del supervisor y de los agentes ya que es una de las versiones más recientes de software, además que es la misma versión utilizada en la fase anterior. 
 
 Por otro lado, en el Robotat se han realizado cambios en las conexiones con el servidor y los Pololu 3Pi+	por lo que se sería necesario un reajuste de parámetros.
 
@@ -23,7 +23,7 @@ El primer paso de la restauración, fue recrear algunas simulaciones en Webots. 
 	\item NumPy - versión 1.23.2
 \end{itemize}
 
-Luego, se realizó la prueba del código para el controlador del supervisor y los agentes incluyendo sus respectivas funciones
+Luego, se realizó la prueba del código para el controlador del supervisor y los agentes incluyendo sus respectivas funciones:
 \begin{itemize}
 	\item Supervisor: Supervisor\_simulacion\_y\_fisico\_v4.py
 	\item Agentes: pruebaMatrizDifeomorfismo.py
@@ -31,7 +31,7 @@ Luego, se realizó la prueba del código para el controlador del supervisor y lo
 \end{itemize} 
 
 \subsection{Comunicación entre supervisor y agentes}
-Al ejecutar una simulación, se encontró que dos agentes permanecen inmóviles durante todas las etapas del algoritmo, tal como se muestra en la Figura \ref{fig:delaygpu}.
+Al ejecutar la primera simulación, se encontró que dos agentes permanecen inmóviles durante todas las etapas del algoritmo, tal como se muestra en la Figura \ref{fig:delaygpu}.
 
 \begin{figure}[H]
 	\centering
@@ -44,7 +44,7 @@ Al ejecutar una simulación, se encontró que dos agentes permanecen inmóviles 
 
 Esto se debe a que, actualmente, se está utilizando una computadora con mayor capacidad de procesamiento que la utilizada en la fase anterior. Esta capacidad de procesamiento radica en la velocidad de ejecución de los programas. 
 
-Dado que la comunicación entre el supervisor y los agentes se realiza por medio de una memoria compartida y la velocidad de procesamiento es mayor, el controlador de los dos primeros agentes se ejecuta antes de que el espacio de memoria compartida se haya inicializado correctamente. Para solucionar el problema, en el controlador de los agentes, se agregó un tiempo de espera de 3 segundos antes de inicializar y acceder a la memoria compartida para asegurar que esta se cree correctamente.
+Dado que la comunicación entre el supervisor y los agentes se realiza por medio de una memoria compartida y la velocidad de procesamiento es mayor, el controlador de los dos primeros agentes se ejecuta antes de que el espacio de memoria compartida se haya inicializado correctamente. Para solucionar el problema, en el controlador de los agentes se agregó un tiempo de espera de 3 segundos antes de inicializar y acceder a la memoria compartida para asegurar que esta se cree correctamente en el controlador del supervisor.
 
 %\subsection{Cambios en el entorno de simulación}
 %En Webots 
@@ -53,7 +53,7 @@ Dado que la comunicación entre el supervisor y los agentes se realiza por medio
 \section{Replicar el funcionamiento del algoritmo en el Robotat}
 Una vez teniendo el algoritmo funcionando en Webots, el siguiente paso fue verificar que el algoritmo se ejecute correctamente en el Robotat.
 \subsection{Pruebas de conexión con el Pololu 3Pi+ y el Robotat}
- Primero se realizaron pruebas de conexión y obtención de datos con el Robotat y los Pololu 3Pi+ utilizando las funciones creadas en Python por José Alejandro Rodríguez \cite{RodriguezJA_2023_tesis}:
+ Primero, se realizaron pruebas de conexión y obtención de datos con el Robotat y los Pololu 3Pi+ utilizando las funciones creadas en Python por José Alejandro Rodríguez \cite{RodriguezJA_2023_tesis}:
 \begin{itemize}
 	\item robotat\_connect
 	\item robotat\_disconnect
@@ -76,7 +76,8 @@ Al realizar las pruebas de conexión con los agentes Pololu 3Pi+ se tuvo el erro
 \subsection{Calibración de marcadores}
 Una vez lograda la conexión con los Pololu 3Pi+, se tuvo que realizar una nueva calibración de los marcadores del OptiTrack para obtener el desfase del ángulo \textit{bearing} de cada marcador. Estos desfases son diferentes en cada marcador y se producen por la forma en que el OptiTrack identifica cada uno según la posición de sus esferas reflectivas.
 
-En la fase anterior, se realizó una calibración con los marcadores del $1$ al $15$, sin embargo, se agregaron nuevos marcadores por lo que ahora se cuenta con $22$ de ellos para utilizar, de los cuales están inhabilitados el $1$ y $9$ ya que serán utilizados en otros proyectos de graduación. Por tanto, ahora se tienen disponibles los marcadores de la Figura \ref{fig:marcadores_disponibles}.
+En la fase anterior, se realizó una calibración con los marcadores del $1$ al $15$, sin embargo, se agregaron nuevos marcadores por lo que ahora se cuenta con $22$ de ellos para utilizar, de los cuales están inhabilitados el $1$ y $9$ ya que serán utilizados en otros proyectos de graduación. Por tanto, ahora se tienen disponibles los marcadores de la Figura \ref{fig:marcadores_disponibles}. 
+Para corregir el desfase de cada marcador, primero se obtiene la orientación con ángulos de Euler en la secuencia $zyx$, luego, al primer ángulo que representa la rotación respecto al eje $z$ se le resta el desfase obtenido $\theta_z$. Para realizar la calibración, se colocaron todos los marcadores disponibles de la Figura \ref{fig:marcadores_disponibles} con la misma orientación sobre el eje $y$ tal como se observa en la Figura \ref{fig:marcadores_calibracion}.
 
 \begin{figure}[H]
 	\centering
@@ -85,18 +86,14 @@ En la fase anterior, se realizó una calibración con los marcadores del $1$ al 
 	\label{fig:marcadores_disponibles}
 \end{figure}
 
-Para corregir el desfase de cada marcador, se obtiene la orientación con ángulos de Euler en la secuencia $zyx$, luego, al primer ángulo que representa la rotación respecto al eje $z$ se le resta el desfase obtenido $\theta_z$.
-
-Para realizar la calibración, se colocaron todos los marcadores disponibles de la Figura \ref{fig:marcadores_disponibles} con la misma orientación sobre el eje $y$ tal como se observa en la Figura \ref{fig:marcadores_calibracion}
-
 \begin{figure}[H]
 	\centering
-	\includegraphics[width=0.8\textwidth]{marcadores_ejey.png}
+	\includegraphics[width=0.6\textwidth]{marcadores_ejey.png}
 	\caption{Marcadores alineados sobre el eje $y$ para calibración.}
 	\label{fig:marcadores_calibracion}
 \end{figure}
 
-Al obtener la pose de cada marcador, se realizó la conversión a ángulos de Euler en la secuencia $zyx$ y se obtuvo los ángulos de desfase del Cuadro \ref{cuadro:desfases_iniciales}.
+Al obtener la pose de cada marcador, se realizó la conversión a ángulos de Euler en la secuencia $zyx$ y se obtuvo los ángulos de desfase del Cuadro \ref{cuadro:desfases_iniciales}. Al comparar los desfases actuales con los obtenidos en la fase previa mostrados en el Cuadro \ref{cuadro:desfases_anteriores}, se observó que los valores son similares por lo que se optó tomar los desfases anteriores para los marcadores $1$ y $9$ faltantes en la calibración actual. Finalmente, en el Cuadro \ref{cuadro:desfases_finales} se observan los desfases finales para cada uno de los marcadores del $1$ al $22$. Estos valores se guardaron en un archivo .npy llamado ``nueva\_calibracion\_markers\_1\_al\_22.npy'' para aplicarlos luego de obtener la pose de cada marcador en el algoritmo y así tener siempre un ángulo respecto del eje $z$ igual a cero ($\theta_z$ = 0).
 
 \begin{table}[H]
 	\centering
@@ -128,8 +125,6 @@ Al obtener la pose de cada marcador, se realizó la conversión a ángulos de Eu
 	\label{cuadro:desfases_iniciales}
 \end{table}
 
-Al comparar los desfases actuales con los obtenidos en la fase previa mostrados en el Cuadro \ref{cuadro:desfases_anteriores}, se observó que los valores son similares por lo que se optó tomar los desfases anteriores para los marcadores $1$ y $9$ faltantes en la calibración actual.
-
 \begin{table}[H]
 	\centering
 	\begin{tabular}{|l|l|}
@@ -154,8 +149,6 @@ Al comparar los desfases actuales con los obtenidos en la fase previa mostrados 
 	\caption{Desfases de marcadores obtenidos en la fase previa.}
 	\label{cuadro:desfases_anteriores}
 \end{table}
-
-Finalmente, en el Cuadro \ref{cuadro:desfases_finales} se observan los desfases finales para cada uno de los marcadores del $1$ al $22$. Estos valores se guardaron en un archivo .npy para aplicarlos luego de obtener la pose de cada marcador en el algoritmo y así tener siempre un ángulo respecto del eje $z$ igual a cero ($\theta_z$ = 0).
 
 \begin{table}[!ht]
 	\centering
@@ -185,19 +178,26 @@ Finalmente, en el Cuadro \ref{cuadro:desfases_finales} se observan los desfases 
 		21 & -112.0477043 \\ \hline
 		22 & -15.28469666 \\ \hline
 	\end{tabular}
-	\caption{Desfases para calibración de marcadores del $1$ al $22$.}
+	\caption{Desfases finales para calibración de marcadores del $1$ al $22$.}
 	\label{cuadro:desfases_finales}
 \end{table}
 
 \subsection{Selección de marcadores a utilizar}
 Anteriormente, para obtener las poses de los marcadores se utilizaba una lista predeterminada con los valores enteros del $1$ al $12$ que serían los marcadores a utilizar. Sin embargo esto ocasionaba los siguientes problemas:
 
-Para obtener las poses de los marcadores, la función \textit{robotat\_get\_pose} recibe como argumentos el objeto TCP y los números de marcadores. Al tener una lista predeterminada de valores, siempre se está solicitando la pose de los $12$ marcadores aunque no todos estén en uso, resultando en una solicitud de datos innecesaria para el servidor.
+Para obtener las poses de los marcadores se utiliza la función ``robotat\_get\_pose'', esta recibe como argumentos el objeto TCP y los números de marcadores. Al tener una lista predeterminada de valores, siempre se está solicitando la pose de los $12$ marcadores aunque no todos estén en uso, resultando en una solicitud de datos innecesaria para el servidor. Además, dado que actualmente no se tienen disponibles los marcadores $1$ y $9$, se excede el \textit{Time Out} (tiempo de espera) para obtención de la pose de estos, lo que resulta en tiempos muertos durante la ejecución del código.
 
-Además, dado que actualmente no se tienen disponibles los marcadores $1$ y $9$, se excede el \textit{Time Out} (tiempo de espera) para obtención de poses, lo que resulta en tiempos muertos durante la ejecución del código.
+Por otro lado, para asignar los marcadores de cada agente, se debía elegir un intervalo  de valores consecutivos de manera ascendente dentro de la lista predeterminada. Esto era problemático ya que limita a utilizar únicamente los agentes dentro del intervalo seleccionado, por lo que si un agente se descargaba, era obligatorio reemplazar las baterías para volver a utilizarlo. Para solucionar esto, se optó por cambiar la asignación de los marcadores para cada agente permitiendo seleccionar cualquier marcador disponible en el Robotat sin algún orden específico. Esto además, permite agilizar las pruebas a realizar ya que en múltiples ocasiones es necesario compartir los agentes Pololu 3Pi+ con otros compañeros.
 
-Por otro lado, para asignar los marcadores de cada agente, se debía elegir un intervalo  de valores consecutivos dentro de la lista predeterminada. Esto era problemático ya que limita a utilizar los agentes únicamente dentro del intervalo seleccionado, por lo que si un agente se descargaba, era obligatorio reemplazar las baterías para volver a utilizarlo
+En la Figura \ref{fig:seleccion_agentes} a la izquierda se puede observar la asignación de los marcadores a cada agente con la implementación del algoritmo original, mientras del lado derecho se observa la asignación luego del cambio mencionado.
 
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=0.6\textwidth]{seleccion_agentes.png}
+	\caption{Selección de marcadores para cada agente.}
+	\label{fig:seleccion_agentes}
+\end{figure}
 
 
 \subsection{Cálculo de velocidades de cada agente}
