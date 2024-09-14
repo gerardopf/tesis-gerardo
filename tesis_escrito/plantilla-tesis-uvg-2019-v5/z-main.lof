@@ -22,17 +22,19 @@
 \contentsline {figure}{\numberline {14}{\ignorespaces Cámara de captura de movimiento Prime$^x$ 41 de OptiTrack \blx@tocontentsinit {0}\cite {primex41}.}}{21}{figure.caption.82}%
 \contentsline {figure}{\numberline {15}{\ignorespaces Sensores y componentes del Pololu 3pi+ 32U4 OLED Robot \blx@tocontentsinit {0}\cite {pololu3pi+}.}}{22}{figure.caption.86}%
 \addvspace {10\p@ }
+\contentsline {figure}{\numberline {16}{\ignorespaces Diagrama de flujo para el supervisor.}}{25}{figure.caption.96}%
+\contentsline {figure}{\numberline {17}{\ignorespaces Diagrama de flujo para el programa de los agentes.}}{26}{figure.caption.97}%
 \addvspace {10\p@ }
-\contentsline {figure}{\numberline {16}{\ignorespaces Ejecución de la primera simulación den Webots 2023b.}}{25}{figure.caption.94}%
-\contentsline {figure}{\numberline {17}{\ignorespaces Ejecución del algoritmo en la primera simulación}}{26}{figure.caption.97}%
-\contentsline {figure}{\numberline {18}{\ignorespaces Ejecución del algoritmo en la segunda simulación}}{27}{figure.caption.99}%
-\contentsline {figure}{\numberline {19}{\ignorespaces Ejecución del algoritmo en la tercera simulación}}{28}{figure.caption.101}%
-\contentsline {figure}{\numberline {20}{\ignorespaces Error de conexión con Pololu 3Pi+.}}{29}{figure.caption.104}%
-\contentsline {figure}{\numberline {21}{\ignorespaces Marcadores del OptiTrack disponibles para su uso.}}{30}{figure.caption.106}%
-\contentsline {figure}{\numberline {22}{\ignorespaces Marcadores alineados sobre el eje $y$ de la mesa de pruebas del Robotat.}}{31}{figure.caption.107}%
-\contentsline {figure}{\numberline {23}{\ignorespaces Problema de funcionamiento en físico, agentes permanecen inmóviles.}}{34}{figure.caption.112}%
-\contentsline {figure}{\numberline {24}{\ignorespaces Selección de marcadores para cada agente antes y después de la modificación.}}{35}{figure.caption.113}%
-\contentsline {figure}{\numberline {25}{\ignorespaces Problema de funcionamiento en físico, agentes divergen hacia posiciones iniciales. }}{36}{figure.caption.115}%
+\contentsline {figure}{\numberline {18}{\ignorespaces Ejecución de la primera simulación den Webots 2023b.}}{28}{figure.caption.101}%
+\contentsline {figure}{\numberline {19}{\ignorespaces Ejecución del algoritmo en la primera simulación}}{29}{figure.caption.104}%
+\contentsline {figure}{\numberline {20}{\ignorespaces Ejecución del algoritmo en la segunda simulación}}{30}{figure.caption.106}%
+\contentsline {figure}{\numberline {21}{\ignorespaces Ejecución del algoritmo en la tercera simulación}}{31}{figure.caption.108}%
+\contentsline {figure}{\numberline {22}{\ignorespaces Error de conexión con Pololu 3Pi+.}}{32}{figure.caption.111}%
+\contentsline {figure}{\numberline {23}{\ignorespaces Marcadores del OptiTrack disponibles para su uso.}}{33}{figure.caption.113}%
+\contentsline {figure}{\numberline {24}{\ignorespaces Marcadores alineados sobre el eje $y$ de la mesa de pruebas del Robotat.}}{34}{figure.caption.114}%
+\contentsline {figure}{\numberline {25}{\ignorespaces Problema de funcionamiento en físico, agentes permanecen inmóviles.}}{37}{figure.caption.119}%
+\contentsline {figure}{\numberline {26}{\ignorespaces Selección de marcadores para cada agente antes y después de la modificación.}}{38}{figure.caption.120}%
+\contentsline {figure}{\numberline {27}{\ignorespaces Problema de funcionamiento en físico, agentes divergen hacia posiciones iniciales. }}{39}{figure.caption.122}%
 \addvspace {10\p@ }
 \addvspace {10\p@ }
 \addvspace {10\p@ }

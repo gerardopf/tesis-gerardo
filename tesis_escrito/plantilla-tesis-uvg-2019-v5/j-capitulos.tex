@@ -1,10 +1,55 @@
 \chapter{Algoritmo de sincronización y control de formaciones}
-El algoritmo de sincronización y control de formaciones funciona de manera centralizada 
-
+El algoritmo de sincronización y control de formaciones funciona con dos controladores principales. El primero es el algoritmo de sincronización y control centralizado llamado ``supervisor'' y el segundo es el algoritmo de control de uniciclo para los agentes. En este capítulo se explicará el funcionamiento de cada controlador y la lógica detrás de cada uno para cumplir con las tareas de formación, evasión de colisiones y movilización hacia un objetivo.
 
 \subsection{Controlador del supervisor}
+El programa del supervisor tiene como tarea coordinar a los agentes, realizar procesamiento de datos y generar trayectorias para movilizar a los agentes hacia un objetivo evadiendo colisiones entre ellos y con los obstáculos. Para esto, el algoritmo cuenta con diferentes segmentos.
+
+\subsubsection{Adquisición de posiciones}
+La primera parte del algoritmo consiste en la toma de posiciones $X$ y $Y$ actuales de los agentes, obstáculos y el objetivo. 
+
+\subsubsection{Cálculo de velocidades de agentes}
+Luego, se realiza el cálculo de las velocidades de los agentes para moverlos hacia su posición en la formación y hacia el objetivo de interés. Este cálculo de velocidades se realiza por medio de la ecuación de consenso con un factor de peso $\omega$ que depende de las ecuaciones de tensión y de evasión de obstáculos. 
+
+\subsubsection{Evasión de obstáculos y colisiones}
+Seguido a esto, se realiza la evasión de obstáculos y colisiones que se realiza comparando la posición actual de cada agente con la posición actual de los agentes vecinos y los obstáculos.
+
+\subsubsection{Control proporcional}
+El siguiente segmento implementa el control proporcional de la Equación \ref{eq:controlador_proporcional} para movilizar a los agentes hacia un punto de interés.
+
+\begin{equation}
+	v_{n+1} = v + k(x_{objetivo} - x_{agente})
+	\label{eq:controlador_proporcional}
+\end{equation}
+
+Donde $v$ es la velocidad del agente y $k$ es la ganancia o constante de proporcionalidad que multiplica a la distancia entre el punto de interés y la posición del agente a evaluar. Una vez se tiene la velocidad en $X$ y $Y$ de los agentes, se calcula la norma de velocidad y esta se utiliza para la toma de decisiones dentro del algoritmo.
+
 \subsection{Controlador de los agentes}
-\subsection{Secuencia de ejecución del programa}
+El programa del los agentes recibe las velocidades calculadas por el supervisor. Luego, se encarga de convertirlas en velocidad lineal y angular para calcular la velocidad de cada rueda de los Pololu 3Pi+ según el modelo del uniciclo. Este programa es individual para cada agente y solo 
+
+\subsection{Funcionamiento del algoritmo}
+El algoritmo consta de las siguientes etapas para su ejecución:
+\begin{itemize}
+	\item Etapa 0: los agentes se movilizan hacia sus posiciones iniciales para iniciar el experimento.
+	\item Etapa 1: comienza el acercamiento de agentes hasta que la norma de velocidad esté por debajo de un valor seleccionado.
+	\item Etapa 2: los agentes se colocan en sus posiciones de la formación hasta que el error cuadrático medio entre la formación actual y la formación deseada esté por debajo de un valor seleccionado.
+	\item Etapa 3: el líder se mueve hacia el objetivo y los agentes de la formación lo siguen.
+\end{itemize}
+
+A continuación, se muestra el diagrama de flujo para los programas del supervisor y el control de los agentes.
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=0.2\textwidth]{diagrama_supervisor.png}
+	\caption{Diagrama de flujo para el supervisor.}
+	\label{fig:diagrama_supervisor}
+\end{figure}
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=0.35\textwidth]{diagrama_agentes.png}
+	\caption{Diagrama de flujo para el programa de los agentes.}
+	\label{fig:diagrama_agentes}
+\end{figure}
 
 
 \chapter{Restauración del algoritmo desarrollado en fases previas}
@@ -47,7 +92,7 @@ Esto se debe a que actualmente se está utilizando una computadora con mayor cap
 Dado que la comunicación entre el supervisor y los agentes se realiza por medio de una memoria compartida y la velocidad de procesamiento es mayor, el controlador de los dos primeros agentes se ejecuta antes de que el espacio de memoria compartida se haya inicializado correctamente. Para solucionar el problema, en el controlador de los agentes se agregó un tiempo de espera de 3 segundos antes de inicializar y acceder a la memoria compartida para asegurar que esta se cree correctamente en el controlador del supervisor.
 
 \subsection{Prueba del algoritmo con simulaciones basadas en escenarios previos}
-Una vez solucionado el problema, se realizó las primeras simulaciones para replicar algunos de los escenarios realizados por José Alejandro Rodríguez \cite{RodriguezJA_2023_tesis} y comprobar el funcionamiento correcto del algoritmo. 
+Una vez solucionado el problema de comunicación, se realizó las primeras simulaciones para replicar algunos de los escenarios realizados por José Alejandro Rodríguez \cite{RodriguezJA_2023_tesis} y comprobar el funcionamiento correcto del algoritmo. 
 
 El código del supervisor ya cuenta con un modo de simulación en el que se ejecuta el algoritmo basado en condiciones iniciales tomadas de un escenario físico. Para esto, se debe cargar un archivo .npz que cuenta con la información necesaria para configurar la simulación según el escenario real en que se ejecutó el algoritmo.
 
@@ -284,7 +329,7 @@ En la Figura \ref{fig:seleccion_agentes}, el número dentro del círculo, repres
 %	Se cambió el signo de velocidad
 %	Se cambió el signo del peso en la etapa 3
 %	Se cambió el signo de velocidad en la etapa 0
-Una vez realizadas las modificaciones anteriores, al realizar la ejecución del algoritmo en el físico con tres agentes  se encontró que su comportamiento es divergente en la etapa donde se movilizan hacia sus posiciones iniciales. En la Figura \ref{fig:divergencia1} se observa la trayectoria que toman los agentes.
+Una vez realizadas las modificaciones anteriores, al ejecutar el algoritmo en físico con tres agentes se encontró que su comportamiento es divergente en la etapa donde se movilizan hacia sus posiciones iniciales. En la Figura \ref{fig:divergencia1} se observa la trayectoria que toman los agentes.
 
 \begin{figure}[H]
 	\centering
@@ -293,6 +338,8 @@ Una vez realizadas las modificaciones anteriores, al realizar la ejecución del 
 	\caption{Problema de funcionamiento en físico, agentes divergen hacia posiciones iniciales. }
 	\label{fig:divergencia1}
 \end{figure}
+
+
 
 
 \chapter{Optimización del algoritmo y su implementación}

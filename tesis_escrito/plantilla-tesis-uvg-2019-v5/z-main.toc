@@ -52,31 +52,35 @@
 \contentsline {subsection}{\numberline {6.9.1}Plataforma móvil Pololu 3pi+ modificado}{22}{subsection.85}%
 \contentsline {chapter}{\numberline {7}Algoritmo de sincronización y control de formaciones}{23}{chapter.87}%
 \contentsline {subsection}{\numberline {7.0.1}Controlador del supervisor}{23}{subsection.88}%
-\contentsline {subsection}{\numberline {7.0.2}Controlador de los agentes}{23}{subsection.89}%
-\contentsline {subsection}{\numberline {7.0.3}Secuencia de ejecución del programa}{23}{subsection.90}%
-\contentsline {chapter}{\numberline {8}Restauración del algoritmo desarrollado en fases previas}{24}{chapter.91}%
-\contentsline {section}{\numberline {8.1}Replicar simulaciones de Webots}{24}{section.92}%
-\contentsline {subsection}{\numberline {8.1.1}Comunicación entre supervisor y agentes}{25}{subsection.93}%
-\contentsline {subsection}{\numberline {8.1.2}Prueba del algoritmo con simulaciones basadas en escenarios previos}{25}{subsection.95}%
-\contentsline {subsubsection}{Primer escenario}{26}{section*.96}%
-\contentsline {subsubsection}{Segundo escenario}{27}{section*.98}%
-\contentsline {subsubsection}{Tercer escenario}{28}{section*.100}%
-\contentsline {section}{\numberline {8.2}Replicar el funcionamiento del algoritmo en el Robotat}{29}{section.102}%
-\contentsline {subsection}{\numberline {8.2.1}Pruebas de conexión con el Pololu 3Pi+ y el Robotat}{29}{subsection.103}%
-\contentsline {subsection}{\numberline {8.2.2}Calibración de marcadores}{29}{subsection.105}%
-\contentsline {subsection}{\numberline {8.2.3}Selección de marcadores a utilizar}{33}{subsection.111}%
-\contentsline {subsection}{\numberline {8.2.4}Ajuste de parámetros en el algoritmo}{35}{subsection.114}%
-\contentsline {chapter}{\numberline {9}Optimización del algoritmo y su implementación}{37}{chapter.116}%
-\contentsline {section}{\numberline {9.1}Limpieza de código y eliminación de funciones y variables obsoletas}{37}{section.117}%
-\contentsline {section}{\numberline {9.2}Obtención de poses del Robotat}{37}{section.118}%
-\contentsline {section}{\numberline {9.3}Posición de cada agente según el grafo de formación}{37}{section.119}%
-\contentsline {section}{\numberline {9.4}Implementación de operaciones matriciales con NumPy}{37}{section.120}%
-\contentsline {subsection}{\numberline {9.4.1}Aplicar desfases de los marcadores}{37}{subsection.121}%
-\contentsline {subsection}{\numberline {9.4.2}Cálculo de la distancia entre agentes}{37}{subsection.122}%
-\contentsline {subsection}{\numberline {9.4.3}Cálculo del error de formación}{37}{subsection.123}%
-\contentsline {section}{\numberline {9.5}Implementación de paralelismo computacional}{37}{section.124}%
-\contentsline {chapter}{\numberline {10}Conclusiones}{38}{chapter.125}%
-\contentsline {chapter}{\numberline {11}Recomendaciones}{39}{chapter.126}%
-\contentsline {chapter}{\numberline {12}Bibliograf\'{\i }a}{40}{chapter.128}%
-\contentsline {chapter}{\numberline {13}Anexos}{42}{chapter.129}%
-\contentsline {section}{\numberline {13.1}Planos de construcción}{42}{section.130}%
+\contentsline {subsubsection}{Adquisición de posiciones}{23}{section*.89}%
+\contentsline {subsubsection}{Cálculo de velocidades de agentes}{23}{section*.90}%
+\contentsline {subsubsection}{Evasión de obstáculos y colisiones}{24}{section*.91}%
+\contentsline {subsubsection}{Control proporcional}{24}{section*.92}%
+\contentsline {subsection}{\numberline {7.0.2}Controlador de los agentes}{24}{subsection.94}%
+\contentsline {subsection}{\numberline {7.0.3}Funcionamiento del algoritmo}{24}{subsection.95}%
+\contentsline {chapter}{\numberline {8}Restauración del algoritmo desarrollado en fases previas}{27}{chapter.98}%
+\contentsline {section}{\numberline {8.1}Replicar simulaciones de Webots}{27}{section.99}%
+\contentsline {subsection}{\numberline {8.1.1}Comunicación entre supervisor y agentes}{28}{subsection.100}%
+\contentsline {subsection}{\numberline {8.1.2}Prueba del algoritmo con simulaciones basadas en escenarios previos}{28}{subsection.102}%
+\contentsline {subsubsection}{Primer escenario}{29}{section*.103}%
+\contentsline {subsubsection}{Segundo escenario}{30}{section*.105}%
+\contentsline {subsubsection}{Tercer escenario}{31}{section*.107}%
+\contentsline {section}{\numberline {8.2}Replicar el funcionamiento del algoritmo en el Robotat}{32}{section.109}%
+\contentsline {subsection}{\numberline {8.2.1}Pruebas de conexión con el Pololu 3Pi+ y el Robotat}{32}{subsection.110}%
+\contentsline {subsection}{\numberline {8.2.2}Calibración de marcadores}{32}{subsection.112}%
+\contentsline {subsection}{\numberline {8.2.3}Selección de marcadores a utilizar}{36}{subsection.118}%
+\contentsline {subsection}{\numberline {8.2.4}Ajuste de parámetros en el algoritmo}{38}{subsection.121}%
+\contentsline {chapter}{\numberline {9}Optimización del algoritmo y su implementación}{40}{chapter.123}%
+\contentsline {section}{\numberline {9.1}Limpieza de código y eliminación de funciones y variables obsoletas}{40}{section.124}%
+\contentsline {section}{\numberline {9.2}Obtención de poses del Robotat}{40}{section.125}%
+\contentsline {section}{\numberline {9.3}Posición de cada agente según el grafo de formación}{40}{section.126}%
+\contentsline {section}{\numberline {9.4}Implementación de operaciones matriciales con NumPy}{40}{section.127}%
+\contentsline {subsection}{\numberline {9.4.1}Aplicar desfases de los marcadores}{40}{subsection.128}%
+\contentsline {subsection}{\numberline {9.4.2}Cálculo de la distancia entre agentes}{40}{subsection.129}%
+\contentsline {subsection}{\numberline {9.4.3}Cálculo del error de formación}{40}{subsection.130}%
+\contentsline {section}{\numberline {9.5}Implementación de paralelismo computacional}{40}{section.131}%
+\contentsline {chapter}{\numberline {10}Conclusiones}{41}{chapter.132}%
+\contentsline {chapter}{\numberline {11}Recomendaciones}{42}{chapter.133}%
+\contentsline {chapter}{\numberline {12}Bibliograf\'{\i }a}{43}{chapter.135}%
+\contentsline {chapter}{\numberline {13}Anexos}{45}{chapter.136}%
+\contentsline {section}{\numberline {13.1}Planos de construcción}{45}{section.137}%
