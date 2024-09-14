@@ -31,7 +31,7 @@ Luego, se realizó la prueba del código para el controlador del supervisor y lo
 \end{itemize} 
 
 \subsection{Comunicación entre supervisor y agentes}
-Al ejecutar la primera simulación, se encontró que dos agentes permanecen inmóviles durante todas las etapas del algoritmo, tal como se muestra en la Figura \ref{fig:delaygpu}.
+Al ejecutar la primera simulación, se encontró que dos agentes permanecían inmóviles durante la primera etapa del algoritmo que consiste en mover a los agentes a sus posiciones iniciales, tal como se muestra en la Figura \ref{fig:delaygpu}.
 
 \begin{figure}[H]
 	\centering
@@ -42,9 +42,78 @@ Al ejecutar la primera simulación, se encontró que dos agentes permanecen inm�
 	\label{fig:delaygpu}
 \end{figure}
 
-Esto se debe a que, actualmente, se está utilizando una computadora con mayor capacidad de procesamiento que la utilizada en la fase anterior. Esta capacidad de procesamiento radica en la velocidad de ejecución de los programas. 
+Esto se debe a que actualmente se está utilizando una computadora con mayor capacidad de procesamiento que la utilizada en la fase anterior. Esta capacidad de procesamiento impacta en la velocidad de ejecución de los programas. 
 
 Dado que la comunicación entre el supervisor y los agentes se realiza por medio de una memoria compartida y la velocidad de procesamiento es mayor, el controlador de los dos primeros agentes se ejecuta antes de que el espacio de memoria compartida se haya inicializado correctamente. Para solucionar el problema, en el controlador de los agentes se agregó un tiempo de espera de 3 segundos antes de inicializar y acceder a la memoria compartida para asegurar que esta se cree correctamente en el controlador del supervisor.
+
+\subsection{Prueba del algoritmo con simulaciones basadas en escenarios previos}
+Una vez solucionado el problema, se realizó las primeras simulaciones para replicar algunos de los escenarios realizados por José Alejandro Rodríguez \cite{RodriguezJA_2023_tesis} y comprobar el funcionamiento correcto del algoritmo. 
+
+El código del supervisor ya cuenta con un modo de simulación en el que se ejecuta el algoritmo basado en condiciones iniciales tomadas de un escenario físico. Para esto, se debe cargar un archivo .npz que cuenta con la información necesaria para configurar la simulación según el escenario real en que se ejecutó el algoritmo.
+
+\subsubsection{Primer escenario}
+Para la primera simulación, se utilizó el archivo ``finaltrial\_6A\_AAA\_f\_1.npz'' que consiste en la siguiente configuración:
+\begin{itemize}
+	\item Cantidad de agentes: 6
+	\item Posición inicial de agentes: línea
+	\item Obstáculos: ninguno
+	\item Objetivo: ubicado en la esquina
+\end{itemize}
+
+En la Figura \ref{fig:primera_simulacion}, las imágenes en el orden de izquierda a derecha y luego de arriba hacia abajo muestran la secuencia de ejecución del algoritmo.
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=0.45\textwidth]{sim1_p1.png}
+	\includegraphics[width=0.45\textwidth]{sim1_p2.png}
+	\includegraphics[width=0.45\textwidth]{sim1_p3.png}
+	\includegraphics[width=0.45\textwidth]{sim1_p4.png}
+	\caption{Ejecución del algoritmo en la primera simulación}
+	\label{fig:primera_simulacion}
+\end{figure}
+
+\subsubsection{Segundo escenario}
+Para la segunda simulación, se utilizó el archivo ``finaltrial\_6A\_AB1B\_f\_2.npz'' que consiste en la siguiente configuración:
+\begin{itemize}
+	\item Cantidad de agentes: 6
+	\item Posición inicial de agentes: línea
+	\item Obstáculos: ubicados en el centro
+	\item Objetivo: ubicado en el centro
+\end{itemize}
+
+En la Figura \ref{fig:segunda_simulacion}, las imágenes en el orden de izquierda a derecha y luego de arriba hacia abajo muestran la secuencia de ejecución del algoritmo.
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=0.45\textwidth]{sim2_p1.png}
+	\includegraphics[width=0.45\textwidth]{sim2_p2.png}
+	\includegraphics[width=0.45\textwidth]{sim2_p3.png}
+	\includegraphics[width=0.45\textwidth]{sim2_p4.png}
+	\caption{Ejecución del algoritmo en la segunda simulación}
+	\label{fig:segunda_simulacion}
+\end{figure}
+
+\subsubsection{Tercer escenario}
+Para la tercera simulación, se utilizó el archivo ``finaltrial\_6A\_BCA\_f\_1.npz'' que consiste en la siguiente configuración:
+\begin{itemize}
+	\item Cantidad de agentes: 6
+	\item Posición inicial de agentes: círculo
+	\item Obstáculos: ubicados en posiciones aleatorias
+	\item Objetivo: ubicado en la esquina
+\end{itemize}
+
+En la Figura \ref{fig:tercera_simulacion}, las imágenes en el orden de izquierda a derecha y luego de arriba hacia abajo muestran la secuencia de ejecución del algoritmo.
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=0.45\textwidth]{sim3_p1.png}
+	\includegraphics[width=0.45\textwidth]{sim3_p2.png}
+	\includegraphics[width=0.45\textwidth]{sim3_p3.png}
+	\includegraphics[width=0.45\textwidth]{sim3_p4.png}
+	\caption{Ejecución del algoritmo en la tercera simulación}
+	\label{fig:tercera_simulacion}
+\end{figure}
+
 
 %\subsection{Cambios en el entorno de simulación}
 %En Webots 
@@ -64,7 +133,7 @@ Una vez teniendo el algoritmo funcionando en Webots, el siguiente paso fue verif
 	\item robotat\_3pi\_force\_stop
 \end{itemize}
 
-Al realizar las pruebas de conexión con los agentes Pololu 3Pi+ se tuvo el error mostrado en la Figura \ref{fig:error_conexion}. Este error se debe a que hubo un cambio en los puertos de conexión con el ESP$32$ de los agentes, anteriormente la conexión se realizaba en el puerto $8888$ y actualmente se realiza en el puerto $9090$. Con este cambió ya se logró conectar con el agente y enviar comandos de velocidades.
+Al realizar las pruebas de conexión con los agentes Pololu 3Pi+ se tenía el error mostrado en la Figura \ref{fig:error_conexion}. Este error se debe a que hubo un cambio en los puertos de conexión con el ESP$32$ de los agentes. Anteriormente la conexión se realizaba en el puerto $8888$ y actualmente se realiza en el puerto $9090$. Al actualizar este dato dentro de la función ``robotat\_3pi\_connect''  dentro del archivo ``funciones\_conjunto\_3pi.py'' se logró una conexión exitosa con el agente para el envío de comandos de velocidades.
 
 \begin{figure}[H]
 	\centering
@@ -77,7 +146,8 @@ Al realizar las pruebas de conexión con los agentes Pololu 3Pi+ se tuvo el erro
 Una vez lograda la conexión con los Pololu 3Pi+, se tuvo que realizar una nueva calibración de los marcadores del OptiTrack para obtener el desfase del ángulo \textit{bearing} de cada marcador. Estos desfases son diferentes en cada marcador y se producen por la forma en que el OptiTrack identifica cada uno según la posición de sus esferas reflectivas.
 
 En la fase anterior, se realizó una calibración con los marcadores del $1$ al $15$, sin embargo, se agregaron nuevos marcadores por lo que ahora se cuenta con $22$ de ellos para utilizar, de los cuales están inhabilitados el $1$ y $9$ ya que serán utilizados en otros proyectos de graduación. Por tanto, ahora se tienen disponibles los marcadores de la Figura \ref{fig:marcadores_disponibles}. 
-Para corregir el desfase de cada marcador, primero se obtiene la orientación con ángulos de Euler en la secuencia $zyx$, luego, al primer ángulo que representa la rotación respecto al eje $z$ se le resta el desfase obtenido $\theta_z$. Para realizar la calibración, se colocaron todos los marcadores disponibles de la Figura \ref{fig:marcadores_disponibles} con la misma orientación sobre el eje $y$ tal como se observa en la Figura \ref{fig:marcadores_calibracion}.
+
+Para corregir el desfase de cada marcador, primero se obtiene la orientación con ángulos de Euler en la secuencia $zyx$, luego, al primer ángulo que representa la rotación respecto al eje $z$ se le resta el desfase obtenido $\theta_z$. Para realizar la calibración, se colocaron todos los marcadores disponibles de la Figura \ref{fig:marcadores_disponibles} con la misma orientación sobre el eje $y$ de la mesa de pruebas del Robotat tal como se observa en la Figura \ref{fig:marcadores_calibracion}.
 
 \begin{figure}[H]
 	\centering
@@ -89,7 +159,7 @@ Para corregir el desfase de cada marcador, primero se obtiene la orientación co
 \begin{figure}[H]
 	\centering
 	\includegraphics[width=0.6\textwidth]{marcadores_ejey.png}
-	\caption{Marcadores alineados sobre el eje $y$ para calibración.}
+	\caption{Marcadores alineados sobre el eje $y$ de la mesa de pruebas del Robotat.}
 	\label{fig:marcadores_calibracion}
 \end{figure}
 
@@ -121,7 +191,7 @@ Al obtener la pose de cada marcador, se realizó la conversión a ángulos de Eu
 		21 & -112.0477043 \\ \hline
 		22 & -15.28469666 \\ \hline
 	\end{tabular}
-	\caption{Desfases de marcadores disponibles alineados con el eye $y$.}
+	\caption{Desfases de marcadores disponibles alineados con el eye $y$ de la mesa de pruebas del Robotat.}
 	\label{cuadro:desfases_iniciales}
 \end{table}
 
@@ -146,7 +216,7 @@ Al obtener la pose de cada marcador, se realizó la conversión a ángulos de Eu
 		14                & -111.1403638963379                     \\ \hline
 		15                & -43.41121657780576                     \\ \hline
 	\end{tabular}
-	\caption{Desfases de marcadores obtenidos en la fase previa.}
+	\caption{Desfases de marcadores obtenidos en la fase previa por José Alejandro Rodríguez \cite{RodriguezJA_2023_tesis}.}
 	\label{cuadro:desfases_anteriores}
 \end{table}
 
@@ -183,27 +253,46 @@ Al obtener la pose de cada marcador, se realizó la conversión a ángulos de Eu
 \end{table}
 
 \subsection{Selección de marcadores a utilizar}
-Anteriormente, para obtener las poses de los marcadores se utilizaba una lista predeterminada con los valores enteros del $1$ al $12$ que serían los marcadores a utilizar. Sin embargo esto ocasionaba los siguientes problemas:
+Una vez guardada la calibración de marcadores, se realizó pruebas en el Robotat para ejecutar el algoritmo de sincronización y control de formaciones. Sin embargo, el primer problema que se identificó fue que al menos un agente siempre permanecía inmóvil. En la Figura \ref{fig:agente_inmovil} se observa la ejecución del algoritmo donde únicamente se mueve un agente de los dos utilizados.
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=0.6\textwidth]{agente_inmovil_p1.png}
+	\includegraphics[width=0.6\textwidth]{agente_inmovil_p2.png}
+	\caption{Problema de funcionamiento en físico, agentes permanecen inmóviles.}
+	\label{fig:agente_inmovil}
+\end{figure}
+
+Anteriormente, para obtener las poses de los marcadores se utilizaba una lista predeterminada con los valores enteros del $1$ al $12$ en orden ascendente que serían los marcadores a utilizar. Sin embargo esto ocasionaba diferentes problemas.
 
 Para obtener las poses de los marcadores se utiliza la función ``robotat\_get\_pose'', esta recibe como argumentos el objeto TCP y los números de marcadores. Al tener una lista predeterminada de valores, siempre se está solicitando la pose de los $12$ marcadores aunque no todos estén en uso, resultando en una solicitud de datos innecesaria para el servidor. Además, dado que actualmente no se tienen disponibles los marcadores $1$ y $9$, se excede el \textit{Time Out} (tiempo de espera) para obtención de la pose de estos, lo que resulta en tiempos muertos durante la ejecución del código.
 
 Por otro lado, para asignar los marcadores de cada agente, se debía elegir un intervalo  de valores consecutivos de manera ascendente dentro de la lista predeterminada. Esto era problemático ya que limita a utilizar únicamente los agentes dentro del intervalo seleccionado, por lo que si un agente se descargaba, era obligatorio reemplazar las baterías para volver a utilizarlo. Para solucionar esto, se optó por cambiar la asignación de los marcadores para cada agente permitiendo seleccionar cualquier marcador disponible en el Robotat sin algún orden específico. Esto además, permite agilizar las pruebas a realizar ya que en múltiples ocasiones es necesario compartir los agentes Pololu 3Pi+ con otros compañeros.
 
-En la Figura \ref{fig:seleccion_agentes} a la izquierda se puede observar la asignación de los marcadores a cada agente con la implementación del algoritmo original, mientras del lado derecho se observa la asignación luego del cambio mencionado.
+En la Figura \ref{fig:seleccion_agentes}, el número dentro del círculo, representa el número de marcador asignado al agente. A la izquierda se puede observar la asignación de los marcadores a cada agente con la implementación del algoritmo original, mientras del lado derecho se observa una asignación arbitraria luego del cambio mencionado.
 
 
 \begin{figure}[H]
 	\centering
 	\includegraphics[width=0.6\textwidth]{seleccion_agentes.png}
-	\caption{Selección de marcadores para cada agente.}
+	\caption{Selección de marcadores para cada agente antes y después de la modificación.}
 	\label{fig:seleccion_agentes}
 \end{figure}
 
 
-\subsection{Cálculo de velocidades de cada agente}
-	Se cambió el signo de velocidad
-	Se cambió el signo del peso en la etapa 3
-	Se cambió el signo de velocidad en la etapa 0
+\subsection{Ajuste de parámetros en el algoritmo}
+%	Se cambió el signo de velocidad
+%	Se cambió el signo del peso en la etapa 3
+%	Se cambió el signo de velocidad en la etapa 0
+Una vez realizadas las modificaciones anteriores, al realizar la ejecución del algoritmo en el físico con tres agentes  se encontró que su comportamiento es divergente en la etapa donde se movilizan hacia sus posiciones iniciales. En la Figura \ref{fig:divergencia1} se observa la trayectoria que toman los agentes.
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=0.6\textwidth]{divergencia_p1.png}
+	\includegraphics[width=0.6\textwidth]{divergencia_p2.png}
+	\caption{Problema de funcionamiento en físico, agentes divergen hacia posiciones iniciales. }
+	\label{fig:divergencia1}
+\end{figure}
 
 
 \chapter{Optimización del algoritmo y su implementación}

@@ -57,22 +57,26 @@
 \contentsline {chapter}{\numberline {8}Restauración del algoritmo desarrollado en fases previas}{24}{chapter.91}%
 \contentsline {section}{\numberline {8.1}Replicar simulaciones de Webots}{24}{section.92}%
 \contentsline {subsection}{\numberline {8.1.1}Comunicación entre supervisor y agentes}{25}{subsection.93}%
-\contentsline {section}{\numberline {8.2}Replicar el funcionamiento del algoritmo en el Robotat}{25}{section.95}%
-\contentsline {subsection}{\numberline {8.2.1}Pruebas de conexión con el Pololu 3Pi+ y el Robotat}{25}{subsection.96}%
-\contentsline {subsection}{\numberline {8.2.2}Calibración de marcadores}{26}{subsection.98}%
-\contentsline {subsection}{\numberline {8.2.3}Selección de marcadores a utilizar}{30}{subsection.104}%
-\contentsline {subsection}{\numberline {8.2.4}Cálculo de velocidades de cada agente}{31}{subsection.106}%
-\contentsline {chapter}{\numberline {9}Optimización del algoritmo y su implementación}{32}{chapter.107}%
-\contentsline {section}{\numberline {9.1}Limpieza de código y eliminación de funciones y variables obsoletas}{32}{section.108}%
-\contentsline {section}{\numberline {9.2}Obtención de poses del Robotat}{32}{section.109}%
-\contentsline {section}{\numberline {9.3}Posición de cada agente según el grafo de formación}{32}{section.110}%
-\contentsline {section}{\numberline {9.4}Implementación de operaciones matriciales con NumPy}{32}{section.111}%
-\contentsline {subsection}{\numberline {9.4.1}Aplicar desfases de los marcadores}{32}{subsection.112}%
-\contentsline {subsection}{\numberline {9.4.2}Cálculo de la distancia entre agentes}{32}{subsection.113}%
-\contentsline {subsection}{\numberline {9.4.3}Cálculo del error de formación}{32}{subsection.114}%
-\contentsline {section}{\numberline {9.5}Implementación de paralelismo computacional}{32}{section.115}%
-\contentsline {chapter}{\numberline {10}Conclusiones}{33}{chapter.116}%
-\contentsline {chapter}{\numberline {11}Recomendaciones}{34}{chapter.117}%
-\contentsline {chapter}{\numberline {12}Bibliograf\'{\i }a}{35}{chapter.119}%
-\contentsline {chapter}{\numberline {13}Anexos}{37}{chapter.120}%
-\contentsline {section}{\numberline {13.1}Planos de construcción}{37}{section.121}%
+\contentsline {subsection}{\numberline {8.1.2}Prueba del algoritmo con simulaciones basadas en escenarios previos}{25}{subsection.95}%
+\contentsline {subsubsection}{Primer escenario}{26}{section*.96}%
+\contentsline {subsubsection}{Segundo escenario}{27}{section*.98}%
+\contentsline {subsubsection}{Tercer escenario}{28}{section*.100}%
+\contentsline {section}{\numberline {8.2}Replicar el funcionamiento del algoritmo en el Robotat}{29}{section.102}%
+\contentsline {subsection}{\numberline {8.2.1}Pruebas de conexión con el Pololu 3Pi+ y el Robotat}{29}{subsection.103}%
+\contentsline {subsection}{\numberline {8.2.2}Calibración de marcadores}{29}{subsection.105}%
+\contentsline {subsection}{\numberline {8.2.3}Selección de marcadores a utilizar}{33}{subsection.111}%
+\contentsline {subsection}{\numberline {8.2.4}Ajuste de parámetros en el algoritmo}{35}{subsection.114}%
+\contentsline {chapter}{\numberline {9}Optimización del algoritmo y su implementación}{37}{chapter.116}%
+\contentsline {section}{\numberline {9.1}Limpieza de código y eliminación de funciones y variables obsoletas}{37}{section.117}%
+\contentsline {section}{\numberline {9.2}Obtención de poses del Robotat}{37}{section.118}%
+\contentsline {section}{\numberline {9.3}Posición de cada agente según el grafo de formación}{37}{section.119}%
+\contentsline {section}{\numberline {9.4}Implementación de operaciones matriciales con NumPy}{37}{section.120}%
+\contentsline {subsection}{\numberline {9.4.1}Aplicar desfases de los marcadores}{37}{subsection.121}%
+\contentsline {subsection}{\numberline {9.4.2}Cálculo de la distancia entre agentes}{37}{subsection.122}%
+\contentsline {subsection}{\numberline {9.4.3}Cálculo del error de formación}{37}{subsection.123}%
+\contentsline {section}{\numberline {9.5}Implementación de paralelismo computacional}{37}{section.124}%
+\contentsline {chapter}{\numberline {10}Conclusiones}{38}{chapter.125}%
+\contentsline {chapter}{\numberline {11}Recomendaciones}{39}{chapter.126}%
+\contentsline {chapter}{\numberline {12}Bibliograf\'{\i }a}{40}{chapter.128}%
+\contentsline {chapter}{\numberline {13}Anexos}{42}{chapter.129}%
+\contentsline {section}{\numberline {13.1}Planos de construcción}{42}{section.130}%

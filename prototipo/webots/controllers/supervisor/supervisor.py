@@ -25,17 +25,17 @@ TIME_STEP = 64 # paso de simulación 64 ms
 supervisor = Supervisor() # instancia de supervisor
 
 # archivo para simular una corrida en físico
-initial_conditions_file = 'run1.npz' 
-r_initial_conditions = 0 # 0: nueva simulación | 1: simular escenario físico
+initial_conditions_file = 'finaltrial_6A_BCA_f_1.npz' 
+r_initial_conditions = 1 # 0: nueva simulación | 1: simular escenario físico
 
 # archivo para guardar una nueva corrida en físico
-new_run_file = '10sepProto3obs_3A_NNN_f_0.npz'
+new_run_file = '13sepProto3obs_3A_NNN_f_0.npz'
 
 """ modo real o simulación """
-fisico = 1               # 0 Webots | 1 Robotat
-r_obs = 1                # 0: obstáculos virtuales | 1: obstáculos reales (markers)
-r_obj = 1                # 0: objetivo virtual | 1: objetivo real (marker)
-r_webots_visual = 1      # 0: NO ver objetivo y obstáculos en tiempo real | 1: ver objetivo y obstáculos en tiempo real
+fisico = 0               # 0 Webots | 1 Robotat
+r_obs = 0                # 0: obstáculos virtuales | 1: obstáculos reales (markers)
+r_obj = 0                # 0: objetivo virtual | 1: objetivo real (marker)
+r_webots_visual = 0      # 0: NO ver objetivo y obstáculos en tiempo real | 1: ver objetivo y obstáculos en tiempo real
 MAX_SPEED = 30           # velocidad máxima de ruedas (rpm)
 
 """ matriz de formación """
@@ -690,7 +690,7 @@ while supervisor.step(TIME_STEP) != 1:
         print("Objetivo logrado")
     
     # presionar la tecla 'a' para terminar la corrida
-    if keyboard.is_pressed('a') or (obj_success == 1 and formation_mse < 0.1):
+    if keyboard.is_pressed('a') or (obj_success == 1 and formation_mse < 0.01):
         print("Fin de la corrida -supervisor")
         V = np.zeros([2,N]) # velocidades en 0 de agentes
         
