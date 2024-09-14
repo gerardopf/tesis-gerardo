@@ -11,20 +11,20 @@ La primera parte del algoritmo consiste en la toma de posiciones $X$ y $Y$ actua
 Luego, se realiza el cálculo de las velocidades de los agentes para moverlos hacia su posición en la formación y hacia el objetivo de interés. Este cálculo de velocidades se realiza por medio de la ecuación de consenso con un factor de peso $\omega$ que depende de las ecuaciones de tensión y de evasión de obstáculos. 
 
 \subsubsection{Evasión de obstáculos y colisiones}
-Seguido a esto, se realiza la evasión de obstáculos y colisiones que se realiza comparando la posición actual de cada agente con la posición actual de los agentes vecinos y los obstáculos.
+Seguido a esto, se tiene la evasión de obstáculos y colisiones que se realiza comparando la posición actual de cada agente con la posición actual de los agentes vecinos y los obstáculos.
 
 \subsubsection{Control proporcional}
-El siguiente segmento implementa el control proporcional de la Equación \ref{eq:controlador_proporcional} para movilizar a los agentes hacia un punto de interés.
+El siguiente segmento implementa el control proporcional de la Ecuación \ref{eq:controlador_proporcional} para movilizar a los agentes hacia un punto de interés.
 
 \begin{equation}
-	v_{n+1} = v + k(x_{objetivo} - x_{agente})
+	v_{n+1} = v_n + k(x_{objetivo} - x_{agente})
 	\label{eq:controlador_proporcional}
 \end{equation}
 
 Donde $v$ es la velocidad del agente y $k$ es la ganancia o constante de proporcionalidad que multiplica a la distancia entre el punto de interés y la posición del agente a evaluar. Una vez se tiene la velocidad en $X$ y $Y$ de los agentes, se calcula la norma de velocidad y esta se utiliza para la toma de decisiones dentro del algoritmo.
 
 \subsection{Controlador de los agentes}
-El programa del los agentes recibe las velocidades calculadas por el supervisor. Luego, se encarga de convertirlas en velocidad lineal y angular para calcular la velocidad de cada rueda de los Pololu 3Pi+ según el modelo del uniciclo. Este programa es individual para cada agente y solo 
+El programa del los agentes recibe las velocidades calculadas por el supervisor. Luego, se encarga de convertirlas en velocidad lineal y angular para calcular la velocidad de cada rueda de los Pololu 3Pi+ según el modelo del uniciclo. Este programa es individual para cada agente y solo procesa los datos para si mismo.
 
 \subsection{Funcionamiento del algoritmo}
 El algoritmo consta de las siguientes etapas para su ejecución:
@@ -178,7 +178,7 @@ Una vez teniendo el algoritmo funcionando en Webots, el siguiente paso fue verif
 	\item robotat\_3pi\_force\_stop
 \end{itemize}
 
-Al realizar las pruebas de conexión con los agentes Pololu 3Pi+ se tenía el error mostrado en la Figura \ref{fig:error_conexion}. Este error se debe a que hubo un cambio en los puertos de conexión con el ESP$32$ de los agentes. Anteriormente la conexión se realizaba en el puerto $8888$ y actualmente se realiza en el puerto $9090$. Al actualizar este dato dentro de la función ``robotat\_3pi\_connect''  dentro del archivo ``funciones\_conjunto\_3pi.py'' se logró una conexión exitosa con el agente para el envío de comandos de velocidades.
+Al realizar las pruebas de conexión con los agentes Pololu 3Pi+ se tenía el error mostrado en la Figura \ref{fig:error_conexion}. Este error se debe a que hubo un cambio en los puertos de conexión con el ESP$32$ de los agentes. Anteriormente la conexión se realizaba en el puerto $8888$ y actualmente se realiza en el puerto $9090$. Al actualizar este dato dentro de la función ``robotat\_3pi\_connect''  en del archivo ``funciones\_conjunto\_3pi.py'' se logró una conexión exitosa con el agente para el envío de comandos de velocidades.
 
 \begin{figure}[H]
 	\centering
@@ -208,7 +208,7 @@ Para corregir el desfase de cada marcador, primero se obtiene la orientación co
 	\label{fig:marcadores_calibracion}
 \end{figure}
 
-Al obtener la pose de cada marcador, se realizó la conversión a ángulos de Euler en la secuencia $zyx$ y se obtuvo los ángulos de desfase del Cuadro \ref{cuadro:desfases_iniciales}. Al comparar los desfases actuales con los obtenidos en la fase previa mostrados en el Cuadro \ref{cuadro:desfases_anteriores}, se observó que los valores son similares por lo que se optó tomar los desfases anteriores para los marcadores $1$ y $9$ faltantes en la calibración actual. Finalmente, en el Cuadro \ref{cuadro:desfases_finales} se observan los desfases finales para cada uno de los marcadores del $1$ al $22$. Estos valores se guardaron en un archivo .npy llamado ``nueva\_calibracion\_markers\_1\_al\_22.npy'' para aplicarlos luego de obtener la pose de cada marcador en el algoritmo y así tener siempre un ángulo respecto del eje $z$ igual a cero ($\theta_z$ = 0).
+Al obtener la pose de cada marcador, se realizó la conversión a ángulos de Euler en la secuencia $zyx$ y se obtuvo los ángulos de desfase del Cuadro \ref{cuadro:desfases_iniciales}. Al comparar los desfases actuales con los obtenidos en la fase previa mostrados en el Cuadro \ref{cuadro:desfases_anteriores}, se observó que los valores son similares por lo que se optó tomar los desfases anteriores para los marcadores $1$ y $9$ faltantes en la calibración actual. Por último, en el Cuadro \ref{cuadro:desfases_finales} se observan los desfases finales para cada uno de los marcadores del $1$ al $22$. Estos valores se guardaron en un archivo .npy llamado ``nueva\_calibracion\_markers\_1\_al\_22.npy'' para aplicarlos luego de obtener la pose de cada marcador en el algoritmo y así tener siempre un ángulo respecto del eje $z$ igual a cero ($\theta_z$ = 0).
 
 \begin{table}[H]
 	\centering
@@ -312,7 +312,7 @@ Anteriormente, para obtener las poses de los marcadores se utilizaba una lista p
 
 Para obtener las poses de los marcadores se utiliza la función ``robotat\_get\_pose'', esta recibe como argumentos el objeto TCP y los números de marcadores. Al tener una lista predeterminada de valores, siempre se está solicitando la pose de los $12$ marcadores aunque no todos estén en uso, resultando en una solicitud de datos innecesaria para el servidor. Además, dado que actualmente no se tienen disponibles los marcadores $1$ y $9$, se excede el \textit{Time Out} (tiempo de espera) para obtención de la pose de estos, lo que resulta en tiempos muertos durante la ejecución del código.
 
-Por otro lado, para asignar los marcadores de cada agente, se debía elegir un intervalo  de valores consecutivos de manera ascendente dentro de la lista predeterminada. Esto era problemático ya que limita a utilizar únicamente los agentes dentro del intervalo seleccionado, por lo que si un agente se descargaba, era obligatorio reemplazar las baterías para volver a utilizarlo. Para solucionar esto, se optó por cambiar la asignación de los marcadores para cada agente permitiendo seleccionar cualquier marcador disponible en el Robotat sin algún orden específico. Esto además, permite agilizar las pruebas a realizar ya que en múltiples ocasiones es necesario compartir los agentes Pololu 3Pi+ con otros compañeros.
+Por otro lado, para asignar los marcadores de cada agente, se debía elegir un intervalo  de valores consecutivos de manera ascendente dentro de la lista predeterminada. Esto era problemático ya que limita a utilizar únicamente los agentes dentro del intervalo seleccionado, por lo que si un agente se descargaba, era obligatorio reemplazar las baterías para volver a utilizarlo. Para solucionar estos problemas, se optó por cambiar la asignación de los marcadores para cada agente permitiendo seleccionar cualquier marcador disponible en el Robotat sin algún orden específico y ahora, para obtener las poses de los marcadores, únicamente se solicitan los datos al servidor de los marcadores en uso. Esto además, permite agilizar las pruebas a realizar ya que en múltiples ocasiones es necesario compartir los agentes Pololu 3Pi+ con otros compañeros.
 
 En la Figura \ref{fig:seleccion_agentes}, el número dentro del círculo, representa el número de marcador asignado al agente. A la izquierda se puede observar la asignación de los marcadores a cada agente con la implementación del algoritmo original, mientras del lado derecho se observa una asignación arbitraria luego del cambio mencionado.
 
@@ -320,7 +320,7 @@ En la Figura \ref{fig:seleccion_agentes}, el número dentro del círculo, repres
 \begin{figure}[H]
 	\centering
 	\includegraphics[width=0.6\textwidth]{seleccion_agentes.png}
-	\caption{Selección de marcadores para cada agente antes y después de la modificación.}
+	\caption{Selección de marcadores para cada agente antes y después de las modificaciones.}
 	\label{fig:seleccion_agentes}
 \end{figure}
 
@@ -339,10 +339,39 @@ Una vez realizadas las modificaciones anteriores, al ejecutar el algoritmo en f�
 	\label{fig:divergencia1}
 \end{figure}
 
+Para intentar solucionar esto, se invirtió signo de la constante de proporcionalidad en el control de velocidad aplicado en la etapa 0 del algoritmo. Anteriormente se utilizaba $k = 5$, ahora se utiliza $k = -5$. Al aplicar el cambio, se encontró que ahora los agentes si se colocan en sus posiciones iniciales, sin embargo, ahora el comportamiento de divergencia se sigue presentando en las demás etapas del algoritmo tal como se observa en la Figura \ref{fig:divergencia2}.
 
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=0.6\textwidth]{divergencia2_p1.png}
+	\includegraphics[width=0.6\textwidth]{divergencia2_p2.png}
+	\caption{Problema de funcionamiento en físico, agentes divergen luego de colocarse en sus posiciones iniciales.}
+	\label{fig:divergencia2}
+\end{figure}
 
+Al observar esto, se encontró que el patrón de divergencia se presentaba en todas las secciones donde se aplica el control proporcional para la velocidad de los agentes. Sabiendo esto, se optó por invertir el signo de la velocidad $v_n$ y la constante $k$ de la Ecuación \ref{eq:controlador_proporcional} tal como se observa a continuación:
+
+\begin{equation}
+	v_{n+1} = -v_n - k(x_{objetivo} - x_{agente})
+	\label{eq:controlador_proporcional2}
+\end{equation}
+
+Con esto, se logró solucionar la divergencia de los agentes y se realizó la primera ejecución del algoritmo exitosa utilizando dos agentes, sin obstáculos tal como se observa en la Figura \ref{fig:prueba_fisico1}. Las imágenes en el orden de izquierda a derecha y luego de arriba hacia abajo muestran la secuencia de ejecución del algoritmo.
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=0.45\textwidth]{prueba_fisico_p1.png}
+	\includegraphics[width=0.45\textwidth]{prueba_fisico_p2.png}
+	\includegraphics[width=0.45\textwidth]{prueba_fisico_p3.png}
+	\includegraphics[width=0.45\textwidth]{prueba_fisico_p4.png}
+	\caption{Primera prueba exitosa de funcionamiento en físico.}
+	\label{fig:prueba_fisico1}
+\end{figure}
+
+Una vez realizada la primera prueba, se simuló un escenario arbitrario en Webots, sin embargo se encontró que ahora la simulación presentaba patrones de divergencia en todas las etapas del algoritmo. Por esto, se optó por implementar el control proporcional de la Ecuación \ref{eq:controlador_proporcional} para las simulaciones y otro control proporcional con la Ecuación \ref{eq:controlador_proporcional2} para ejecutar el algoritmo en físico.
 
 \chapter{Optimización del algoritmo y su implementación}
+En este capítulo, se presentan las deficiencias encontradas 
 
 \section{Limpieza de código y eliminación de funciones y variables obsoletas}
 \section{Obtención de poses del Robotat}

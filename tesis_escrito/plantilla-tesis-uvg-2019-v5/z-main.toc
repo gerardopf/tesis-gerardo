@@ -1,10 +1,10 @@
 \babel@toc {spanish}{}\relax 
 \babel@toc {spanish}{}\relax 
 \contentsline {chapter}{Prefacio}{\es@scroman {iii}}{section*.6}%
-\contentsline {chapter}{Lista de figuras}{\es@scroman {vii}}{section*.8}%
-\contentsline {chapter}{Lista de cuadros}{\es@scroman {viii}}{section*.9}%
-\contentsline {chapter}{Resumen}{\es@scroman {ix}}{section*.10}%
-\contentsline {chapter}{Abstract}{\es@scroman {x}}{section*.11}%
+\contentsline {chapter}{Lista de figuras}{\es@scroman {viii}}{section*.8}%
+\contentsline {chapter}{Lista de cuadros}{\es@scroman {ix}}{section*.9}%
+\contentsline {chapter}{Resumen}{\es@scroman {x}}{section*.10}%
+\contentsline {chapter}{Abstract}{\es@scroman {xi}}{section*.11}%
 \contentsline {chapter}{\numberline {1}Introducción}{1}{chapter.12}%
 \contentsline {chapter}{\numberline {2}Antecedentes}{2}{chapter.13}%
 \contentsline {section}{\numberline {2.1}Robótica de enjambre}{2}{section.14}%
@@ -70,17 +70,17 @@
 \contentsline {subsection}{\numberline {8.2.2}Calibración de marcadores}{32}{subsection.112}%
 \contentsline {subsection}{\numberline {8.2.3}Selección de marcadores a utilizar}{36}{subsection.118}%
 \contentsline {subsection}{\numberline {8.2.4}Ajuste de parámetros en el algoritmo}{38}{subsection.121}%
-\contentsline {chapter}{\numberline {9}Optimización del algoritmo y su implementación}{40}{chapter.123}%
-\contentsline {section}{\numberline {9.1}Limpieza de código y eliminación de funciones y variables obsoletas}{40}{section.124}%
-\contentsline {section}{\numberline {9.2}Obtención de poses del Robotat}{40}{section.125}%
-\contentsline {section}{\numberline {9.3}Posición de cada agente según el grafo de formación}{40}{section.126}%
-\contentsline {section}{\numberline {9.4}Implementación de operaciones matriciales con NumPy}{40}{section.127}%
-\contentsline {subsection}{\numberline {9.4.1}Aplicar desfases de los marcadores}{40}{subsection.128}%
-\contentsline {subsection}{\numberline {9.4.2}Cálculo de la distancia entre agentes}{40}{subsection.129}%
-\contentsline {subsection}{\numberline {9.4.3}Cálculo del error de formación}{40}{subsection.130}%
-\contentsline {section}{\numberline {9.5}Implementación de paralelismo computacional}{40}{section.131}%
-\contentsline {chapter}{\numberline {10}Conclusiones}{41}{chapter.132}%
-\contentsline {chapter}{\numberline {11}Recomendaciones}{42}{chapter.133}%
-\contentsline {chapter}{\numberline {12}Bibliograf\'{\i }a}{43}{chapter.135}%
-\contentsline {chapter}{\numberline {13}Anexos}{45}{chapter.136}%
-\contentsline {section}{\numberline {13.1}Planos de construcción}{45}{section.137}%
+\contentsline {chapter}{\numberline {9}Optimización del algoritmo y su implementación}{42}{chapter.126}%
+\contentsline {section}{\numberline {9.1}Limpieza de código y eliminación de funciones y variables obsoletas}{42}{section.127}%
+\contentsline {section}{\numberline {9.2}Obtención de poses del Robotat}{42}{section.128}%
+\contentsline {section}{\numberline {9.3}Posición de cada agente según el grafo de formación}{42}{section.129}%
+\contentsline {section}{\numberline {9.4}Implementación de operaciones matriciales con NumPy}{43}{section.130}%
+\contentsline {subsection}{\numberline {9.4.1}Aplicar desfases de los marcadores}{43}{subsection.131}%
+\contentsline {subsection}{\numberline {9.4.2}Cálculo de la distancia entre agentes}{43}{subsection.132}%
+\contentsline {subsection}{\numberline {9.4.3}Cálculo del error de formación}{43}{subsection.133}%
+\contentsline {section}{\numberline {9.5}Implementación de paralelismo computacional}{43}{section.134}%
+\contentsline {chapter}{\numberline {10}Conclusiones}{44}{chapter.135}%
+\contentsline {chapter}{\numberline {11}Recomendaciones}{45}{chapter.136}%
+\contentsline {chapter}{\numberline {12}Bibliograf\'{\i }a}{46}{chapter.138}%
+\contentsline {chapter}{\numberline {13}Anexos}{48}{chapter.139}%
+\contentsline {section}{\numberline {13.1}Planos de construcción}{48}{section.140}%
