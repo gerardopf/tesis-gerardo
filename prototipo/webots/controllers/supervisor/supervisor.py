@@ -690,7 +690,7 @@ while supervisor.step(TIME_STEP) != 1:
         print("Objetivo logrado")
     
     # presionar la tecla 'a' para terminar la corrida
-    if keyboard.is_pressed('a') or (obj_success == 1 and formation_mse < 0.01):
+    if keyboard.is_pressed('a') or (obj_success == 1 and formation_mse < 0.1):
         print("Fin de la corrida -supervisor")
         V = np.zeros([2,N]) # velocidades en 0 de agentes
         
