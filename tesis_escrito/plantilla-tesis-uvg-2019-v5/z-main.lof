@@ -40,7 +40,9 @@
 \addvspace {10\p@ }
 \contentsline {figure}{\numberline {30}{\ignorespaces Posiciones de agentes según el grafo de formación con la implementación original del algoritmo.}}{45}{figure.caption.130}%
 \contentsline {figure}{\numberline {31}{\ignorespaces Posiciones de agentes según el grafo de formación con la implementación original del algoritmo.}}{45}{figure.caption.131}%
-\contentsline {figure}{\numberline {32}{\ignorespaces Gráfica con medias de tiempo para aplicar desfases de marcadores con ciclos \textit {for} y operaciones don NumPy.}}{48}{figure.caption.147}%
+\contentsline {figure}{\numberline {32}{\ignorespaces Gráfica con medias de tiempo para aplicar desfases de marcadores con ciclos \textit {for} y operaciones con NumPy.}}{48}{figure.caption.147}%
+\contentsline {figure}{\numberline {33}{\ignorespaces Gráfica con medias de tiempo para calcular la distancia entre agentes con ciclos \textit {for} y operaciones con NumPy.}}{49}{figure.caption.151}%
+\contentsline {figure}{\numberline {34}{\ignorespaces Gráfica con medias de tiempo para calcular el error de formación con ciclos \textit {for} y operaciones con NumPy.}}{51}{figure.caption.155}%
 \addvspace {10\p@ }
 \addvspace {10\p@ }
 \addvspace {10\p@ }

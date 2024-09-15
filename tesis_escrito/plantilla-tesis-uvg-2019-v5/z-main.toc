@@ -76,10 +76,10 @@
 \contentsline {section}{\numberline {9.3}Mejorar la eficiencia computacional con NumPy}{46}{section.132}%
 \contentsline {subsection}{\numberline {9.3.1}Aplicar desfases de los marcadores}{46}{subsection.133}%
 \contentsline {subsection}{\numberline {9.3.2}Cálculo de la distancia entre agentes}{48}{subsection.148}%
-\contentsline {subsection}{\numberline {9.3.3}Cálculo del error de formación}{48}{subsection.149}%
-\contentsline {section}{\numberline {9.4}Implementación de paralelismo computacional}{48}{section.150}%
-\contentsline {chapter}{\numberline {10}Conclusiones}{49}{chapter.151}%
-\contentsline {chapter}{\numberline {11}Recomendaciones}{50}{chapter.152}%
-\contentsline {chapter}{\numberline {12}Bibliograf\'{\i }a}{51}{chapter.154}%
-\contentsline {chapter}{\numberline {13}Anexos}{53}{chapter.155}%
-\contentsline {section}{\numberline {13.1}Planos de construcción}{53}{section.156}%
+\contentsline {subsection}{\numberline {9.3.3}Cálculo del error de formación}{50}{subsection.152}%
+\contentsline {section}{\numberline {9.4}Implementación de paralelismo computacional}{51}{section.156}%
+\contentsline {chapter}{\numberline {10}Conclusiones}{52}{chapter.157}%
+\contentsline {chapter}{\numberline {11}Recomendaciones}{53}{chapter.158}%
+\contentsline {chapter}{\numberline {12}Bibliograf\'{\i }a}{54}{chapter.160}%
+\contentsline {chapter}{\numberline {13}Anexos}{56}{chapter.161}%
+\contentsline {section}{\numberline {13.1}Planos de construcción}{56}{section.162}%
