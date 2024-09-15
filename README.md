@@ -16,30 +16,27 @@ El algoritmo funciona correctamente
 Verificar si el agente ya está en la posición inicial
 
 Se cambió la distancia de 0.05 a 0.07 metros
+
 Se volvió a colocar la distancia en 0.05 metros
 
 Se actualizaron medidas de la arena
-X: 3.81 m, se usó 3.8 m en webots
-Y: 4.81 m, se usó 4.8 m en webots
+- X: 3.81 m, se usó 3.8 m en webots
+- Y: 4.81 m, se usó 4.8 m en webots
 
 Se cambió el signo de velocidad (se eliminó el negativo -1)
-
-V[0][g] = 1*(E0)*TIME_STEP/1000
-V[1][g] = 1*(E1)*TIME_STEP/1000 
+- V[0][g] = 1*(E0)*TIME_STEP/1000
+- V[1][g] = 1*(E1)*TIME_STEP/1000 
 
 Se cambió el signo del peso elcálculo de las velocidades para la ETAPA 3 (en el loop principal)
 
 Se cambió la distancia para el objetivo cumplido
-
-De 0.5 a 0.2 metros
+- De 0.5 a 0.2 metros
 
 Se agregó el guardado de datos en archivo .npz al terminar la corrida
 
 La corrida en físico ya se detiene al llegar al objetivo y cumplir con un error de formación
 
 Se agregó un if fisico == 1 elif fisico == 0, esto se colocó donde se realizaron los cambios de signo con el fin de que la simulación volviera a funcionar ya que luego de los cambios, únicamente funcionaba la corrida en físico y, los agentes en la simulación, divergían
-
-
 
 ## Cambios sin probar 
 Se cambió la condición para detener simulación
@@ -49,34 +46,33 @@ Se cambió la condición para detener simulación
     
 ## Deficiencias
 
-Los agentes se mueven muy despacio
+- Los agentes se mueven muy despacio
 
-La distancia entre el líder y la formación podría reducirse
-Hay que verificar la distancia para evasión de obstáculos
+- La distancia entre el líder y la formación podría reducirse
 
-Los agentes pierden mucho tiempo en buscar como evadir el obstáculo
+- Hay que verificar la distancia para evasión de obstáculos
 
-Cuando estamos en la ETAPA 3 el líder se detiene mucho para esperar a la formación y la formación siempre está en constante movimiento y a veces se mantienen girando 
+- Los agentes pierden mucho tiempo en buscar como evadir el obstáculo
+
+- Cuando estamos en la ETAPA 3 el líder se detiene mucho para esperar a la formación y la formación siempre está en constante movimiento y a veces se mantienen girando 
 
 
 ## Cosas que faltan
 
-Dejar obsoleta la variable: obs_start_marker
+- Dejar obsoleta la variable: obs_start_marker
 
-Probar cambiar la cantidad de obstáculos
+- Probar cambiar la cantidad de obstáculos
 
 
 ## Problemas
 
-Cuando el líder llega al objetivo los agentes paran pero a veces un agente no le llegan las velocidades a cero
+- Cuando el líder llega al objetivo los agentes paran pero a veces un agente no le llegan las velocidades a cero
 
-
-A veces el líder se aleja mucho de la formación
-
+- A veces el líder se aleja mucho de la formación
 
 ## Cosas a limpiar en código
 
-El agent setup 4 que es una versión obsoleta del 5
+- El agent setup 4 que es una versión obsoleta del 5
 
 # Optimización con NumPy 
 
