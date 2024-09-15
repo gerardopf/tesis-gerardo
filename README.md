@@ -78,7 +78,7 @@ A veces el líder se aleja mucho de la formación
 
 El agent setup 4 que es una versión obsoleta del 5
 
-# ---------- Optimización con NumPy ----------
+## ---------- Optimización con NumPy ----------
 
 Se están reemplazando ciclos for en el loop principal por operaciones de matrices con NumPy.
 
