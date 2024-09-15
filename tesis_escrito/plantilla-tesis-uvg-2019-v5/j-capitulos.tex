@@ -425,7 +425,7 @@ Al tener una formación como la mostrada anteriormente se vuelve poco intuitiva 
 \section{Mejorar la eficiencia computacional con NumPy}
 NumPy es una librería de Python especializada para el cálculo numérico y científico. Destaca por su soporte para trabajar con operaciones vectorizadas o vectores multidimensionales sin realizar bucles. También cuenta con una amplia variedad de funciones matemáticas y estadísticas, así como integración con otras bibliotecas como SciPy. Además, NumPy está implementado en C por lo que permite mejorar la eficiencia computacional para grandes cantidades de datos.
 
-Al revisar los programas de los controladores, se encontró varios segmentos de código que se realizan con ciclos \textit{for} simples y otros anidados. Esto presenta una deficiencia al realizar los cálculos y solicitud de datos al servidor del Robotat por lo que se optó por optimizar dichos procesos utilizando funciones matemáticas y operaciones matriciales con NumPy. A continuación, se detallará los segmentos del algoritmo en donde se reemplazaron los ciclos \text{for} por operaciones con NumPy.
+Al revisar los programas de los controladores, se encontró varios segmentos de código que se realizan con ciclos \textit{for} simples y otros anidados. Esto presenta una deficiencia al realizar los cálculos y solicitud de datos al servidor del Robotat por lo que se optó por optimizar dichos procesos utilizando funciones matemáticas y operaciones matriciales con NumPy. A continuación, se detallará los segmentos del algoritmo que se optimizaron implementando operaciones con NumPy y se mostrará la comparativa en cuanto a tiempos de ejecución utilizando la librería ``time'' de Python y análisis estadísticos.
 
 \subsection{Aplicar desfases de los marcadores}
 A continuación se explica los pasos que se realizaban anteriormente para aplicar los desfases de la calibración de marcadores, donde $n$ es la cantidad de marcadores a utilizar.
@@ -462,11 +462,11 @@ Sin embargo, el implementar ciclos \textit{for} dentro del ciclo principal signi
 	\end{enumerate}
 \end{itemize}
 
-Una vez implementada la optimización, se realizó un análisis estadístico con mil muestras donde se tomó el tiempo que toma aplicar los desfases a los marcadores con un ciclo \textit{for} y con una resta de matrices con NumPy. Para esto, se utilizó la librería \textit{time} de Python donde se midió el tiempo en mili segundos.
+Una vez implementada la optimización, se realizó un análisis estadístico con mil muestras donde se tomó el tiempo que toma aplicar los desfases a los marcadores con un ciclo \textit{for} y con una resta de matrices con NumPy.
 
-Para la toma de muestras, se evaluó diferentes cantidades de marcadores a los que se les aplicaría el desfase, siendo estos 5, 10, 15 y 20. En los Cuadros \ref{cuadro:tiempos_desfases_for} y \ref{cuadro:tiempos_desfases_numpy} se muestra la media de tiempo y la desviación estándar del tiempo que toma aplicar los desfases.
+Para la toma de muestras, se evaluó diferentes cantidades de marcadores a los que se les aplicaría el desfase, siendo estos 5, 10, 15 y 20. En los Cuadros \ref{cuadro:tiempos_desfases_for} y \ref{cuadro:tiempos_desfases_numpy} se muestra la media y desviación estándar del tiempo que toma aplicar los desfases.
 
-Finalmente, al comparar los datos de las dos implementaciones en la Figura \ref{fig:grafica_tiempos_desfases}, se observó que la optimización con NumPy si muestra una reducción de tiempo de procesamiento importante comparada con la aplicación de los desfases con ciclos \text{for} y esta reducción es más significativa al utilizar una mayor cantidad de marcadores.
+En la Figura \ref{fig:grafica_tiempos_desfases} se observa que la optimización con NumPy presenta una reducción notable en el tiempo de procesamiento, la cual es aún más significativa a medida que aumenta la cantidad de marcadores a utilizar. Por otro lado, los tiempos al aplicar ciclos \textit{for} incrementan de manera proporcional y más pronunciada con el aumento de los marcadores, mientras que con NumPy el crecimiento es más moderado ya que la pendiente de la curva es dos órdenes de magnitud menor.
 
 \begin{table}[H]
 	\centering
@@ -506,6 +506,11 @@ Finalmente, al comparar los datos de las dos implementaciones en la Figura \ref{
 \end{figure}
 
 \subsection{Cálculo de la distancia entre agentes}
+Para el cálculo de distancia entre agentes se tiene una función llamada ``DistBetweenAgents'' dentro del archivo ``funciones.py''. Esta utiliza dos ciclos \textit{for} anidados para calcular la norma de distancia basada en la distancia en $x$ y $y$ de cada agente hacia sus vecinos más próximos. El cálculo de la distancia se realiza entre los agentes $i$ y $j$ y luego para $j$ e $i$, esto produce una matriz simétrica por lo que se puede realizar únicamente el cálculo de una mitad y luego duplicarla. Para esto, se creó una versión optimizada de la función llamada ``DistBetweenAgentsOptimized''. En esta, únicamente se calcula la diferencia de posiciones aprovechando el \textit{broadcasting} en NumPy y luego calcula la norma de la matriz de distancias utilizando la función ``linealg.norm''.
+
+En los Cuadros \ref{label} y \ref{label} se muestra la media y desviación estándar del tiempo que toma en realizar los cálculos con la función original y la optimizada.
+
+
 \subsection{Cálculo del error de formación}
 
 \section{Implementación de paralelismo computacional}
