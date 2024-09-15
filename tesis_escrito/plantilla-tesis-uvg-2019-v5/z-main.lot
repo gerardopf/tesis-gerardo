@@ -13,6 +13,9 @@
 \contentsline {table}{\numberline {3}{\ignorespaces Desfases de marcadores obtenidos en la fase previa por José Alejandro Rodríguez \blx@tocontentsinit {0}\cite {RodriguezJA_2023_tesis}.}}{35}{table.caption.116}%
 \contentsline {table}{\numberline {4}{\ignorespaces Desfases finales para calibración de marcadores del $1$ al $22$.}}{36}{table.caption.117}%
 \addvspace {10\p@ }
+\contentsline {table}{\numberline {5}{\ignorespaces Ventajas y desventajas de lenguajes de programación.}}{44}{table.caption.128}%
+\contentsline {table}{\numberline {6}{\ignorespaces Media de tiempo y desviación estándar para aplicar desfases de marcadores con ciclos \text {for}.}}{47}{table.caption.145}%
+\contentsline {table}{\numberline {7}{\ignorespaces Media de tiempo y desviación estándar para aplicar desfases de marcadores con NumPy.}}{47}{table.caption.146}%
 \addvspace {10\p@ }
 \addvspace {10\p@ }
 \addvspace {10\p@ }

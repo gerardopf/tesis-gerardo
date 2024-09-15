@@ -69,18 +69,17 @@
 \contentsline {subsection}{\numberline {8.2.1}Pruebas de conexión con el Pololu 3Pi+ y el Robotat}{32}{subsection.110}%
 \contentsline {subsection}{\numberline {8.2.2}Calibración de marcadores}{32}{subsection.112}%
 \contentsline {subsection}{\numberline {8.2.3}Selección de marcadores a utilizar}{36}{subsection.118}%
-\contentsline {subsection}{\numberline {8.2.4}Ajuste de parámetros en el algoritmo}{38}{subsection.121}%
-\contentsline {chapter}{\numberline {9}Optimización del algoritmo y su implementación}{42}{chapter.126}%
-\contentsline {section}{\numberline {9.1}Limpieza de código y eliminación de funciones y variables obsoletas}{42}{section.127}%
-\contentsline {section}{\numberline {9.2}Obtención de poses del Robotat}{42}{section.128}%
-\contentsline {section}{\numberline {9.3}Posición de cada agente según el grafo de formación}{42}{section.129}%
-\contentsline {section}{\numberline {9.4}Implementación de operaciones matriciales con NumPy}{43}{section.130}%
-\contentsline {subsection}{\numberline {9.4.1}Aplicar desfases de los marcadores}{43}{subsection.131}%
-\contentsline {subsection}{\numberline {9.4.2}Cálculo de la distancia entre agentes}{43}{subsection.132}%
-\contentsline {subsection}{\numberline {9.4.3}Cálculo del error de formación}{43}{subsection.133}%
-\contentsline {section}{\numberline {9.5}Implementación de paralelismo computacional}{43}{section.134}%
-\contentsline {chapter}{\numberline {10}Conclusiones}{44}{chapter.135}%
-\contentsline {chapter}{\numberline {11}Recomendaciones}{45}{chapter.136}%
-\contentsline {chapter}{\numberline {12}Bibliograf\'{\i }a}{46}{chapter.138}%
-\contentsline {chapter}{\numberline {13}Anexos}{48}{chapter.139}%
-\contentsline {section}{\numberline {13.1}Planos de construcción}{48}{section.140}%
+\contentsline {subsection}{\numberline {8.2.4}Ajuste de parámetros en el algoritmo}{39}{subsection.121}%
+\contentsline {chapter}{\numberline {9}Optimización del algoritmo y su implementación}{43}{chapter.126}%
+\contentsline {section}{\numberline {9.1}Lenguaje de programación y limpieza de código}{43}{section.127}%
+\contentsline {section}{\numberline {9.2}Posición de cada agente según el grafo de formación}{44}{section.129}%
+\contentsline {section}{\numberline {9.3}Mejorar la eficiencia computacional con NumPy}{46}{section.132}%
+\contentsline {subsection}{\numberline {9.3.1}Aplicar desfases de los marcadores}{46}{subsection.133}%
+\contentsline {subsection}{\numberline {9.3.2}Cálculo de la distancia entre agentes}{48}{subsection.148}%
+\contentsline {subsection}{\numberline {9.3.3}Cálculo del error de formación}{48}{subsection.149}%
+\contentsline {section}{\numberline {9.4}Implementación de paralelismo computacional}{48}{section.150}%
+\contentsline {chapter}{\numberline {10}Conclusiones}{49}{chapter.151}%
+\contentsline {chapter}{\numberline {11}Recomendaciones}{50}{chapter.152}%
+\contentsline {chapter}{\numberline {12}Bibliograf\'{\i }a}{51}{chapter.154}%
+\contentsline {chapter}{\numberline {13}Anexos}{53}{chapter.155}%
+\contentsline {section}{\numberline {13.1}Planos de construcción}{53}{section.156}%

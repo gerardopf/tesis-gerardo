@@ -14,7 +14,7 @@ Luego, se realiza el cálculo de las velocidades de los agentes para moverlos ha
 Seguido a esto, se tiene la evasión de obstáculos y colisiones que se realiza comparando la posición actual de cada agente con la posición actual de los agentes vecinos y los obstáculos.
 
 \subsubsection{Control proporcional}
-El siguiente segmento implementa el control proporcional de la Ecuación \ref{eq:controlador_proporcional} para movilizar a los agentes hacia un punto de interés.
+El siguiente segmento implementa el control proporcional de la Ecuación (\ref{eq:controlador_proporcional}) para movilizar a los agentes hacia un punto de interés.
 
 \begin{equation}
 	v_{n+1} = v_n + k(x_{objetivo} - x_{agente})
@@ -188,7 +188,7 @@ Al realizar las pruebas de conexión con los agentes Pololu 3Pi+ se tenía el er
 \end{figure}
 
 \subsection{Calibración de marcadores}
-Una vez lograda la conexión con los Pololu 3Pi+, se tuvo que realizar una nueva calibración de los marcadores del OptiTrack para obtener el desfase del ángulo \textit{bearing} de cada marcador. Estos desfases son diferentes en cada marcador y se producen por la forma en que el OptiTrack identifica cada uno según la posición de sus esferas reflectivas.
+Una vez lograda la conexión con los Pololu 3Pi+, se tuvo que realizar una nueva calibración de los marcadores del OptiTrack para obtener el desfase del ángulo orientación (\textit{bearing}) de cada marcador. Estos desfases son diferentes en cada marcador y se producen por la forma en que el OptiTrack identifica cada uno según la posición de sus esferas reflectivas.
 
 En la fase anterior, se realizó una calibración con los marcadores del $1$ al $15$, sin embargo, se agregaron nuevos marcadores por lo que ahora se cuenta con $22$ de ellos para utilizar, de los cuales están inhabilitados el $1$ y $9$ ya que serán utilizados en otros proyectos de graduación. Por tanto, ahora se tienen disponibles los marcadores de la Figura \ref{fig:marcadores_disponibles}. 
 
@@ -310,9 +310,20 @@ Una vez guardada la calibración de marcadores, se realizó pruebas en el Robota
 
 Anteriormente, para obtener las poses de los marcadores se utilizaba una lista predeterminada con los valores enteros del $1$ al $12$ en orden ascendente que serían los marcadores a utilizar. Sin embargo esto ocasionaba diferentes problemas.
 
-Para obtener las poses de los marcadores se utiliza la función ``robotat\_get\_pose'', esta recibe como argumentos el objeto TCP y los números de marcadores. Al tener una lista predeterminada de valores, siempre se está solicitando la pose de los $12$ marcadores aunque no todos estén en uso, resultando en una solicitud de datos innecesaria para el servidor. Además, dado que actualmente no se tienen disponibles los marcadores $1$ y $9$, se excede el \textit{Time Out} (tiempo de espera) para obtención de la pose de estos, lo que resulta en tiempos muertos durante la ejecución del código.
+Para obtener las poses de los marcadores se utiliza la función ``robotat\_get\_pose'', esta recibe como argumentos el objeto TCP y los números de marcadores. Al tener una lista predeterminada de valores, siempre se está solicitando la pose de los $12$ marcadores aunque no todos estén en uso, resultando en una solicitud de datos innecesaria para el servidor. Además, dado que actualmente no se tienen disponibles los marcadores $1$ y $9$, se excede el tiempo de espera (\textit{Time Out}) para obtención de la pose de estos, lo que resulta en tiempos muertos durante la ejecución del código.
 
-Por otro lado, para asignar los marcadores de cada agente, se debía elegir un intervalo  de valores consecutivos de manera ascendente dentro de la lista predeterminada. Esto era problemático ya que limita a utilizar únicamente los agentes dentro del intervalo seleccionado, por lo que si un agente se descargaba, era obligatorio reemplazar las baterías para volver a utilizarlo. Para solucionar estos problemas, se optó por cambiar la asignación de los marcadores para cada agente permitiendo seleccionar cualquier marcador disponible en el Robotat sin algún orden específico y ahora, para obtener las poses de los marcadores, únicamente se solicitan los datos al servidor de los marcadores en uso. Esto además, permite agilizar las pruebas a realizar ya que en múltiples ocasiones es necesario compartir los agentes Pololu 3Pi+ con otros compañeros.
+Para solucionar el problema, se optó por solicitar únicamente las poses de los marcadores a utilizar con una lista que contiene los números de todos los marcadores con el orden: agentes, objetivo y obstáculos. A continuación se muestra un ejemplo de esto.
+
+Marcadores de agentes $= [1, 2, 3, 4]$
+
+Marcador del objetivo $ = [22]$
+
+Marcadores de obstáculos = $ = [14, 15, 16]$
+
+Marcadores a solicitar $ = [1, 2, 3, 4, 22, 14, 15, 16]$
+
+
+Por otro lado, para asignar los marcadores de cada agente, se debía elegir un intervalo  de valores consecutivos de manera ascendente dentro de la lista predeterminada. Esto era problemático ya que limita a utilizar únicamente los agentes dentro del intervalo seleccionado, por lo que si un agente se descargaba, era obligatorio reemplazar las baterías para volver a utilizarlo. Por esto, se optó por cambiar la asignación de los marcadores para cada agente permitiendo seleccionar cualquier marcador disponible en el Robotat sin algún orden específico y ahora, para obtener las poses de los marcadores, únicamente se solicitan los datos al servidor de los marcadores en uso. Esto además, permite agilizar las pruebas a realizar ya que en múltiples ocasiones es necesario compartir los agentes Pololu 3Pi+ con otros compañeros.
 
 En la Figura \ref{fig:seleccion_agentes}, el número dentro del círculo, representa el número de marcador asignado al agente. A la izquierda se puede observar la asignación de los marcadores a cada agente con la implementación del algoritmo original, mientras del lado derecho se observa una asignación arbitraria luego del cambio mencionado.
 
@@ -326,9 +337,6 @@ En la Figura \ref{fig:seleccion_agentes}, el número dentro del círculo, repres
 
 
 \subsection{Ajuste de parámetros en el algoritmo}
-%	Se cambió el signo de velocidad
-%	Se cambió el signo del peso en la etapa 3
-%	Se cambió el signo de velocidad en la etapa 0
 Una vez realizadas las modificaciones anteriores, al ejecutar el algoritmo en físico con tres agentes se encontró que su comportamiento es divergente en la etapa donde se movilizan hacia sus posiciones iniciales. En la Figura \ref{fig:divergencia1} se observa la trayectoria que toman los agentes.
 
 \begin{figure}[H]
@@ -349,7 +357,7 @@ Para intentar solucionar esto, se invirtió signo de la constante de proporciona
 	\label{fig:divergencia2}
 \end{figure}
 
-Al observar esto, se encontró que el patrón de divergencia se presentaba en todas las secciones donde se aplica el control proporcional para la velocidad de los agentes. Sabiendo esto, se optó por invertir el signo de la velocidad $v_n$ y la constante $k$ de la Ecuación \ref{eq:controlador_proporcional} tal como se observa a continuación:
+Al observar esto, se encontró que el patrón de divergencia se presentaba en todas las secciones donde se aplica el control proporcional para la velocidad de los agentes. Sabiendo esto, se optó por invertir el signo de la velocidad $v_n$ y la constante $k$ de la Ecuación (\ref{eq:controlador_proporcional}) tal como se observa a continuación:
 
 \begin{equation}
 	v_{n+1} = -v_n - k(x_{objetivo} - x_{agente})
@@ -368,18 +376,135 @@ Con esto, se logró solucionar la divergencia de los agentes y se realizó la pr
 	\label{fig:prueba_fisico1}
 \end{figure}
 
-Una vez realizada la primera prueba, se simuló un escenario arbitrario en Webots, sin embargo se encontró que ahora la simulación presentaba patrones de divergencia en todas las etapas del algoritmo. Por esto, se optó por implementar el control proporcional de la Ecuación \ref{eq:controlador_proporcional} para las simulaciones y otro control proporcional con la Ecuación \ref{eq:controlador_proporcional2} para ejecutar el algoritmo en físico.
+Una vez realizada la primera prueba, se simuló un escenario arbitrario en Webots, sin embargo se encontró que ahora la simulación presentaba patrones de divergencia en todas las etapas del algoritmo. Por esto, se optó por implementar el control proporcional de la Ecuación (\ref{eq:controlador_proporcional}) para las simulaciones y otro control proporcional con la Ecuación (\ref{eq:controlador_proporcional2}) para ejecutar el algoritmo en físico.
 
 \chapter{Optimización del algoritmo y su implementación}
-En este capítulo, se presentan las deficiencias encontradas 
+En este capítulo se describen los puntos de mejora identificados en la implementación del algoritmo de sincronización y control de formaciones. Luego, se detallará cómo se abordó cada uno de ellos empleando técnicas de optimización como la reducción de complejidad computacional, ajuste de parámetros de control y paralelización de procesos.
 
-\section{Limpieza de código y eliminación de funciones y variables obsoletas}
-\section{Obtención de poses del Robotat}
-	Ahora solo se pide la pose de los agentes a utilizar, antes se pedían todos los marcadores
+
+\section{Lenguaje de programación y limpieza de código}
+El primer paso para la optimización fue analizar el lenguaje de programación empleado para los controladores. Se tomó en cuenta tres lenguajes para compararlos en base a las ventajas y desventajas que proponen para su implementación con el estado actual del algoritmo: MATLAB, Python y C. En el Cuadro \ref{cuadro:lenguajes_programacion} se describen las ventajas y desventajas que tiene un lenguaje sobre otro.
+
+\begin{table}[H]
+	\centering
+	\resizebox{\textwidth}{!} {
+	\begin{tabular}{|l|l|l|}
+		\hline
+		Lenguaje & Ventajas                                                                                                                                                                                                                                                                                                     & Desventajas                                                                                                                                                                                                                                                                                                             \\ \hline
+		MATLAB   & \begin{tabular}[c]{@{}l@{}}- Es fácil de usar para simulaciones y prototipos.\\ \\ - Tiene una amplia variedad de herramientas \\ matemáticas.\\ \\ - Es excelente para algoritmos que involucran \\ operaciones matriciales.\end{tabular}                                                                      & \begin{tabular}[c]{@{}l@{}}- Es un lenguaje propio de MATLAB por lo que requiere comprar \\ licencias de software.\\ \\ - Su eficiencia computacional es menor en cuanto a rendimiento \\ comparado con Python o C.\end{tabular}                                                                                          \\ \hline
+		Python   & \begin{tabular}[c]{@{}l@{}}- Es un lenguaje de código abierto (\textit{open source}).\\ \\ - Tiene una amplia variedad de librerías para optimizar \\ el cálculo numérico como NumPy, SciPy, multithreading \\ o multiprocessing.\\ \\ - Tiene un buen equilibrio entre rendmiento \\ computacional y facilidad de desarrollo.\end{tabular} & \begin{tabular}[c]{@{}l@{}}- Es un lenguaje más eficiente que MATLAB pero menos eficiente \\ que C debido a que es un lenguaje interpretado.\\ \\ - Requiere dependencias externas para lograr un alto rendimiento \\ (como integraciones con C).\end{tabular}                                                            \\ \hline
+		C        & \begin{tabular}[c]{@{}l@{}}- Tiene un rendimiento superior ya que es un lenguaje \\ compilado de bajo nivel.\\ \\ - Ofrece un control sobre la memoria y el hardware.\end{tabular}                                                                                                                             & \begin{tabular}[c]{@{}l@{}}- Su complejidad es mucho mayor en cuando a implementación y \\ mantenimiento.\\ \\ - Tiene una alta probabilidad de fugas de memoria. \\ \\ - Requiere mucho más tiempo de desarrollo y es menos intuitivo.\\ \\ - No es tan flexible para realizar cambios rápidos en algoritmos.\end{tabular} \\ \hline
+	\end{tabular}}
+	\caption{Ventajas y desventajas de lenguajes de programación.}
+	\label{cuadro:lenguajes_programacion}
+\end{table}
+
+Una vez comparados los lenguajes de programación se optó por seguir utilizando Python para el desarrollo de los controladores. Las razones principales fueron que es un lenguaje de código abierto y ofrece un buen equilibrio entre rendimiento computacional y facilidad de desarrollo. Además, ya se cuenta con todo el algoritmo previo desarrollado en Python funcionando en un entorno físico como el Robotat. Esto incluye el desarrollo de los controladores, funciones para cálculos propios del algoritmo de sincronización y control de formaciones y funciones de conexión con el servidor del Robotat y los Pololu 3Pi+. Por lo que, dado el poco tiempo disponible para utilizar el Robotat no es conveniente migrar a un nuevo lenguaje de programación para esta fase de la implementación del algoritmo. Además, python cuenta con librerías como NumPy que está basada en C y otras librerías de comunicación y procesamiento que permiten optimizar el rendimiento computacional.
+
+Finalmente, se realizó un proceso de limpieza y documentación del código para facilitar las iteraciones a realizar. Además, esto permitió eliminar segmentos de código obsoletos, así como identificar otras deficiencias que se mencionarán a continuación.
+
 \section{Posición de cada agente según el grafo de formación}
-	Ahora los agentes siempre inician en la posición 0 del grafo de formación
-\section{Implementación de operaciones matriciales con NumPy}
+Durante la restauración del algoritmo desarrollado en fases previas, al implementar la selección manual de marcadores para los agentes, se encontró que anteriormente el número de marcador asignado a cada agente estaba directamente relacionado con la posición que este debe tomar según el grafo de formación. En la Figura \ref{fig:grafo_formacion1} se muestra la asignación de posiciones según el grafo de formación para una selección arbitraria de agentes con la implementación original del algoritmo.
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=0.8\textwidth]{grafo_formacion1.png}
+	\caption{Posiciones de agentes según el grafo de formación con la implementación original del algoritmo.}
+	\label{fig:grafo_formacion1}
+\end{figure}
+
+Al tener una formación como la mostrada anteriormente se vuelve poco intuitiva su visualización a la hora de ejecutar el algoritmo. Por esto, se decidió cambiar la asignación de posición de cada agente a manera que siempre se mantenga la misma estructura del grafo de formación y los agentes se posicionen de manera ascendente tal como se observa en la figura \ref{fig:grafo_formacion2}.
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=0.8\textwidth]{grafo_formacion2.png}
+	\caption{Posiciones de agentes según el grafo de formación con la implementación original del algoritmo.}
+	\label{fig:grafo_formacion2}
+\end{figure}
+	
+\section{Mejorar la eficiencia computacional con NumPy}
+NumPy es una librería de Python especializada para el cálculo numérico y científico. Destaca por su soporte para trabajar con operaciones vectorizadas o vectores multidimensionales sin realizar bucles. También cuenta con una amplia variedad de funciones matemáticas y estadísticas, así como integración con otras bibliotecas como SciPy. Además, NumPy está implementado en C por lo que permite mejorar la eficiencia computacional para grandes cantidades de datos.
+
+Al revisar los programas de los controladores, se encontró varios segmentos de código que se realizan con ciclos \textit{for} simples y otros anidados. Esto presenta una deficiencia al realizar los cálculos y solicitud de datos al servidor del Robotat por lo que se optó por optimizar dichos procesos utilizando funciones matemáticas y operaciones matriciales con NumPy. A continuación, se detallará los segmentos del algoritmo en donde se reemplazaron los ciclos \text{for} por operaciones con NumPy.
+
 \subsection{Aplicar desfases de los marcadores}
+A continuación se explica los pasos que se realizaban anteriormente para aplicar los desfases de la calibración de marcadores, donde $n$ es la cantidad de marcadores a utilizar.
+
+
+\begin{itemize}
+	\item Configuración
+	\begin{enumerate}
+		\item Cargar el archivo .npy con los desfases de los marcadores.
+		\item Solicitar las poses de $n$ marcadores al sevidor del Robotat.
+		\item Aplicar el desfase de cada marcador con un ciclo \textit{for} de $n$ iteraciones.
+	\end{enumerate}
+	\item Ciclo principal 
+	\begin{enumerate}
+		\item Solicitar las poses de $n$ marcadores al servidor del Robotat.
+		\item Aplicar el desfase de cada marcador con un ciclo \textit{for} de $n$ iteraciones.
+	\end{enumerate}
+\end{itemize}
+
+Sin embargo, el implementar ciclos \textit{for} dentro del ciclo principal significa un aumento de tiempo computacional que es más notorio al aumentar la cantidad de marcadores a utilizar. Para optimizar el proceso se optó por aplicar los desfases a cada marcador utilizando operaciones matriciales e implementando únicamente una resta de matrices dentro del ciclo principal, por lo que ahora el proceso es el siguiente:
+
+\begin{itemize}
+	\item Configuración
+	\begin{enumerate}
+		\item Cargar el archivo .npy con los desfases de los marcadores.
+		\item Almacenar los desfases en la cuarta columna de una matriz de ceros de tamaño $n \times 6$.
+		\item Solicitar las poses de los marcadores al sevidor del Robotat.
+		\item Aplicar el desfase de los marcadores con una resta de la matriz con los desfases a la matriz con las poses de los marcadores.
+	\end{enumerate}
+	\item Ciclo principal 
+	\begin{enumerate}
+		\item Solicitar las poses de los marcadores al servidor del Robotat
+		\item Aplicar el desfase de los marcadores con una resta de la matriz con los desfases a la matriz con las poses de los marcadores.
+	\end{enumerate}
+\end{itemize}
+
+Una vez implementada la optimización, se realizó un análisis estadístico con mil muestras donde se tomó el tiempo que toma aplicar los desfases a los marcadores con un ciclo \textit{for} y con una resta de matrices con NumPy. Para esto, se utilizó la librería \textit{time} de Python donde se midió el tiempo en mili segundos.
+
+Para la toma de muestras, se evaluó diferentes cantidades de marcadores a los que se les aplicaría el desfase, siendo estos 5, 10, 15 y 20. En los Cuadros \ref{cuadro:tiempos_desfases_for} y \ref{cuadro:tiempos_desfases_numpy} se muestra la media de tiempo y la desviación estándar del tiempo que toma aplicar los desfases.
+
+Finalmente, al comparar los datos de las dos implementaciones en la Figura \ref{fig:grafica_tiempos_desfases}, se observó que la optimización con NumPy si muestra una reducción de tiempo de procesamiento importante comparada con la aplicación de los desfases con ciclos \text{for} y esta reducción es más significativa al utilizar una mayor cantidad de marcadores.
+
+\begin{table}[H]
+	\centering
+	\resizebox{\textwidth}{!} {
+	\begin{tabular}{|l|l|l|l|}
+		\hline
+		\textbf{Cantidad de marcadores} & \textbf{Número de muestras} & \textbf{Media de tiempo (ms)} & \textbf{Desviación estándar (ms)} \\ \hline
+		5 & 1000 & 0.002802 & 0.000308 \\ \hline
+		10 & 1000 & 0.005353 & 0.000469 \\ \hline
+		15 & 1000 & 0.008187 & 0.001654 \\ \hline
+		20 & 1000 & 0.010485 & 0.000843 \\ \hline
+	\end{tabular}}
+	\caption{Media de tiempo y desviación estándar para aplicar desfases de marcadores con ciclos \text{for}.}
+	\label{cuadro:tiempos_desfases_for}
+\end{table}
+
+\begin{table}[H]
+	\centering
+	\resizebox{\textwidth}{!} {
+	\begin{tabular}{|l|l|l|l|}
+		\hline
+		\textbf{Cantidad de marcadores} & \textbf{Número de muestras} & \textbf{Media de tiempo (ms)} & \textbf{Desviación estándar (ms)} \\ \hline
+		5 & 1000 & 0.000734 & 0.000119 \\ \hline
+		10 & 1000 & 0.000756 & 0.000113 \\ \hline
+		15 & 1000 & 0.000794 & 0.000225 \\ \hline
+		20 & 1000 & 0.000837 & 0.000147 \\ \hline
+	\end{tabular}}
+	\caption{Media de tiempo y desviación estándar para aplicar desfases de marcadores con NumPy.}
+	\label{cuadro:tiempos_desfases_numpy}
+\end{table}
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=0.8\textwidth]{tiempos_desfases.png}
+	\caption{Gráfica con medias de tiempo para aplicar desfases de marcadores con ciclos \textit{for} y operaciones don NumPy.}
+	\label{fig:grafica_tiempos_desfases}
+\end{figure}
+
 \subsection{Cálculo de la distancia entre agentes}
 \subsection{Cálculo del error de formación}
 
