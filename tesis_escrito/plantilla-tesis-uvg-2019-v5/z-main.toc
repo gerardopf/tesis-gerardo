@@ -1,10 +1,10 @@
 \babel@toc {spanish}{}\relax 
 \babel@toc {spanish}{}\relax 
 \contentsline {chapter}{Prefacio}{\es@scroman {iii}}{section*.6}%
-\contentsline {chapter}{Lista de figuras}{\es@scroman {vi}}{section*.8}%
-\contentsline {chapter}{Lista de cuadros}{\es@scroman {vii}}{section*.9}%
-\contentsline {chapter}{Resumen}{\es@scroman {viii}}{section*.10}%
-\contentsline {chapter}{Abstract}{\es@scroman {ix}}{section*.11}%
+\contentsline {chapter}{Lista de figuras}{\es@scroman {viii}}{section*.8}%
+\contentsline {chapter}{Lista de cuadros}{\es@scroman {ix}}{section*.9}%
+\contentsline {chapter}{Resumen}{\es@scroman {x}}{section*.10}%
+\contentsline {chapter}{Abstract}{\es@scroman {xi}}{section*.11}%
 \contentsline {chapter}{\numberline {1}Introducción}{1}{chapter.12}%
 \contentsline {chapter}{\numberline {2}Antecedentes}{2}{chapter.13}%
 \contentsline {section}{\numberline {2.1}Robótica de enjambre}{2}{section.14}%
@@ -50,15 +50,36 @@
 \contentsline {subsection}{\numberline {6.8.3}Comunicación del Robotat}{21}{subsection.83}%
 \contentsline {section}{\numberline {6.9}Hardware}{22}{section.84}%
 \contentsline {subsection}{\numberline {6.9.1}Plataforma móvil Pololu 3pi+ modificado}{22}{subsection.85}%
-\contentsline {chapter}{\numberline {7}Derivación de la dinámica del mecanismo}{23}{chapter.87}%
-\contentsline {section}{\numberline {7.1}Dinámica de cuerpos rígidos}{23}{section.88}%
-\contentsline {section}{\numberline {7.2}Restricciones}{23}{section.89}%
-\contentsline {subsection}{\numberline {7.2.1}Mecanismos de lazo cerrado}{23}{subsection.90}%
-\contentsline {subsubsection}{Mecanismo de cuatro barras}{23}{section*.91}%
-\contentsline {chapter}{\numberline {8}Control del sistema mecánico}{24}{chapter.92}%
-\contentsline {section}{\numberline {8.1}La ecuación del manipulador}{24}{section.93}%
-\contentsline {chapter}{\numberline {9}Conclusiones}{25}{chapter.95}%
-\contentsline {chapter}{\numberline {10}Recomendaciones}{26}{chapter.96}%
-\contentsline {chapter}{\numberline {11}Bibliograf\'{\i }a}{27}{chapter.98}%
-\contentsline {chapter}{\numberline {12}Anexos}{29}{chapter.99}%
-\contentsline {section}{\numberline {12.1}Planos de construcción}{29}{section.100}%
+\contentsline {chapter}{\numberline {7}Algoritmo de sincronización y control de formaciones}{23}{chapter.87}%
+\contentsline {subsection}{\numberline {7.0.1}Controlador del supervisor}{23}{subsection.88}%
+\contentsline {subsubsection}{Adquisición de posiciones}{23}{section*.89}%
+\contentsline {subsubsection}{Cálculo de velocidades de agentes}{23}{section*.90}%
+\contentsline {subsubsection}{Evasión de obstáculos y colisiones}{24}{section*.91}%
+\contentsline {subsubsection}{Control proporcional}{24}{section*.92}%
+\contentsline {subsection}{\numberline {7.0.2}Controlador de los agentes}{24}{subsection.94}%
+\contentsline {subsection}{\numberline {7.0.3}Funcionamiento del algoritmo}{24}{subsection.95}%
+\contentsline {chapter}{\numberline {8}Restauración del algoritmo desarrollado en fases previas}{27}{chapter.98}%
+\contentsline {section}{\numberline {8.1}Replicar simulaciones de Webots}{27}{section.99}%
+\contentsline {subsection}{\numberline {8.1.1}Comunicación entre supervisor y agentes}{28}{subsection.100}%
+\contentsline {subsection}{\numberline {8.1.2}Prueba del algoritmo con simulaciones basadas en escenarios previos}{28}{subsection.102}%
+\contentsline {subsubsection}{Primer escenario}{29}{section*.103}%
+\contentsline {subsubsection}{Segundo escenario}{30}{section*.105}%
+\contentsline {subsubsection}{Tercer escenario}{31}{section*.107}%
+\contentsline {section}{\numberline {8.2}Replicar el funcionamiento del algoritmo en el Robotat}{32}{section.109}%
+\contentsline {subsection}{\numberline {8.2.1}Pruebas de conexión con el Pololu 3Pi+ y el Robotat}{32}{subsection.110}%
+\contentsline {subsection}{\numberline {8.2.2}Calibración de marcadores}{32}{subsection.112}%
+\contentsline {subsection}{\numberline {8.2.3}Selección de marcadores a utilizar}{36}{subsection.118}%
+\contentsline {subsection}{\numberline {8.2.4}Ajuste de parámetros en el algoritmo}{39}{subsection.121}%
+\contentsline {chapter}{\numberline {9}Optimización del algoritmo y su implementación}{43}{chapter.126}%
+\contentsline {section}{\numberline {9.1}Lenguaje de programación y limpieza de código}{43}{section.127}%
+\contentsline {section}{\numberline {9.2}Posición de cada agente según el grafo de formación}{44}{section.129}%
+\contentsline {section}{\numberline {9.3}Mejorar la eficiencia computacional con NumPy}{46}{section.132}%
+\contentsline {subsection}{\numberline {9.3.1}Aplicar desfases de los marcadores}{46}{subsection.133}%
+\contentsline {subsection}{\numberline {9.3.2}Cálculo de la distancia entre agentes}{48}{subsection.148}%
+\contentsline {subsection}{\numberline {9.3.3}Cálculo del error de formación}{48}{subsection.149}%
+\contentsline {section}{\numberline {9.4}Implementación de paralelismo computacional}{48}{section.150}%
+\contentsline {chapter}{\numberline {10}Conclusiones}{49}{chapter.151}%
+\contentsline {chapter}{\numberline {11}Recomendaciones}{50}{chapter.152}%
+\contentsline {chapter}{\numberline {12}Bibliograf\'{\i }a}{51}{chapter.154}%
+\contentsline {chapter}{\numberline {13}Anexos}{53}{chapter.155}%
+\contentsline {section}{\numberline {13.1}Planos de construcción}{53}{section.156}%

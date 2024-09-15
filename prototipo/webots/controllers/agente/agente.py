@@ -1,4 +1,4 @@
-""" AGENTE """
+""" NumPy implementation - AGENTE """
 
 from controller import Robot, Compass, Motor
 import math
@@ -21,7 +21,7 @@ lock = Lock()
 
 fisico = 0 # 0: Webots | 1: Robotat
 
-agents_marker_list = [10,7,4,5,6,2]
+agents_marker_list = [3,5,7]
 NStart = 1 # primer agente
 N = len(agents_marker_list)	# último agente
 

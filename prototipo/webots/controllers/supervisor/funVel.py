@@ -6,7 +6,6 @@
 % ========================================================================= """
 
 # Librerías importadas
-from controller import Robot, Motor, Supervisor, Node
 import numpy as np
 import math
 
