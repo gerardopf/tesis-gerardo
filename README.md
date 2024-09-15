@@ -12,7 +12,7 @@ El algoritmo funciona correctamente
 
 - La generación de gráficas está funcionando
 
-# BITÁCORA DE CAMBIOS 
+## Bitácora de cambios 
 Verificar si el agente ya está en la posición inicial
 
 Se cambió la distancia de 0.05 a 0.07 metros
@@ -41,13 +41,13 @@ Se agregó un if fisico == 1 elif fisico == 0, esto se colocó donde se realizar
 
 
 
-# Cambios sin probar 
+## Cambios sin probar 
 Se cambió la condición para detener simulación
 - Error de formación en 0.1 (antes 0.01)     
 - Probado en simulación
 
     
-# DEFICIENCIAS
+## Deficiencias
 
 Los agentes se mueven muy despacio
 
@@ -59,14 +59,14 @@ Los agentes pierden mucho tiempo en buscar como evadir el obstáculo
 Cuando estamos en la ETAPA 3 el líder se detiene mucho para esperar a la formación y la formación siempre está en constante movimiento y a veces se mantienen girando 
 
 
-# COSAS QUE FALTAN
+## Cosas que faltan
 
 Dejar obsoleta la variable: obs_start_marker
 
 Probar cambiar la cantidad de obstáculos
 
 
-# PROBLEMAS
+## Problemas
 
 Cuando el líder llega al objetivo los agentes paran pero a veces un agente no le llegan las velocidades a cero
 
@@ -74,11 +74,11 @@ Cuando el líder llega al objetivo los agentes paran pero a veces un agente no l
 A veces el líder se aleja mucho de la formación
 
 
-# COSAS A LIMPIAR EN CÓDIGO
+## Cosas a limpiar en código
 
 El agent setup 4 que es una versión obsoleta del 5
 
-## ---------- Optimización con NumPy ----------
+# Optimización con NumPy 
 
 Se están reemplazando ciclos for en el loop principal por operaciones de matrices con NumPy.
 
@@ -86,7 +86,7 @@ Se están reemplazando ciclos for en el loop principal por operaciones de matric
 
 - NumPy está implementado en C
 
-# Cambios realizados (probados)
+## Cambios realizados (probados)
 
 1- Se eliminó el ciclo for para aplicar los desfases de los markers y se reemplazó por una suma matricial de NumPy (probado, se tuvo que cambiar el signo a resta de desfases porque lo coloqué mal anteriormente)
 
@@ -102,13 +102,13 @@ Se están reemplazando ciclos for en el loop principal por operaciones de matric
 
 7- Se creó una versión optimizada para la función que calcula el error de la formación (FormationErrorOptimized). Utilizar operaciones con NumPy en lugar de ciclos for anidados. 
 
-# Cambios realizados (NO probados)
+## Cambios realizados (NO probados)
 
-# Ideas para probar
+## Ideas para probar
 
 - En el programa de agente, enviar velocidad a las ruedas solo si es diferente a la velocidad anterior (esto para evitar saturar el envío de datos)
 
-# Observaciones
+## Observaciones
 
 - Parece que el cambio de las funciones en cuanto a tiempo no es muy significativa al utilizar pocos agentes (2 o 3), pero al utilizar más agentes si puede haber ahorro de tiempo computacional más grande (hay que probarlo con corridas reales ya que solo se tiene el tiempo en pruebas de algoritmos)
 
