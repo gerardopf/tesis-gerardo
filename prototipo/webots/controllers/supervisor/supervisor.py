@@ -25,7 +25,7 @@ TIME_STEP = 64 # paso de simulación 64 ms
 supervisor = Supervisor() # instancia de supervisor
 
 # archivo para simular una corrida en físico
-initial_conditions_file = 'test_6A_ACA_f_1.npz' 
+initial_conditions_file = '7sepProto3obs_3A_NNN_f_0.npz' 
 r_initial_conditions = 1 # 0: nueva simulación | 1: simular escenario físico
 
 # archivo para guardar una nueva corrida en físico

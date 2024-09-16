@@ -3,25 +3,23 @@
 \addvspace {10\p@ }
 \addvspace {10\p@ }
 \addvspace {10\p@ }
-\contentsline {table}{\numberline {1}{\ignorespaces Pruebas preliminares}}{6}{table.caption.26}%
 \addvspace {10\p@ }
 \addvspace {10\p@ }
 \addvspace {10\p@ }
 \addvspace {10\p@ }
 \addvspace {10\p@ }
-\contentsline {table}{\numberline {2}{\ignorespaces Desfases de marcadores disponibles alineados con el eye $y$ de la mesa de pruebas del Robotat.}}{35}{table.caption.115}%
-\contentsline {table}{\numberline {3}{\ignorespaces Desfases de marcadores obtenidos en la fase previa por José Alejandro Rodríguez \blx@tocontentsinit {0}\cite {RodriguezJA_2023_tesis}.}}{36}{table.caption.116}%
-\contentsline {table}{\numberline {4}{\ignorespaces Desfases finales para calibración de marcadores del $1$ al $22$.}}{36}{table.caption.117}%
-\contentsline {table}{\numberline {5}{\ignorespaces Configuraciones para el escenario.}}{44}{table.caption.127}%
+\contentsline {table}{\numberline {1}{\ignorespaces Desfases de marcadores disponibles alineados con el eye $y$ de la mesa de pruebas del Robotat.}}{35}{table.caption.114}%
+\contentsline {table}{\numberline {2}{\ignorespaces Desfases de marcadores obtenidos en la fase previa por José Alejandro Rodríguez \blx@tocontentsinit {0}\cite {RodriguezJA_2023_tesis}.}}{36}{table.caption.115}%
+\contentsline {table}{\numberline {3}{\ignorespaces Desfases finales para calibración de marcadores del $1$ al $22$.}}{36}{table.caption.116}%
+\contentsline {table}{\numberline {4}{\ignorespaces Configuraciones para el escenario.}}{41}{table.caption.126}%
 \addvspace {10\p@ }
-\contentsline {table}{\numberline {6}{\ignorespaces Ventajas y desventajas de lenguajes de programación.}}{63}{table.caption.163}%
-\contentsline {table}{\numberline {7}{\ignorespaces Media de tiempo y desviación estándar para aplicar desfases de marcadores con ciclos \text {for}.}}{66}{table.caption.180}%
-\contentsline {table}{\numberline {8}{\ignorespaces Media de tiempo y desviación estándar para aplicar desfases de marcadores con NumPy.}}{66}{table.caption.181}%
-\contentsline {table}{\numberline {9}{\ignorespaces Media de tiempo y desviación estándar para calcular la distancia entre agentes con ciclos \textit {for}.}}{68}{table.caption.184}%
-\contentsline {table}{\numberline {10}{\ignorespaces Media de tiempo y desviación estándar para calcular la distancia entre agentes con NumPy.}}{68}{table.caption.185}%
-\contentsline {table}{\numberline {11}{\ignorespaces Media de tiempo y desviación estándar para calcular el error de formación con ciclos \textit {for}.}}{69}{table.caption.188}%
-\contentsline {table}{\numberline {12}{\ignorespaces Media de tiempo y desviación estándar para calcular el error de formación con NumPy.}}{69}{table.caption.189}%
-\addvspace {10\p@ }
+\contentsline {table}{\numberline {5}{\ignorespaces Ventajas y desventajas de lenguajes de programación.}}{60}{table.caption.162}%
+\contentsline {table}{\numberline {6}{\ignorespaces Media de tiempo y desviación estándar para aplicar desfases de marcadores con ciclos \text {for}.}}{63}{table.caption.179}%
+\contentsline {table}{\numberline {7}{\ignorespaces Media de tiempo y desviación estándar para aplicar desfases de marcadores con NumPy.}}{63}{table.caption.180}%
+\contentsline {table}{\numberline {8}{\ignorespaces Media de tiempo y desviación estándar para calcular la distancia entre agentes con ciclos \textit {for}.}}{65}{table.caption.183}%
+\contentsline {table}{\numberline {9}{\ignorespaces Media de tiempo y desviación estándar para calcular la distancia entre agentes con NumPy.}}{65}{table.caption.184}%
+\contentsline {table}{\numberline {10}{\ignorespaces Media de tiempo y desviación estándar para calcular el error de formación con ciclos \textit {for}.}}{66}{table.caption.187}%
+\contentsline {table}{\numberline {11}{\ignorespaces Media de tiempo y desviación estándar para calcular el error de formación con NumPy.}}{66}{table.caption.188}%
 \addvspace {10\p@ }
 \addvspace {10\p@ }
 \addvspace {10\p@ }

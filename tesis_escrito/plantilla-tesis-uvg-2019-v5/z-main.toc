@@ -15,89 +15,87 @@
 \contentsline {section}{\numberline {2.6}Algoritmo de sincronización y control de sistemas de robots multiagente para misiones de búsqueda}{5}{section.22}%
 \contentsline {section}{\numberline {2.7}Validación de un algoritmo de inteligencia de enjambre enfocado en sincronización y control de formaciones de sistemas robóticos multi-agente en un entorno físico}{5}{section.24}%
 \contentsline {chapter}{\numberline {3}Justificación}{6}{chapter.25}%
-\contentsline {chapter}{\numberline {4}Objetivos}{7}{chapter.27}%
-\contentsline {section}{\numberline {4.1}Objetivo general}{7}{section.28}%
-\contentsline {section}{\numberline {4.2}Objetivos específicos}{7}{section.29}%
-\contentsline {chapter}{\numberline {5}Alcance}{8}{chapter.30}%
-\contentsline {chapter}{\numberline {6}Marco teórico}{9}{chapter.31}%
-\contentsline {section}{\numberline {6.1}Conceptos fundamentales en robótica de enjambre}{9}{section.32}%
-\contentsline {subsection}{\numberline {6.1.1}Enjambre}{9}{subsection.33}%
-\contentsline {subsection}{\numberline {6.1.2}Agente}{10}{subsection.35}%
-\contentsline {subsection}{\numberline {6.1.3}Formaciones}{10}{subsection.36}%
-\contentsline {subsection}{\numberline {6.1.4}Control centralizado y descentralizado}{10}{subsection.37}%
-\contentsline {section}{\numberline {6.2}Conceptos básicos en Teoría de grafos}{11}{section.39}%
-\contentsline {subsection}{\numberline {6.2.1}Teoría de grafos}{11}{subsection.40}%
-\contentsline {subsection}{\numberline {6.2.2}Vértices y aristas}{12}{subsection.42}%
-\contentsline {subsection}{\numberline {6.2.3}Tipos de grafos}{12}{subsection.43}%
-\contentsline {subsection}{\numberline {6.2.4}Matrices asociadas a un grafo}{13}{subsection.45}%
-\contentsline {section}{\numberline {6.3}Control de la formación}{14}{section.46}%
-\contentsline {subsection}{\numberline {6.3.1}Grafo de formación}{14}{subsection.47}%
-\contentsline {subsection}{\numberline {6.3.2}Construcción de un grafo mínimamente rígido}{15}{subsection.49}%
-\contentsline {subsection}{\numberline {6.3.3}Grafo para la red de comunicación}{15}{subsection.54}%
-\contentsline {section}{\numberline {6.4}Teoría de control}{16}{section.55}%
-\contentsline {subsection}{\numberline {6.4.1}Control de formación}{16}{subsection.57}%
-\contentsline {section}{\numberline {6.5}Cinemática de robots diferenciales con ruedas}{16}{section.58}%
-\contentsline {section}{\numberline {6.6}Otras ecuaciones matemáticas relevantes}{17}{section.64}%
-\contentsline {subsection}{\numberline {6.6.1}Ecuación de consenso}{17}{subsection.65}%
-\contentsline {subsection}{\numberline {6.6.2}Funciones racionales para hallar la tensión}{18}{subsection.68}%
-\contentsline {section}{\numberline {6.7}Herramientas de software}{19}{section.73}%
-\contentsline {subsection}{\numberline {6.7.1}Matlab}{19}{subsection.74}%
-\contentsline {subsection}{\numberline {6.7.2}Entorno de simulación Webots}{19}{subsection.75}%
-\contentsline {subsection}{\numberline {6.7.3}Paralelismo computacional}{19}{subsection.77}%
-\contentsline {section}{\numberline {6.8}Ecosistema Robotat}{20}{section.79}%
-\contentsline {subsection}{\numberline {6.8.1}Mesa de pruebas}{20}{subsection.80}%
-\contentsline {subsection}{\numberline {6.8.2}Sistema de captura de movimiento OptiTrack}{21}{subsection.81}%
-\contentsline {subsection}{\numberline {6.8.3}Comunicación del Robotat}{21}{subsection.83}%
-\contentsline {section}{\numberline {6.9}Hardware}{22}{section.84}%
-\contentsline {subsection}{\numberline {6.9.1}Plataforma móvil Pololu 3pi+ modificado}{22}{subsection.85}%
-\contentsline {chapter}{\numberline {7}Algoritmo de sincronización y control de formaciones}{23}{chapter.87}%
-\contentsline {subsection}{\numberline {7.0.1}Controlador del supervisor}{23}{subsection.88}%
-\contentsline {subsubsection}{Adquisición de posiciones}{23}{section*.89}%
-\contentsline {subsubsection}{Cálculo de velocidades de agentes}{23}{section*.90}%
-\contentsline {subsubsection}{Evasión de obstáculos y colisiones}{24}{section*.91}%
-\contentsline {subsubsection}{Control proporcional}{24}{section*.92}%
-\contentsline {subsection}{\numberline {7.0.2}Controlador de los agentes}{24}{subsection.94}%
-\contentsline {subsection}{\numberline {7.0.3}Funcionamiento del algoritmo}{24}{subsection.95}%
-\contentsline {chapter}{\numberline {8}Restauración del algoritmo desarrollado en fases previas}{27}{chapter.98}%
-\contentsline {section}{\numberline {8.1}Replicar simulaciones de Webots}{27}{section.99}%
-\contentsline {subsection}{\numberline {8.1.1}Comunicación entre supervisor y agentes}{28}{subsection.100}%
-\contentsline {subsection}{\numberline {8.1.2}Prueba del algoritmo con simulaciones basadas en escenarios previos}{28}{subsection.102}%
-\contentsline {subsubsection}{Primer escenario}{29}{section*.103}%
-\contentsline {subsubsection}{Segundo escenario}{30}{section*.105}%
-\contentsline {subsubsection}{Tercer escenario}{31}{section*.107}%
-\contentsline {section}{\numberline {8.2}Replicar el funcionamiento del algoritmo en el Robotat}{32}{section.109}%
-\contentsline {subsection}{\numberline {8.2.1}Pruebas de conexión con el Pololu 3Pi+ y el Robotat}{32}{subsection.110}%
-\contentsline {subsection}{\numberline {8.2.2}Calibración de marcadores}{33}{subsection.112}%
-\contentsline {subsection}{\numberline {8.2.3}Selección de marcadores a utilizar}{37}{subsection.118}%
-\contentsline {subsection}{\numberline {8.2.4}Ajuste de parámetros en el algoritmo}{40}{subsection.121}%
-\contentsline {subsection}{\numberline {8.2.5}Configuraciones para el escenario}{44}{subsection.126}%
-\contentsline {subsection}{\numberline {8.2.6}Prueba del algoritmo en físico con escenarios previos}{44}{subsection.128}%
-\contentsline {subsubsection}{Primer escenario}{45}{section*.129}%
-\contentsline {subsubsection}{Segundo escenario}{46}{section*.132}%
-\contentsline {subsubsection}{Tercer escenario}{48}{section*.135}%
-\contentsline {subsubsection}{Cuarto escenario}{50}{section*.138}%
-\contentsline {subsubsection}{Quinto escenario}{52}{section*.141}%
-\contentsline {section}{\numberline {8.3}Prueba de funcionamiento del algoritmo con obstáculos móviles}{54}{section.144}%
-\contentsline {subsection}{\numberline {8.3.1}Simulaciones utilizando obstáculos móviles}{55}{subsection.145}%
-\contentsline {subsubsection}{Primer escenario}{55}{section*.146}%
-\contentsline {subsubsection}{Segundo escenario}{56}{section*.148}%
-\contentsline {subsubsection}{Tercer escenario}{57}{section*.150}%
-\contentsline {subsection}{\numberline {8.3.2}Escenarios físicos utilizando obstáculos móviles}{57}{subsection.152}%
-\contentsline {subsubsection}{Primer escenario}{57}{section*.153}%
-\contentsline {subsubsection}{Segundo escenario}{58}{section*.155}%
-\contentsline {subsubsection}{Tercer escenario}{59}{section*.157}%
-\contentsline {subsubsection}{Cuarto escenario}{60}{section*.159}%
-\contentsline {chapter}{\numberline {9}Optimización del algoritmo y su implementación}{62}{chapter.161}%
-\contentsline {section}{\numberline {9.1}Lenguaje de programación y limpieza de código}{62}{section.162}%
-\contentsline {section}{\numberline {9.2}Posición de cada agente según el grafo de formación}{63}{section.164}%
-\contentsline {section}{\numberline {9.3}Mejorar la eficiencia computacional con NumPy}{65}{section.167}%
-\contentsline {subsection}{\numberline {9.3.1}Aplicar desfases de los marcadores}{65}{subsection.168}%
-\contentsline {subsection}{\numberline {9.3.2}Cálculo de la distancia entre agentes}{67}{subsection.183}%
-\contentsline {subsection}{\numberline {9.3.3}Cálculo del error de formación}{69}{subsection.187}%
-\contentsline {section}{\numberline {9.4}Ajuste de parámetros del algoritmo}{70}{section.191}%
-\contentsline {chapter}{\numberline {10}Validación del algoritmo optimizado en escenarios físicos con obstáculos móviles}{71}{chapter.192}%
-\contentsline {chapter}{\numberline {11}Conclusiones}{72}{chapter.193}%
-\contentsline {chapter}{\numberline {12}Recomendaciones}{73}{chapter.194}%
-\contentsline {chapter}{\numberline {13}Bibliograf\'{\i }a}{74}{chapter.196}%
-\contentsline {chapter}{\numberline {14}Anexos}{76}{chapter.197}%
-\contentsline {section}{\numberline {14.1}Planos de construcción}{76}{section.198}%
+\contentsline {chapter}{\numberline {4}Objetivos}{7}{chapter.26}%
+\contentsline {section}{\numberline {4.1}Objetivo general}{7}{section.27}%
+\contentsline {section}{\numberline {4.2}Objetivos específicos}{7}{section.28}%
+\contentsline {chapter}{\numberline {5}Alcance}{8}{chapter.29}%
+\contentsline {chapter}{\numberline {6}Marco teórico}{9}{chapter.30}%
+\contentsline {section}{\numberline {6.1}Conceptos fundamentales en robótica de enjambre}{9}{section.31}%
+\contentsline {subsection}{\numberline {6.1.1}Enjambre}{9}{subsection.32}%
+\contentsline {subsection}{\numberline {6.1.2}Agente}{10}{subsection.34}%
+\contentsline {subsection}{\numberline {6.1.3}Formaciones}{10}{subsection.35}%
+\contentsline {subsection}{\numberline {6.1.4}Control centralizado y descentralizado}{10}{subsection.36}%
+\contentsline {section}{\numberline {6.2}Conceptos básicos en Teoría de grafos}{11}{section.38}%
+\contentsline {subsection}{\numberline {6.2.1}Teoría de grafos}{11}{subsection.39}%
+\contentsline {subsection}{\numberline {6.2.2}Vértices y aristas}{12}{subsection.41}%
+\contentsline {subsection}{\numberline {6.2.3}Tipos de grafos}{12}{subsection.42}%
+\contentsline {subsection}{\numberline {6.2.4}Matrices asociadas a un grafo}{13}{subsection.44}%
+\contentsline {section}{\numberline {6.3}Control de la formación}{14}{section.45}%
+\contentsline {subsection}{\numberline {6.3.1}Grafo de formación}{14}{subsection.46}%
+\contentsline {subsection}{\numberline {6.3.2}Construcción de un grafo mínimamente rígido}{15}{subsection.48}%
+\contentsline {subsection}{\numberline {6.3.3}Grafo para la red de comunicación}{15}{subsection.53}%
+\contentsline {section}{\numberline {6.4}Teoría de control}{16}{section.54}%
+\contentsline {subsection}{\numberline {6.4.1}Control de formación}{16}{subsection.56}%
+\contentsline {section}{\numberline {6.5}Cinemática de robots diferenciales con ruedas}{16}{section.57}%
+\contentsline {section}{\numberline {6.6}Otras ecuaciones matemáticas relevantes}{17}{section.63}%
+\contentsline {subsection}{\numberline {6.6.1}Ecuación de consenso}{17}{subsection.64}%
+\contentsline {subsection}{\numberline {6.6.2}Funciones racionales para hallar la tensión}{18}{subsection.67}%
+\contentsline {section}{\numberline {6.7}Herramientas de software}{19}{section.72}%
+\contentsline {subsection}{\numberline {6.7.1}Matlab}{19}{subsection.73}%
+\contentsline {subsection}{\numberline {6.7.2}Entorno de simulación Webots}{19}{subsection.74}%
+\contentsline {subsection}{\numberline {6.7.3}Paralelismo computacional}{19}{subsection.76}%
+\contentsline {section}{\numberline {6.8}Ecosistema Robotat}{20}{section.78}%
+\contentsline {subsection}{\numberline {6.8.1}Mesa de pruebas}{20}{subsection.79}%
+\contentsline {subsection}{\numberline {6.8.2}Sistema de captura de movimiento OptiTrack}{21}{subsection.80}%
+\contentsline {subsection}{\numberline {6.8.3}Comunicación del Robotat}{21}{subsection.82}%
+\contentsline {section}{\numberline {6.9}Hardware}{22}{section.83}%
+\contentsline {subsection}{\numberline {6.9.1}Plataforma móvil Pololu 3pi+ modificado}{22}{subsection.84}%
+\contentsline {chapter}{\numberline {7}Algoritmo de sincronización y control de formaciones}{23}{chapter.86}%
+\contentsline {subsection}{\numberline {7.0.1}Controlador del supervisor}{23}{subsection.87}%
+\contentsline {subsubsection}{Adquisición de posiciones}{23}{section*.88}%
+\contentsline {subsubsection}{Cálculo de velocidades de agentes}{23}{section*.89}%
+\contentsline {subsubsection}{Evasión de obstáculos y colisiones}{24}{section*.90}%
+\contentsline {subsubsection}{Control proporcional}{24}{section*.91}%
+\contentsline {subsection}{\numberline {7.0.2}Controlador de los agentes}{24}{subsection.93}%
+\contentsline {subsection}{\numberline {7.0.3}Funcionamiento del algoritmo}{24}{subsection.94}%
+\contentsline {chapter}{\numberline {8}Restauración del algoritmo desarrollado en fases previas}{27}{chapter.97}%
+\contentsline {section}{\numberline {8.1}Replicar simulaciones de Webots}{27}{section.98}%
+\contentsline {subsection}{\numberline {8.1.1}Comunicación entre supervisor y agentes}{28}{subsection.99}%
+\contentsline {subsection}{\numberline {8.1.2}Prueba del algoritmo con simulaciones basadas en escenarios previos}{28}{subsection.101}%
+\contentsline {subsubsection}{Primer escenario}{29}{section*.102}%
+\contentsline {subsubsection}{Segundo escenario}{30}{section*.104}%
+\contentsline {subsubsection}{Tercer escenario}{31}{section*.106}%
+\contentsline {section}{\numberline {8.2}Replicar el funcionamiento del algoritmo en el Robotat}{32}{section.108}%
+\contentsline {subsection}{\numberline {8.2.1}Pruebas de conexión con el Pololu 3Pi+ y el Robotat}{32}{subsection.109}%
+\contentsline {subsection}{\numberline {8.2.2}Calibración de marcadores}{33}{subsection.111}%
+\contentsline {subsection}{\numberline {8.2.3}Selección de marcadores a utilizar}{37}{subsection.117}%
+\contentsline {subsection}{\numberline {8.2.4}Ajuste de parámetros en el algoritmo}{38}{subsection.120}%
+\contentsline {subsection}{\numberline {8.2.5}Configuraciones para el escenario}{41}{subsection.125}%
+\contentsline {subsection}{\numberline {8.2.6}Prueba del algoritmo en físico con escenarios previos}{41}{subsection.127}%
+\contentsline {subsubsection}{Primer escenario}{42}{section*.128}%
+\contentsline {subsubsection}{Segundo escenario}{43}{section*.131}%
+\contentsline {subsubsection}{Tercer escenario}{45}{section*.134}%
+\contentsline {subsubsection}{Cuarto escenario}{47}{section*.137}%
+\contentsline {subsubsection}{Quinto escenario}{49}{section*.140}%
+\contentsline {section}{\numberline {8.3}Prueba de funcionamiento del algoritmo con obstáculos móviles}{51}{section.143}%
+\contentsline {subsection}{\numberline {8.3.1}Simulaciones utilizando obstáculos móviles}{52}{subsection.144}%
+\contentsline {subsubsection}{Primer escenario}{52}{section*.145}%
+\contentsline {subsubsection}{Segundo escenario}{53}{section*.147}%
+\contentsline {subsubsection}{Tercer escenario}{54}{section*.149}%
+\contentsline {subsection}{\numberline {8.3.2}Escenarios físicos utilizando obstáculos móviles}{54}{subsection.151}%
+\contentsline {subsubsection}{Primer escenario}{54}{section*.152}%
+\contentsline {subsubsection}{Segundo escenario}{55}{section*.154}%
+\contentsline {subsubsection}{Tercer escenario}{56}{section*.156}%
+\contentsline {subsubsection}{Cuarto escenario}{57}{section*.158}%
+\contentsline {chapter}{\numberline {9}Optimización del algoritmo y su implementación}{59}{chapter.160}%
+\contentsline {section}{\numberline {9.1}Lenguaje de programación y limpieza de código}{59}{section.161}%
+\contentsline {section}{\numberline {9.2}Posición de cada agente según el grafo de formación}{60}{section.163}%
+\contentsline {section}{\numberline {9.3}Mejorar la eficiencia computacional con NumPy}{62}{section.166}%
+\contentsline {subsection}{\numberline {9.3.1}Aplicar desfases de los marcadores}{62}{subsection.167}%
+\contentsline {subsection}{\numberline {9.3.2}Cálculo de la distancia entre agentes}{64}{subsection.182}%
+\contentsline {subsection}{\numberline {9.3.3}Cálculo del error de formación}{66}{subsection.186}%
+\contentsline {section}{\numberline {9.4}Ajuste de parámetros del algoritmo}{67}{section.190}%
+\contentsline {chapter}{\numberline {10}Validación del algoritmo optimizado en escenarios físicos con obstáculos móviles}{68}{chapter.191}%
+\contentsline {chapter}{\numberline {11}Conclusiones}{69}{chapter.192}%
+\contentsline {chapter}{\numberline {12}Recomendaciones}{70}{chapter.193}%
+\contentsline {chapter}{\numberline {13}Bibliograf\'{\i }a}{71}{chapter.195}%

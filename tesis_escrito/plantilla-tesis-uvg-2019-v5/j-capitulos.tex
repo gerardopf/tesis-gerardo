@@ -35,18 +35,18 @@ El algoritmo consta de las siguientes etapas para su ejecución:
 	\item Etapa 3: el líder se mueve hacia el objetivo y los agentes de la formación lo siguen.
 \end{itemize}
 
-A continuación, se muestra el diagrama de flujo para los programas del supervisor y el control de los agentes.
+En las Figuras \ref{fig:diagrama_supervisor} y \ref{fig:diagrama_agentes} se muestra el diagrama de flujo para los programas del supervisor y el control de los agentes.
 
 \begin{figure}[H]
 	\centering
-	\includegraphics[width=0.2\textwidth]{optimizacion/diagrama_supervisor.png}
+	\includegraphics[width=0.25\textwidth]{optimizacion/diagrama_supervisor.png}
 	\caption{Diagrama de flujo para el supervisor.}
 	\label{fig:diagrama_supervisor}
 \end{figure}
 
 \begin{figure}[H]
 	\centering
-	\includegraphics[width=0.35\textwidth]{optimizacion/diagrama_agentes.png}
+	\includegraphics[width=0.5\textwidth]{optimizacion/diagrama_agentes.png}
 	\caption{Diagrama de flujo para el programa de los agentes.}
 	\label{fig:diagrama_agentes}
 \end{figure}
@@ -302,8 +302,8 @@ Una vez guardada la calibración de marcadores, se realizó pruebas en el Robota
 
 \begin{figure}[H]
 	\centering
-	\includegraphics[width=0.6\textwidth]{replicar_fisico_pruebas/agente_inmovil_p1.png}
-	\includegraphics[width=0.6\textwidth]{replicar_fisico_pruebas/agente_inmovil_p2.png}
+	\includegraphics[width=0.45\textwidth]{replicar_fisico_pruebas/agente_inmovil_p1.png}
+	\includegraphics[width=0.45\textwidth]{replicar_fisico_pruebas/agente_inmovil_p2.png}
 	\caption{Problema de funcionamiento en físico, agentes permanecen inmóviles.}
 	\label{fig:agente_inmovil}
 \end{figure}
@@ -341,8 +341,8 @@ Una vez realizadas las modificaciones anteriores, al ejecutar el algoritmo en f�
 
 \begin{figure}[H]
 	\centering
-	\includegraphics[width=0.6\textwidth]{replicar_fisico_pruebas/divergencia_p1.png}
-	\includegraphics[width=0.6\textwidth]{replicar_fisico_pruebas/divergencia_p2.png}
+	\includegraphics[width=0.45\textwidth]{replicar_fisico_pruebas/divergencia_p1.png}
+	\includegraphics[width=0.45\textwidth]{replicar_fisico_pruebas/divergencia_p2.png}
 	\caption{Problema de funcionamiento en físico, agentes divergen hacia posiciones iniciales. }
 	\label{fig:divergencia1}
 \end{figure}
@@ -351,8 +351,8 @@ Para intentar solucionar esto, se invirtió signo de la constante de proporciona
 
 \begin{figure}[H]
 	\centering
-	\includegraphics[width=0.6\textwidth]{replicar_fisico_pruebas/divergencia2_p1.png}
-	\includegraphics[width=0.6\textwidth]{replicar_fisico_pruebas/divergencia2_p2.png}
+	\includegraphics[width=0.45\textwidth]{replicar_fisico_pruebas/divergencia2_p1.png}
+	\includegraphics[width=0.45\textwidth]{replicar_fisico_pruebas/divergencia2_p2.png}
 	\caption{Problema de funcionamiento en físico, agentes divergen luego de colocarse en sus posiciones iniciales.}
 	\label{fig:divergencia2}
 \end{figure}
@@ -514,7 +514,7 @@ Para el tercer escenario, se utilizó la configuración ACA con 3 agentes. En la
 \section{Prueba de funcionamiento del algoritmo con obstáculos móviles}
 Una vez que se validó el funcionamiento del algoritmo utilizando escenarios previos, se puso a prueba la naturaleza dinámica del algoritmo de sincronización y control de formaciones. Como se mencionó anteriormente, se cuenta con el archivo ``data\_graphing.py'' para generar las gráficas y trayectorias del experimento. Sin embargo, este no muestra el recorrido de los obstáculos en movimiento, por lo que se agregó esta función a manera de visualizar la posición inicial, y final, así como las trayectorias de los obstáculos.
 
-A continuación, se presentan los escenarios en los que se puso a prueba el algoritmo con obstáculos móviles en simulaciones y en físico. En todos los casos, se observa que los agentes logran reposicionarse y cambiar su trayectoria al moverse los obstáculos, manteniendo su formación mientras siguen el objetivo. Esto es posible gracias a la naturaleza dinámica del algoritmo, que se debe a la manera en que se planteó originalmente la ecuación de consenso y el cálculo del peso para determinar las velocidades. Además, el algoritmo está constantemente evaluando la posición actual de cada agente y la compara con la posición actual de los obstáculos a manera que se ajusta de forma dinámica el peso $w$ y re calcula la ecuación de consenso para evitar posibles colisiones.
+A continuación, se presentan los escenarios en los que se puso a prueba el algoritmo con obstáculos móviles en simulaciones y en físico. En todos los casos, se observa que los agentes logran reposicionarse y cambiar su trayectoria al moverse los obstáculos, manteniendo su formación mientras siguen el objetivo. Esto es posible gracias a la naturaleza dinámica del algoritmo, que se debe a la manera en que se planteó originalmente la ecuación de consenso y el cálculo del peso para determinar las velocidades. Además, el algoritmo está constantemente evaluando la posición actual de cada agente y la compara con la posición actual de los obstáculos. Con esto, se ajusta de forma dinámica el peso $w$ y se re calcula la ecuación de consenso para evitar posibles colisiones.
 
 \subsection{Simulaciones utilizando obstáculos móviles}
 Para las simulaciones mostradas en las Figuras \ref{fig:traj_testSim_6A_ADA_v_1}, \ref{fig:traj_testSim_6A_ADA_v_2} y \ref{fig:traj_testSim_6A_ADA_v_3} se optó por utilizar una configuración ADA con 6 agentes y se movilizó los obstáculos a manera de que estos interfirieran con la trayectoria de la formación durante el seguimiento al objetivo. Cabe mencionar que la movilización de los obstáculos se hizo de manera aleatoria y sin ningún patrón en específico. 
