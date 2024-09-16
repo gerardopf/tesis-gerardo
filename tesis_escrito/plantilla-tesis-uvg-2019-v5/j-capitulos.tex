@@ -159,6 +159,8 @@ En la Figura \ref{fig:tercera_simulacion}, las imágenes en el orden de izquierd
 	\label{fig:tercera_simulacion}
 \end{figure}
 
+\subsection{Prueba del algoritmo con simulaciones utilizando obstáculos móviles}
+
 \section{Replicar el funcionamiento del algoritmo en el Robotat}
 Una vez teniendo el algoritmo funcionando en Webots, el siguiente paso fue verificar que el algoritmo se ejecute correctamente en el Robotat.
 \subsection{Pruebas de conexión con el Pololu 3Pi+ y el Robotat}
@@ -503,9 +505,11 @@ Para el segundo escenario, se utilizó la configuración AAA con 6 agentes. En l
 	\label{fig:traj_test_3A_ACA_f_1}
 \end{figure}
 
+\subsection{Prueba del algoritmo en físico utilizando obstáculos móviles}
+
 
 \chapter{Optimización del algoritmo y su implementación}
-En este capítulo se describen los puntos de mejora identificados en la implementación del algoritmo de sincronización y control de formaciones. Luego, se detallará cómo se abordó cada uno de ellos empleando técnicas de optimización como la reducción de complejidad computacional, ajuste de parámetros de control y paralelización de procesos.
+En este capítulo se describen los puntos de mejora identificados en la implementación del algoritmo de sincronización y control de formaciones. Luego, se detallará cómo se abordó cada uno de ellos empleando técnicas de optimización como la reducción de complejidad computacional y ajuste de parámetros de control.
 
 
 \section{Lenguaje de programación y limpieza de código}
@@ -743,6 +747,10 @@ En la Figura \ref{fig:grafica_tiempos_error} se muestra una gráfica en la que s
 	\caption{Gráfica con medias de tiempo para calcular el error de formación con ciclos \textit{for} y operaciones con NumPy.}
 	\label{fig:grafica_tiempos_error}
 \end{figure}
+
+\section{Ajuste de parámetros del algoritmo}
+
+\chapter{Validación del algoritmo optimizado en escenarios físicos con obstáculos móviles}
 
 
 

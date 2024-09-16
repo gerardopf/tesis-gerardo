@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.25 (MiKTeX 24.1) (preloaded format=pdflatex 2024.1.31)  16 SEP 2024 01:49
+This is pdfTeX, Version 3.141592653-2.6-1.40.25 (MiKTeX 24.1) (preloaded format=pdflatex 2024.1.31)  16 SEP 2024 01:54
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1836,18 +1836,13 @@ st_3A_ACA_f_1.eps>
 (epstopdf)                    size: 48810 bytes
 (epstopdf)             Output file: <figuras/replicar_fisico_escenarios/traj_te
 st_3A_ACA_f_1-eps-converted-to.pdf>
+(epstopdf)                    date: 2024-09-16 01:49:19
+(epstopdf)                    size: 22601 bytes
 (epstopdf)             Command: <miktex-epstopdf --outfile=figuras/replicar_fis
 ico_escenarios/traj_test_3A_ACA_f_1-eps-converted-to.pdf figuras/replicar_fisic
 o_escenarios/traj_test_3A_ACA_f_1.eps>
 (epstopdf)             \includegraphics on input line 501.
-runsystem(miktex-epstopdf --outfile=figuras/replicar_fisico_escenarios/traj_tes
-t_3A_ACA_f_1-eps-converted-to.pdf figuras/replicar_fisico_escenarios/traj_test_
-3A_ACA_f_1.eps)...executed safely (allowed).
-
-Package epstopdf Info: Result file: <figuras/replicar_fisico_escenarios/traj_te
-st_3A_ACA_f_1-eps-converted-to.pdf>
-(epstopdf)                    date: 2024-09-16 01:49:19
-(epstopdf)                    size: 22601 bytes.
+Package epstopdf Info: Output file is already uptodate.
 <figuras/replicar_fisico_escenarios/traj_test_3A_ACA_f_1-eps-converted-to.pdf, 
 id=1230, 409.53pt x 453.695pt>
 File: figuras/replicar_fisico_escenarios/traj_test_3A_ACA_f_1-eps-converted-to.
@@ -1988,7 +1983,7 @@ gerar/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr10.pfb><C
 cm/cmr8.pfb><C:/Users/gerar/AppData/Local/Programs/MiKTeX/fonts/type1/public/am
 sfonts/cm/cmsy10.pfb><C:/Users/gerar/AppData/Local/Programs/MiKTeX/fonts/type1/
 public/amsfonts/cm/cmsy8.pfb>
-Output written on z-main.pdf (80 pages, 57842234 bytes).
+Output written on z-main.pdf (80 pages, 57842223 bytes).
 PDF statistics:
  2261 PDF objects out of 2487 (max. 8388607)
  288 named destinations out of 1000 (max. 500000)
