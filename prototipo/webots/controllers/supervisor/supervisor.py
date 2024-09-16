@@ -25,11 +25,11 @@ TIME_STEP = 64 # paso de simulación 64 ms
 supervisor = Supervisor() # instancia de supervisor
 
 # archivo para simular una corrida en físico
-initial_conditions_file = 'finaltrial_6A_BCA_f_1.npz' 
+initial_conditions_file = '7sepProto3obs_3A_NNN_f_0.npz' 
 r_initial_conditions = 1 # 0: nueva simulación | 1: simular escenario físico
 
 # archivo para guardar una nueva corrida en físico
-new_run_file = '14sepProto3obs_3A_NNN_f_0.npz'
+new_run_file = '15sepProto3obs_3A_NNN_f_0.npz'
 
 """ modo real o simulación """
 fisico = 0               # 0 Webots | 1 Robotat

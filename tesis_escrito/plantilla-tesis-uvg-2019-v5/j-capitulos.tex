@@ -39,14 +39,14 @@ A continuación, se muestra el diagrama de flujo para los programas del supervis
 
 \begin{figure}[H]
 	\centering
-	\includegraphics[width=0.2\textwidth]{diagrama_supervisor.png}
+	\includegraphics[width=0.2\textwidth]{optimizacion/diagrama_supervisor.png}
 	\caption{Diagrama de flujo para el supervisor.}
 	\label{fig:diagrama_supervisor}
 \end{figure}
 
 \begin{figure}[H]
 	\centering
-	\includegraphics[width=0.35\textwidth]{diagrama_agentes.png}
+	\includegraphics[width=0.35\textwidth]{optimizacion/diagrama_agentes.png}
 	\caption{Diagrama de flujo para el programa de los agentes.}
 	\label{fig:diagrama_agentes}
 \end{figure}
@@ -80,10 +80,10 @@ Al ejecutar la primera simulación, se encontró que dos agentes permanecían in
 
 \begin{figure}[H]
 	\centering
-	\includegraphics[width=0.30\textwidth]{delaygpu1.png}
-	\includegraphics[width=0.30\textwidth]{delaygpu2.png}
-	\includegraphics[width=0.30\textwidth]{delaygpu3.png}
-	\caption{Ejecución de la primera simulación den Webots 2023b.}
+	\includegraphics[width=0.30\textwidth]{replicar_webots/delaygpu_v2_1.png}
+	\includegraphics[width=0.30\textwidth]{replicar_webots/delaygpu_v2_2.png}
+	\includegraphics[width=0.30\textwidth]{replicar_webots/delaygpu_v2_3.png}
+	\caption{Ejecución de la primera simulación en Webots 2023b.}
 	\label{fig:delaygpu}
 \end{figure}
 
@@ -109,10 +109,10 @@ En la Figura \ref{fig:primera_simulacion}, las imágenes en el orden de izquierd
 
 \begin{figure}[H]
 	\centering
-	\includegraphics[width=0.45\textwidth]{sim1_p1.png}
-	\includegraphics[width=0.45\textwidth]{sim1_p2.png}
-	\includegraphics[width=0.45\textwidth]{sim1_p3.png}
-	\includegraphics[width=0.45\textwidth]{sim1_p4.png}
+	\includegraphics[width=0.45\textwidth]{replicar_webots/sim1_p1.png}
+	\includegraphics[width=0.45\textwidth]{replicar_webots/sim1_p2.png}
+	\includegraphics[width=0.45\textwidth]{replicar_webots/sim1_p3.png}
+	\includegraphics[width=0.45\textwidth]{replicar_webots/sim1_p4.png}
 	\caption{Ejecución del algoritmo en la primera simulación}
 	\label{fig:primera_simulacion}
 \end{figure}
@@ -130,10 +130,10 @@ En la Figura \ref{fig:segunda_simulacion}, las imágenes en el orden de izquierd
 
 \begin{figure}[H]
 	\centering
-	\includegraphics[width=0.45\textwidth]{sim2_p1.png}
-	\includegraphics[width=0.45\textwidth]{sim2_p2.png}
-	\includegraphics[width=0.45\textwidth]{sim2_p3.png}
-	\includegraphics[width=0.45\textwidth]{sim2_p4.png}
+	\includegraphics[width=0.45\textwidth]{replicar_webots/sim2_p1.png}
+	\includegraphics[width=0.45\textwidth]{replicar_webots/sim2_p2.png}
+	\includegraphics[width=0.45\textwidth]{replicar_webots/sim2_p3.png}
+	\includegraphics[width=0.45\textwidth]{replicar_webots/sim2_p4.png}
 	\caption{Ejecución del algoritmo en la segunda simulación}
 	\label{fig:segunda_simulacion}
 \end{figure}
@@ -151,17 +151,13 @@ En la Figura \ref{fig:tercera_simulacion}, las imágenes en el orden de izquierd
 
 \begin{figure}[H]
 	\centering
-	\includegraphics[width=0.45\textwidth]{sim3_p1.png}
-	\includegraphics[width=0.45\textwidth]{sim3_p2.png}
-	\includegraphics[width=0.45\textwidth]{sim3_p3.png}
-	\includegraphics[width=0.45\textwidth]{sim3_p4.png}
+	\includegraphics[width=0.45\textwidth]{replicar_webots/sim3_p1.png}
+	\includegraphics[width=0.45\textwidth]{replicar_webots/sim3_p2.png}
+	\includegraphics[width=0.45\textwidth]{replicar_webots/sim3_p3.png}
+	\includegraphics[width=0.45\textwidth]{replicar_webots/sim3_p4.png}
 	\caption{Ejecución del algoritmo en la tercera simulación}
 	\label{fig:tercera_simulacion}
 \end{figure}
-
-\subsection{Prueba del algoritmo en físico con obstáculos móviles}
-
-
 
 \section{Replicar el funcionamiento del algoritmo en el Robotat}
 Una vez teniendo el algoritmo funcionando en Webots, el siguiente paso fue verificar que el algoritmo se ejecute correctamente en el Robotat.
@@ -181,7 +177,7 @@ Al realizar las pruebas de conexión con los agentes Pololu 3Pi+ se tenía el er
 
 \begin{figure}[H]
 	\centering
-	\includegraphics[width=0.8\textwidth]{error_conexion.png}
+	\includegraphics[width=0.8\textwidth]{replicar_fisico_pruebas/error_conexion.png}
 	\caption{Error de conexión con Pololu 3Pi+.}
 	\label{fig:error_conexion}
 \end{figure}
@@ -195,14 +191,14 @@ Para corregir el desfase de cada marcador, primero se obtiene la orientación co
 
 \begin{figure}[H]
 	\centering
-	\includegraphics[width=0.8\textwidth]{marcadores_disponibles.png}
+	\includegraphics[width=0.8\textwidth]{replicar_fisico_pruebas/marcadores_disponibles.png}
 	\caption{Marcadores del OptiTrack disponibles para su uso.}
 	\label{fig:marcadores_disponibles}
 \end{figure}
 
 \begin{figure}[H]
 	\centering
-	\includegraphics[width=0.6\textwidth]{marcadores_ejey.png}
+	\includegraphics[width=0.6\textwidth]{replicar_fisico_pruebas/marcadores_ejey.png}
 	\caption{Marcadores alineados sobre el eje $y$ de la mesa de pruebas del Robotat.}
 	\label{fig:marcadores_calibracion}
 \end{figure}
@@ -301,8 +297,8 @@ Una vez guardada la calibración de marcadores, se realizó pruebas en el Robota
 
 \begin{figure}[H]
 	\centering
-	\includegraphics[width=0.6\textwidth]{agente_inmovil_p1.png}
-	\includegraphics[width=0.6\textwidth]{agente_inmovil_p2.png}
+	\includegraphics[width=0.6\textwidth]{replicar_fisico_pruebas/agente_inmovil_p1.png}
+	\includegraphics[width=0.6\textwidth]{replicar_fisico_pruebas/agente_inmovil_p2.png}
 	\caption{Problema de funcionamiento en físico, agentes permanecen inmóviles.}
 	\label{fig:agente_inmovil}
 \end{figure}
@@ -329,7 +325,7 @@ En la Figura \ref{fig:seleccion_agentes}, el número dentro del círculo, repres
 
 \begin{figure}[H]
 	\centering
-	\includegraphics[width=0.6\textwidth]{seleccion_agentes.png}
+	\includegraphics[width=0.6\textwidth]{replicar_fisico_pruebas/seleccion_agentes.png}
 	\caption{Selección de marcadores para cada agente antes y después de las modificaciones.}
 	\label{fig:seleccion_agentes}
 \end{figure}
@@ -340,8 +336,8 @@ Una vez realizadas las modificaciones anteriores, al ejecutar el algoritmo en f�
 
 \begin{figure}[H]
 	\centering
-	\includegraphics[width=0.6\textwidth]{divergencia_p1.png}
-	\includegraphics[width=0.6\textwidth]{divergencia_p2.png}
+	\includegraphics[width=0.6\textwidth]{replicar_fisico_pruebas/divergencia_p1.png}
+	\includegraphics[width=0.6\textwidth]{replicar_fisico_pruebas/divergencia_p2.png}
 	\caption{Problema de funcionamiento en físico, agentes divergen hacia posiciones iniciales. }
 	\label{fig:divergencia1}
 \end{figure}
@@ -350,8 +346,8 @@ Para intentar solucionar esto, se invirtió signo de la constante de proporciona
 
 \begin{figure}[H]
 	\centering
-	\includegraphics[width=0.6\textwidth]{divergencia2_p1.png}
-	\includegraphics[width=0.6\textwidth]{divergencia2_p2.png}
+	\includegraphics[width=0.6\textwidth]{replicar_fisico_pruebas/divergencia2_p1.png}
+	\includegraphics[width=0.6\textwidth]{replicar_fisico_pruebas/divergencia2_p2.png}
 	\caption{Problema de funcionamiento en físico, agentes divergen luego de colocarse en sus posiciones iniciales.}
 	\label{fig:divergencia2}
 \end{figure}
@@ -367,19 +363,145 @@ Con esto, se logró solucionar la divergencia de los agentes y se realizó la pr
 
 \begin{figure}[H]
 	\centering
-	\includegraphics[width=0.45\textwidth]{prueba_fisico_p1.png}
-	\includegraphics[width=0.45\textwidth]{prueba_fisico_p2.png}
-	\includegraphics[width=0.45\textwidth]{prueba_fisico_p3.png}
-	\includegraphics[width=0.45\textwidth]{prueba_fisico_p4.png}
+	\includegraphics[width=0.45\textwidth]{replicar_fisico_pruebas/prueba_fisico_p1.png}
+	\includegraphics[width=0.45\textwidth]{replicar_fisico_pruebas/prueba_fisico_p2.png}
+	\includegraphics[width=0.45\textwidth]{replicar_fisico_pruebas/prueba_fisico_p3.png}
+	\includegraphics[width=0.45\textwidth]{replicar_fisico_pruebas/prueba_fisico_p4.png}
 	\caption{Primera prueba exitosa de funcionamiento en físico.}
 	\label{fig:prueba_fisico1}
 \end{figure}
 
 Una vez realizada la primera prueba, se simuló un escenario arbitrario en Webots, sin embargo se encontró que ahora la simulación presentaba los mismos patrones de divergencia en todas las etapas del algoritmo. Por esto, se optó por implementar el control proporcional de la Ecuación (\ref{eq:controlador_proporcional}) para las simulaciones y otro control proporcional con la Ecuación (\ref{eq:controlador_proporcional2}) para ejecutar el algoritmo en físico. Con esta modificación, se logró replicar el funcionamiento completo del algoritmo tanto para simulaciones en Webots como en un ambiente físico en el Robotat.
 
-\subsection{Prueba del algoritmo en físico con escenarios previos}
+\subsection{Configuraciones para el escenario}
+Para clasificar las ejecuciones del algoritmo según las condiciones del escenario, se decidió utilizar la misma convención implementada por José Alejandro Rodríguez \cite{RodriguezJA_2023_tesis}. Esta se enfoca en diferenciar los escenarios según las posiciones de las marcas iniciales para los agentes, los obstáculos y el objetivo.
 
-\subsection{Prueba del algoritmo en físico con obstáculos móviles}
+En el Cuadro \ref{cuadro:configuraciones_escenario} se muestra la codificación a utilizar para los experimentos. El orden para identificarlos es el siguiente: (Posición inicial de los agentes)-(Obstáculos)-(Objetivo). A continuación, se presenta el ejemplo de clasificación A-D-B, que significa:
+
+\begin{itemize}
+	\item Posicionamiento inicial de los agentes en línea.
+	\item Obstáculos móviles.
+	\item Objetivo en el centro de la mesa de pruebas.
+\end{itemize}
+
+\begin{table}[H]
+	\centering
+	\resizebox{\textwidth}{!} {
+		\begin{tabular}{|l|l|l|l|}
+			\hline
+			\textbf{Letra de designación} & \textbf{Posición inicial de los agentes} & \textbf{Obstáculos}                                                         & \textbf{Objetivo} \\ \hline
+			A                              & Línea                                    & Ninguno                                                                     & Esquina           \\ \hline
+			B                              & Círculo                                  & \begin{tabular}[c]{@{}l@{}}1 = Centro\\ 2 = Cerca del objetivo\end{tabular} & Centro            \\ \hline
+			C                              & Aleatorio                                & Aleatorio                                                                   & Aleatorio         \\ \hline
+			D                              & N/A                                      & Móviles                                                                     & Móvil             \\ \hline
+	\end{tabular}}
+	\caption{Configuraciones para el escenario.}
+	\label{cuadro:configuraciones_escenario}
+\end{table}
+
+\subsection{Prueba del algoritmo en físico con escenarios previos}
+Una vez solucionados los problemas anteriores, se realizó las primeras pruebas para replicar algunos de los escenarios físicos realizados por José Alejandro Rodríguez \cite{RodriguezJA_2023_tesis} y comprobar el funcionamiento correcto del algoritmo.
+
+El código del supervisor ya cuenta con un sistema de guardado de información. Este almacena en un archivo .npz todos los datos relevantes al final del experimento. Además, con el archivo ``data\_graphing.py'' se generan las gráficas y trayectorias luego de que los agentes se hayan colocado en sus posiciones iniciales.
+
+A continuación, se muestran algunos de los datos almacenados más relevantes:
+
+\begin{itemize}
+	\item Historial durante todo el experimento de:
+	\begin{itemize}
+		\item Posiciones y orientaciones de los agentes
+		\item Posiciones de los obstáculos
+		\item Posición del objetivo
+		\item Velocidades de los agentes
+	\end{itemize}
+	\item Datos y configuraciones de:
+	\begin{itemize}
+		\item Ciclos del experimento
+		\item Ciclo en que se logra el objetivo
+		\item Ciclo en que inicia la etapa 1 del algoritmo
+		\item Cantidad de agentes y sus números de marcadores asignados
+		\item Cantidad de obstáculos y sus números de marcadores asignados
+		\item Marcas de posiciones iniciales de los agentes
+		\item Paso de tiempo del programa
+	\end{itemize}
+\end{itemize}
+
+\subsubsection{Primer escenario}
+Para el primer escenario, se utilizó la configuración AAA con 2 agentes. En las Figuras \ref{fig:test_fisico1} y \ref{fig:traj_test_2A_AAA_f_1} se muestra el escenario en la mesa de pruebas y las trayectorias de los agentes durante el experimento.
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=0.8\textwidth]{replicar_fisico_escenarios/test_f1.png}
+	\caption{Mesa de pruebas con 2 agentes en el escenario AAA, corrida 1, en físico.}
+	\label{fig:test_fisico1}
+\end{figure}
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=0.8\textwidth]{replicar_fisico_escenarios/traj_test_2A_AAA_f_1.eps}
+	\caption{Trayectoria de los 2 agentes en el escenario AAA, corrida 1, en físico.}
+	\label{fig:traj_test_2A_AAA_f_1}
+\end{figure}
+
+\subsubsection{Segundo escenario}
+Para el segundo escenario, se utilizó la configuración AAA con 6 agentes. En las Figuras \ref{fig:test_fisico2} y \ref{fig:traj_test_6A_AAA_f_1} se muestra el escenario en la mesa de pruebas y las trayectorias de los agentes durante el experimento.
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=0.8\textwidth]{replicar_fisico_escenarios/test_f2.png}
+	\caption{Mesa de pruebas con 6 agentes en el escenario AAA, corrida 1, en físico.}
+	\label{fig:test_fisico2}
+\end{figure}
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=0.8\textwidth]{replicar_fisico_escenarios/traj_test_6A_AAA_f_1.eps}
+	\caption{Trayectoria de los 6 agentes en el escenario AAA, corrida 1, en físico.}
+	\label{fig:traj_test_6A_AAA_f_1}
+\end{figure}
+
+\subsubsection{Tercer escenario}
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=0.8\textwidth]{replicar_fisico_escenarios/test_f3.png}
+	\caption{Mesa de pruebas con 6 agentes en el escenario ACA, corrida 1, en físico.}
+	\label{fig:test_fisico3}
+\end{figure}
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=0.8\textwidth]{replicar_fisico_escenarios/traj_test_6A_ACA_f_1.eps}
+	\caption{Trayectoria de los 6 agentes en el escenario ACA, corrida 1, en físico.}
+	\label{fig:traj_test_6A_ACA_f_1}
+\end{figure}
+
+\subsubsection{Cuarto escenario}
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=0.8\textwidth]{replicar_fisico_escenarios/test_f4.png}
+	\caption{Mesa de pruebas con 3 agentes en el escenario ACC, corrida 1, en físico.}
+	\label{fig:test_fisico4}
+\end{figure}
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=0.8\textwidth]{replicar_fisico_escenarios/traj_test_3A_ACC_f_1.eps}
+	\caption{Trayectoria de los 3 agentes en el escenario ACC, corrida 1, en físico.}
+	\label{fig:traj_test_3A_ACC_f_1}
+\end{figure}
+
+\subsubsection{Quinto escenario}
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=0.8\textwidth]{replicar_fisico_escenarios/test_f5.png}
+	\caption{Mesa de pruebas con 3 agentes en el escenario ACA, corrida 1, en físico.}
+	\label{fig:test_fisico5}
+\end{figure}
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=0.8\textwidth]{replicar_fisico_escenarios/traj_test_3A_ACA_f_1.eps}
+	\caption{Trayectoria de los 3 agentes en el escenario ACA, corrida 1, en físico.}
+	\label{fig:traj_test_3A_ACA_f_1}
+\end{figure}
 
 
 \chapter{Optimización del algoritmo y su implementación}
@@ -412,7 +534,7 @@ Durante la restauración del algoritmo desarrollado en fases previas, al impleme
 
 \begin{figure}[H]
 	\centering
-	\includegraphics[width=0.8\textwidth]{grafo_formacion1.png}
+	\includegraphics[width=0.8\textwidth]{optimizacion/grafo_formacion1.png}
 	\caption{Posiciones de agentes según el grafo de formación con la implementación original del algoritmo.}
 	\label{fig:grafo_formacion1}
 \end{figure}
@@ -421,7 +543,7 @@ Al tener una formación como la mostrada anteriormente se vuelve poco intuitiva 
 
 \begin{figure}[H]
 	\centering
-	\includegraphics[width=0.8\textwidth]{grafo_formacion2.png}
+	\includegraphics[width=0.8\textwidth]{optimizacion/grafo_formacion2.png}
 	\caption{Posiciones de agentes según el grafo de formación con la implementación original del algoritmo.}
 	\label{fig:grafo_formacion2}
 \end{figure}
@@ -504,7 +626,7 @@ En la Figura \ref{fig:grafica_tiempos_desfases} se observa que la optimización 
 
 \begin{figure}[H]
 	\centering
-	\includegraphics[width=\textwidth]{tiempos_desfases.png}
+	\includegraphics[width=\textwidth]{optimizacion/tiempos_desfases.png}
 	\caption{Gráfica con medias de tiempo para aplicar desfases de marcadores con ciclos \textit{for} y operaciones con NumPy.}
 	\label{fig:grafica_tiempos_desfases}
 \end{figure}
@@ -560,7 +682,7 @@ En la Figura \ref{fig:grafica_tiempos_distancias} se observa un incremento expon
 
 \begin{figure}[H]
 	\centering
-	\includegraphics[width=\textwidth]{tiempos_distancias.png}
+	\includegraphics[width=\textwidth]{optimizacion/tiempos_distancias.png}
 	\caption{Gráfica con medias de tiempo para calcular la distancia entre agentes con ciclos \textit{for} y operaciones con NumPy.}
 	\label{fig:grafica_tiempos_distancias}
 \end{figure}
@@ -617,7 +739,7 @@ En la Figura \ref{fig:grafica_tiempos_error} se muestra una gráfica en la que s
 
 \begin{figure}[H]
 	\centering
-	\includegraphics[width=\textwidth]{tiempos_error.png}
+	\includegraphics[width=\textwidth]{optimizacion/tiempos_error.png}
 	\caption{Gráfica con medias de tiempo para calcular el error de formación con ciclos \textit{for} y operaciones con NumPy.}
 	\label{fig:grafica_tiempos_error}
 \end{figure}

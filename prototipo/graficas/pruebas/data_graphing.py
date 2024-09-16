@@ -9,7 +9,7 @@ import math
 import os
 import re
 
-archivo = 'runtest3_6A_NNN_f_0.npz'
+archivo = 'test_6A_ACA_f_1.npz'
 show_images = 0
 
 show_real_cycle = 0
