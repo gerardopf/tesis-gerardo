@@ -1,0 +1,88 @@
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.8\textwidth]{figuras/traj_10sepProto3obs_3A_NNN_f_0.eps}
+    \caption{Trayectoria de los 3 agentes en el escenario NNN, corrida 0, en físico.}
+    \label{fig:traj_10sepProto3obs_3A_NNN_f_0}
+\end{figure}
+
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.8\textwidth]{figuras/cm_10sepProto3obs_3A_NNN_f_0.eps}
+    \caption{Trayectoria del centro de masa de la formación en el escenario NNN, corrida 0, en físico.}
+    \label{fig:cm_10sepProto3obs_3A_NNN_f_0}
+\end{figure}
+
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.49\textwidth]{figuras/traj_10sepProto3obs_3A_NNN_f_0.eps}
+    \includegraphics[width=0.49\textwidth]{figuras/traj_10sepProto3obs_3A_NNN_v_0.eps}
+    \caption{Trayectoria de los 3 agentes en el escenario NNN, corrida 0 en físico (izquierda) y simulación (derecha).}
+    \label{fig:traj_10sepProto3obs_3A_NNN_f_0}
+\end{figure}
+
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.49\textwidth]{figuras/cm_10sepProto3obs_3A_NNN_f_0.eps}
+    \includegraphics[width=0.49\textwidth]{figuras/cm_10sepProto3obs_3A_NNN_v_0.eps}
+    \caption{Trayectoria del centro de masa de la formación en el escenario NNN, corrida 0 en físico (izquierda) y simulación (derecha).}
+    \label{fig:traj_10sepProto3obs_3A_NNN_f_0}
+\end{figure}
+
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.49\textwidth]{figuras/normV_10sepProto3obs_3A_NNN_f_0.eps}
+    \includegraphics[width=0.49\textwidth]{figuras/mse_10sepProto3obs_3A_NNN_f_0.eps}
+    \caption{Histórico de norma de velocidad de la formación y error cuadrático medio en el escenario NNN, corrida 0, en físico.}
+    \label{fig:normVmse_10sepProto3obs_3A_NNN_f_0}
+\end{figure}
+
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.49\textwidth]{figuras/normV_10sepProto3obs_3A_NNN_v_0.eps}
+    \includegraphics[width=0.49\textwidth]{figuras/mse_10sepProto3obs_3A_NNN_v_0.eps}
+    \caption{Histórico de norma de velocidad de la formación y error cuadrático medio en el escenario NNN, corrida 0, en simulación.}
+    \label{fig:normVmse_10sepProto3obs_3A_NNN_v_0}
+\end{figure}
+
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.49\textwidth]{figuras/xvel_10sepProto3obs_3A_NNN_f_0.eps}
+    \includegraphics[width=0.49\textwidth]{figuras/yvel_10sepProto3obs_3A_NNN_f_0.eps}
+    \caption{Histórico de velocidades de los agentes en el escenario NNN, corrida 0, en físico.}
+    \label{fig:vel_10sepProto3obs_3A_NNN_f_0}
+\end{figure}
+
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.49\textwidth]{figuras/xvel_10sepProto3obs_3A_NNN_v_0.eps}
+    \includegraphics[width=0.49\textwidth]{figuras/yvel_10sepProto3obs_3A_NNN_v_0.eps}
+    \caption{Histórico de velocidades de los agentes en el escenario NNN, corrida 0, en simulación.}
+    \label{fig:vel_10sepProto3obs_3A_NNN_v_0}
+\end{figure}
+
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.49\textwidth]{figuras/phiL_10sepProto3obs_3A_NNN_f_0.eps}
+    \includegraphics[width=0.49\textwidth]{figuras/phiR_10sepProto3obs_3A_NNN_f_0.eps}
+    \caption{Histórico de velocidades en las ruedas de los agentes en el escenario NNN, corrida 0, en físico.}
+    \label{fig:phi_10sepProto3obs_3A_NNN_f_0}
+\end{figure}
+
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.49\textwidth]{figuras/phiL_10sepProto3obs_3A_NNN_v_0.eps}
+    \includegraphics[width=0.49\textwidth]{figuras/phiR_10sepProto3obs_3A_NNN_v_0.eps}
+    \caption{Histórico de velocidades en las ruedas de los agentes en el escenario NNN, corrida 0, en simulación.}
+    \label{fig:phi_10sepProto3obs_3A_NNN_v_0}
+\end{figure}
+

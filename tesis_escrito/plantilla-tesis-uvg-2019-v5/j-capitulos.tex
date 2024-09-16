@@ -159,10 +159,9 @@ En la Figura \ref{fig:tercera_simulacion}, las imágenes en el orden de izquierd
 	\label{fig:tercera_simulacion}
 \end{figure}
 
+\subsection{Prueba del algoritmo en físico con obstáculos móviles}
 
-%\subsection{Cambios en el entorno de simulación}
-%En Webots 
-%	Se cambió las medidas de la cuadrícula y de la arena para que coincida con las medidas reales
+
 
 \section{Replicar el funcionamiento del algoritmo en el Robotat}
 Una vez teniendo el algoritmo funcionando en Webots, el siguiente paso fue verificar que el algoritmo se ejecute correctamente en el Robotat.
@@ -376,7 +375,12 @@ Con esto, se logró solucionar la divergencia de los agentes y se realizó la pr
 	\label{fig:prueba_fisico1}
 \end{figure}
 
-Una vez realizada la primera prueba, se simuló un escenario arbitrario en Webots, sin embargo se encontró que ahora la simulación presentaba patrones de divergencia en todas las etapas del algoritmo. Por esto, se optó por implementar el control proporcional de la Ecuación (\ref{eq:controlador_proporcional}) para las simulaciones y otro control proporcional con la Ecuación (\ref{eq:controlador_proporcional2}) para ejecutar el algoritmo en físico.
+Una vez realizada la primera prueba, se simuló un escenario arbitrario en Webots, sin embargo se encontró que ahora la simulación presentaba los mismos patrones de divergencia en todas las etapas del algoritmo. Por esto, se optó por implementar el control proporcional de la Ecuación (\ref{eq:controlador_proporcional}) para las simulaciones y otro control proporcional con la Ecuación (\ref{eq:controlador_proporcional2}) para ejecutar el algoritmo en físico. Con esta modificación, se logró replicar el funcionamiento completo del algoritmo tanto para simulaciones en Webots como en un ambiente físico en el Robotat.
+
+\subsection{Prueba del algoritmo en físico con escenarios previos}
+
+\subsection{Prueba del algoritmo en físico con obstáculos móviles}
+
 
 \chapter{Optimización del algoritmo y su implementación}
 En este capítulo se describen los puntos de mejora identificados en la implementación del algoritmo de sincronización y control de formaciones. Luego, se detallará cómo se abordó cada uno de ellos empleando técnicas de optimización como la reducción de complejidad computacional, ajuste de parámetros de control y paralelización de procesos.
@@ -618,9 +622,6 @@ En la Figura \ref{fig:grafica_tiempos_error} se muestra una gráfica en la que s
 	\label{fig:grafica_tiempos_error}
 \end{figure}
 
-
-
-\section{Implementación de paralelismo computacional}
 
 
 
