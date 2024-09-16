@@ -1,0 +1,88 @@
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.8\textwidth]{figuras/traj_test_3A_ADC_f_3.eps}
+    \caption{Trayectoria de los 3 agentes en el escenario ADC, corrida 3, en físico.}
+    \label{fig:traj_test_3A_ADC_f_3}
+\end{figure}
+
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.8\textwidth]{figuras/cm_test_3A_ADC_f_3.eps}
+    \caption{Trayectoria del centro de masa de la formación en el escenario ADC, corrida 3, en físico.}
+    \label{fig:cm_test_3A_ADC_f_3}
+\end{figure}
+
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.49\textwidth]{figuras/traj_test_3A_ADC_f_3.eps}
+    \includegraphics[width=0.49\textwidth]{figuras/traj_test_3A_ADC_v_3.eps}
+    \caption{Trayectoria de los 3 agentes en el escenario ADC, corrida 3 en físico (izquierda) y simulación (derecha).}
+    \label{fig:traj_test_3A_ADC_f_3}
+\end{figure}
+
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.49\textwidth]{figuras/cm_test_3A_ADC_f_3.eps}
+    \includegraphics[width=0.49\textwidth]{figuras/cm_test_3A_ADC_v_3.eps}
+    \caption{Trayectoria del centro de masa de la formación en el escenario ADC, corrida 3 en físico (izquierda) y simulación (derecha).}
+    \label{fig:traj_test_3A_ADC_f_3}
+\end{figure}
+
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.49\textwidth]{figuras/normV_test_3A_ADC_f_3.eps}
+    \includegraphics[width=0.49\textwidth]{figuras/mse_test_3A_ADC_f_3.eps}
+    \caption{Histórico de norma de velocidad de la formación y error cuadrático medio en el escenario ADC, corrida 3, en físico.}
+    \label{fig:normVmse_test_3A_ADC_f_3}
+\end{figure}
+
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.49\textwidth]{figuras/normV_test_3A_ADC_v_3.eps}
+    \includegraphics[width=0.49\textwidth]{figuras/mse_test_3A_ADC_v_3.eps}
+    \caption{Histórico de norma de velocidad de la formación y error cuadrático medio en el escenario ADC, corrida 3, en simulación.}
+    \label{fig:normVmse_test_3A_ADC_v_3}
+\end{figure}
+
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.49\textwidth]{figuras/xvel_test_3A_ADC_f_3.eps}
+    \includegraphics[width=0.49\textwidth]{figuras/yvel_test_3A_ADC_f_3.eps}
+    \caption{Histórico de velocidades de los agentes en el escenario ADC, corrida 3, en físico.}
+    \label{fig:vel_test_3A_ADC_f_3}
+\end{figure}
+
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.49\textwidth]{figuras/xvel_test_3A_ADC_v_3.eps}
+    \includegraphics[width=0.49\textwidth]{figuras/yvel_test_3A_ADC_v_3.eps}
+    \caption{Histórico de velocidades de los agentes en el escenario ADC, corrida 3, en simulación.}
+    \label{fig:vel_test_3A_ADC_v_3}
+\end{figure}
+
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.49\textwidth]{figuras/phiL_test_3A_ADC_f_3.eps}
+    \includegraphics[width=0.49\textwidth]{figuras/phiR_test_3A_ADC_f_3.eps}
+    \caption{Histórico de velocidades en las ruedas de los agentes en el escenario ADC, corrida 3, en físico.}
+    \label{fig:phi_test_3A_ADC_f_3}
+\end{figure}
+
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.49\textwidth]{figuras/phiL_test_3A_ADC_v_3.eps}
+    \includegraphics[width=0.49\textwidth]{figuras/phiR_test_3A_ADC_v_3.eps}
+    \caption{Histórico de velocidades en las ruedas de los agentes en el escenario ADC, corrida 3, en simulación.}
+    \label{fig:phi_test_3A_ADC_v_3}
+\end{figure}
+

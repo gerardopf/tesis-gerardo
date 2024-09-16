@@ -57,12 +57,12 @@ La implementación en físico del algoritmo de sincronización y control de form
 
 Por otro lado, en el Robotat se han realizado cambios en las conexiones con el servidor y los Pololu 3Pi+	por lo que se sería necesario un reajuste de parámetros.
 
-En este capítulo se detallarán las modificaciones necesarias para la restauración del algoritmo y su correcta ejecución en simulaciones con Webots y en un entorno físico con el Robotat.
+En este capítulo se detallarán las modificaciones necesarias para la restauración del algoritmo y su correcta ejecución en simulaciones con Webots y en un entorno físico con el Robotat. Además, se realizará la validación de la naturaleza del algoritmo en escenarios con obstáculos móviles.
 
 
 \section{Replicar simulaciones de Webots}
-
 El primer paso de la restauración, fue recrear algunas simulaciones en Webots. Para esto, fue necesario instalar las siguientes librerías que no se encuentran dentro de la biblioteca estándar de Python:
+
 \begin{itemize}
 	\item Keyboard - versión 0.13.5
 	\item NumPy - versión 1.23.2
@@ -98,6 +98,7 @@ El código del supervisor ya cuenta con un modo de simulación en el que se ejec
 
 \subsubsection{Primer escenario}
 Para la primera simulación, se utilizó el archivo ``finaltrial\_6A\_AAA\_f\_1.npz'' que consiste en la siguiente configuración:
+
 \begin{itemize}
 	\item Cantidad de agentes: 6
 	\item Posición inicial de agentes: línea
@@ -119,6 +120,7 @@ En la Figura \ref{fig:primera_simulacion}, las imágenes en el orden de izquierd
 
 \subsubsection{Segundo escenario}
 Para la segunda simulación, se utilizó el archivo ``finaltrial\_6A\_AB1B\_f\_2.npz'' que consiste en la siguiente configuración:
+
 \begin{itemize}
 	\item Cantidad de agentes: 6
 	\item Posición inicial de agentes: línea
@@ -140,6 +142,7 @@ En la Figura \ref{fig:segunda_simulacion}, las imágenes en el orden de izquierd
 
 \subsubsection{Tercer escenario}
 Para la tercera simulación, se utilizó el archivo ``finaltrial\_6A\_BCA\_f\_1.npz'' que consiste en la siguiente configuración:
+
 \begin{itemize}
 	\item Cantidad de agentes: 6
 	\item Posición inicial de agentes: círculo
@@ -159,12 +162,12 @@ En la Figura \ref{fig:tercera_simulacion}, las imágenes en el orden de izquierd
 	\label{fig:tercera_simulacion}
 \end{figure}
 
-\subsection{Prueba del algoritmo con simulaciones utilizando obstáculos móviles}
-
 \section{Replicar el funcionamiento del algoritmo en el Robotat}
 Una vez teniendo el algoritmo funcionando en Webots, el siguiente paso fue verificar que el algoritmo se ejecute correctamente en el Robotat.
+
 \subsection{Pruebas de conexión con el Pololu 3Pi+ y el Robotat}
  Primero, se realizaron pruebas de conexión y obtención de datos con el Robotat y los Pololu 3Pi+ utilizando las funciones creadas en Python por José Alejandro Rodríguez \cite{RodriguezJA_2023_tesis}:
+ 
 \begin{itemize}
 	\item robotat\_connect
 	\item robotat\_disconnect
@@ -461,6 +464,7 @@ Para el segundo escenario, se utilizó la configuración AAA con 6 agentes. En l
 \end{figure}
 
 \subsubsection{Tercer escenario}
+Para el tercer escenario, se utilizó la configuración ACA con 6 agentes. En las Figuras \ref{fig:test_fisico3} y \ref{fig:traj_test_6A_ACA_f_1} se muestra el escenario en la mesa de pruebas y las trayectorias de los agentes durante el experimento.
 
 \begin{figure}[H]
 	\centering
@@ -476,6 +480,7 @@ Para el segundo escenario, se utilizó la configuración AAA con 6 agentes. En l
 \end{figure}
 
 \subsubsection{Cuarto escenario}
+Para el tercer escenario, se utilizó la configuración ACC con 3 agentes. En las Figuras \ref{fig:test_fisico4} y \ref{fig:traj_test_3A_ACC_f_1} se muestra el escenario en la mesa de pruebas y las trayectorias de los agentes durante el experimento.
 
 \begin{figure}[H]
 	\centering
@@ -491,6 +496,7 @@ Para el segundo escenario, se utilizó la configuración AAA con 6 agentes. En l
 \end{figure}
 
 \subsubsection{Quinto escenario}
+Para el tercer escenario, se utilizó la configuración ACA con 3 agentes. En las Figuras \ref{fig:test_fisico5} y \ref{fig:traj_test_3A_ACA_f_1} se muestra el escenario en la mesa de pruebas y las trayectorias de los agentes durante el experimento.
 
 \begin{figure}[H]
 	\centering
@@ -505,12 +511,84 @@ Para el segundo escenario, se utilizó la configuración AAA con 6 agentes. En l
 	\label{fig:traj_test_3A_ACA_f_1}
 \end{figure}
 
-\subsection{Prueba del algoritmo en físico utilizando obstáculos móviles}
+\section{Prueba de funcionamiento del algoritmo con obstáculos móviles}
+Una vez que se validó el funcionamiento del algoritmo utilizando escenarios previos, se puso a prueba la naturaleza dinámica del algoritmo de sincronización y control de formaciones. Como se mencionó anteriormente, se cuenta con el archivo ``data\_graphing.py'' para generar las gráficas y trayectorias del experimento. Sin embargo, este no muestra el recorrido de los obstáculos en movimiento, por lo que se agregó esta función a manera de visualizar la posición inicial, y final, así como las trayectorias de los obstáculos.
+
+A continuación, se presentan los escenarios en los que se puso a prueba el algoritmo con obstáculos móviles en simulaciones y en físico. En todos los casos, se observa que los agentes logran reposicionarse y cambiar su trayectoria al moverse los obstáculos, manteniendo su formación mientras siguen el objetivo. Esto es posible gracias a la naturaleza dinámica del algoritmo, que se debe a la manera en que se planteó originalmente la ecuación de consenso y el cálculo del peso para determinar las velocidades. Además, el algoritmo está constantemente evaluando la posición actual de cada agente y la compara con la posición actual de los obstáculos a manera que se ajusta de forma dinámica el peso $w$ y re calcula la ecuación de consenso para evitar posibles colisiones.
+
+\subsection{Simulaciones utilizando obstáculos móviles}
+Para las simulaciones mostradas en las Figuras \ref{fig:traj_testSim_6A_ADA_v_1}, \ref{fig:traj_testSim_6A_ADA_v_2} y \ref{fig:traj_testSim_6A_ADA_v_3} se optó por utilizar una configuración ADA con 6 agentes y se movilizó los obstáculos a manera de que estos interfirieran con la trayectoria de la formación durante el seguimiento al objetivo. Cabe mencionar que la movilización de los obstáculos se hizo de manera aleatoria y sin ningún patrón en específico. 
+
+\subsubsection{Primer escenario}
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=0.8\textwidth]{test_sim_ObsM/traj_testSim_6A_ADA_v_1.eps}
+	\caption{Trayectoria de los 6 agentes en el escenario ADA, corrida 1, en simulación.}
+	\label{fig:traj_testSim_6A_ADA_v_1}
+\end{figure}
+
+\subsubsection{Segundo escenario}
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=0.8\textwidth]{test_sim_ObsM/traj_testSim_6A_ADA_v_2.eps}
+	\caption{Trayectoria de los 6 agentes en el escenario ADA, corrida 2, en simulación.}
+	\label{fig:traj_testSim_6A_ADA_v_2}
+\end{figure}
+
+\subsubsection{Tercer escenario}
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=0.8\textwidth]{test_sim_ObsM/traj_testSim_6A_ADA_v_3.eps}
+	\caption{Trayectoria de los 6 agentes en el escenario ADA, corrida 3, en simulación.}
+	\label{fig:traj_testSim_6A_ADA_v_3}
+\end{figure}
+
+
+\subsection{Escenarios físicos utilizando obstáculos móviles}
+A diferencia que con los escenarios en simulaciones, para las pruebas en físico se movilizó los obstáculos a manera de que estos interfirieran o liberaran una trayectoria de la formación durante el seguimiento al objetivo.
+
+\subsubsection{Primer escenario}
+Para este escenario, se movilizaron los obstáculos para que estos dejaran libre la trayectoria de los agentes hacia el objetivo en lugar de interferir en esta. Como se observa en la Figura \ref{fig:traj_test_3A_ADB_f_1}, el agente 1 con la trayectoria roja, pasa sobre la posición donde se encontraba el obstáculo inicialmente. Además, evita colisionar con los obstáculos colocados en sus posiciones finales. 
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=0.8\textwidth]{test_fisico_ObsM/traj_test_3A_ADB_f_1.eps}
+	\caption{Trayectoria de los 3 agentes en el escenario ADB, corrida 1, en físico.}
+	\label{fig:traj_test_3A_ADB_f_1}
+\end{figure}
+
+\subsubsection{Segundo escenario}
+Para este escenario, se planteó el recorrido a manera que los agentes tuvieran que pasar en medio de los obstáculos. Como se observa en la Figura \ref{fig:traj_test_3A_ADC_f_1}, con la trayectoria en verde, el obstáculo se movilizó a lo largo del espacio libre para que este bloqueara el camino hacia el objetivo. Luego se volvió a colocar cercano a su posición inicial. Además, se observa cómo los agentes lograron evitar la colisión y seguir su trayecto una vez que el camino se liberara.
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=0.8\textwidth]{test_fisico_ObsM/traj_test_3A_ADC_f_1.eps}
+	\caption{Trayectoria de los 3 agentes en el escenario ADC, corrida 1, en físico.}
+	\label{fig:traj_test_3A_ADC_f_1}
+\end{figure}
+
+\subsubsection{Tercer escenario}
+Para este caso, se realizó lo mismo que en el segundo escenario. Como se observa en la Figura \ref{fig:traj_test_3A_ADC_f_3}, con la trayectoria en verde, el obstáculo se movilizó a lo largo del espacio libre a manera que este bloqueara el camino hacia el objetivo. Luego se volvió a colocar cercano a su posición inicial, donde se observa cómo los agentes lograron evitar la colisión y seguir su trayecto una vez que el camino se liberara.
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=0.8\textwidth]{test_fisico_ObsM/traj_test_3A_ADC_f_3.eps}
+	\caption{Trayectoria de los 3 agentes en el escenario ADC, corrida 3, en físico.}
+	\label{fig:traj_test_3A_ADC_f_3}
+\end{figure}
+
+\subsubsection{Cuarto escenario}
+Para este escenario, se movilizó el obstáculo una sola vez a manera que cambiara de posición e interfiriera con una trayectoria en línea recta de la formación hacia el objetivo. En la Figura \ref{fig:traj_test_3A_ADC_f_2}, se observa que los agentes modificaron su trayectoria evadiendo el obstáculo por un costado y siguieron exitosamente su camino hacia el objetivo.
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=0.8\textwidth]{test_fisico_ObsM/traj_test_3A_ADC_f_2.eps}
+	\caption{Trayectoria de los 3 agentes en el escenario ADC, corrida 2, en físico.}
+	\label{fig:traj_test_3A_ADC_f_2}
+\end{figure}
 
 
 \chapter{Optimización del algoritmo y su implementación}
 En este capítulo se describen los puntos de mejora identificados en la implementación del algoritmo de sincronización y control de formaciones. Luego, se detallará cómo se abordó cada uno de ellos empleando técnicas de optimización como la reducción de complejidad computacional y ajuste de parámetros de control.
-
 
 \section{Lenguaje de programación y limpieza de código}
 El primer paso para la optimización fue analizar el lenguaje de programación empleado para los controladores. Se tomó en cuenta tres lenguajes para compararlos en base a las ventajas y desventajas que proponen para su implementación con el estado actual del algoritmo: MATLAB, Python y C. En el Cuadro \ref{cuadro:lenguajes_programacion} se describen las ventajas y desventajas que tiene un lenguaje sobre otro.
@@ -559,7 +637,6 @@ Al revisar los programas de los controladores, se encontró varios segmentos de 
 
 \subsection{Aplicar desfases de los marcadores}
 A continuación se explica los pasos que se realizaban anteriormente para aplicar los desfases de la calibración de marcadores, donde $n$ es la cantidad de marcadores a utilizar.
-
 
 \begin{itemize}
 	\item Configuración

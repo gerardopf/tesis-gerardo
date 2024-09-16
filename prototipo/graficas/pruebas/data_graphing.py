@@ -9,7 +9,7 @@ import math
 import os
 import re
 
-archivo = 'test_6A_ACA_f_1.npz'
+archivo = 'test_3A_ADC_f_3.npz'
 show_images = 0
 
 show_real_cycle = 0

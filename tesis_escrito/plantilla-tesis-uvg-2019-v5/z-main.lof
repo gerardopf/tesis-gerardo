@@ -26,33 +26,41 @@
 \contentsline {figure}{\numberline {17}{\ignorespaces Diagrama de flujo para el programa de los agentes.}}{26}{figure.caption.97}%
 \addvspace {10\p@ }
 \contentsline {figure}{\numberline {18}{\ignorespaces Ejecución de la primera simulación en Webots 2023b.}}{28}{figure.caption.101}%
-\contentsline {figure}{\numberline {19}{\ignorespaces Ejecución del algoritmo en la primera simulación}}{29}{figure.caption.104}%
-\contentsline {figure}{\numberline {20}{\ignorespaces Ejecución del algoritmo en la segunda simulación}}{30}{figure.caption.106}%
-\contentsline {figure}{\numberline {21}{\ignorespaces Ejecución del algoritmo en la tercera simulación}}{31}{figure.caption.108}%
-\contentsline {figure}{\numberline {22}{\ignorespaces Error de conexión con Pololu 3Pi+.}}{32}{figure.caption.111}%
-\contentsline {figure}{\numberline {23}{\ignorespaces Marcadores del OptiTrack disponibles para su uso.}}{33}{figure.caption.113}%
+\contentsline {figure}{\numberline {19}{\ignorespaces Ejecución del algoritmo en la primera simulación}}{30}{figure.caption.104}%
+\contentsline {figure}{\numberline {20}{\ignorespaces Ejecución del algoritmo en la segunda simulación}}{31}{figure.caption.106}%
+\contentsline {figure}{\numberline {21}{\ignorespaces Ejecución del algoritmo en la tercera simulación}}{32}{figure.caption.108}%
+\contentsline {figure}{\numberline {22}{\ignorespaces Error de conexión con Pololu 3Pi+.}}{33}{figure.caption.111}%
+\contentsline {figure}{\numberline {23}{\ignorespaces Marcadores del OptiTrack disponibles para su uso.}}{34}{figure.caption.113}%
 \contentsline {figure}{\numberline {24}{\ignorespaces Marcadores alineados sobre el eje $y$ de la mesa de pruebas del Robotat.}}{34}{figure.caption.114}%
-\contentsline {figure}{\numberline {25}{\ignorespaces Problema de funcionamiento en físico, agentes permanecen inmóviles.}}{37}{figure.caption.119}%
-\contentsline {figure}{\numberline {26}{\ignorespaces Selección de marcadores para cada agente antes y después de las modificaciones.}}{39}{figure.caption.120}%
-\contentsline {figure}{\numberline {27}{\ignorespaces Problema de funcionamiento en físico, agentes divergen hacia posiciones iniciales. }}{40}{figure.caption.122}%
-\contentsline {figure}{\numberline {28}{\ignorespaces Problema de funcionamiento en físico, agentes divergen luego de colocarse en sus posiciones iniciales.}}{41}{figure.caption.123}%
-\contentsline {figure}{\numberline {29}{\ignorespaces Primera prueba exitosa de funcionamiento en físico.}}{42}{figure.caption.125}%
-\contentsline {figure}{\numberline {30}{\ignorespaces Mesa de pruebas con 2 agentes en el escenario AAA, corrida 1, en físico.}}{44}{figure.caption.130}%
-\contentsline {figure}{\numberline {31}{\ignorespaces Trayectoria de los 2 agentes en el escenario AAA, corrida 1, en físico.}}{45}{figure.caption.131}%
-\contentsline {figure}{\numberline {32}{\ignorespaces Mesa de pruebas con 6 agentes en el escenario AAA, corrida 1, en físico.}}{46}{figure.caption.133}%
-\contentsline {figure}{\numberline {33}{\ignorespaces Trayectoria de los 6 agentes en el escenario AAA, corrida 1, en físico.}}{47}{figure.caption.134}%
-\contentsline {figure}{\numberline {34}{\ignorespaces Mesa de pruebas con 6 agentes en el escenario ACA, corrida 1, en físico.}}{48}{figure.caption.136}%
-\contentsline {figure}{\numberline {35}{\ignorespaces Trayectoria de los 6 agentes en el escenario ACA, corrida 1, en físico.}}{49}{figure.caption.137}%
-\contentsline {figure}{\numberline {36}{\ignorespaces Mesa de pruebas con 3 agentes en el escenario ACC, corrida 1, en físico.}}{50}{figure.caption.139}%
-\contentsline {figure}{\numberline {37}{\ignorespaces Trayectoria de los 3 agentes en el escenario ACC, corrida 1, en físico.}}{51}{figure.caption.140}%
-\contentsline {figure}{\numberline {38}{\ignorespaces Mesa de pruebas con 3 agentes en el escenario ACA, corrida 1, en físico.}}{52}{figure.caption.142}%
-\contentsline {figure}{\numberline {39}{\ignorespaces Trayectoria de los 3 agentes en el escenario ACA, corrida 1, en físico.}}{53}{figure.caption.143}%
+\contentsline {figure}{\numberline {25}{\ignorespaces Problema de funcionamiento en físico, agentes permanecen inmóviles.}}{38}{figure.caption.119}%
+\contentsline {figure}{\numberline {26}{\ignorespaces Selección de marcadores para cada agente antes y después de las modificaciones.}}{40}{figure.caption.120}%
+\contentsline {figure}{\numberline {27}{\ignorespaces Problema de funcionamiento en físico, agentes divergen hacia posiciones iniciales. }}{41}{figure.caption.122}%
+\contentsline {figure}{\numberline {28}{\ignorespaces Problema de funcionamiento en físico, agentes divergen luego de colocarse en sus posiciones iniciales.}}{42}{figure.caption.123}%
+\contentsline {figure}{\numberline {29}{\ignorespaces Primera prueba exitosa de funcionamiento en físico.}}{43}{figure.caption.125}%
+\contentsline {figure}{\numberline {30}{\ignorespaces Mesa de pruebas con 2 agentes en el escenario AAA, corrida 1, en físico.}}{45}{figure.caption.130}%
+\contentsline {figure}{\numberline {31}{\ignorespaces Trayectoria de los 2 agentes en el escenario AAA, corrida 1, en físico.}}{46}{figure.caption.131}%
+\contentsline {figure}{\numberline {32}{\ignorespaces Mesa de pruebas con 6 agentes en el escenario AAA, corrida 1, en físico.}}{47}{figure.caption.133}%
+\contentsline {figure}{\numberline {33}{\ignorespaces Trayectoria de los 6 agentes en el escenario AAA, corrida 1, en físico.}}{48}{figure.caption.134}%
+\contentsline {figure}{\numberline {34}{\ignorespaces Mesa de pruebas con 6 agentes en el escenario ACA, corrida 1, en físico.}}{49}{figure.caption.136}%
+\contentsline {figure}{\numberline {35}{\ignorespaces Trayectoria de los 6 agentes en el escenario ACA, corrida 1, en físico.}}{50}{figure.caption.137}%
+\contentsline {figure}{\numberline {36}{\ignorespaces Mesa de pruebas con 3 agentes en el escenario ACC, corrida 1, en físico.}}{51}{figure.caption.139}%
+\contentsline {figure}{\numberline {37}{\ignorespaces Trayectoria de los 3 agentes en el escenario ACC, corrida 1, en físico.}}{52}{figure.caption.140}%
+\contentsline {figure}{\numberline {38}{\ignorespaces Mesa de pruebas con 3 agentes en el escenario ACA, corrida 1, en físico.}}{53}{figure.caption.142}%
+\contentsline {figure}{\numberline {39}{\ignorespaces Trayectoria de los 3 agentes en el escenario ACA, corrida 1, en físico.}}{54}{figure.caption.143}%
+\contentsline {figure}{\numberline {40}{\ignorespaces Trayectoria de los 6 agentes en el escenario ADA, corrida 1, en simulación.}}{55}{figure.caption.147}%
+\contentsline {figure}{\numberline {41}{\ignorespaces Trayectoria de los 6 agentes en el escenario ADA, corrida 2, en simulación.}}{56}{figure.caption.149}%
+\contentsline {figure}{\numberline {42}{\ignorespaces Trayectoria de los 6 agentes en el escenario ADA, corrida 3, en simulación.}}{57}{figure.caption.151}%
+\contentsline {figure}{\numberline {43}{\ignorespaces Trayectoria de los 3 agentes en el escenario ADB, corrida 1, en físico.}}{58}{figure.caption.154}%
+\contentsline {figure}{\numberline {44}{\ignorespaces Trayectoria de los 3 agentes en el escenario ADC, corrida 1, en físico.}}{59}{figure.caption.156}%
+\contentsline {figure}{\numberline {45}{\ignorespaces Trayectoria de los 3 agentes en el escenario ADC, corrida 3, en físico.}}{60}{figure.caption.158}%
+\contentsline {figure}{\numberline {46}{\ignorespaces Trayectoria de los 3 agentes en el escenario ADC, corrida 2, en físico.}}{61}{figure.caption.160}%
 \addvspace {10\p@ }
-\contentsline {figure}{\numberline {40}{\ignorespaces Posiciones de agentes según el grafo de formación con la implementación original del algoritmo.}}{56}{figure.caption.148}%
-\contentsline {figure}{\numberline {41}{\ignorespaces Posiciones de agentes según el grafo de formación con la implementación original del algoritmo.}}{56}{figure.caption.149}%
-\contentsline {figure}{\numberline {42}{\ignorespaces Gráfica con medias de tiempo para aplicar desfases de marcadores con ciclos \textit {for} y operaciones con NumPy.}}{59}{figure.caption.165}%
-\contentsline {figure}{\numberline {43}{\ignorespaces Gráfica con medias de tiempo para calcular la distancia entre agentes con ciclos \textit {for} y operaciones con NumPy.}}{60}{figure.caption.169}%
-\contentsline {figure}{\numberline {44}{\ignorespaces Gráfica con medias de tiempo para calcular el error de formación con ciclos \textit {for} y operaciones con NumPy.}}{62}{figure.caption.173}%
+\contentsline {figure}{\numberline {47}{\ignorespaces Posiciones de agentes según el grafo de formación con la implementación original del algoritmo.}}{64}{figure.caption.165}%
+\contentsline {figure}{\numberline {48}{\ignorespaces Posiciones de agentes según el grafo de formación con la implementación original del algoritmo.}}{64}{figure.caption.166}%
+\contentsline {figure}{\numberline {49}{\ignorespaces Gráfica con medias de tiempo para aplicar desfases de marcadores con ciclos \textit {for} y operaciones con NumPy.}}{67}{figure.caption.182}%
+\contentsline {figure}{\numberline {50}{\ignorespaces Gráfica con medias de tiempo para calcular la distancia entre agentes con ciclos \textit {for} y operaciones con NumPy.}}{68}{figure.caption.186}%
+\contentsline {figure}{\numberline {51}{\ignorespaces Gráfica con medias de tiempo para calcular el error de formación con ciclos \textit {for} y operaciones con NumPy.}}{70}{figure.caption.190}%
+\addvspace {10\p@ }
 \addvspace {10\p@ }
 \addvspace {10\p@ }
 \addvspace {10\p@ }
