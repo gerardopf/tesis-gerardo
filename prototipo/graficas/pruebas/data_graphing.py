@@ -9,8 +9,12 @@ import math
 import os
 import re
 
-archivo = '10sepProto3obs_3A_NNN_f_0.npz'
+archivo = 'runtest3_6A_NNN_f_0.npz'
 show_images = 0
+
+show_real_cycle = 0
+show_in_seconds = 1
+#snapframes = 1
 
 """ ------------------- Figuras Latex ------------------- """
 def print_latex_figure(filename, caption, label, width):
@@ -129,9 +133,6 @@ obj_success = data['obj_success']
 obj_success_cycle = data['obj_success_cycle']
 graphCycleStart = begin_alg_time
 graphCycleEnd = total_cycle
-show_real_cycle = 0
-show_in_seconds = 1
-snapframes = 1
 
 # Extract x and y coordinates for each element
 x_positions = trajectory_data[:, 0, :]
@@ -210,9 +211,10 @@ labels = [f'Agente {i + 1}' for i in range(NStart,num_agents)]
 labels_obs = [f'Obstáculo {i + 1}' for i in range(0,quantO)] 
 
 # obstáculos
-plt.plot(x_positions_obs[graphCycleStart:graphCycleEnd,0:quantO], y_positions_obs[graphCycleStart:graphCycleEnd,0:quantO], linestyle='--', zorder=4, label=labels_obs)
-plt.scatter(x_positions_obs[graphCycleStart,0:quantO], y_positions_obs[graphCycleStart,0:quantO], marker='o', facecolor='none', edgecolor='purple', label='Obs iniciales', zorder=3, s = sizeO/factor_m) # s para convertir a m
-plt.scatter(x_posObsAct, y_posObsAct, marker='o', color='purple', label='Obs finales', zorder=3, s = sizeO/factor_m) # s para convertir a m
+if obs_active == 1:
+    plt.plot(x_positions_obs[graphCycleStart:graphCycleEnd,0:quantO], y_positions_obs[graphCycleStart:graphCycleEnd,0:quantO], linestyle='--', zorder=4, label=labels_obs)
+    plt.scatter(x_positions_obs[graphCycleStart,0:quantO], y_positions_obs[graphCycleStart,0:quantO], marker='o', facecolor='none', edgecolor='purple', label='Obs iniciales', zorder=3, s = sizeO/factor_m) # s para convertir a m
+    plt.scatter(x_posObsAct, y_posObsAct, marker='o', color='purple', label='Obs finales', zorder=3, s = sizeO/factor_m) # s para convertir a m
 # objetivo
 plt.scatter(x_pObjVec, y_pObjVec, marker='*', color='red', label='Objetivo', zorder=2, s = 0.1/factor_m) 
 # agentes
@@ -249,9 +251,10 @@ plt.plot(np.mean(x_positions[graphCycleStart:graphCycleEnd, NStart:], axis=1), n
 plt.scatter(x_positions[graphCycleStart,NStart:N], y_positions[graphCycleStart,NStart:N], marker='o', facecolor='none', edgecolor='green', label='Pos Iniciales', zorder=2, s = diam_agente/factor_m)
 plt.scatter(x_positions[-1, NStart:N], y_positions[-1, NStart:N], marker='o', color='green', label='Pos Finales', zorder=4, s=diam_agente/factor_m)
 # obstáculos
-plt.plot(x_positions_obs[graphCycleStart:graphCycleEnd,0:quantO], y_positions_obs[graphCycleStart:graphCycleEnd,0:quantO], linestyle='--', zorder=4, label=labels_obs)
-plt.scatter(x_positions_obs[graphCycleStart,0:quantO], y_positions_obs[graphCycleStart,0:quantO], marker='o', facecolor='none', edgecolor='purple', label='Obs iniciales', zorder=3, s = sizeO/factor_m) # s para convertir a m
-plt.scatter(x_posObsAct, y_posObsAct, marker='o', color='purple', label='Obs finales', zorder=3, s = sizeO/factor_m) # s para convertir a m
+if obs_active == 1:
+    plt.plot(x_positions_obs[graphCycleStart:graphCycleEnd,0:quantO], y_positions_obs[graphCycleStart:graphCycleEnd,0:quantO], linestyle='--', zorder=4, label=labels_obs)
+    plt.scatter(x_positions_obs[graphCycleStart,0:quantO], y_positions_obs[graphCycleStart,0:quantO], marker='o', facecolor='none', edgecolor='purple', label='Obs iniciales', zorder=3, s = sizeO/factor_m) # s para convertir a m
+    plt.scatter(x_posObsAct, y_posObsAct, marker='o', color='purple', label='Obs finales', zorder=3, s = sizeO/factor_m) # s para convertir a m
 # objetivo
 plt.scatter(x_pObjVec, y_pObjVec, marker='*', color='red', label='Objetivo', zorder=2, s = 0.1/factor_m) 
 
@@ -519,7 +522,8 @@ ax.set_ylim(-2.4, 2.4)
 # Initialize the scatter plots for the agents, obstacles, and goal
 scatter_agents = ax.scatter([], [], marker='o', color ='green', label='Agentes', zorder=5, s = diam_agente/factor_m)
 scatter_goal = ax.scatter([], [], marker='*', color='red', label='Objetivo', zorder=2, s = 0.1/factor_m)
-scatter_obstacles = ax.scatter([], [], marker='o', color='purple', label='Obstáculos', zorder=3, s = sizeO/factor_m)
+if obs_active == 1:
+    scatter_obstacles = ax.scatter([], [], marker='o', color='purple', label='Obstáculos', zorder=3, s = sizeO/factor_m)
 
 real_time_text = ax.text(1.03, 0.8, '', transform=ax.transAxes, fontsize=10, bbox=dict(facecolor='white', edgecolor='black', boxstyle='round'))
 
@@ -535,13 +539,15 @@ snapshot_frame_4 = total_frames - 1
 # Plot the initial positions
 scatter_agents.set_offsets(np.column_stack([x_positions[graphCycleStart:graphCycleEnd, NStart:N], y_positions[graphCycleStart:graphCycleEnd, NStart:N]]))
 scatter_goal.set_offsets(np.column_stack([x_positions_obj[graphCycleStart:graphCycleEnd], y_positions_obj[graphCycleStart:graphCycleEnd]]))
-scatter_obstacles.set_offsets(np.column_stack([x_positions_obs[graphCycleStart:graphCycleEnd], y_positions_obs[graphCycleStart:graphCycleEnd]]))
+if obs_active == 1:
+    scatter_obstacles.set_offsets(np.column_stack([x_positions_obs[graphCycleStart:graphCycleEnd], y_positions_obs[graphCycleStart:graphCycleEnd]]))
 
 # Function to update the scatter plots in each animation frame
 def update(frame):
     scatter_agents.set_offsets(np.column_stack([x_positions[frame, NStart:N], y_positions[frame, NStart:N]]))
     scatter_goal.set_offsets(np.column_stack([x_positions_obj[frame], y_positions_obj[frame]]))
-    scatter_obstacles.set_offsets(np.column_stack([x_positions_obs[frame], y_positions_obs[frame]]))
+    if obs_active == 1:
+        scatter_obstacles.set_offsets(np.column_stack([x_positions_obs[frame], y_positions_obs[frame]]))
     # Update the real-time timer in the title
         # Save equally spaced snapshots
     """    
