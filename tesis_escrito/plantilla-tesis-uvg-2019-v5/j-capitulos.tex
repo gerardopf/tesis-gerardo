@@ -1,19 +1,19 @@
-\chapter{Algoritmo de sincronización y control de formaciones}
-El algoritmo de sincronización y control de formaciones funciona con dos controladores principales. El primero es el algoritmo de sincronización y control centralizado llamado ``supervisor'' y el segundo es el algoritmo de control de uniciclo para los agentes. En este capítulo se explicará el funcionamiento de cada controlador y la lógica detrás de cada uno para cumplir con las tareas de formación, evasión de colisiones y movilización hacia un objetivo.
+\chapter{Algoritmo de sincronización y control de formaciones}\label{cap:algoritmo}
+El algoritmo de sincronización y control de formaciones funciona con dos programas principales. El primero es el algoritmo de sincronización y control centralizado llamado ``supervisor'' y el segundo es el algoritmo de control de uniciclo para los agentes. En este capítulo se explicará el funcionamiento de cada uno y la lógica detrás de ellos para cumplir con las tareas de formación, evasión de colisiones y movilización hacia un objetivo.
 
-\subsection{Controlador del supervisor}
-El programa del supervisor tiene como tarea coordinar a los agentes, realizar procesamiento de datos y generar trayectorias para movilizar a los agentes hacia un objetivo evadiendo colisiones entre ellos y con los obstáculos. Para esto, el algoritmo cuenta con diferentes segmentos.
+\section{Programa del supervisor}
+El programa del supervisor tiene como tarea coordinar a los agentes, realizar procesamiento de datos y generar trayectorias para movilizarlos hacia un objetivo, evadiendo colisiones entre ellos y con los obstáculos. Para esto, el algoritmo cuenta con diferentes segmentos.
 
-\subsubsection{Adquisición de posiciones}
-La primera parte del algoritmo consiste en la toma de posiciones $X$ y $Y$ actuales de los agentes, obstáculos y el objetivo. 
+\subsection{Adquisición de posiciones}
+La primera parte del algoritmo consiste en la toma de las posiciones actuales $X$ y $Y$ de los agentes, obstáculos y el objetivo. 
 
-\subsubsection{Cálculo de velocidades de agentes}
-Luego, se realiza el cálculo de las velocidades de los agentes para moverlos hacia su posición en la formación y hacia el objetivo de interés. Este cálculo de velocidades se realiza por medio de la ecuación de consenso con un factor de peso $\omega$ que depende de las ecuaciones de tensión y de evasión de obstáculos. 
+\subsection{Cálculo de velocidades de agentes}
+Luego, se calculan las velocidades de los agentes para desplazarlos tanto hacia su posición en la formación como hacia el objetivo de interés. Este cálculo se realiza por medio de la ecuación de consenso con un factor de peso $\omega$ el cual depende de las ecuaciones de tensión y evasión de obstáculos. 
 
-\subsubsection{Evasión de obstáculos y colisiones}
-Seguido a esto, se tiene la evasión de obstáculos y colisiones que se realiza comparando la posición actual de cada agente con la posición actual de los agentes vecinos y los obstáculos.
+\subsection{Evasión de obstáculos y colisiones}
+Seguido a esto, se implementa la evasión de obstáculos y colisiones, comparando la posición actual de cada agente con la de sus vecinos y los obstáculos.
 
-\subsubsection{Control proporcional}
+\subsection{Control proporcional}
 El siguiente segmento implementa el control proporcional de la Ecuación (\ref{eq:controlador_proporcional}) para movilizar a los agentes hacia un punto de interés.
 
 \begin{equation}
@@ -21,21 +21,23 @@ El siguiente segmento implementa el control proporcional de la Ecuación (\ref{e
 	\label{eq:controlador_proporcional}
 \end{equation}
 
-Donde $v$ es la velocidad del agente y $k$ es la ganancia o constante de proporcionalidad que multiplica a la distancia entre el punto de interés y la posición del agente a evaluar. Una vez se tiene la velocidad en $X$ y $Y$ de los agentes, se calcula la norma de velocidad y esta se utiliza para la toma de decisiones dentro del algoritmo.
+Donde $v$ es la velocidad del agente y $k$ es la ganancia o constante de proporcionalidad que multiplica a la distancia entre el punto de interés y la posición del agente evaluado. Una vez se obtienen las componentes de velocidad en $X$ y $Y$, se calcula la norma de velocidad, la cual se utiliza para la toma de decisiones dentro del algoritmo.
 
-\subsection{Controlador de los agentes}
-El programa del los agentes recibe las velocidades calculadas por el supervisor. Luego, se encarga de convertirlas en velocidad lineal y angular para calcular la velocidad de cada rueda de los Pololu 3Pi+ según el modelo del uniciclo. Este programa es individual para cada agente y solo procesa los datos para si mismo.
+\section{Programa de los agentes}
+El programa del los agentes recibe las velocidades calculadas por el supervisor. Luego, se encarga de convertirlas en sus componentes lineal y angular para calcular la velocidad de cada rueda de los Pololu 3Pi+, utilizando el modelo del uniciclo. Este programa es individual para cada agente y solo procesa los datos correspondientes a su propio funcionamiento.
 
-\subsection{Funcionamiento del algoritmo}
+\section{Funcionamiento del algoritmo}
 El algoritmo consta de las siguientes etapas para su ejecución:
 \begin{itemize}
 	\item Etapa 0: los agentes se movilizan hacia sus posiciones iniciales para iniciar el experimento.
 	\item Etapa 1: comienza el acercamiento de agentes hasta que la norma de velocidad esté por debajo de un valor seleccionado.
-	\item Etapa 2: los agentes se colocan en sus posiciones de la formación hasta que el error cuadrático medio entre la formación actual y la formación deseada esté por debajo de un valor seleccionado.
+	\item Etapa 2: los agentes se colocan en sus posiciones de la formación hasta que el error cuadrático medio entre la formación actual y la deseada esté por debajo de un valor seleccionado.
 	\item Etapa 3: el líder se mueve hacia el objetivo y los agentes de la formación lo siguen.
 \end{itemize}
 
-En las Figuras \ref{fig:diagrama_supervisor} y \ref{fig:diagrama_agentes} se muestra el diagrama de flujo para los programas del supervisor y el control de los agentes.
+Cabe mencionar que durante toda la ejecución del algoritmo, se realiza la evasión de obstáculos y colisiones.
+
+En las Figuras \ref{fig:diagrama_supervisor} y \ref{fig:diagrama_agentes} se muestra el diagrama de flujo que representan el programa del supervisor y el control de los agentes.
 
 \begin{figure}[H]
 	\centering
@@ -52,12 +54,12 @@ En las Figuras \ref{fig:diagrama_supervisor} y \ref{fig:diagrama_agentes} se mue
 \end{figure}
 
 
-\chapter{Restauración del algoritmo desarrollado en fases previas}
-La implementación en físico del algoritmo de sincronización y control de formaciones llevada a cabo por José Alejandro Rodríguez \cite{RodriguezJA_2023_tesis} se realizó en Webots con la versión 2023b. Esta es la misma versión que la utilizada en la fase actual. También, se optó por utilizar Python 3.10 como lenguaje de programación para el controlador del supervisor y de los agentes ya que es una de las versiones más recientes de software, además que es la misma versión utilizada en la fase anterior. 
+\chapter{Restauración del algoritmo desarrollado en fases previas}\label{cap:restauracion}
+La implementación en físico del algoritmo de sincronización y control de formaciones realizada por José Alejandro Rodríguez \cite{RodriguezJA_2023_tesis}, se llevó a cabo en Webots, versión R2023b, la misma que se utiliza en la fase actual. Además, se optó por utilizar Python 3.10 como lenguaje de programación para el controlador del supervisor y los agentes ya que es una de las versiones más recientes y es la misma empleada en la fase anterior.
 
-Por otro lado, en el Robotat se han realizado cambios en las conexiones con el servidor y los Pololu 3Pi+	por lo que se sería necesario un reajuste de parámetros.
+Por otro lado, se han realizado cambios en las conexiones con el servidor del Robotat y los Pololu 3Pi+, lo que hace necesario un reajuste de parámetros y configuraciones.
 
-En este capítulo se detallarán las modificaciones necesarias para la restauración del algoritmo y su correcta ejecución en simulaciones con Webots y en un entorno físico con el Robotat. Además, se realizará la validación de la naturaleza del algoritmo en escenarios con obstáculos móviles.
+En este capítulo se detallarán las modificaciones necesarias para restaurar el algoritmo y garantizar su correcta ejecución tanto en simulaciones de Webots como en un entorno físico en el Robotat. Además, se validará la naturaleza del algoritmo en escenarios con obstáculos móviles.
 
 
 \section{Replicar simulaciones de Webots}
@@ -87,9 +89,9 @@ Al ejecutar la primera simulación, se encontró que dos agentes permanecían in
 	\label{fig:delaygpu}
 \end{figure}
 
-Esto se debe a que actualmente se está utilizando una computadora con mayor capacidad de procesamiento que la utilizada en la fase anterior. Esta capacidad de procesamiento impacta en la velocidad de ejecución de los programas. 
+Esto se debe a que actualmente se está utilizando una computadora con mayor capacidad de procesamiento que la utilizada en la fase anterior y esto se ve reflejado en la velocidad de ejecución de los programas. 
 
-Dado que la comunicación entre el supervisor y los agentes se realiza por medio de una memoria compartida y la velocidad de procesamiento es mayor, el controlador de los dos primeros agentes se ejecuta antes de que el espacio de memoria compartida se haya inicializado correctamente. Para solucionar el problema, en el controlador de los agentes se agregó un tiempo de espera de 3 segundos antes de inicializar y acceder a la memoria compartida para asegurar que esta se cree correctamente en el controlador del supervisor.
+Dado que la comunicación entre el supervisor y los agentes se realiza por medio de una memoria compartida, al tener mayor velocidad de procesamiento, el controlador de los dos primeros agentes se ejecuta antes de que el espacio de memoria compartida se haya inicializado correctamente. Para solucionar esto, en el programa de los agentes, se agregó un tiempo de espera de 3 segundos antes de inicializar y acceder a la memoria compartida. Esto permite que se cree correctamente en el programa del supervisor.
 
 \subsection{Prueba del algoritmo con simulaciones basadas en escenarios previos}
 Una vez solucionado el problema de comunicación, se realizó las primeras simulaciones para replicar algunos de los escenarios realizados por José Alejandro Rodríguez \cite{RodriguezJA_2023_tesis} y comprobar el funcionamiento correcto del algoritmo. 
@@ -163,10 +165,10 @@ En la Figura \ref{fig:tercera_simulacion}, las imágenes en el orden de izquierd
 \end{figure}
 
 \section{Replicar el funcionamiento del algoritmo en el Robotat}
-Una vez teniendo el algoritmo funcionando en Webots, el siguiente paso fue verificar que el algoritmo se ejecute correctamente en el Robotat.
+Una vez que el algoritmo funciona correctamente en Webots, el siguiente paso fue verificar que se ejecute correctamente en el Robotat.
 
 \subsection{Pruebas de conexión con el Pololu 3Pi+ y el Robotat}
- Primero, se realizaron pruebas de conexión y obtención de datos con el Robotat y los Pololu 3Pi+ utilizando las funciones creadas en Python por José Alejandro Rodríguez \cite{RodriguezJA_2023_tesis}:
+ Primero, se realizaron pruebas de conexión con el Robotat y los Pololu 3Pi+ utilizando las funciones creadas en Python por José Alejandro Rodríguez \cite{RodriguezJA_2023_tesis}:
  
 \begin{itemize}
 	\item robotat\_connect
@@ -178,7 +180,7 @@ Una vez teniendo el algoritmo funcionando en Webots, el siguiente paso fue verif
 	\item robotat\_3pi\_force\_stop
 \end{itemize}
 
-Al realizar las pruebas de conexión con los agentes Pololu 3Pi+ se tenía el error mostrado en la Figura \ref{fig:error_conexion}. Este error se debe a que hubo un cambio en los puertos de conexión con el ESP$32$ de los agentes. Anteriormente la conexión se realizaba en el puerto $8888$ y actualmente se realiza en el puerto $9090$. Al actualizar este dato dentro de la función ``robotat\_3pi\_connect''  en del archivo ``funciones\_conjunto\_3pi.py'' se logró una conexión exitosa con el agente para el envío de comandos de velocidades.
+Al intentar conectar con los agentes Pololu 3Pi+ se tuvo el error mostrado en la Figura \ref{fig:error_conexion}. Este se debe a que hubo un cambio en los puertos de conexión con el ESP$32$ de los agentes. Anteriormente la conexión se realizaba en el puerto $8888$ y actualmente se realiza en el puerto $9090$. Al actualizar este parámetro dentro de la función ``robotat\_3pi\_connect'' en del archivo ``funciones\_conjunto\_3pi.py'', se obtuvo la conexión exitosa con el agente.
 
 \begin{figure}[H]
 	\centering
@@ -188,11 +190,9 @@ Al realizar las pruebas de conexión con los agentes Pololu 3Pi+ se tenía el er
 \end{figure}
 
 \subsection{Calibración de marcadores}
-Una vez lograda la conexión con los Pololu 3Pi+, se tuvo que realizar una nueva calibración de los marcadores del OptiTrack para obtener el desfase del ángulo orientación (\textit{bearing}) de cada marcador. Estos desfases son diferentes en cada marcador y se producen por la forma en que el OptiTrack identifica cada uno según la posición de sus esferas reflectivas.
+El siguiente paso fue realizar una nueva calibración de los marcadores del OptiTrack para obtener el desfase del ángulo orientación (\textit{bearing}) de cada marcador. Estos desfases son diferentes para cada uno y se producen por la forma en que el OptiTrack los identifica según la posición de sus esferas reflectivas.
 
-En la fase anterior, se realizó una calibración con los marcadores del $1$ al $15$, sin embargo, se agregaron nuevos marcadores por lo que ahora se cuenta con $22$ de ellos para utilizar, de los cuales están inhabilitados el $1$ y $9$ ya que serán utilizados en otros proyectos de graduación. Por tanto, ahora se tienen disponibles los marcadores de la Figura \ref{fig:marcadores_disponibles}. 
-
-Para corregir el desfase de cada marcador, primero se obtiene la orientación con ángulos de Euler en la secuencia $zyx$, luego, al primer ángulo que representa la rotación respecto al eje $z$ se le resta el desfase obtenido $\theta_z$. Para realizar la calibración, se colocaron todos los marcadores disponibles de la Figura \ref{fig:marcadores_disponibles} con la misma orientación sobre el eje $y$ de la mesa de pruebas del Robotat tal como se observa en la Figura \ref{fig:marcadores_calibracion}.
+En la fase anterior, se realizó una calibración con los marcadores del $1$ al $15$, sin embargo, se agregaron nuevos marcadores al Robotat y ahora se cuenta con $22$ de ellos. Actualmente, los marcadores $1$ y $9$ están inhabilitados ya que serán utilizados en otros proyectos de graduación. Por tanto, ahora se tienen disponibles los marcadores de la Figura \ref{fig:marcadores_disponibles}. 
 
 \begin{figure}[H]
 	\centering
@@ -201,6 +201,8 @@ Para corregir el desfase de cada marcador, primero se obtiene la orientación co
 	\label{fig:marcadores_disponibles}
 \end{figure}
 
+Para corregir el desfase de cada marcador, primero se obtiene la orientación con ángulos de Euler en la secuencia $zyx$, luego, al primer ángulo que representa la rotación respecto al eje $z$ se le resta el desfase obtenido $\theta_z$. Para realizar la calibración, se colocaron todos los marcadores disponibles de la Figura \ref{fig:marcadores_disponibles} con la misma orientación sobre el eje $y$ de la mesa de pruebas del Robotat tal como se observa en la Figura \ref{fig:marcadores_calibracion}.
+
 \begin{figure}[H]
 	\centering
 	\includegraphics[width=0.6\textwidth]{replicar_fisico_pruebas/marcadores_ejey.png}
@@ -208,7 +210,7 @@ Para corregir el desfase de cada marcador, primero se obtiene la orientación co
 	\label{fig:marcadores_calibracion}
 \end{figure}
 
-Al obtener la pose de cada marcador, se realizó la conversión a ángulos de Euler en la secuencia $zyx$ y se obtuvo los ángulos de desfase del Cuadro \ref{cuadro:desfases_iniciales}. Al comparar los desfases actuales con los obtenidos en la fase previa mostrados en el Cuadro \ref{cuadro:desfases_anteriores}, se observó que los valores son similares por lo que se optó tomar los desfases anteriores para los marcadores $1$ y $9$ faltantes en la calibración actual. Por último, en el Cuadro \ref{cuadro:desfases_finales} se observan los desfases finales para cada uno de los marcadores del $1$ al $22$. Estos valores se guardaron en un archivo .npy llamado ``nueva\_calibracion\_markers\_1\_al\_22.npy'' para aplicarlos luego de obtener la pose de cada marcador en el algoritmo y así tener siempre un ángulo respecto del eje $z$ igual a cero ($\theta_z$ = 0).
+Al obtener la pose de cada marcador, se realizó la conversión a ángulos de Euler en la secuencia $zyx$ y se obtuvo los ángulos de desfase del Cuadro \ref{cuadro:desfases_iniciales}. Al comparar los desfases actuales con los obtenidos en la fase previa mostrados en el Cuadro \ref{cuadro:desfases_anteriores}, se observó que los valores son similares por lo que se tomó los desfases anteriores para los marcadores $1$ y $9$ faltantes en la calibración actual. Por último, en el Cuadro \ref{cuadro:desfases_finales} se observan los desfases finales para cada uno de los marcadores del $1$ al $22$. Estos valores se guardaron en un archivo .npy llamado ``nueva\_calibracion\_markers\_1\_al\_22.npy'' para aplicarlos luego de obtener la pose de cada marcador en el algoritmo y así tener siempre un ángulo respecto del eje $z$ igual a cero ($\theta_z$ = 0).
 
 \begin{table}[H]
 	\centering
@@ -310,9 +312,9 @@ Una vez guardada la calibración de marcadores, se realizó pruebas en el Robota
 
 Anteriormente, para obtener las poses de los marcadores se utilizaba una lista predeterminada con los valores enteros del $1$ al $12$ en orden ascendente que serían los marcadores a utilizar. Sin embargo esto ocasionaba diferentes problemas.
 
-Para obtener las poses de los marcadores se utiliza la función ``robotat\_get\_pose'', esta recibe como argumentos el objeto TCP y los números de marcadores. Al tener una lista predeterminada de valores, siempre se está solicitando la pose de los $12$ marcadores aunque no todos estén en uso, resultando en una solicitud de datos innecesaria para el servidor. Además, dado que actualmente no se tienen disponibles los marcadores $1$ y $9$, se excede el tiempo de espera (\textit{Time Out}) para obtención de la pose de estos, lo que resulta en tiempos muertos durante la ejecución del código.
+Para obtener las poses de los marcadores se utiliza la función ``robotat\_get\_pose'', esta recibe como argumentos el objeto TCP y los números de marcadores. Al tener una lista predeterminada de valores, siempre se está solicitando la pose de los $12$ marcadores aunque no todos estén en uso, resultando en una solicitud de datos innecesaria para el servidor. Además, dado que actualmente no se tienen disponibles los marcadores $1$ y $9$, se excede el tiempo de espera (\textit{Time Out}) para obtención de sus poses, lo que resulta en tiempos muertos durante la ejecución del código.
 
-Para solucionar el problema, se optó por solicitar únicamente las poses de los marcadores a utilizar con una lista que contiene los números de todos los marcadores con el orden: agentes, objetivo y obstáculos. A continuación se muestra un ejemplo de esto.
+Para solucionar esto, se optó por solicitar únicamente las poses de los marcadores a utilizar con una lista que contiene los números de todos los marcadores con el orden: agentes, objetivo y obstáculos. A continuación se muestra un ejemplo de esto.
 
 Marcadores de agentes $= [1, 2, 3, 4]$
 
@@ -322,10 +324,9 @@ Marcadores de obstáculos = $ = [14, 15, 16]$
 
 Marcadores a solicitar $ = [1, 2, 3, 4, 22, 14, 15, 16]$
 
+Por otro lado, para asignar los marcadores de cada agente, se debía elegir un intervalo  de valores consecutivos de manera ascendente dentro de la lista predeterminada. Esto limita a utilizar únicamente los agentes dentro del intervalo seleccionado, por lo que si un agente se descargaba, era obligatorio reemplazar las baterías para volver a utilizarlo. Por esto, cambió la asignación de los marcadores para cada agente permitiendo seleccionar cualquier marcador disponible en el Robotat sin algún orden específico. Ahora, para obtener las poses de los marcadores, únicamente se solicitan los datos al servidor de que están en uso. Esto, permite agilizar las pruebas ya que en múltiples ocasiones es necesario compartir los agentes Pololu 3Pi+ con otros compañeros.
 
-Por otro lado, para asignar los marcadores de cada agente, se debía elegir un intervalo  de valores consecutivos de manera ascendente dentro de la lista predeterminada. Esto era problemático ya que limita a utilizar únicamente los agentes dentro del intervalo seleccionado, por lo que si un agente se descargaba, era obligatorio reemplazar las baterías para volver a utilizarlo. Por esto, se optó por cambiar la asignación de los marcadores para cada agente permitiendo seleccionar cualquier marcador disponible en el Robotat sin algún orden específico y ahora, para obtener las poses de los marcadores, únicamente se solicitan los datos al servidor de los marcadores en uso. Esto además, permite agilizar las pruebas a realizar ya que en múltiples ocasiones es necesario compartir los agentes Pololu 3Pi+ con otros compañeros.
-
-En la Figura \ref{fig:seleccion_agentes}, el número dentro del círculo, representa el número de marcador asignado al agente. A la izquierda se puede observar la asignación de los marcadores a cada agente con la implementación del algoritmo original, mientras del lado derecho se observa una asignación arbitraria luego del cambio mencionado.
+En la Figura \ref{fig:seleccion_agentes}, el número dentro del círculo, representa el número de marcador asignado al agente. A la izquierda observa la asignación de los marcadores a cada agente con la implementación del algoritmo original, mientras que del lado derecho se realiza una asignación arbitraria luego del cambio mencionado.
 
 
 \begin{figure}[H]
@@ -337,7 +338,7 @@ En la Figura \ref{fig:seleccion_agentes}, el número dentro del círculo, repres
 
 
 \subsection{Ajuste de parámetros en el algoritmo}
-Una vez realizadas las modificaciones anteriores, al ejecutar el algoritmo en físico con tres agentes se encontró que su comportamiento es divergente en la etapa donde se movilizan hacia sus posiciones iniciales. En la Figura \ref{fig:divergencia1} se observa la trayectoria que toman los agentes.
+Luego de las modificaciones anteriores, al ejecutar el algoritmo en físico con tres agentes se encontró que su comportamiento es divergente en la etapa donde se movilizan hacia sus posiciones iniciales. En la Figura \ref{fig:divergencia1} se observa la trayectoria que toman los agentes.
 
 \begin{figure}[H]
 	\centering
@@ -347,7 +348,7 @@ Una vez realizadas las modificaciones anteriores, al ejecutar el algoritmo en f�
 	\label{fig:divergencia1}
 \end{figure}
 
-Para intentar solucionar esto, se invirtió signo de la constante de proporcionalidad en el control de velocidad aplicado en la etapa 0 del algoritmo. Anteriormente se utilizaba $k = 5$, ahora se utiliza $k = -5$. Al aplicar el cambio, se encontró que ahora los agentes si se colocan en sus posiciones iniciales, sin embargo, ahora el comportamiento de divergencia se sigue presentando en las demás etapas del algoritmo tal como se observa en la Figura \ref{fig:divergencia2}.
+Para intentar solucionar esto, se invirtió signo de la constante de proporcionalidad en el control de velocidad aplicado en la etapa 0 del algoritmo. Anteriormente se utilizaba $k = 5$, ahora se utiliza $k = -5$. Al aplicar el cambio, se encontró que ahora los agentes si se colocan en sus posiciones iniciales, sin embargo, el comportamiento de divergencia se sigue presentando en las demás etapas del algoritmo, tal como se observa en la Figura \ref{fig:divergencia2}.
 
 \begin{figure}[H]
 	\centering
@@ -357,7 +358,7 @@ Para intentar solucionar esto, se invirtió signo de la constante de proporciona
 	\label{fig:divergencia2}
 \end{figure}
 
-Al observar esto, se encontró que el patrón de divergencia se presentaba en todas las secciones donde se aplica el control proporcional para la velocidad de los agentes. Sabiendo esto, se optó por invertir el signo de la velocidad $v_n$ y la constante $k$ de la Ecuación (\ref{eq:controlador_proporcional}) tal como se observa a continuación:
+Con esto, se determinó que el patrón de divergencia se presentaba en todas las secciones donde se aplica el control proporcional para la velocidad de los agentes. Sabiendo esto, se optó por invertir el signo de la velocidad $v_n$ y la constante $k$ de la Ecuación (\ref{eq:controlador_proporcional}) tal como se observa a continuación:
 
 \begin{equation}
 	v_{n+1} = -v_n - k(x_{objetivo} - x_{agente})
@@ -376,7 +377,7 @@ Con esto, se logró solucionar la divergencia de los agentes y se realizó la pr
 	\label{fig:prueba_fisico1}
 \end{figure}
 
-Una vez realizada la primera prueba, se simuló un escenario arbitrario en Webots, sin embargo se encontró que ahora la simulación presentaba los mismos patrones de divergencia en todas las etapas del algoritmo. Por esto, se optó por implementar el control proporcional de la Ecuación (\ref{eq:controlador_proporcional}) para las simulaciones y otro control proporcional con la Ecuación (\ref{eq:controlador_proporcional2}) para ejecutar el algoritmo en físico. Con esta modificación, se logró replicar el funcionamiento completo del algoritmo tanto para simulaciones en Webots como en un ambiente físico en el Robotat.
+Una vez realizada la primera prueba, se simuló un escenario arbitrario en Webots, sin embargo se encontró que ahora la simulación presentaba los mismos patrones de divergencia en todas las etapas del algoritmo. Por esto, se optó por implementar el control proporcional de la Ecuación (\ref{eq:controlador_proporcional}) para las simulaciones y otro control proporcional con la Ecuación (\ref{eq:controlador_proporcional2}) para ejecutar el algoritmo en físico. Con esta modificación, se logró replicar el funcionamiento completo del algoritmo tanto para simulaciones en Webots como en el Robotat.
 
 \subsection{Configuraciones para el escenario}
 Para clasificar las ejecuciones del algoritmo según las condiciones del escenario, se decidió utilizar la misma convención implementada por José Alejandro Rodríguez \cite{RodriguezJA_2023_tesis}. Esta se enfoca en diferenciar los escenarios según las posiciones de las marcas iniciales para los agentes, los obstáculos y el objetivo.
@@ -511,15 +512,18 @@ Para el tercer escenario, se utilizó la configuración ACA con 3 agentes. En la
 	\label{fig:traj_test_3A_ACA_f_1}
 \end{figure}
 
-\section{Prueba de funcionamiento del algoritmo con obstáculos móviles}
-Una vez que se validó el funcionamiento del algoritmo utilizando escenarios previos, se puso a prueba la naturaleza dinámica del algoritmo de sincronización y control de formaciones. Como se mencionó anteriormente, se cuenta con el archivo ``data\_graphing.py'' para generar las gráficas y trayectorias del experimento. Sin embargo, este no muestra el recorrido de los obstáculos en movimiento, por lo que se agregó esta función a manera de visualizar la posición inicial, y final, así como las trayectorias de los obstáculos.
+\chapter{Prueba de la naturaleza dinámica del algoritmo con obstáculos móviles}\label{cap:naturaleta_dinamica}
+En este capítulo, se explica y se pone a prueba la naturaleza dinámica del algoritmo de sincronización y control de formaciones. 
+
+\section{Naturaleza dinámica del algoritmo}
+Como se mencionó anteriormente, se cuenta con el archivo ``data\_graphing.py'' para generar las gráficas y trayectorias del experimento. Sin embargo, este no muestra el recorrido de los obstáculos en movimiento, por lo que se agregó esta función a manera de visualizar la posición inicial, y final, así como las trayectorias de los obstáculos.
 
 A continuación, se presentan los escenarios en los que se puso a prueba el algoritmo con obstáculos móviles en simulaciones y en físico. En todos los casos, se observa que los agentes logran reposicionarse y cambiar su trayectoria al moverse los obstáculos, manteniendo su formación mientras siguen el objetivo. Esto es posible gracias a la naturaleza dinámica del algoritmo, que se debe a la manera en que se planteó originalmente la ecuación de consenso y el cálculo del peso para determinar las velocidades. Además, el algoritmo está constantemente evaluando la posición actual de cada agente y la compara con la posición actual de los obstáculos. Con esto, se ajusta de forma dinámica el peso $w$ y se re calcula la ecuación de consenso para evitar posibles colisiones.
 
-\subsection{Simulaciones utilizando obstáculos móviles}
+\section{Simulaciones utilizando obstáculos móviles}
 Para las simulaciones mostradas en las Figuras \ref{fig:traj_testSim_6A_ADA_v_1}, \ref{fig:traj_testSim_6A_ADA_v_2} y \ref{fig:traj_testSim_6A_ADA_v_3} se optó por utilizar una configuración ADA con 6 agentes y se movilizó los obstáculos a manera de que estos interfirieran con la trayectoria de la formación durante el seguimiento al objetivo. Cabe mencionar que la movilización de los obstáculos se hizo de manera aleatoria y sin ningún patrón en específico. 
 
-\subsubsection{Primer escenario}
+\subsection{Primer escenario}
 \begin{figure}[H]
 	\centering
 	\includegraphics[width=0.8\textwidth]{test_sim_ObsM/traj_testSim_6A_ADA_v_1.eps}
@@ -527,7 +531,7 @@ Para las simulaciones mostradas en las Figuras \ref{fig:traj_testSim_6A_ADA_v_1}
 	\label{fig:traj_testSim_6A_ADA_v_1}
 \end{figure}
 
-\subsubsection{Segundo escenario}
+\subsection{Segundo escenario}
 \begin{figure}[H]
 	\centering
 	\includegraphics[width=0.8\textwidth]{test_sim_ObsM/traj_testSim_6A_ADA_v_2.eps}
@@ -535,7 +539,7 @@ Para las simulaciones mostradas en las Figuras \ref{fig:traj_testSim_6A_ADA_v_1}
 	\label{fig:traj_testSim_6A_ADA_v_2}
 \end{figure}
 
-\subsubsection{Tercer escenario}
+\subsection{Tercer escenario}
 \begin{figure}[H]
 	\centering
 	\includegraphics[width=0.8\textwidth]{test_sim_ObsM/traj_testSim_6A_ADA_v_3.eps}
@@ -544,10 +548,10 @@ Para las simulaciones mostradas en las Figuras \ref{fig:traj_testSim_6A_ADA_v_1}
 \end{figure}
 
 
-\subsection{Escenarios físicos utilizando obstáculos móviles}
+\section{Escenarios físicos utilizando obstáculos móviles}
 A diferencia que con los escenarios en simulaciones, para las pruebas en físico se movilizó los obstáculos a manera de que estos interfirieran o liberaran una trayectoria de la formación durante el seguimiento al objetivo.
 
-\subsubsection{Primer escenario}
+\subsection{Primer escenario}
 Para este escenario, se movilizaron los obstáculos para que estos dejaran libre la trayectoria de los agentes hacia el objetivo en lugar de interferir en esta. Como se observa en la Figura \ref{fig:traj_test_3A_ADB_f_1}, el agente 1 con la trayectoria roja, pasa sobre la posición donde se encontraba el obstáculo inicialmente. Además, evita colisionar con los obstáculos colocados en sus posiciones finales. 
 
 \begin{figure}[H]
@@ -557,7 +561,7 @@ Para este escenario, se movilizaron los obstáculos para que estos dejaran libre
 	\label{fig:traj_test_3A_ADB_f_1}
 \end{figure}
 
-\subsubsection{Segundo escenario}
+\subsection{Segundo escenario}
 Para este escenario, se planteó el recorrido a manera que los agentes tuvieran que pasar en medio de los obstáculos. Como se observa en la Figura \ref{fig:traj_test_3A_ADC_f_1}, con la trayectoria en verde, el obstáculo se movilizó a lo largo del espacio libre para que este bloqueara el camino hacia el objetivo. Luego se volvió a colocar cercano a su posición inicial. Además, se observa cómo los agentes lograron evitar la colisión y seguir su trayecto una vez que el camino se liberara.
 \begin{figure}[H]
 	\centering
@@ -566,7 +570,7 @@ Para este escenario, se planteó el recorrido a manera que los agentes tuvieran 
 	\label{fig:traj_test_3A_ADC_f_1}
 \end{figure}
 
-\subsubsection{Tercer escenario}
+\subsection{Tercer escenario}
 Para este caso, se realizó lo mismo que en el segundo escenario. Como se observa en la Figura \ref{fig:traj_test_3A_ADC_f_3}, con la trayectoria en verde, el obstáculo se movilizó a lo largo del espacio libre a manera que este bloqueara el camino hacia el objetivo. Luego se volvió a colocar cercano a su posición inicial, donde se observa cómo los agentes lograron evitar la colisión y seguir su trayecto una vez que el camino se liberara.
 
 \begin{figure}[H]
@@ -576,7 +580,7 @@ Para este caso, se realizó lo mismo que en el segundo escenario. Como se observ
 	\label{fig:traj_test_3A_ADC_f_3}
 \end{figure}
 
-\subsubsection{Cuarto escenario}
+\subsection{Cuarto escenario}
 Para este escenario, se movilizó el obstáculo una sola vez a manera que cambiara de posición e interfiriera con una trayectoria en línea recta de la formación hacia el objetivo. En la Figura \ref{fig:traj_test_3A_ADC_f_2}, se observa que los agentes modificaron su trayectoria evadiendo el obstáculo por un costado y siguieron exitosamente su camino hacia el objetivo.
 
 \begin{figure}[H]
@@ -587,11 +591,11 @@ Para este escenario, se movilizó el obstáculo una sola vez a manera que cambia
 \end{figure}
 
 
-\chapter{Optimización del algoritmo y su implementación}
-En este capítulo se describen los puntos de mejora identificados en la implementación del algoritmo de sincronización y control de formaciones. Luego, se detallará cómo se abordó cada uno de ellos empleando técnicas de optimización como la reducción de complejidad computacional y ajuste de parámetros de control.
+\chapter{Optimización del algoritmo y su implementación}\label{cap:optimizacion}
+En este capítulo se describen los puntos de mejora identificados en la implementación del algoritmo de sincronización y control de formaciones. Además, se detalla cómo se abordó cada uno de ellos empleando técnicas de optimización como la reducción de complejidad computacional y ajuste de parámetros de control.
 
 \section{Lenguaje de programación y limpieza de código}
-El primer paso para la optimización fue analizar el lenguaje de programación empleado para los controladores. Se tomó en cuenta tres lenguajes para compararlos en base a las ventajas y desventajas que proponen para su implementación con el estado actual del algoritmo: MATLAB, Python y C. En el Cuadro \ref{cuadro:lenguajes_programacion} se describen las ventajas y desventajas que tiene un lenguaje sobre otro.
+El primer paso para la optimización fue analizar el lenguaje de programación empleado para los controladores. Se tomó en cuenta tres lenguajes y se compararon en base a las ventajas y desventajas que proponen para su implementación con el estado actual del algoritmo: MATLAB, Python y C. En el Cuadro \ref{cuadro:lenguajes_programacion} se describen las ventajas y desventajas de cada uno.
 
 \begin{table}[H]
 	\centering
@@ -607,12 +611,12 @@ El primer paso para la optimización fue analizar el lenguaje de programación e
 	\label{cuadro:lenguajes_programacion}
 \end{table}
 
-Una vez comparados los lenguajes de programación se optó por seguir utilizando Python para el desarrollo de los controladores. Las razones principales fueron que es un lenguaje de código abierto y ofrece un buen equilibrio entre rendimiento computacional y facilidad de desarrollo. Además, ya se cuenta con todo el algoritmo previo desarrollado en Python funcionando en un entorno físico como el Robotat. Esto incluye el desarrollo de los controladores, funciones para cálculos propios del algoritmo de sincronización y control de formaciones y funciones de conexión con el servidor del Robotat y los Pololu 3Pi+. Por lo que, dado el poco tiempo disponible para utilizar el Robotat no es conveniente migrar a un nuevo lenguaje de programación para esta fase de la implementación del algoritmo. Además, python cuenta con librerías como NumPy que está basada en C y otras librerías de comunicación y procesamiento que permiten optimizar el rendimiento computacional.
+Una vez comparados los lenguajes de programación se optó por seguir utilizando Python para el desarrollo de los controladores. Las razones principales fueron que es un lenguaje de código abierto y ofrece un buen equilibrio entre rendimiento computacional y facilidad de desarrollo. Además, ya se cuenta con todo el algoritmo previo desarrollado en Python funcionando en un entorno físico como el Robotat. Esto incluye el desarrollo de los controladores, funciones para cálculos propios del algoritmo de sincronización y control de formaciones y funciones de conexión con el servidor del Robotat y los Pololu 3Pi+. Por lo que, dado el poco tiempo disponible para utilizar el Robotat no es conveniente migrar a un nuevo lenguaje de programación para esta fase de la implementación del algoritmo. Asimismo, python cuenta con librerías como NumPy que está basada en C y otras librerías de comunicación y procesamiento que permiten optimizar el rendimiento computacional.
 
-Finalmente, se realizó un proceso de limpieza y documentación del código para facilitar las iteraciones a realizar. Además, esto permitió eliminar segmentos de código obsoletos, así como identificar otras deficiencias que se mencionarán a continuación.
+Finalmente, se realizó un proceso de limpieza y documentación del código para facilitar la interacción y entendimiento. Además, esto permitió eliminar segmentos de código obsoletos, así como identificar otras deficiencias que se mencionarán a continuación.
 
 \section{Posición de cada agente según el grafo de formación}
-Durante la restauración del algoritmo desarrollado en fases previas, al implementar la selección manual de marcadores para los agentes, se encontró que anteriormente el número de marcador asignado a cada agente estaba directamente relacionado con la posición que este debe tomar según el grafo de formación. En la Figura \ref{fig:grafo_formacion1} se muestra la asignación de posiciones según el grafo de formación para una selección arbitraria de agentes con la implementación original del algoritmo.
+Durante la restauración del algoritmo, al implementar la selección manual de marcadores para los agentes, se encontró que el número de marcador asignado a cada agente estaba directamente relacionado con la posición que este debe tomar según el grafo de formación. En la Figura \ref{fig:grafo_formacion1} se muestra la asignación de posiciones según el grafo de formación para una selección arbitraria de agentes con la implementación original del algoritmo.
 
 \begin{figure}[H]
 	\centering
@@ -633,26 +637,26 @@ Al tener una formación como la mostrada anteriormente se vuelve poco intuitiva 
 \section{Mejorar la eficiencia computacional con NumPy}
 NumPy es una librería de Python especializada para el cálculo numérico y científico. Destaca por su soporte para trabajar con operaciones vectorizadas o vectores multidimensionales sin realizar bucles. También cuenta con una amplia variedad de funciones matemáticas y estadísticas, así como integración con otras bibliotecas como SciPy. Además, NumPy está implementado en C por lo que permite mejorar la eficiencia computacional para grandes cantidades de datos.
 
-Al revisar los programas de los controladores, se encontró varios segmentos de código que se realizan con ciclos \textit{for} simples y otros anidados. Esto presenta una deficiencia al realizar los cálculos y solicitud de datos al servidor del Robotat por lo que se optó por optimizar dichos procesos utilizando funciones matemáticas y operaciones matriciales con NumPy. A continuación, se detallará los segmentos del algoritmo que se optimizaron implementando operaciones con NumPy y se mostrará la comparativa en cuanto a tiempos de ejecución utilizando la librería ``time'' de Python y análisis estadísticos.
+Al revisar los programas de los controladores, se encontró varios segmentos de código que se realizan con bucles (ciclos \textit{for}) simples y otros anidados. Esto presenta una deficiencia al realizar los cálculos y solicitud de datos al servidor del Robotat por lo que se optó por optimizar dichos procesos utilizando funciones matemáticas y operaciones matriciales con NumPy. A continuación, se detallará los segmentos del algoritmo que se optimizaron implementando operaciones con NumPy y se mostrará la comparativa en cuanto a tiempos de ejecución utilizando la librería ``time'' de Python y análisis estadísticos.
 
 \subsection{Aplicar desfases de los marcadores}
-A continuación se explica los pasos que se realizaban anteriormente para aplicar los desfases de la calibración de marcadores, donde $n$ es la cantidad de marcadores a utilizar.
+A continuación se explica los pasos que anteriormente se realizaban para aplicar los desfases de la calibración de marcadores, donde $n$ es la cantidad de marcadores a utilizar.
 
 \begin{itemize}
 	\item Configuración
 	\begin{enumerate}
 		\item Cargar el archivo .npy con los desfases de los marcadores.
 		\item Solicitar las poses de $n$ marcadores al sevidor del Robotat.
-		\item Aplicar el desfase de cada marcador con un ciclo \textit{for} de $n$ iteraciones.
+		\item Aplicar el desfase de cada marcador con un bucle de $n$ iteraciones.
 	\end{enumerate}
 	\item Ciclo principal 
 	\begin{enumerate}
 		\item Solicitar las poses de $n$ marcadores al servidor del Robotat.
-		\item Aplicar el desfase de cada marcador con un ciclo \textit{for} de $n$ iteraciones.
+		\item Aplicar el desfase de cada marcador con un bucle de $n$ iteraciones.
 	\end{enumerate}
 \end{itemize}
 
-Sin embargo, el implementar ciclos \textit{for} dentro del ciclo principal significa un aumento de tiempo computacional que es más notorio al aumentar la cantidad de marcadores a utilizar. Para optimizar el proceso se optó por aplicar los desfases a cada marcador utilizando operaciones matriciales e implementando únicamente una resta de matrices dentro del ciclo principal, por lo que ahora el proceso es el siguiente:
+Sin embargo, el implementar bucles dentro del ciclo principal significa un aumento de tiempo computacional que es más notorio al aumentar la cantidad de marcadores a utilizar. Para optimizar el proceso se optó por aplicar los desfases a cada marcador utilizando operaciones matriciales e implementando únicamente una resta de matrices dentro del ciclo principal, por lo que ahora el proceso es el siguiente:
 
 \begin{itemize}
 	\item Configuración
@@ -669,11 +673,11 @@ Sin embargo, el implementar ciclos \textit{for} dentro del ciclo principal signi
 	\end{enumerate}
 \end{itemize}
 
-Una vez implementada la optimización, se realizó un análisis estadístico con mil muestras donde se tomó el tiempo que toma aplicar los desfases a los marcadores con un ciclo \textit{for} y con una resta de matrices con NumPy.
+Una vez implementada la optimización, se realizó un análisis estadístico con mil muestras donde se tomó el tiempo que toma aplicar los desfases a los marcadores con bucles y con una resta de matrices con NumPy.
 
 Para la toma de muestras, se evaluó diferentes cantidades de marcadores a los que se les aplicaría el desfase, siendo estos 5, 10, 15 y 20. En los Cuadros \ref{cuadro:tiempos_desfases_for} y \ref{cuadro:tiempos_desfases_numpy} se muestra la media y desviación estándar del tiempo que toma aplicar los desfases.
 
-En la Figura \ref{fig:grafica_tiempos_desfases} se observa que la optimización con NumPy presenta una reducción notable en el tiempo de procesamiento, la cual es aún más significativa a medida que aumenta la cantidad de marcadores a utilizar. Por otro lado, los tiempos al aplicar ciclos \textit{for} incrementan de manera proporcional y más pronunciada con el aumento de los marcadores, mientras que con NumPy el crecimiento es más moderado ya que la pendiente de la curva es dos órdenes de magnitud menor.
+En la Figura \ref{fig:grafica_tiempos_desfases} se observa que la optimización con NumPy presenta una reducción notable en el tiempo de procesamiento, la cual es aún más significativa a medida que aumenta la cantidad de marcadores a utilizar. Por otro lado, los tiempos al aplicar bucles incrementan de manera proporcional y más pronunciada con el aumento de los marcadores, mientras que con NumPy el crecimiento es más moderado ya que la pendiente de la curva es dos órdenes de magnitud menor.
 
 \begin{table}[H]
 	\centering
@@ -686,7 +690,7 @@ En la Figura \ref{fig:grafica_tiempos_desfases} se observa que la optimización 
 		15 & 1000 & 0.008187 & 0.001654 \\ \hline
 		20 & 1000 & 0.010485 & 0.000843 \\ \hline
 	\end{tabular}}
-	\caption{Media de tiempo y desviación estándar para aplicar desfases de marcadores con ciclos \text{for}.}
+	\caption{Media de tiempo y desviación estándar para aplicar desfases de marcadores con bucles}
 	\label{cuadro:tiempos_desfases_for}
 \end{table}
 
@@ -708,16 +712,16 @@ En la Figura \ref{fig:grafica_tiempos_desfases} se observa que la optimización 
 \begin{figure}[H]
 	\centering
 	\includegraphics[width=\textwidth]{optimizacion/tiempos_desfases.png}
-	\caption{Gráfica con medias de tiempo para aplicar desfases de marcadores con ciclos \textit{for} y operaciones con NumPy.}
+	\caption{Gráfica con medias de tiempo para aplicar desfases de marcadores con bucles y operaciones con NumPy.}
 	\label{fig:grafica_tiempos_desfases}
 \end{figure}
 
 \subsection{Cálculo de la distancia entre agentes}
-Para el cálculo de distancia entre agentes se tiene una función llamada ``DistBetweenAgents'' dentro del archivo ``funciones.py''. Esta utiliza dos ciclos \textit{for} anidados para calcular la norma de distancia basada en la distancia en $x$ y $y$ de cada agente hacia sus vecinos más próximos. El cálculo de la distancia se realiza entre los agentes $i$ y $j$ y luego para $j$ e $i$, esto produce una matriz simétrica por lo que se puede realizar únicamente el cálculo de una mitad y luego duplicarla. Para esto, se creó una versión optimizada de la función llamada ``DistBetweenAgentsOptimized''. En esta, únicamente se calcula la diferencia de posiciones aprovechando el \textit{broadcasting} en NumPy y luego se obtiene la norma de la matriz de distancias utilizando la función ``linealg.norm''.
+Para el cálculo de distancia entre agentes se tiene una función llamada ``DistBetweenAgents'' dentro del archivo ``funciones.py''. Esta utiliza bucles anidados para calcular la norma de distancia basada en la distancia en $x$ y $y$ de cada agente hacia sus vecinos más próximos. El cálculo de la distancia se realiza entre los agentes $i$ y $j$ y luego para $j$ e $i$, esto produce una matriz simétrica por lo que se puede realizar únicamente el cálculo de una mitad y luego duplicarla. Para esto, se creó una versión optimizada de la función llamada ``DistBetweenAgentsOptimized''. En esta, únicamente se calcula la diferencia de posiciones aprovechando el \textit{broadcasting} en NumPy y luego se obtiene la norma de la matriz de distancias utilizando la función ``linealg.norm''.
 
 En los Cuadros \ref{cuadro:tiempos_distancias_for} y \ref{cuadro:tiempos_distancias_numpy} se muestra la media y desviación estándar del tiempo que toma en realizar los cálculos con la función original y la optimizada. Para esto, se tomó mil muestras aumentando la cantidad de agentes desde $1$ hasta $10$. 
 
-En la Figura \ref{fig:grafica_tiempos_distancias} se observa un incremento exponencial en el tiempo de procesamiento al calcular las distancias entre los agentes conforme se aumenta el número de estos en la formación. Además, la optimización con NumPy presenta un incremento significativamente menor. Esto se confirma al observar que el exponente de la ecuación que describe el comportamiento utilizando ciclos \textit{for} es $1.6982$, mientras que el exponente al utilizar NumPy es $0.1775$.
+En la Figura \ref{fig:grafica_tiempos_distancias} se observa un incremento exponencial en el tiempo de procesamiento al calcular las distancias entre los agentes conforme se aumenta el número de estos en la formación. Además, la optimización con NumPy presenta un incremento significativamente menor. Esto se confirma al observar que el exponente de la ecuación que describe el comportamiento utilizando bucles es $1.6982$, mientras que el exponente al utilizar NumPy es $0.1775$.
 
 \begin{table}[H]
 	\centering
@@ -736,7 +740,7 @@ En la Figura \ref{fig:grafica_tiempos_distancias} se observa un incremento expon
 		9 & 1000 & 0.079696 & 0.009144 \\ \hline
 		10 & 1000 & 0.098319 & 0.009456 \\ \hline
 	\end{tabular}}
-	\caption{Media de tiempo y desviación estándar para calcular la distancia entre agentes con ciclos \textit{for}.}
+	\caption{Media de tiempo y desviación estándar para calcular la distancia entre agentes con bucles}
 	\label{cuadro:tiempos_distancias_for}
 \end{table}
 
@@ -764,17 +768,17 @@ En la Figura \ref{fig:grafica_tiempos_distancias} se observa un incremento expon
 \begin{figure}[H]
 	\centering
 	\includegraphics[width=\textwidth]{optimizacion/tiempos_distancias.png}
-	\caption{Gráfica con medias de tiempo para calcular la distancia entre agentes con ciclos \textit{for} y operaciones con NumPy.}
+	\caption{Gráfica con medias de tiempo para calcular la distancia entre agentes con bucles y operaciones con NumPy.}
 	\label{fig:grafica_tiempos_distancias}
 \end{figure}
 
 \subsection{Cálculo del error de formación}
-Para calcular el error de formación se utiliza la función ``FormationError'' dentro del archivo ``funciones.py''. Esta función utiliza dos ciclos \textit{for} anidados para calcular el error cuadrático medio entre la formación actual y la deseada utilizando como parámetros las matrices de adyacencia de ambas formaciones. Dado que ambas matrices son cuadradas y, al considerar únicamente los agentes de interés, se convierten en matrices del mismo tamaño, se desarrolló una versión optimizada de la función llamada ``FormationErrorOptimized''. Esta versión emplea la función ``square'' de NumPy que eleva al cuadrado cada elemento de la matriz y luego calcula la media utilizando la función ``mean''.
+Para calcular el error de formación se utiliza la función ``FormationError'' dentro del archivo ``funciones.py''. Esta función utiliza dos bucles anidados para calcular el error cuadrático medio entre la formación actual y la deseada utilizando como parámetros las matrices de adyacencia de ambas formaciones. Dado que ambas matrices son cuadradas y, al considerar únicamente los agentes de interés, se convierten en matrices del mismo tamaño, se desarrolló una versión optimizada de la función llamada ``FormationErrorOptimized''. Esta versión emplea la función ``square'' de NumPy que eleva al cuadrado cada elemento de la matriz y luego calcula la media utilizando la función ``mean''.
 
 
 En los Cuadros \ref{cuadro:tiempos_error_for} y \ref{cuadro:tiempos_error_numpy} se muestra la media y desviación estándar del tiempo que toma en realizar el cálculo del error cuadrático medio con la función original y la optimizada. Para esto, se tomó mil muestras aumentando la cantidad de agentes desde $1$ hasta $10$. 
 
-En la Figura \ref{fig:grafica_tiempos_error} se muestra una gráfica en la que se evidencia un crecimiento exponencial en el tiempo de procesamiento al calcular las distancias entre los agentes a medida que se aumenta el número de agentes en la formación. Por otro lado, la optimización con Numpy, presenta un aumento significativamente menor. Además, esto se demuestra ya que el exponente de la ecuación que describe el comportamiento utilizando ciclos \textit{for} es $1.4753$, mientras que el exponente para la optimización con NumPy es $0.112$.
+En la Figura \ref{fig:grafica_tiempos_error} se muestra una gráfica en la que se evidencia un crecimiento exponencial en el tiempo de procesamiento al calcular las distancias entre los agentes a medida que se aumenta el número de agentes en la formación. Por otro lado, la optimización con Numpy, presenta un aumento significativamente menor. Además, esto se demuestra ya que el exponente de la ecuación que describe el comportamiento utilizando bucles es $1.4753$, mientras que el exponente para la optimización con NumPy es $0.112$.
 
 \begin{table}[H]
 	\centering
@@ -793,7 +797,7 @@ En la Figura \ref{fig:grafica_tiempos_error} se muestra una gráfica en la que s
 		9 & 1000 & 0.128032 & 0.011905 \\ \hline
 		10 & 1000 & 0.149833 & 0.013256 \\ \hline
 	\end{tabular}}
-	\caption{Media de tiempo y desviación estándar para calcular el error de formación con ciclos \textit{for}.}
+	\caption{Media de tiempo y desviación estándar para calcular el error de formación con bucles.}
 	\label{cuadro:tiempos_error_for}
 \end{table}
 
@@ -821,13 +825,13 @@ En la Figura \ref{fig:grafica_tiempos_error} se muestra una gráfica en la que s
 \begin{figure}[H]
 	\centering
 	\includegraphics[width=\textwidth]{optimizacion/tiempos_error.png}
-	\caption{Gráfica con medias de tiempo para calcular el error de formación con ciclos \textit{for} y operaciones con NumPy.}
+	\caption{Gráfica con medias de tiempo para calcular el error de formación con bucles y operaciones con NumPy.}
 	\label{fig:grafica_tiempos_error}
 \end{figure}
 
 \section{Ajuste de parámetros del algoritmo}
 
-\chapter{Validación del algoritmo optimizado en escenarios físicos con obstáculos móviles}
+\chapter{Validación del algoritmo optimizado en escenarios físicos con obstáculos móviles}\label{cap:validacion}
 
 
 

@@ -6,19 +6,19 @@
 \contentsline {chapter}{Resumen}{\es@scroman {x}}{section*.10}%
 \contentsline {chapter}{Abstract}{\es@scroman {xi}}{section*.11}%
 \contentsline {chapter}{\numberline {1}Introducción}{1}{chapter.12}%
-\contentsline {chapter}{\numberline {2}Antecedentes}{2}{chapter.13}%
-\contentsline {section}{\numberline {2.1}Robótica de enjambre}{2}{section.14}%
-\contentsline {section}{\numberline {2.2}Robótica de enjambre inspirada en peces}{2}{section.15}%
-\contentsline {section}{\numberline {2.3}Robotarium de Georgia Tech}{3}{section.17}%
-\contentsline {section}{\numberline {2.4}Robotat de la Universidad del Valle de Guatemala}{3}{section.19}%
-\contentsline {section}{\numberline {2.5}Validación de algoritmos de algoritmos de \textit {Particle Swarm Optimization} (PSO) y \textit {Ant Colony Optimization} (ACO)}{4}{section.21}%
-\contentsline {section}{\numberline {2.6}Algoritmo de sincronización y control de sistemas de robots multiagente para misiones de búsqueda}{5}{section.22}%
-\contentsline {section}{\numberline {2.7}Validación de un algoritmo de inteligencia de enjambre enfocado en sincronización y control de formaciones de sistemas robóticos multi-agente en un entorno físico}{5}{section.24}%
-\contentsline {chapter}{\numberline {3}Justificación}{6}{chapter.25}%
-\contentsline {chapter}{\numberline {4}Objetivos}{7}{chapter.26}%
-\contentsline {section}{\numberline {4.1}Objetivo general}{7}{section.27}%
-\contentsline {section}{\numberline {4.2}Objetivos específicos}{7}{section.28}%
-\contentsline {chapter}{\numberline {5}Alcance}{8}{chapter.29}%
+\contentsline {chapter}{\numberline {2}Antecedentes}{3}{chapter.13}%
+\contentsline {section}{\numberline {2.1}Robótica de enjambre}{3}{section.14}%
+\contentsline {section}{\numberline {2.2}Robótica de enjambre inspirada en peces}{3}{section.15}%
+\contentsline {section}{\numberline {2.3}Robotarium de Georgia Tech}{4}{section.17}%
+\contentsline {section}{\numberline {2.4}Robotat de la Universidad del Valle de Guatemala}{4}{section.19}%
+\contentsline {section}{\numberline {2.5}Validación de algoritmos de algoritmos de \textit {Particle Swarm Optimization} (PSO) y \textit {Ant Colony Optimization} (ACO)}{5}{section.21}%
+\contentsline {section}{\numberline {2.6}Algoritmo de sincronización y control de sistemas de robots multiagente para misiones de búsqueda}{6}{section.22}%
+\contentsline {section}{\numberline {2.7}Validación de un algoritmo de inteligencia de enjambre enfocado en sincronización y control de formaciones de sistemas robóticos multi-agente en un entorno físico}{6}{section.24}%
+\contentsline {chapter}{\numberline {3}Justificación}{7}{chapter.25}%
+\contentsline {chapter}{\numberline {4}Objetivos}{8}{chapter.26}%
+\contentsline {section}{\numberline {4.1}Objetivo general}{8}{section.27}%
+\contentsline {section}{\numberline {4.2}Objetivos específicos}{8}{section.28}%
+\contentsline {chapter}{\numberline {5}Alcance}{9}{chapter.29}%
 \contentsline {chapter}{\numberline {6}Marco teórico}{10}{chapter.30}%
 \contentsline {section}{\numberline {6.1}Conceptos fundamentales en robótica de enjambre}{10}{section.31}%
 \contentsline {subsection}{\numberline {6.1.1}Enjambre}{10}{subsection.32}%
@@ -51,13 +51,13 @@
 \contentsline {section}{\numberline {6.9}Hardware}{23}{section.83}%
 \contentsline {subsection}{\numberline {6.9.1}Plataforma móvil Pololu 3pi+ modificado}{23}{subsection.84}%
 \contentsline {chapter}{\numberline {7}Algoritmo de sincronización y control de formaciones}{24}{chapter.86}%
-\contentsline {subsection}{\numberline {7.0.1}Controlador del supervisor}{24}{subsection.87}%
-\contentsline {subsubsection}{Adquisición de posiciones}{24}{section*.88}%
-\contentsline {subsubsection}{Cálculo de velocidades de agentes}{24}{section*.89}%
-\contentsline {subsubsection}{Evasión de obstáculos y colisiones}{25}{section*.90}%
-\contentsline {subsubsection}{Control proporcional}{25}{section*.91}%
-\contentsline {subsection}{\numberline {7.0.2}Controlador de los agentes}{25}{subsection.93}%
-\contentsline {subsection}{\numberline {7.0.3}Funcionamiento del algoritmo}{25}{subsection.94}%
+\contentsline {section}{\numberline {7.1}Programa del supervisor}{24}{section.87}%
+\contentsline {subsection}{\numberline {7.1.1}Adquisición de posiciones}{24}{subsection.88}%
+\contentsline {subsection}{\numberline {7.1.2}Cálculo de velocidades de agentes}{24}{subsection.89}%
+\contentsline {subsection}{\numberline {7.1.3}Evasión de obstáculos y colisiones}{25}{subsection.90}%
+\contentsline {subsection}{\numberline {7.1.4}Control proporcional}{25}{subsection.91}%
+\contentsline {section}{\numberline {7.2}Programa de los agentes}{25}{section.93}%
+\contentsline {section}{\numberline {7.3}Funcionamiento del algoritmo}{25}{section.94}%
 \contentsline {chapter}{\numberline {8}Restauración del algoritmo desarrollado en fases previas}{28}{chapter.97}%
 \contentsline {section}{\numberline {8.1}Replicar simulaciones de Webots}{28}{section.98}%
 \contentsline {subsection}{\numberline {8.1.1}Comunicación entre supervisor y agentes}{29}{subsection.99}%
@@ -67,35 +67,36 @@
 \contentsline {subsubsection}{Tercer escenario}{32}{section*.106}%
 \contentsline {section}{\numberline {8.2}Replicar el funcionamiento del algoritmo en el Robotat}{33}{section.108}%
 \contentsline {subsection}{\numberline {8.2.1}Pruebas de conexión con el Pololu 3Pi+ y el Robotat}{33}{subsection.109}%
-\contentsline {subsection}{\numberline {8.2.2}Calibración de marcadores}{34}{subsection.111}%
-\contentsline {subsection}{\numberline {8.2.3}Selección de marcadores a utilizar}{38}{subsection.117}%
-\contentsline {subsection}{\numberline {8.2.4}Ajuste de parámetros en el algoritmo}{39}{subsection.120}%
-\contentsline {subsection}{\numberline {8.2.5}Configuraciones para el escenario}{42}{subsection.125}%
-\contentsline {subsection}{\numberline {8.2.6}Prueba del algoritmo en físico con escenarios previos}{42}{subsection.127}%
-\contentsline {subsubsection}{Primer escenario}{43}{section*.128}%
-\contentsline {subsubsection}{Segundo escenario}{44}{section*.131}%
-\contentsline {subsubsection}{Tercer escenario}{46}{section*.134}%
-\contentsline {subsubsection}{Cuarto escenario}{48}{section*.137}%
-\contentsline {subsubsection}{Quinto escenario}{50}{section*.140}%
-\contentsline {section}{\numberline {8.3}Prueba de funcionamiento del algoritmo con obstáculos móviles}{52}{section.143}%
-\contentsline {subsection}{\numberline {8.3.1}Simulaciones utilizando obstáculos móviles}{53}{subsection.144}%
-\contentsline {subsubsection}{Primer escenario}{53}{section*.145}%
-\contentsline {subsubsection}{Segundo escenario}{54}{section*.147}%
-\contentsline {subsubsection}{Tercer escenario}{55}{section*.149}%
-\contentsline {subsection}{\numberline {8.3.2}Escenarios físicos utilizando obstáculos móviles}{55}{subsection.151}%
-\contentsline {subsubsection}{Primer escenario}{55}{section*.152}%
-\contentsline {subsubsection}{Segundo escenario}{56}{section*.154}%
-\contentsline {subsubsection}{Tercer escenario}{57}{section*.156}%
-\contentsline {subsubsection}{Cuarto escenario}{58}{section*.158}%
-\contentsline {chapter}{\numberline {9}Optimización del algoritmo y su implementación}{60}{chapter.160}%
-\contentsline {section}{\numberline {9.1}Lenguaje de programación y limpieza de código}{60}{section.161}%
-\contentsline {section}{\numberline {9.2}Posición de cada agente según el grafo de formación}{61}{section.163}%
-\contentsline {section}{\numberline {9.3}Mejorar la eficiencia computacional con NumPy}{63}{section.166}%
-\contentsline {subsection}{\numberline {9.3.1}Aplicar desfases de los marcadores}{63}{subsection.167}%
-\contentsline {subsection}{\numberline {9.3.2}Cálculo de la distancia entre agentes}{65}{subsection.182}%
-\contentsline {subsection}{\numberline {9.3.3}Cálculo del error de formación}{67}{subsection.186}%
-\contentsline {section}{\numberline {9.4}Ajuste de parámetros del algoritmo}{68}{section.190}%
-\contentsline {chapter}{\numberline {10}Validación del algoritmo optimizado en escenarios físicos con obstáculos móviles}{69}{chapter.191}%
-\contentsline {chapter}{\numberline {11}Conclusiones}{70}{chapter.192}%
-\contentsline {chapter}{\numberline {12}Recomendaciones}{71}{chapter.193}%
-\contentsline {chapter}{\numberline {13}Bibliograf\'{\i }a}{72}{chapter.195}%
+\contentsline {subsection}{\numberline {8.2.2}Calibración de marcadores}{33}{subsection.111}%
+\contentsline {subsection}{\numberline {8.2.3}Selección de marcadores a utilizar}{37}{subsection.117}%
+\contentsline {subsection}{\numberline {8.2.4}Ajuste de parámetros en el algoritmo}{38}{subsection.120}%
+\contentsline {subsection}{\numberline {8.2.5}Configuraciones para el escenario}{40}{subsection.125}%
+\contentsline {subsection}{\numberline {8.2.6}Prueba del algoritmo en físico con escenarios previos}{41}{subsection.127}%
+\contentsline {subsubsection}{Primer escenario}{42}{section*.128}%
+\contentsline {subsubsection}{Segundo escenario}{43}{section*.131}%
+\contentsline {subsubsection}{Tercer escenario}{45}{section*.134}%
+\contentsline {subsubsection}{Cuarto escenario}{47}{section*.137}%
+\contentsline {subsubsection}{Quinto escenario}{49}{section*.140}%
+\contentsline {chapter}{\numberline {9}Prueba de la naturaleza dinámica del algoritmo con obstáculos móviles}{52}{chapter.143}%
+\contentsline {section}{\numberline {9.1}Naturaleza dinámica del algoritmo}{52}{section.144}%
+\contentsline {section}{\numberline {9.2}Simulaciones utilizando obstáculos móviles}{52}{section.145}%
+\contentsline {subsection}{\numberline {9.2.1}Primer escenario}{53}{subsection.146}%
+\contentsline {subsection}{\numberline {9.2.2}Segundo escenario}{54}{subsection.148}%
+\contentsline {subsection}{\numberline {9.2.3}Tercer escenario}{55}{subsection.150}%
+\contentsline {section}{\numberline {9.3}Escenarios físicos utilizando obstáculos móviles}{55}{section.152}%
+\contentsline {subsection}{\numberline {9.3.1}Primer escenario}{55}{subsection.153}%
+\contentsline {subsection}{\numberline {9.3.2}Segundo escenario}{56}{subsection.155}%
+\contentsline {subsection}{\numberline {9.3.3}Tercer escenario}{57}{subsection.157}%
+\contentsline {subsection}{\numberline {9.3.4}Cuarto escenario}{58}{subsection.159}%
+\contentsline {chapter}{\numberline {10}Optimización del algoritmo y su implementación}{60}{chapter.161}%
+\contentsline {section}{\numberline {10.1}Lenguaje de programación y limpieza de código}{60}{section.162}%
+\contentsline {section}{\numberline {10.2}Posición de cada agente según el grafo de formación}{61}{section.164}%
+\contentsline {section}{\numberline {10.3}Mejorar la eficiencia computacional con NumPy}{63}{section.167}%
+\contentsline {subsection}{\numberline {10.3.1}Aplicar desfases de los marcadores}{63}{subsection.168}%
+\contentsline {subsection}{\numberline {10.3.2}Cálculo de la distancia entre agentes}{65}{subsection.183}%
+\contentsline {subsection}{\numberline {10.3.3}Cálculo del error de formación}{66}{subsection.187}%
+\contentsline {section}{\numberline {10.4}Ajuste de parámetros del algoritmo}{68}{section.191}%
+\contentsline {chapter}{\numberline {11}Validación del algoritmo optimizado en escenarios físicos con obstáculos móviles}{69}{chapter.192}%
+\contentsline {chapter}{\numberline {12}Conclusiones}{70}{chapter.193}%
+\contentsline {chapter}{\numberline {13}Recomendaciones}{71}{chapter.194}%
+\contentsline {chapter}{\numberline {14}Bibliograf\'{\i }a}{72}{chapter.196}%
