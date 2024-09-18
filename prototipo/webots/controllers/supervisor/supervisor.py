@@ -26,16 +26,16 @@ supervisor = Supervisor() # instancia de supervisor
 
 # archivo para simular una corrida en físico
 initial_conditions_file = '7sepProto3obs_3A_NNN_f_0.npz' 
-r_initial_conditions = 1 # 0: nueva simulación | 1: simular escenario físico
+r_initial_conditions = 0 # 0: nueva simulación | 1: simular escenario físico
 
 # archivo para guardar una nueva corrida en físico
-new_run_file = '15sepProto3obs_3A_NNN_f_0.npz'
+new_run_file = '18sepTest_8A_ADA_f_3.npz'
 
 """ modo real o simulación """
-fisico = 0               # 0 Webots | 1 Robotat
-r_obs = 0                # 0: obstáculos virtuales | 1: obstáculos reales (markers)
-r_obj = 0                # 0: objetivo virtual | 1: objetivo real (marker)
-r_webots_visual = 0      # 0: NO ver objetivo y obstáculos en tiempo real | 1: ver objetivo y obstáculos en tiempo real
+fisico = 1               # 0 Webots | 1 Robotat
+r_obs = 1                # 0: obstáculos virtuales | 1: obstáculos reales (markers)
+r_obj = 1                # 0: objetivo virtual | 1: objetivo real (marker)
+r_webots_visual = 1      # 0: NO ver objetivo y obstáculos en tiempo real | 1: ver objetivo y obstáculos en tiempo real
 MAX_SPEED = 30           # velocidad máxima de ruedas (rpm)
 
 """ matriz de formación """
@@ -43,13 +43,13 @@ form_shape = 1    # 1: triángulo | 2: hexágono alargado
 rigidity_level = 8 # valores entre 1 y 8 (1 es el menos rígido)
 
 """ Agentes """
-agents_marker_list = [3,5,7]
+agents_marker_list = [2,3,4,5,6,7,8,10]
 NMax = 10  # número máximo de agentes que la formación puede tener
 NStart = 1 # primer agente
 N = len(agents_marker_list)	# último agente
 
 """ obstáculos y objetivo """
-obj_marker_list = [15]
+obj_marker_list = [22]
 obj_marker = obj_marker_list[0]        # marker del objetivo 
 
 obs_marker_list = [12,13,14]
