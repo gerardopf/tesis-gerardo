@@ -9,7 +9,7 @@ import math
 import os
 import re
 
-archivo = 'test_3A_ADC_f_3.npz'
+archivo = '18sepTest_8A_ADA_f_2.npz'
 show_images = 0
 
 show_real_cycle = 0
@@ -191,7 +191,7 @@ if (show_in_seconds == 1):
     obj_cycle = obj_cycle*TIME_STEP/1000
 #print(time_steps)
 
-""" ---------- Gráficar trayectoria de agentes ---------- """
+""" ---------- Gráficar trayectoria de agentes y obstáculos ---------- """
 plt.figure(figsize=(3.8*1.5, 4.8*1.5))
 
 plt.xlim(-1.9, 1.9)  # Set the x-axis limits (from 0 to 6)
@@ -207,12 +207,13 @@ print(f"NStart: {NStart}")
 print(f"N: {N}")
 NStart = NStart - 1
 agent_number = N-NStart
+obs_number = quantO
 labels = [f'Agente {i + 1}' for i in range(NStart,num_agents)] 
 labels_obs = [f'Obstáculo {i + 1}' for i in range(0,quantO)] 
 
 # obstáculos
 if obs_active == 1:
-    plt.plot(x_positions_obs[graphCycleStart:graphCycleEnd,0:quantO], y_positions_obs[graphCycleStart:graphCycleEnd,0:quantO], linestyle='--', zorder=4, label=labels_obs)
+    plt.plot(x_positions_obs[graphCycleStart:graphCycleEnd,0:quantO], y_positions_obs[graphCycleStart:graphCycleEnd,0:quantO], linestyle='--', zorder=4, label=labels_obs, color='black')
     plt.scatter(x_positions_obs[graphCycleStart,0:quantO], y_positions_obs[graphCycleStart,0:quantO], marker='o', facecolor='none', edgecolor='purple', label='Obs iniciales', zorder=3, s = sizeO/factor_m) # s para convertir a m
     plt.scatter(x_posObsAct, y_posObsAct, marker='o', color='purple', label='Obs finales', zorder=3, s = sizeO/factor_m) # s para convertir a m
 # objetivo
@@ -221,6 +222,47 @@ plt.scatter(x_pObjVec, y_pObjVec, marker='*', color='red', label='Objetivo', zor
 plt.plot(x_positions[graphCycleStart:graphCycleEnd,NStart:N], y_positions[graphCycleStart:graphCycleEnd,NStart:N], linestyle='--', zorder=4, label=labels)
 plt.scatter(x_positions[graphCycleStart,NStart:N], y_positions[graphCycleStart,NStart:N], marker='o', facecolor='none', edgecolor='green', label='Pos Iniciales', zorder=2, s = diam_agente/factor_m)
 plt.scatter(x_positions[-1,NStart:N], y_positions[-1,NStart:N], marker='o', color='green', label='Pos Finales', zorder=4, s = diam_agente/factor_m)
+
+plt.xlabel('Eje x (m)')
+plt.ylabel('Eje y (m)')
+plt.title(f'Trayectoria de agentes y obstáculos en {texto_fisico}')
+
+legend = plt.legend(markerscale=0.5)
+for text in legend.get_texts():
+    text.set_fontsize(7)
+
+plt.subplots_adjust(right=0.8)
+legend.set_bbox_to_anchor((1.31, 1))
+plt.grid()
+
+# Save the plot
+plt.savefig(f'finaltrials/{filename_without_extension}/traj_{filename_without_extension}.eps', format='eps', bbox_inches='tight')
+plt.savefig(f'finaltrials/{filename_without_extension}/traj_{filename_without_extension}.png', format='png', bbox_inches='tight')
+print_latex_figure(f'traj_{filename_without_extension}.eps', f'Trayectoria de los {agent_number} agentes y {obs_number} obstáculos en el escenario '+f'{extracted_value}, '+ f'{virtualtext}.', f'traj_{filename_without_extension}', "0.8")
+    
+""" ---------- Gráficar trayectoria de agentes ---------- """
+plt.figure(figsize=(3.8*1.5, 4.8*1.5))
+
+plt.xlim(-1.9, 1.9)  # Set the x-axis limits (from 0 to 6)
+plt.ylim(-2.4, 2.4)  # Set the y-axis limits (from 0 to 6)
+
+factor_m = 0.0003528 # m por punto de scatter
+diam_agente = l_f #diametro promedio agentes
+
+num_agents = x_positions.shape[1]  # Get the number of agents
+labels = [f'Agente {i + 1}' for i in range(NStart,num_agents)] 
+labels_obs = [f'Obstáculo {i + 1}' for i in range(0,quantO)] 
+
+# agentes
+plt.plot(x_positions[graphCycleStart:graphCycleEnd,NStart:N], y_positions[graphCycleStart:graphCycleEnd,NStart:N], linestyle='--', zorder=4, label=labels)
+plt.scatter(x_positions[graphCycleStart,NStart:N], y_positions[graphCycleStart,NStart:N], marker='o', facecolor='none', edgecolor='green', label='Pos Iniciales', zorder=2, s = diam_agente/factor_m)
+plt.scatter(x_positions[-1,NStart:N], y_positions[-1,NStart:N], marker='o', color='green', label='Pos Finales', zorder=4, s = diam_agente/factor_m)
+# obstáculos
+if obs_active == 1:
+    plt.scatter(x_positions_obs[graphCycleStart,0:quantO], y_positions_obs[graphCycleStart,0:quantO], marker='o', facecolor='none', edgecolor='purple', label='Obs iniciales', zorder=3, s = sizeO/factor_m) # s para convertir a m
+    plt.scatter(x_posObsAct, y_posObsAct, marker='o', color='purple', label='Obs finales', zorder=3, s = sizeO/factor_m) # s para convertir a m
+# objetivo
+plt.scatter(x_pObjVec, y_pObjVec, marker='*', color='red', label='Objetivo', zorder=2, s = 0.1/factor_m) 
 
 plt.xlabel('Eje x (m)')
 plt.ylabel('Eje y (m)')
@@ -235,9 +277,50 @@ legend.set_bbox_to_anchor((1.31, 1))
 plt.grid()
 
 # Save the plot
-plt.savefig(f'finaltrials/{filename_without_extension}/traj_{filename_without_extension}.eps', format='eps', bbox_inches='tight')
-plt.savefig(f'finaltrials/{filename_without_extension}/traj_{filename_without_extension}.png', format='png', bbox_inches='tight')
-print_latex_figure(f'traj_{filename_without_extension}.eps', f'Trayectoria de los {agent_number} agentes en el escenario '+f'{extracted_value}, '+ f'{virtualtext}.', f'traj_{filename_without_extension}', "0.8")
+plt.savefig(f'finaltrials/{filename_without_extension}/traj_agents_{filename_without_extension}.eps', format='eps', bbox_inches='tight')
+plt.savefig(f'finaltrials/{filename_without_extension}/traj_agents_{filename_without_extension}.png', format='png', bbox_inches='tight')
+print_latex_figure(f'traj_agents_{filename_without_extension}.eps', f'Trayectoria de los {agent_number} agentes en el escenario '+f'{extracted_value}, '+ f'{virtualtext}.', f'traj_{filename_without_extension}', "0.8")
+    
+""" ---------- Gráficar trayectoria de obstáculos ---------- """
+plt.figure(figsize=(3.8*1.5, 4.8*1.5))
+
+plt.xlim(-1.9, 1.9)  # Set the x-axis limits (from 0 to 6)
+plt.ylim(-2.4, 2.4)  # Set the y-axis limits (from 0 to 6)
+
+factor_m = 0.0003528 # m por punto de scatter
+diam_agente = l_f #diametro promedio agentes
+
+num_agents = x_positions.shape[1]  # Get the number of agents
+labels = [f'Agente {i + 1}' for i in range(NStart,num_agents)] 
+labels_obs = [f'Obstáculo {i + 1}' for i in range(0,quantO)] 
+
+# agentes
+plt.scatter(x_positions[graphCycleStart,NStart:N], y_positions[graphCycleStart,NStart:N], marker='o', facecolor='none', edgecolor='green', label='Pos Iniciales', zorder=2, s = diam_agente/factor_m)
+plt.scatter(x_positions[-1,NStart:N], y_positions[-1,NStart:N], marker='o', color='green', label='Pos Finales', zorder=4, s = diam_agente/factor_m)
+# obstáculos
+if obs_active == 1:
+    plt.plot(x_positions_obs[graphCycleStart:graphCycleEnd,0:quantO], y_positions_obs[graphCycleStart:graphCycleEnd,0:quantO], linestyle='--', zorder=4, label=labels_obs)
+    plt.scatter(x_positions_obs[graphCycleStart,0:quantO], y_positions_obs[graphCycleStart,0:quantO], marker='o', facecolor='none', edgecolor='purple', label='Obs iniciales', zorder=3, s = sizeO/factor_m) # s para convertir a m
+    plt.scatter(x_posObsAct, y_posObsAct, marker='o', color='purple', label='Obs finales', zorder=3, s = sizeO/factor_m) # s para convertir a m
+# objetivo
+plt.scatter(x_pObjVec, y_pObjVec, marker='*', color='red', label='Objetivo', zorder=2, s = 0.1/factor_m) 
+
+plt.xlabel('Eje x (m)')
+plt.ylabel('Eje y (m)')
+plt.title(f'Trayectoria de obstáculos en {texto_fisico}')
+
+legend = plt.legend(markerscale=0.5)
+for text in legend.get_texts():
+    text.set_fontsize(7)
+
+plt.subplots_adjust(right=0.8)
+legend.set_bbox_to_anchor((1.31, 1))
+plt.grid()
+
+# Save the plot
+plt.savefig(f'finaltrials/{filename_without_extension}/traj_obs_{filename_without_extension}.eps', format='eps', bbox_inches='tight')
+plt.savefig(f'finaltrials/{filename_without_extension}/traj_obs_{filename_without_extension}.png', format='png', bbox_inches='tight')
+print_latex_figure(f'traj_obs_{filename_without_extension}.eps', f'Trayectoria de los {obs_number} obstáculos en el escenario '+f'{extracted_value}, '+ f'{virtualtext}.', f'traj_{filename_without_extension}', "0.8")
     
 """ ---------- Gráficar trayectoria del centro de masa de la formación ---------- """
 plt.figure(figsize=(3.8*1.5, 4.8*1.5))
@@ -252,7 +335,6 @@ plt.scatter(x_positions[graphCycleStart,NStart:N], y_positions[graphCycleStart,N
 plt.scatter(x_positions[-1, NStart:N], y_positions[-1, NStart:N], marker='o', color='green', label='Pos Finales', zorder=4, s=diam_agente/factor_m)
 # obstáculos
 if obs_active == 1:
-    plt.plot(x_positions_obs[graphCycleStart:graphCycleEnd,0:quantO], y_positions_obs[graphCycleStart:graphCycleEnd,0:quantO], linestyle='--', zorder=4, label=labels_obs)
     plt.scatter(x_positions_obs[graphCycleStart,0:quantO], y_positions_obs[graphCycleStart,0:quantO], marker='o', facecolor='none', edgecolor='purple', label='Obs iniciales', zorder=3, s = sizeO/factor_m) # s para convertir a m
     plt.scatter(x_posObsAct, y_posObsAct, marker='o', color='purple', label='Obs finales', zorder=3, s = sizeO/factor_m) # s para convertir a m
 # objetivo
