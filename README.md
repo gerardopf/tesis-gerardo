@@ -98,6 +98,6 @@ Se está agregando el multi threading para optimizar los procesos utilizando dif
 ## Cambios realizados (NO probados) - Threading
 - Se creó un hilo para obtener la pose de los markers en segundo plano
 
-- Se creó un hilo para actualizar la visualización en tiempo real de los obstáculos y el objetivo
+- Se creó un hilo para actualizar la visualización en tiempo real de los obstáculos y el objetivo en segundo plano
 
 
