@@ -1,4 +1,4 @@
-""" NumPy implementation - AGENTE """
+""" Threading implementation - AGENTE """
 
 from controller import Robot, Compass, Motor
 import math
@@ -10,6 +10,7 @@ from funciones_conjunto_3pi import *
 import time
 
 time.sleep(3)
+
 TIME_STEP = 64  # paso para simulación 64 ms
 MAX_SPEED = 6.28    # simulación epucks (rad/s)
 MAX_SPEED_f = 30  # físico Pololu 3Pi+ (rpm)
@@ -19,7 +20,7 @@ shm1 = shared_memory.SharedMemory(name="my_shared_memory1")
 shm2 = shared_memory.SharedMemory(name="my_shared_memory2")
 lock = Lock()
 
-fisico = 1 # 0: Webots | 1: Robotat
+fisico = 0 # 0: Webots | 1: Robotat
 
 agents_marker_list = [2,3,4,5,6,7,8,10]
 NStart = 1 # primer agente
@@ -89,7 +90,6 @@ if(fisico == 0):
         # asignar velocidades a las ruedas
         leftMotor.setVelocity(phi_l)
         rightMotor.setVelocity(phi_r)
-        pass
     
 # FÍSICO - robotat
 elif(fisico == 1):
@@ -104,11 +104,6 @@ elif(fisico == 1):
         agente = agents_marker_list[argc] # hacer coincidir el índice de listas de python y matlab
     else:
         agente = -1
-    #agente2 = agents_marker_list[argc]
-    #print("CONTROLADOR AGENTE \n")
-    #print("número de agente - argc: ", argc)
-    #print("marcador robotat - agente: ", agente)
-    #print("posible marcador robotat - agente2: ", agente2)
     
     # conectar con el robot
     if agente in agents_marker_list: 
@@ -162,17 +157,15 @@ elif(fisico == 1):
                 robotat_3pi_set_wheel_velocities(pololu, phi_l_f, phi_r_f)
             except:
                 print("error al enviar velocidades al agente No. ", agente)
-                pass
         
         # presionar 'a' para detener
         if keyboard.is_pressed('a'):
-            print("Fin de la corrida -agente", agente)
+            print("Fin de la corrida... -agente No. ", agente)
             if agente in agents_marker_list:    
                 try:
                     robotat_3pi_force_stop(pololu)
                     robotat_3pi_disconnect(pololu)
                 except:
                     print("error al detener y desconectar el agente No. ", agente)
-                    pass
             break
         pass

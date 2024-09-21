@@ -1,4 +1,4 @@
-""" NumPy implementation - SUPERVISOR """
+""" Threading implementation - SUPERVISOR """
 
 # librerías
 from controller import Robot, Supervisor
@@ -29,30 +29,31 @@ initial_conditions_file = '7sepProto3obs_3A_NNN_f_0.npz'
 r_initial_conditions = 0 # 0: nueva simulación | 1: simular escenario físico
 
 # archivo para guardar una nueva corrida en físico
-new_run_file = '18sepTest_8A_ADA_f_3.npz'
+new_run_file = '20sepTest_8A_ADA_f_1.npz'
 
 """ modo real o simulación """
-fisico = 1               # 0 Webots | 1 Robotat
-r_obs = 1                # 0: obstáculos virtuales | 1: obstáculos reales (markers)
-r_obj = 1                # 0: objetivo virtual | 1: objetivo real (marker)
-r_webots_visual = 1      # 0: NO ver objetivo y obstáculos en tiempo real | 1: ver objetivo y obstáculos en tiempo real
+fisico = 0               # 0 Webots | 1 Robotat
+r_obs = 0                # 0: obstáculos virtuales | 1: obstáculos reales (markers)
+r_obj = 0                # 0: objetivo virtual | 1: objetivo real (marker)
+r_webots_visual = 0      # 0: NO ver objetivo y obstáculos en tiempo real | 1: ver objetivo y obstáculos en tiempo real
 MAX_SPEED = 30           # velocidad máxima de ruedas (rpm)
 
 """ matriz de formación """
 form_shape = 1    # 1: triángulo | 2: hexágono alargado
 rigidity_level = 8 # valores entre 1 y 8 (1 es el menos rígido)
 
-""" Agentes """
-agents_marker_list = [2,3,4,5,6,7,8,10]
+""" MARCADORES (AGENTES, OBSTÁCULOS Y OBJETIVO) """
+agents_marker_list = [2,3,4,5,6,7,8,10] # agentes (Max. 10)
+obj_marker_list = [22] # marker del objetivo (1)
+obs_marker_list = [12,13,14] # obstáculos (3)
+
+""" configuración marcadores y objetivo """
 NMax = 10  # número máximo de agentes que la formación puede tener
 NStart = 1 # primer agente
 N = len(agents_marker_list)	# último agente
 
-""" obstáculos y objetivo """
-obj_marker_list = [22]
-obj_marker = obj_marker_list[0]        # marker del objetivo 
+obj_marker = obj_marker_list[0]
 
-obs_marker_list = [12,13,14]
 quantOMax = 3 # máximo de obstáculos
 obs_active = 1        # 0: SIN obstáculos | 1: CON obstáculos
 obs_start_marker = 1 # marker del primer obstáculo
@@ -60,7 +61,7 @@ obs_start_marker = 1 # marker del primer obstáculo
 # optitrack marcadores 
 robotat_markers = agents_marker_list + obj_marker_list + obs_marker_list
 robotat_markers_len = len(robotat_markers)
-print(f"todos los markers: {robotat_markers} ")
+print(f"listado de markers: {robotat_markers} ")
 print(f"agentes: {agents_marker_list}")
 print(f"objetivo: {obj_marker_list}")
 print(f"obstáculos: {obs_marker_list}")
@@ -90,10 +91,10 @@ R = 4	# rango del radar de detección de agentes (m)
 
 """ posiciones iniciales """
 initial_pos_setup = 1 # posiciones iniciales | 0: ALEATORIO | 1: PLANIFICADO
-setup_shape = 0         # 0: posición inicial LÍNEA | 1: posición inicial CÍRCULO
-setup_shape_space = 1.5 # espacio a cubrir con las posiciones iniciales (m)
+setup_shape = 0         # formación inicial | 0: LÍNEA | 1: CÍRCULO
 
 setup_starting_point = np.array([-1, -1.5]) # punto inicial para las posiciones iniciales
+setup_shape_space = 1.5 # espacio a cubrir con las posiciones iniciales (m)
 
 agent_setup = 5 # configuración de agentes
 
@@ -133,7 +134,6 @@ if (fisico == 0):
     r_f = 0.0205
     l_f = 0.0355
     a_f = 0.0355
-    
     
 """ algunas variables y banderas """
 setup_pos = np.zeros((NMax, 6)) # guarda la pose de cada agente (x, y, z, eulx, euly, eulz)
@@ -212,7 +212,7 @@ if (fisico == 1):
     
     # aplicar desfases
     agents_pose = agents_pose - desfases_numpy
-    print(f"pose con desfases\n {agents_pose}\n")
+    print(f"pose inicial con desfases\n {agents_pose}\n")
 
 """ Arena """
 arena = supervisor.getFromDef("Arena")
@@ -322,7 +322,6 @@ while(cW1 > 1 or cW2 > 1):
 Xi = X
 print("Posiciones aleatorias modificadas Xi: \n", Xi)
 
-
 # inicializar OBSTÁCULOS fuera del mapa si no están activos
 for i in range(0, quantOMax):
     if (obs_active == 0):
@@ -352,9 +351,8 @@ except:
 
 # inicializar agentes y marcas de posiciones iniciales SIN USAR fuera del escenario
 for b in range(0, NMax):
-    if (b<NStart or b>=N):
-        PosTodos[b].setSFVec3f([-sizeVec[0]+1, b*0.3, 0.3])
-        posIniPos[b].setSFVec3f([-sizeVec[0]+1, b*0.3, -6.39203e-05])
+    PosTodos[b].setSFVec3f([-sizeVec[0]+1, b*0.3, 0.3])
+    posIniPos[b].setSFVec3f([-sizeVec[0]+1, b*0.3, -6.39203e-05])
 
 # cargar posiciones iniciales para configurar el escenario (basados en archivo de condiciones iniciales)
 if (r_initial_conditions == 1):
@@ -456,7 +454,50 @@ Etapa 3:
 - El líder se mueve hacia el objetivo y los agentes de la formación lo siguen dejando que la formación lo alcance
 
  ------------------------------------------------------------------- """
+ 
+""" -------------- Hilos --------------"""
+ 
+ # hilo para solicitar poses del robotat en segundo plano
+sync_event = threading.Event()
+stop_event = threading.Event()
 
+# obtener las poses del robotat
+def posesRobotat():
+    global agents_pose
+    global agents_pose_old
+    while not stop_event.is_set():
+        sync_event.wait()
+        try:
+            agents_pose = update_data(robotat,robotat_markers)
+            agents_pose = agents_pose - desfases_numpy # aplicar desfases
+        except:
+            print("MAIN LOOP ERROR: Error al obtener poses de agentes, se usa pose anterior")
+            agents_pose = agents_pose_old # usar posición anterior
+        agents_pose_old = agents_pose
+        sync_event.clear()
+    print("Hilo terminado... -posesRobotat")
+    
+# ver obstáculos y objetivo en tiempo real en webots
+def realTime():
+    global posObs
+    global pObj
+    while not stop_event.is_set():
+        for obs in range(0,cantO):
+            posObs[obs].setSFVec3f([x_obs, y_obs, -6.39203e-05])
+        pObj.setSFVec3f([pObjVec[0], pObjVec[1], -6.39203e-05])
+        time.sleep(0.1) # tasa de refresto para visualización en tiempo real
+    print("Hilo terminado... -realTime")
+    
+# inicializar hilos
+if (fisico == 1):
+    t1 = threading.Thread(target = posesRobotat) # asignar hilo
+    t1.start() # iniciar hilo
+    sync_event.set()
+    time.sleep(1)
+    if r_webots_visual == 1:
+        t2 = threading.Thread(target = realTime) # asignar hilo
+        t2.start() # iniciar hilo
+       
 """ -------------- MAIN LOOP --------------"""
 # al cargar las condiciones iniciales, se salta la primera etapa ya que los robots
 # ya aparecen en la posición de las marcas iniciales
@@ -465,7 +506,7 @@ if (r_initial_conditions == 1):
     cambio = 1
     begin_alg_time = 0
 
-print("Inicia ciclo principal...")
+print("Inicio de ciclo principal...")
 while supervisor.step(TIME_STEP) != 1:
     # SIMULACIÓN
     if (fisico == 0):
@@ -477,17 +518,6 @@ while supervisor.step(TIME_STEP) != 1:
         
     # FÍSICO
     elif (fisico == 1):
-        # pedir pose actual de markers
-        try:
-            agents_pose = update_data(robotat,robotat_markers)
-            #print("poses marcadores: \n", agents_pose)
-            # aplicar desfases
-            agents_pose = agents_pose - desfases_numpy
-        except:
-            print("MAIN LOOP ERROR: Error al obtener poses de agentes, se usa pose anterior")
-            agents_pose = agents_pose_old # usar posición anterior
-        agents_pose_old = agents_pose
-        
         # obtener posición actual de obstáculos REALES
         if (r_obs == 1):
             for obs in range(0,cantO):
@@ -495,9 +525,6 @@ while supervisor.step(TIME_STEP) != 1:
                 y_obs = agents_pose[len(agents_pose)-cantO+obs, 1]
                 posObsAct[0][obs] = x_obs
                 posObsAct[1][obs] = y_obs
-                # actualizar webots en tiempo real
-                if (r_webots_visual == 1):
-                    posObs[obs].setSFVec3f([x_obs, y_obs, -6.39203e-05])
         # obtener posición actual de obstáculos VIRTUALES
         elif (r_obs == 0):
             for obs in range(0,cantO):
@@ -507,9 +534,6 @@ while supervisor.step(TIME_STEP) != 1:
         if (r_obj == 1):
             pObjVec[0] = agents_pose[len(agents_pose)-cantO-1,0]
             pObjVec[1] = agents_pose[len(agents_pose)-cantO-1,1]
-            # actualizar webots en tiempo real
-            if (r_webots_visual == 1):
-                pObj.setSFVec3f([pObjVec[0], pObjVec[1], -6.39203e-05])
         # obtener posición actual de objetivo VIRTUAL
         elif (r_obj == 0):
             pObjVec = pObj.getSFVec3f() 
@@ -531,6 +555,7 @@ while supervisor.step(TIME_STEP) != 1:
         if (rotActuales[0][c] < 0):
             rotActuales[0][c] = rotActuales[0][c] + 360 # angulos siempre positivos
     
+    sync_event.set() # dar paso para obtener poses del robotat
     # ----------- algoritmo de sincronización y control de formaciones -----------
     for g in range(NStart, N):
         E0 = 0
@@ -574,7 +599,6 @@ while supervisor.step(TIME_STEP) != 1:
             V[0][g] = -1*(E0)*TIME_STEP/1000 
             V[1][g] = -1*(E1)*TIME_STEP/1000 
             
-    
     # al acercarse a la posición deseada se cambia el control
     normV2 = 0
     # calcular norma de velocidad de agentes
@@ -616,13 +640,6 @@ while supervisor.step(TIME_STEP) != 1:
                 V[0][obj] = V[0][obj] - k_vel*dx
                 V[1][obj] = V[1][obj] - k_vel*dy
                
-            #print("\nagente: ", obj)
-            #print("posx: ", posActuales[0][obj])
-            #print("posx ini: ", posIniPosVec[obj][0])
-            #print("dx: ", dx)
-            #print("posy: ", posActuales[1][obj])
-            #print("posy ini: ", posIniPosVec[obj][1])
-            #print("dy: ", dy)
             # verificar si el agente ya está en la posición inicial
             if ((posActuales[0][obj]-posIniPosVec[obj][0])<0.05 and (posActuales[1][obj]-posIniPosVec[obj][1])<0.05):
                 ready_ini_pos = ready_ini_pos + 1
@@ -668,7 +685,7 @@ while supervisor.step(TIME_STEP) != 1:
     lock.acquire()                                          # bloquear canal de comunicación
     pick_V = pickle.dumps(V)                                # guardar velocidades en archivo picke
     shm1.buf[:len(pick_V)] = pick_V                         # enviar velocidades a la memoria compartida
-    pick_agents_pose = pickle.dumps(agents_pose)            # guardar poses de agentes en archivo picke
+    pick_agents_pose = pickle.dumps(agents_pose)            # guardar poses de agentes en archivo pickle
     shm2.buf[:len(pick_agents_pose)] = pick_agents_pose     # enviar poses a la memoria compartida
     lock.release()                                          # liberar canal de comunicación
     
@@ -687,11 +704,13 @@ while supervisor.step(TIME_STEP) != 1:
     ciclo = ciclo + 1     
     
     if obj_success == 1:
-        print("Objetivo logrado")
+        print("Objetivo logrado, esperando a la formación")
     
-    # presionar la tecla 'a' para terminar la corrida
+    # presionar la tecla 'a' para terminar la corrida 
+    # espera a que se cumpla el objetivo
     if keyboard.is_pressed('a') or (obj_success == 1 and formation_mse < 0.1):
-        print("Fin de la corrida -supervisor")
+        print("Fin de la corrida... -supervisor")
+        
         V = np.zeros([2,N]) # velocidades en 0 de agentes
         
         # enviar datos a la memoria compartida
@@ -700,8 +719,9 @@ while supervisor.step(TIME_STEP) != 1:
         shm1.buf[:len(pick_V)] = pick_V
         pick_agents_pose = pickle.dumps(agents_pose)
         shm2.buf[:len(pick_agents_pose)] = pick_agents_pose
+        lock.release()
         
-        # guardar datos relevantes
+        # guardar datos relevantes en vectores
         trajectory_data = np.array(trajectory)  # trayectoria
         velocity_data = np.array(velocityHist)  # velocidades
         normV_data = np.array(normVHist)    # norma de velocidades 
@@ -715,7 +735,7 @@ while supervisor.step(TIME_STEP) != 1:
         
         # guardar datos en archivo .npz de la nueva corrida en físico
         if (fisico == 1 and r_initial_conditions == 0):
-            print("Guardando datos de la corrida...")
+            print("Guardando datos de la corrida... -supervisor")
             try:
                 np.savez(new_run_file, trajectory_data = trajectory_data, # agents positions register of the run
                                            velocity_data = velocity_data, # agents velocities registrr of the run
@@ -763,13 +783,18 @@ while supervisor.step(TIME_STEP) != 1:
                                            a_f = a_f,
                                            obj_success = obj_success,     # indicador de cumplimiento del objetivo
                                            obj_success_cycle = obj_success_cycle) # ciclo en que se logra el objetivo      
-            except e:
-                print(e)
+            except:
                 print("Error al guardar los datos de la corrida")
-    
-        # desconectar del Robotat
+        
+        # desconectar del Robotat y detener hilos
         if (fisico == 1):
+            # detener el hilo
+            stop_event.set()
+            sync_event.set()
+            t1.join()   # esperar a que termine el hilo
+            if r_webots_visual == 1:
+                t2.join()   # esperar a que termine el hilo
+            
             robotat_disconnect(robotat)
-        lock.release()
         break
     
