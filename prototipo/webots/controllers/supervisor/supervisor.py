@@ -29,7 +29,7 @@ initial_conditions_file = '7sepProto3obs_3A_NNN_f_0.npz'
 r_initial_conditions = 0 # 0: nueva simulación | 1: simular escenario físico
 
 # archivo para guardar una nueva corrida en físico
-new_run_file = '21sepThreading_3A_ACA_f_5.npz'
+new_run_file = '21sepThreading_4A_ADC_f_9.npz'
 
 """ modo real o simulación """
 fisico = 1               # 0 Webots | 1 Robotat
@@ -43,7 +43,7 @@ form_shape = 1    # 1: triángulo | 2: hexágono alargado
 rigidity_level = 8 # valores entre 1 y 8 (1 es el menos rígido)
 
 """ MARCADORES (AGENTES, OBSTÁCULOS Y OBJETIVO) """
-agents_marker_list = [2,3,4] # agentes (Max. 10)
+agents_marker_list = [2,3,4,10] # agentes (Max. 10)
 obj_marker_list = [11] # marker del objetivo (1)
 obs_marker_list = [20,21,22] # obstáculos (3)
 
@@ -643,7 +643,7 @@ while supervisor.step(TIME_STEP) != 1:
                 V[1][obj] = V[1][obj] - k_vel*dy
                
             # verificar si el agente ya está en la posición inicial
-            if ((posActuales[0][obj]-posIniPosVec[obj][0])<0.05 and (posActuales[1][obj]-posIniPosVec[obj][1])<0.05):
+            if ((posActuales[0][obj]-posIniPosVec[obj][0])<0.06 and (posActuales[1][obj]-posIniPosVec[obj][1])<0.06):
                 ready_ini_pos = ready_ini_pos + 1
         if (ready_ini_pos == cont_N):
             # cuando todos los agentes están en la posición inicial, comienza ETAPA 1

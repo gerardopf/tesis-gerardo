@@ -1,0 +1,34 @@
+<mxfile host="app.diagrams.net" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/128.0.0.0 Safari/537.36" version="24.7.14">
+  <diagram name="Página-1" id="aXhcVx3t7UmQBQRVCGdx">
+    <mxGraphModel dx="1195" dy="615" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="GdQ89D_kQxYwMtSBu0Ns-6" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="1" source="GdQ89D_kQxYwMtSBu0Ns-2" target="GdQ89D_kQxYwMtSBu0Ns-3">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="GdQ89D_kQxYwMtSBu0Ns-7" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="1" source="GdQ89D_kQxYwMtSBu0Ns-2" target="GdQ89D_kQxYwMtSBu0Ns-4">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="GdQ89D_kQxYwMtSBu0Ns-8" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="1" source="GdQ89D_kQxYwMtSBu0Ns-2" target="GdQ89D_kQxYwMtSBu0Ns-5">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="GdQ89D_kQxYwMtSBu0Ns-2" value="Supervisor" style="rounded=0;whiteSpace=wrap;html=1;fontStyle=1" vertex="1" parent="1">
+          <mxGeometry x="325" y="180" width="170" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="GdQ89D_kQxYwMtSBu0Ns-9" value="" style="group;flipV=1;flipH=0;" vertex="1" connectable="0" parent="1">
+          <mxGeometry x="210" y="300" width="400" height="160" as="geometry" />
+        </mxCell>
+        <mxCell id="GdQ89D_kQxYwMtSBu0Ns-3" value="&lt;b&gt;Hilo 1&lt;/b&gt;&lt;div&gt;&lt;br&gt;&lt;div&gt;Obtener poses de marcadores del robotat&lt;/div&gt;&lt;/div&gt;" style="rounded=0;whiteSpace=wrap;html=1;flipH=1;verticalAlign=top;align=center;" vertex="1" parent="GdQ89D_kQxYwMtSBu0Ns-9">
+          <mxGeometry width="110" height="160" as="geometry" />
+        </mxCell>
+        <mxCell id="GdQ89D_kQxYwMtSBu0Ns-4" value="&lt;b&gt;Hilo 2&lt;/b&gt;&lt;div&gt;&lt;br&gt;&lt;div&gt;Visualización en tiempo real de obstáculos y objetivos reales en Webots&lt;/div&gt;&lt;/div&gt;" style="rounded=0;whiteSpace=wrap;html=1;flipH=1;verticalAlign=top;align=center;" vertex="1" parent="GdQ89D_kQxYwMtSBu0Ns-9">
+          <mxGeometry x="145" width="110" height="160" as="geometry" />
+        </mxCell>
+        <mxCell id="GdQ89D_kQxYwMtSBu0Ns-5" value="&lt;b&gt;Hilo 3&lt;/b&gt;&lt;div&gt;&lt;br&gt;&lt;div&gt;Algoritmo de sincronización y control de formaciones&lt;/div&gt;&lt;/div&gt;" style="rounded=0;whiteSpace=wrap;html=1;flipH=1;verticalAlign=top;align=center;" vertex="1" parent="GdQ89D_kQxYwMtSBu0Ns-9">
+          <mxGeometry x="290" width="110" height="160" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

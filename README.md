@@ -62,7 +62,11 @@ Se aumentó el radio para evitar colisiones
 - De 0.07 a 0.15
 
 Se cambió la velocidad máxima en físico
-- De 30 a 60 rpm (probado con cant. de agentes: 3)
+- De 30 a 60 rpm
+- De 60 a 50 rpm
+
+Se cambió la distancia entre agente y marca de posición inicial para salir de ETAPA 0
+- De 0.05 a 0.06
 
 ## Cambios realizados (NO probados) - Parámetros
 
