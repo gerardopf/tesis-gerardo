@@ -211,7 +211,7 @@ if (fisico == 1):
     #print("poses marcadores: \n", agents_pose)
     
     # aplicar desfases
-    agents_pose = agents_pose - desfases_numpy
+    agents_pose = agents_pose - desfases_numpy # aplicar desfases
     print(f"pose inicial con desfases\n {agents_pose}\n")
 
 """ Arena """
@@ -305,7 +305,7 @@ while(cW1 > 1 or cW2 > 1):
                     X[1,i+j] = random.uniform(sizeVec[0]/2-0.4,-sizeVec[0]/2+0.4) # intersección detectada
                     contR = contR+1
         cW1 = cW1+1
-    # verrificar intersección con obstáculos
+    # verificar intersección con obstáculos
     contRO = 1 # contador intersección con obstáculo
     while(contRO > 0):
         contRO = 0
@@ -493,7 +493,7 @@ if (fisico == 1):
     t1 = threading.Thread(target = posesRobotat) # asignar hilo
     t1.start() # iniciar hilo
     sync_event.set()
-    time.sleep(1)
+    #time.sleep(1) # asegurar que se obtienen las poses una vez
     if r_webots_visual == 1:
         t2 = threading.Thread(target = realTime) # asignar hilo
         t2.start() # iniciar hilo
