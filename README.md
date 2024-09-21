@@ -14,10 +14,6 @@ El algoritmo funciona correctamente
 
 ## Problemas
 
-- Cuando el líder llega al objetivo los agentes paran pero a veces un agente no le llegan las velocidades a cero
-
-- A veces el líder se aleja mucho de la formación
-
 ## Deficiencias
 
 - Los agentes se mueven muy despacio
@@ -27,8 +23,6 @@ El algoritmo funciona correctamente
 - Hay que verificar la distancia para evasión de obstáculos
 
 - Los agentes pierden mucho tiempo en buscar como evadir el obstáculo
-
-- Cuando estamos en la ETAPA 3 el líder se detiene mucho para esperar a la formación y la formación siempre está en constante movimiento y a veces se mantienen girando 
 
 ## Cosas que faltan
 
@@ -62,6 +56,14 @@ La corrida en físico ya se detiene al llegar al objetivo y cumplir con un error
 
 Se agregó un if fisico == 1 elif fisico == 0, esto se colocó donde se realizaron los cambios de signo con el fin de que la simulación volviera a funcionar ya que luego de los cambios, únicamente funcionaba la corrida en físico y, los agentes en la simulación, divergían
 
+Cuando el líder llega a 0.2m del objetivo, se colocan sus velocidades en 0
+
+Se aumentó el radio para evitar colisiones
+- De 0.07 a 0.15
+
+Se cambió la velocidad máxima en físico
+- De 30 a 60 rpm (probado con cant. de agentes: 3)
+
 ## Cambios realizados (NO probados) - Parámetros
 
 # Optimización con NumPy 
@@ -94,10 +96,10 @@ Se están reemplazando ciclos for en el loop principal por operaciones de matric
 Se está agregando el multi threading para optimizar los procesos utilizando diferentes hilos
 
 ## Cambios realizados (Probados) - Threading
-
-## Cambios realizados (NO probados) - Threading
 - Se creó un hilo para obtener la pose de los markers en segundo plano
 
 - Se creó un hilo para actualizar la visualización en tiempo real de los obstáculos y el objetivo en segundo plano
+
+## Cambios realizados (NO probados) - Threading
 
 

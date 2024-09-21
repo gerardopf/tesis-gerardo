@@ -29,23 +29,23 @@ initial_conditions_file = '7sepProto3obs_3A_NNN_f_0.npz'
 r_initial_conditions = 0 # 0: nueva simulación | 1: simular escenario físico
 
 # archivo para guardar una nueva corrida en físico
-new_run_file = '20sepTest_8A_ADA_f_1.npz'
+new_run_file = '21sepThreading_3A_ACA_f_5.npz'
 
 """ modo real o simulación """
-fisico = 0               # 0 Webots | 1 Robotat
-r_obs = 0                # 0: obstáculos virtuales | 1: obstáculos reales (markers)
-r_obj = 0                # 0: objetivo virtual | 1: objetivo real (marker)
-r_webots_visual = 0      # 0: NO ver objetivo y obstáculos en tiempo real | 1: ver objetivo y obstáculos en tiempo real
-MAX_SPEED = 30           # velocidad máxima de ruedas (rpm)
+fisico = 1               # 0 Webots | 1 Robotat
+r_obs = 1                # 0: obstáculos virtuales | 1: obstáculos reales (markers)
+r_obj = 1                # 0: objetivo virtual | 1: objetivo real (marker)
+r_webots_visual = 1      # 0: NO ver objetivo y obstáculos en tiempo real | 1: ver objetivo y obstáculos en tiempo real
+MAX_SPEED = 60           # velocidad máxima de ruedas (rpm)
 
 """ matriz de formación """
 form_shape = 1    # 1: triángulo | 2: hexágono alargado
 rigidity_level = 8 # valores entre 1 y 8 (1 es el menos rígido)
 
 """ MARCADORES (AGENTES, OBSTÁCULOS Y OBJETIVO) """
-agents_marker_list = [2,3,4,5,6,7,8,10] # agentes (Max. 10)
-obj_marker_list = [22] # marker del objetivo (1)
-obs_marker_list = [12,13,14] # obstáculos (3)
+agents_marker_list = [2,3,4] # agentes (Max. 10)
+obj_marker_list = [11] # marker del objetivo (1)
+obs_marker_list = [20,21,22] # obstáculos (3)
 
 """ configuración marcadores y objetivo """
 NMax = 10  # número máximo de agentes que la formación puede tener
@@ -86,7 +86,7 @@ for marker in robotat_markers:
 print(f"desfases numpy:\n {desfases_numpy} \n")
 
 """ radar """
-r = 0.07	# radio para evitar colisiones (cm)
+r = 0.15	# radio para evitar colisiones (cm)
 R = 4	# rango del radar de detección de agentes (m)
 
 """ posiciones iniciales """
@@ -483,6 +483,8 @@ def realTime():
     global pObj
     while not stop_event.is_set():
         for obs in range(0,cantO):
+            x_obs = agents_pose[len(agents_pose)-cantO+obs, 0]
+            y_obs = agents_pose[len(agents_pose)-cantO+obs, 1]
             posObs[obs].setSFVec3f([x_obs, y_obs, -6.39203e-05])
         pObj.setSFVec3f([pObjVec[0], pObjVec[1], -6.39203e-05])
         time.sleep(0.1) # tasa de refresto para visualización en tiempo real
@@ -681,6 +683,9 @@ while supervisor.step(TIME_STEP) != 1:
                 obj_success_cycle = ciclo
             obj_cont = 1
             
+    if obj_success == 1:
+        V[0][NStart] = 0
+        V[1][NStart] = 0
     # ENVÍO DE DATOS DEL SUPERVISOR A CADA AGENTE
     lock.acquire()                                          # bloquear canal de comunicación
     pick_V = pickle.dumps(V)                                # guardar velocidades en archivo picke

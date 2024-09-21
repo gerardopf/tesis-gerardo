@@ -13,16 +13,16 @@ time.sleep(3)
 
 TIME_STEP = 64  # paso para simulación 64 ms
 MAX_SPEED = 6.28    # simulación epucks (rad/s)
-MAX_SPEED_f = 30  # físico Pololu 3Pi+ (rpm)
+MAX_SPEED_f = 60  # físico Pololu 3Pi+ (rpm)
 
 # creación de memoria compartida
 shm1 = shared_memory.SharedMemory(name="my_shared_memory1")
 shm2 = shared_memory.SharedMemory(name="my_shared_memory2")
 lock = Lock()
 
-fisico = 0 # 0: Webots | 1: Robotat
+fisico = 1 # 0: Webots | 1: Robotat
 
-agents_marker_list = [2,3,4,5,6,7,8,10]
+agents_marker_list = [2,3,4]
 NStart = 1 # primer agente
 N = len(agents_marker_list)	# último agente
 
