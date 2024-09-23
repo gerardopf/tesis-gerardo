@@ -1,4 +1,4 @@
-""" Threading implementation - SUPERVISOR """
+""" Tiempos - SUPERVISOR optimizado """
 
 # librerías
 from controller import Robot, Supervisor
@@ -29,13 +29,19 @@ initial_conditions_file = '7sepProto3obs_3A_NNN_f_0.npz'
 r_initial_conditions = 0 # 0: nueva simulación | 1: simular escenario físico
 
 # archivo para guardar una nueva corrida en físico
-new_run_file = '21sepThreading_4A_ADC_f_9.npz'
+carpeta = 'tiempos'
+
+nombre_file = 'TiempoOptim'
+escenario_file = 'AB1C'
+corrida_file = '1'
+
+data_saving = 1 # ¿Guardar datos? | 0: No | 1: Si
 
 """ modo real o simulación """
-fisico = 1               # 0 Webots | 1 Robotat
-r_obs = 1                # 0: obstáculos virtuales | 1: obstáculos reales (markers)
-r_obj = 1                # 0: objetivo virtual | 1: objetivo real (marker)
-r_webots_visual = 1      # 0: NO ver objetivo y obstáculos en tiempo real | 1: ver objetivo y obstáculos en tiempo real
+fisico = 0               # 0 Webots | 1 Robotat
+r_obs = 0                # 0: obstáculos virtuales | 1: obstáculos reales (markers)
+r_obj = 0                # 0: objetivo virtual | 1: objetivo real (marker)
+r_webots_visual = 0      # 0: NO ver objetivo y obstáculos en tiempo real | 1: ver objetivo y obstáculos en tiempo real
 MAX_SPEED = 60           # velocidad máxima de ruedas (rpm)
 
 """ matriz de formación """
@@ -43,7 +49,7 @@ form_shape = 1    # 1: triángulo | 2: hexágono alargado
 rigidity_level = 8 # valores entre 1 y 8 (1 es el menos rígido)
 
 """ MARCADORES (AGENTES, OBSTÁCULOS Y OBJETIVO) """
-agents_marker_list = [2,3,4,10] # agentes (Max. 10)
+agents_marker_list = [2,3] # agentes (Max. 10)
 obj_marker_list = [11] # marker del objetivo (1)
 obs_marker_list = [20,21,22] # obstáculos (3)
 
@@ -57,6 +63,14 @@ obj_marker = obj_marker_list[0]
 quantOMax = 3 # máximo de obstáculos
 obs_active = 1        # 0: SIN obstáculos | 1: CON obstáculos
 obs_start_marker = 1 # marker del primer obstáculo
+
+""" codificación de archivos """
+if fisico == 1:
+    fisico_file = 'f'
+elif fisico == 0:
+    fisico_file = 'v'
+new_run_file = f'{carpeta}/{nombre_file}_{N}A_{escenario_file}_{fisico_file}_{corrida_file}.npz'
+
 
 # optitrack marcadores 
 robotat_markers = agents_marker_list + obj_marker_list + obs_marker_list
@@ -501,6 +515,10 @@ if (fisico == 1):
         t2.start() # iniciar hilo
        
 """ -------------- MAIN LOOP --------------"""
+tic_total = 0
+toc_total = 0
+tiempo_total = 0
+
 # al cargar las condiciones iniciales, se salta la primera etapa ya que los robots
 # ya aparecen en la posición de las marcas iniciales
 cambio = 0
@@ -620,6 +638,7 @@ while supervisor.step(TIME_STEP) != 1:
     if(normV < 0.5 and cambio == 1):
         form_cycle = ciclo
         cambio = 2
+        tic_total = time.time()
         
     # ETAPA 3 -----> SEGUIR OBJETIVO
     elif(formation_mse < 0.5 and cambio == 2):
@@ -714,6 +733,8 @@ while supervisor.step(TIME_STEP) != 1:
     # presionar la tecla 'a' para terminar la corrida 
     # espera a que se cumpla el objetivo
     if keyboard.is_pressed('a') or (obj_success == 1 and formation_mse < 0.1):
+        toc_total = time.time()
+        tiempo_total = toc_total - tic_total
         print("Fin de la corrida... -supervisor")
         
         V = np.zeros([2,N]) # velocidades en 0 de agentes
@@ -739,10 +760,12 @@ while supervisor.step(TIME_STEP) != 1:
         obj_marker = obj_marker + 1
         
         # guardar datos en archivo .npz de la nueva corrida en físico
-        if (fisico == 1 and r_initial_conditions == 0):
+        if (data_saving == 1 and r_initial_conditions == 0):
             print("Guardando datos de la corrida... -supervisor")
             try:
-                np.savez(new_run_file, trajectory_data = trajectory_data, # agents positions register of the run
+                np.savez(new_run_file, tiempo_total = tiempo_total,
+                                        corrida_numero = corrida_file,
+                                        trajectory_data = trajectory_data, # agents positions register of the run
                                            velocity_data = velocity_data, # agents velocities registrr of the run
                                            normV_data = normV_data,       # agents velocities norm register of the run
                                            obj_data = obj_data,           # objetive positions register of the run
