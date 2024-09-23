@@ -1,4 +1,4 @@
-""" Tiempos - SUPERVISOR optimizado """
+""" optimization v3 SUPERVISOR """
 
 # librerías
 from controller import Robot, Supervisor
@@ -29,9 +29,9 @@ initial_conditions_file = '.npz'
 r_initial_conditions = 0 # 0: nueva simulación | 1: simular escenario físico
 
 # archivo para guardar una nueva corrida en físico
-carpeta = 'tiempos_optim'
+carpeta = 'tiempos_no_optim'
 
-nombre_file = 'TiempoOptim'
+nombre_file = 'TiempoNoOptim'
 escenario_file = 'AB1C'
 corrida_file = '1'
 
@@ -42,23 +42,32 @@ fisico = 0               # 0 Webots | 1 Robotat
 r_obs = 0                # 0: obstáculos virtuales | 1: obstáculos reales (markers)
 r_obj = 0                # 0: objetivo virtual | 1: objetivo real (marker)
 r_webots_visual = 0      # 0: NO ver objetivo y obstáculos en tiempo real | 1: ver objetivo y obstáculos en tiempo real
-MAX_SPEED = 60           # velocidad máxima de ruedas (rpm)
+MAX_SPEED = 30           # velocidad máxima de ruedas (rpm)
 
 """ matriz de formación """
 form_shape = 1    # 1: triángulo | 2: hexágono alargado
 rigidity_level = 8 # valores entre 1 y 8 (1 es el menos rígido)
 
 """ MARCADORES (AGENTES, OBSTÁCULOS Y OBJETIVO) """
-agents_marker_list = [2,3] # agentes (Max. 10)
-obj_marker_list = [11] # marker del objetivo (1)
-obs_marker_list = [20,21,22] # obstáculos (3)
+agents_marker_list = [2,3]
+obj_marker_list = [14]
+obs_marker_list = [22,12,15]
+
+""" Desfases de markers """
+# desfases de markers en quaterniones: 1*,2,3,4,5,6,7,8,9*,10,11,12,13,14,15,16,17,18,19,20,21,22
+# *los markers no estaban disponibles, se utilizó el desfase encontrado por José Alejandro R.
+desfases_file = 'nueva_calibracion_markers_1_al_22.npy' 
+desfases = np.load(desfases_file) 
+desfases_euler = quat2eul(desfases,'zyx')
+print("archivo desfases euler: \n", desfases_euler)
 
 """ configuración marcadores y objetivo """
+
 NMax = 10  # número máximo de agentes que la formación puede tener
 NStart = 1 # primer agente
 N = len(agents_marker_list)	# último agente
 
-obj_marker = obj_marker_list[0]
+obj_marker = obj_marker_list[0]        # marker del objetivo 
 
 quantOMax = 3 # máximo de obstáculos
 obs_active = 1        # 0: SIN obstáculos | 1: CON obstáculos
@@ -71,44 +80,27 @@ elif fisico == 0:
     fisico_file = 'v'
 new_run_file = f'{carpeta}/{nombre_file}_{N}A_{escenario_file}_{fisico_file}_{corrida_file}.npz'
 
-
 # optitrack marcadores 
 robotat_markers = agents_marker_list + obj_marker_list + obs_marker_list
 robotat_markers_len = len(robotat_markers)
-print(f"listado de markers: {robotat_markers} ")
-print(f"agentes: {agents_marker_list}")
-print(f"objetivo: {obj_marker_list}")
-print(f"obstáculos: {obs_marker_list}")
+print("todos los markers: ", robotat_markers)
+print("agentes: ", agents_marker_list)
+print("objetivo: ", obj_marker_list)
+print("obstáculos: ", obs_marker_list)
 
-print(f"NStart: {NStart}")
-print(f"N: {N}")
-
-""" Desfases de markers """
-# desfases de markers en quaterniones: 1*,2,3,4,5,6,7,8,9*,10,11,12,13,14,15,16,17,18,19,20,21,22
-# *los markers no estaban disponibles, se utilizó el desfase encontrado por José Alejandro R.
-desfases_file = 'nueva_calibracion_markers_1_al_22.npy' 
-desfases = np.load(desfases_file) 
-desfases_euler = quat2eul(desfases,'zyx')
-#print("archivo desfases euler: \n", desfases_euler)
-# variable para guardar desfases y realizar suma de matrices con agents_pose
-desfases_numpy = np.zeros((robotat_markers_len,6))
-
-index = 0
-for marker in robotat_markers:
-    desfases_numpy[index,3] = desfases_euler[marker-1, 3]
-    index = index + 1
-print(f"desfases numpy:\n {desfases_numpy} \n")
+print("NStart: ", NStart)
+print("N: ", N)
 
 """ radar """
-r = 0.15	# radio para evitar colisiones (cm)
+r = 0.07	# radio para evitar colisiones (cm)
 R = 4	# rango del radar de detección de agentes (m)
 
 """ posiciones iniciales """
 initial_pos_setup = 1 # posiciones iniciales | 0: ALEATORIO | 1: PLANIFICADO
-setup_shape = 0         # formación inicial | 0: LÍNEA | 1: CÍRCULO
-
-setup_starting_point = np.array([-1, -1.5]) # punto inicial para las posiciones iniciales
+setup_shape = 0         # 0: posición inicial LÍNEA | 1: posición inicial CÍRCULO
 setup_shape_space = 1.5 # espacio a cubrir con las posiciones iniciales (m)
+
+setup_starting_point = np.array([-1.0, -1.5]) # punto inicial para las posiciones iniciales
 
 agent_setup = 5 # configuración de agentes
 
@@ -148,6 +140,7 @@ if (fisico == 0):
     r_f = 0.0205
     l_f = 0.0355
     a_f = 0.0355
+    
     
 """ algunas variables y banderas """
 setup_pos = np.zeros((NMax, 6)) # guarda la pose de cada agente (x, y, z, eulx, euly, eulz)
@@ -223,10 +216,13 @@ if (fisico == 1):
         print("CONFIGURACIÓN: Error al conectar con el robotat")
     agents_pose = update_data(robotat,robotat_markers)
     #print("poses marcadores: \n", agents_pose)
-    
     # aplicar desfases
-    agents_pose = agents_pose - desfases_numpy # aplicar desfases
-    print(f"pose inicial con desfases\n {agents_pose}\n")
+    index = 0
+    for marker in robotat_markers:
+        agents_pose[index, 3] = agents_pose[index, 3] - desfases_euler[marker-1, 3]
+        index = index + 1
+        print("desfase marker ", marker, ": ", desfases_euler[marker-1, 3])
+    print("pose con desfases ", agents_pose)
 
 """ Arena """
 arena = supervisor.getFromDef("Arena")
@@ -319,7 +315,7 @@ while(cW1 > 1 or cW2 > 1):
                     X[1,i+j] = random.uniform(sizeVec[0]/2-0.4,-sizeVec[0]/2+0.4) # intersección detectada
                     contR = contR+1
         cW1 = cW1+1
-    # verificar intersección con obstáculos
+    # verrificar intersección con obstáculos
     contRO = 1 # contador intersección con obstáculo
     while(contRO > 0):
         contRO = 0
@@ -335,6 +331,7 @@ while(cW1 > 1 or cW2 > 1):
         cW2 = cW2 + 1        
 Xi = X
 print("Posiciones aleatorias modificadas Xi: \n", Xi)
+
 
 # inicializar OBSTÁCULOS fuera del mapa si no están activos
 for i in range(0, quantOMax):
@@ -365,8 +362,9 @@ except:
 
 # inicializar agentes y marcas de posiciones iniciales SIN USAR fuera del escenario
 for b in range(0, NMax):
-    PosTodos[b].setSFVec3f([-sizeVec[0]+1, b*0.3, 0.3])
-    posIniPos[b].setSFVec3f([-sizeVec[0]+1, b*0.3, -6.39203e-05])
+    if (b<NStart or b>=N):
+        PosTodos[b].setSFVec3f([-sizeVec[0]+1, b*0.3, 0.3])
+        posIniPos[b].setSFVec3f([-sizeVec[0]+1, b*0.3, -6.39203e-05])
 
 # cargar posiciones iniciales para configurar el escenario (basados en archivo de condiciones iniciales)
 if (r_initial_conditions == 1):
@@ -468,52 +466,7 @@ Etapa 3:
 - El líder se mueve hacia el objetivo y los agentes de la formación lo siguen dejando que la formación lo alcance
 
  ------------------------------------------------------------------- """
- 
-""" -------------- Hilos --------------"""
- 
- # hilo para solicitar poses del robotat en segundo plano
-sync_event = threading.Event()
-stop_event = threading.Event()
 
-# obtener las poses del robotat
-def posesRobotat():
-    global agents_pose
-    global agents_pose_old
-    while not stop_event.is_set():
-        sync_event.wait()
-        try:
-            agents_pose = update_data(robotat,robotat_markers)
-            agents_pose = agents_pose - desfases_numpy # aplicar desfases
-        except:
-            print("MAIN LOOP ERROR: Error al obtener poses de agentes, se usa pose anterior")
-            agents_pose = agents_pose_old # usar posición anterior
-        agents_pose_old = agents_pose
-        sync_event.clear()
-    print("Hilo terminado... -posesRobotat")
-    
-# ver obstáculos y objetivo en tiempo real en webots
-def realTime():
-    global posObs
-    global pObj
-    while not stop_event.is_set():
-        for obs in range(0,cantO):
-            x_obs = agents_pose[len(agents_pose)-cantO+obs, 0]
-            y_obs = agents_pose[len(agents_pose)-cantO+obs, 1]
-            posObs[obs].setSFVec3f([x_obs, y_obs, -6.39203e-05])
-        pObj.setSFVec3f([pObjVec[0], pObjVec[1], -6.39203e-05])
-        time.sleep(0.1) # tasa de refresto para visualización en tiempo real
-    print("Hilo terminado... -realTime")
-    
-# inicializar hilos
-if (fisico == 1):
-    t1 = threading.Thread(target = posesRobotat) # asignar hilo
-    t1.start() # iniciar hilo
-    sync_event.set()
-    #time.sleep(1) # asegurar que se obtienen las poses una vez
-    if r_webots_visual == 1:
-        t2 = threading.Thread(target = realTime) # asignar hilo
-        t2.start() # iniciar hilo
-       
 """ -------------- MAIN LOOP --------------"""
 tic_total = 0
 toc_total = 0
@@ -526,7 +479,7 @@ if (r_initial_conditions == 1):
     cambio = 1
     begin_alg_time = 0
 
-print("Inicio de ciclo principal...")
+print("Inicia ciclo principal...")
 while supervisor.step(TIME_STEP) != 1:
     # SIMULACIÓN
     if (fisico == 0):
@@ -537,7 +490,23 @@ while supervisor.step(TIME_STEP) != 1:
         pObjVec = pObj.getSFVec3f()
         
     # FÍSICO
-    elif (fisico == 1):
+    if (fisico == 1):
+        # pedir pose actual de markers
+        try:
+            agents_pose = update_data(robotat,robotat_markers)
+            #print("poses marcadores: \n", agents_pose)
+            # aplicar desfases
+            index = 0
+            for marker in robotat_markers:
+                agents_pose[index, 3] = agents_pose[index, 3] - desfases_euler[marker-1, 3]
+                index = index + 1
+                #print("desfase marker ", marker, ": ", desfases_euler[marker-1, 3])
+            #print("pose con desfases ", agents_pose)
+        except:
+            print("MAIN LOOP ERROR: Error al obtener poses de agentes, se usa pose anterior")
+            agents_pose = agents_pose_old # usar posición anterior
+        agents_pose_old = agents_pose
+        
         # obtener posición actual de obstáculos REALES
         if (r_obs == 1):
             for obs in range(0,cantO):
@@ -545,8 +514,11 @@ while supervisor.step(TIME_STEP) != 1:
                 y_obs = agents_pose[len(agents_pose)-cantO+obs, 1]
                 posObsAct[0][obs] = x_obs
                 posObsAct[1][obs] = y_obs
+                # actualizar webots en tiempo real
+                if (r_webots_visual == 1):
+                    posObs[obs].setSFVec3f([x_obs, y_obs, -6.39203e-05])
         # obtener posición actual de obstáculos VIRTUALES
-        elif (r_obs == 0):
+        if (r_obs == 0):
             for obs in range(0,cantO):
                 posObsAct[0][obs] = posObs[obs].getSFVec3f()[0]
                 posObsAct[1][obs] = posObs[obs].getSFVec3f()[1]
@@ -554,8 +526,11 @@ while supervisor.step(TIME_STEP) != 1:
         if (r_obj == 1):
             pObjVec[0] = agents_pose[len(agents_pose)-cantO-1,0]
             pObjVec[1] = agents_pose[len(agents_pose)-cantO-1,1]
+            # actualizar webots en tiempo real
+            if (r_webots_visual == 1):
+                pObj.setSFVec3f([pObjVec[0], pObjVec[1], -6.39203e-05])
         # obtener posición actual de objetivo VIRTUAL
-        elif (r_obj == 0):
+        if (r_obj == 0):
             pObjVec = pObj.getSFVec3f() 
         
     # actualizar la pose de los agentes
@@ -575,8 +550,8 @@ while supervisor.step(TIME_STEP) != 1:
         if (rotActuales[0][c] < 0):
             rotActuales[0][c] = rotActuales[0][c] + 360 # angulos siempre positivos
     
-    sync_event.set() # dar paso para obtener poses del robotat
     # ----------- algoritmo de sincronización y control de formaciones -----------
+    
     for g in range(NStart, N):
         E0 = 0
         E1 = 0
@@ -619,6 +594,7 @@ while supervisor.step(TIME_STEP) != 1:
             V[0][g] = -1*(E0)*TIME_STEP/1000 
             V[1][g] = -1*(E1)*TIME_STEP/1000 
             
+    
     # al acercarse a la posición deseada se cambia el control
     normV2 = 0
     # calcular norma de velocidad de agentes
@@ -626,13 +602,13 @@ while supervisor.step(TIME_STEP) != 1:
         nV2 = V[0][m]**2 + V[1][m]**2
         normV2 = normV2 + nV2
     normV = math.sqrt(normV2)
-    print(f"normV: {normV} \n")
+    print("normV: ", normV, " \n")
     
     # calcular matriz de adyacencia de la formación actual
-    actual_adjacency = (1/formation_edge)*funciones.DistBetweenAgentsOptimized(posActuales,NStart,N) 
+    actual_adjacency = (1/formation_edge)*funciones.DistBetweenAgents(posActuales,NStart,N) 
 
     # calcular en error entre la formación actual y la deseada
-    formation_mse = funciones.FormationErrorOptimized(actual_adjacency, formation_matrix,NStart,N)
+    formation_mse = funciones.FormationError(actual_adjacency, Fmatrix(form_shape,rigidity_level),NStart,N)
 
     # ETAPA 2 -----> FORMACIÓN
     if(normV < 0.5 and cambio == 1):
@@ -661,8 +637,15 @@ while supervisor.step(TIME_STEP) != 1:
                 V[0][obj] = V[0][obj] - k_vel*dx
                 V[1][obj] = V[1][obj] - k_vel*dy
                
+            #print("\nagente: ", obj)
+            #print("posx: ", posActuales[0][obj])
+            #print("posx ini: ", posIniPosVec[obj][0])
+            #print("dx: ", dx)
+            #print("posy: ", posActuales[1][obj])
+            #print("posy ini: ", posIniPosVec[obj][1])
+            #print("dy: ", dy)
             # verificar si el agente ya está en la posición inicial
-            if ((posActuales[0][obj]-posIniPosVec[obj][0])<0.06 and (posActuales[1][obj]-posIniPosVec[obj][1])<0.06):
+            if ((posActuales[0][obj]-posIniPosVec[obj][0])<0.05 and (posActuales[1][obj]-posIniPosVec[obj][1])<0.05):
                 ready_ini_pos = ready_ini_pos + 1
         if (ready_ini_pos == cont_N):
             # cuando todos los agentes están en la posición inicial, comienza ETAPA 1
@@ -674,11 +657,11 @@ while supervisor.step(TIME_STEP) != 1:
                     RotTodosVec[b] = [0, 0, 1, agents_pose[b,3]]
                 PosRealAgents = np.array(PosTodosVec)
                 RotRealAgents = np.array(RotTodosVec)  
-        print(f"número de agentes: {cont_N}")
-        print(f"No. agentes en marcas iniciales: {ready_ini_pos}\n")
+        print("número de agentes: ", cont_N)
+        print("No. agentes en marcas iniciales: ", ready_ini_pos)
         
     # ETAPA 3 -----> SEGUIMIENTO DEL OBJETIVO
-    elif (cambio == 3):
+    if (cambio == 3):
         # si el líder está a más de X metros del objetivo, espera a la formación
         if (abs(posActuales[0][NStart]-pObjVec[0]) > 0.7 or abs(posActuales[1][NStart]-pObjVec[1]) > 0.7):     
             if (fisico == 1):
@@ -709,7 +692,7 @@ while supervisor.step(TIME_STEP) != 1:
     lock.acquire()                                          # bloquear canal de comunicación
     pick_V = pickle.dumps(V)                                # guardar velocidades en archivo picke
     shm1.buf[:len(pick_V)] = pick_V                         # enviar velocidades a la memoria compartida
-    pick_agents_pose = pickle.dumps(agents_pose)            # guardar poses de agentes en archivo pickle
+    pick_agents_pose = pickle.dumps(agents_pose)            # guardar poses de agentes en archivo picke
     shm2.buf[:len(pick_agents_pose)] = pick_agents_pose     # enviar poses a la memoria compartida
     lock.release()                                          # liberar canal de comunicación
     
@@ -722,21 +705,20 @@ while supervisor.step(TIME_STEP) != 1:
     formation_mseHist.append(formation_mse)
     rotHist.append(rotActuales.copy())
     
-    print(f"Ciclo: {ciclo}")
-    print(f"ETAPA: {cambio}") 
-    print(f"Error de formación: {formation_mse} \n")
+    print("Ciclo: ", ciclo)
+    print("ETAPA: ", cambio) 
+    print("Error de formación: ", formation_mse)
+    print(" ")
     ciclo = ciclo + 1     
     
     if obj_success == 1:
         print("Objetivo logrado, esperando a la formación")
     
-    # presionar la tecla 'a' para terminar la corrida 
-    # espera a que se cumpla el objetivo
+    # presionar la tecla 'a' para terminar la corrida
     if keyboard.is_pressed('a') or (obj_success == 1 and formation_mse < 0.1):
         toc_total = time.time()
         tiempo_total = toc_total - tic_total
-        print("Fin de la corrida... -supervisor")
-        
+        print("Fin de la corrida -supervisor")
         V = np.zeros([2,N]) # velocidades en 0 de agentes
         
         # enviar datos a la memoria compartida
@@ -745,9 +727,8 @@ while supervisor.step(TIME_STEP) != 1:
         shm1.buf[:len(pick_V)] = pick_V
         pick_agents_pose = pickle.dumps(agents_pose)
         shm2.buf[:len(pick_agents_pose)] = pick_agents_pose
-        lock.release()
         
-        # guardar datos relevantes en vectores
+        # guardar datos relevantes
         trajectory_data = np.array(trajectory)  # trayectoria
         velocity_data = np.array(velocityHist)  # velocidades
         normV_data = np.array(normVHist)    # norma de velocidades 
@@ -761,7 +742,7 @@ while supervisor.step(TIME_STEP) != 1:
         
         # guardar datos en archivo .npz de la nueva corrida en físico
         if (data_saving == 1 and r_initial_conditions == 0):
-            print("Guardando datos de la corrida... -supervisor")
+            print("Guardando datos de la corrida...")
             try:
                 np.savez(new_run_file, tiempo_total = tiempo_total,
                                         corrida_numero = corrida_file,
@@ -811,18 +792,13 @@ while supervisor.step(TIME_STEP) != 1:
                                            a_f = a_f,
                                            obj_success = obj_success,     # indicador de cumplimiento del objetivo
                                            obj_success_cycle = obj_success_cycle) # ciclo en que se logra el objetivo      
-            except:
+            except e:
+                print(e)
                 print("Error al guardar los datos de la corrida")
-        
-        # desconectar del Robotat y detener hilos
+    
+        # desconectar del Robotat
         if (fisico == 1):
-            # detener el hilo
-            stop_event.set()
-            sync_event.set()
-            t1.join()   # esperar a que termine el hilo
-            if r_webots_visual == 1:
-                t2.join()   # esperar a que termine el hilo
-            
             robotat_disconnect(robotat)
+        lock.release()
         break
     
