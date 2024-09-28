@@ -2,7 +2,7 @@ import time
 import numpy as np
 import csv
 
-archivo = 'TiempoOptim_2A_AB1C_v_1.npz'
+archivo = 'TiempoOptim_2A_AB1C_f_1.npz'
 data = np.load(archivo)
 
 tiempo_total = data['tiempo_total']

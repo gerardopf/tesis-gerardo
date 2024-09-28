@@ -38,10 +38,10 @@ corrida_file = '1'
 data_saving = 1 # ¿Guardar datos? | 0: No | 1: Si
 
 """ modo real o simulación """
-fisico = 0               # 0 Webots | 1 Robotat
-r_obs = 0                # 0: obstáculos virtuales | 1: obstáculos reales (markers)
-r_obj = 0                # 0: objetivo virtual | 1: objetivo real (marker)
-r_webots_visual = 0      # 0: NO ver objetivo y obstáculos en tiempo real | 1: ver objetivo y obstáculos en tiempo real
+fisico = 1               # 0 Webots | 1 Robotat
+r_obs = 1                # 0: obstáculos virtuales | 1: obstáculos reales (markers)
+r_obj = 1                # 0: objetivo virtual | 1: objetivo real (marker)
+r_webots_visual = 1      # 0: NO ver objetivo y obstáculos en tiempo real | 1: ver objetivo y obstáculos en tiempo real
 MAX_SPEED = 30           # velocidad máxima de ruedas (rpm)
 
 """ matriz de formación """
@@ -49,9 +49,9 @@ form_shape = 1    # 1: triángulo | 2: hexágono alargado
 rigidity_level = 8 # valores entre 1 y 8 (1 es el menos rígido)
 
 """ MARCADORES (AGENTES, OBSTÁCULOS Y OBJETIVO) """
-agents_marker_list = [2,3]
-obj_marker_list = [14]
-obs_marker_list = [22,12,15]
+agents_marker_list = [4,5,6,7,8,10]
+obj_marker_list = [13]
+obs_marker_list = [15,16,18]
 
 """ Desfases de markers """
 # desfases de markers en quaterniones: 1*,2,3,4,5,6,7,8,9*,10,11,12,13,14,15,16,17,18,19,20,21,22
@@ -472,6 +472,11 @@ tic_total = 0
 toc_total = 0
 tiempo_total = 0
 
+tic_ciclo = 0
+toc_ciclo = 0
+tiempo_ciclo = 0
+tiempo_ciclo_hist = []
+
 # al cargar las condiciones iniciales, se salta la primera etapa ya que los robots
 # ya aparecen en la posición de las marcas iniciales
 cambio = 0
@@ -481,6 +486,7 @@ if (r_initial_conditions == 1):
 
 print("Inicia ciclo principal...")
 while supervisor.step(TIME_STEP) != 1:
+    tic_ciclo = time.perf_counter_ns()
     # SIMULACIÓN
     if (fisico == 0):
         # posición de objetivo y obstáculos VIRTUALES
@@ -709,15 +715,21 @@ while supervisor.step(TIME_STEP) != 1:
     print("ETAPA: ", cambio) 
     print("Error de formación: ", formation_mse)
     print(" ")
-    ciclo = ciclo + 1     
+    ciclo = ciclo + 1  
+    toc_ciclo = time.perf_counter_ns()   
     
     if obj_success == 1:
         print("Objetivo logrado, esperando a la formación")
+        
+    tiempo_ciclo = (toc_ciclo - tic_ciclo)/1000000
+    print(f'Tiempo de ciclo (ms): {tiempo_ciclo}')
+    tiempo_ciclo_hist.append(tiempo_ciclo)
     
     # presionar la tecla 'a' para terminar la corrida
     if keyboard.is_pressed('a') or (obj_success == 1 and formation_mse < 0.1):
         toc_total = time.time()
         tiempo_total = toc_total - tic_total
+        print(f'Tiempo total (s): {tiempo_total}')
         print("Fin de la corrida -supervisor")
         V = np.zeros([2,N]) # velocidades en 0 de agentes
         
@@ -739,6 +751,7 @@ while supervisor.step(TIME_STEP) != 1:
         NStart = NStart + 1
         obs_start_marker = obs_start_marker + 1 
         obj_marker = obj_marker + 1
+        tiempo_ciclo_data = np.array(tiempo_ciclo_hist)
         
         # guardar datos en archivo .npz de la nueva corrida en físico
         if (data_saving == 1 and r_initial_conditions == 0):
@@ -746,6 +759,7 @@ while supervisor.step(TIME_STEP) != 1:
             try:
                 np.savez(new_run_file, tiempo_total = tiempo_total,
                                         corrida_numero = corrida_file,
+                                        tiempo_ciclo = tiempo_ciclo_data,
                                         trajectory_data = trajectory_data, # agents positions register of the run
                                            velocity_data = velocity_data, # agents velocities registrr of the run
                                            normV_data = normV_data,       # agents velocities norm register of the run
