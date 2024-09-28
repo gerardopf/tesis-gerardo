@@ -49,9 +49,9 @@ form_shape = 1    # 1: triángulo | 2: hexágono alargado
 rigidity_level = 8 # valores entre 1 y 8 (1 es el menos rígido)
 
 """ MARCADORES (AGENTES, OBSTÁCULOS Y OBJETIVO) """
-agents_marker_list = [4,5,6,7,8,10] # agentes (Max. 10)
+agents_marker_list = [4,5,6] # agentes (Max. 10)
 obj_marker_list = [13] # marker del objetivo (1)
-obs_marker_list = [15,16,18] # obstáculos (3)
+obs_marker_list = [15,16,21] # obstáculos (3)
 
 """ configuración marcadores y objetivo """
 NMax = 10  # número máximo de agentes que la formación puede tener
@@ -105,9 +105,9 @@ R = 4	# rango del radar de detección de agentes (m)
 
 """ posiciones iniciales """
 initial_pos_setup = 1 # posiciones iniciales | 0: ALEATORIO | 1: PLANIFICADO
-setup_shape = 0         # formación inicial | 0: LÍNEA | 1: CÍRCULO
+setup_shape = 2         # formación inicial | 0: LÍNEA | 1: CÍRCULO | 2: LÍNEA VERTICAL
 
-setup_starting_point = np.array([-1, -1.5]) # punto inicial para las posiciones iniciales
+setup_starting_point = np.array([-0.5, -1.5]) # punto inicial para las posiciones iniciales
 setup_shape_space = 1.5 # espacio a cubrir con las posiciones iniciales (m)
 
 agent_setup = 5 # configuración de agentes
@@ -183,7 +183,7 @@ ciclo = 0
  
 """ configuración de marcas de posiciones iniciales """
 if (r_initial_conditions == 0):
-    # línea
+    # línea horizontal
     if (setup_shape == 0):
         for i in range(NStart, N):
             setup_pos[i, 0] = setup_starting_point[0] + i * 0.3 # x-coordenada
@@ -196,6 +196,12 @@ if (r_initial_conditions == 0):
             setup_shape_radius = setup_shape_space/2 # radio del círculo 
             setup_pos[i, 0] = setup_starting_point[0] + setup_shape_radius * np.cos(angle) # x-coordenada
             setup_pos[i, 1] = setup_starting_point[1] + setup_shape_radius * np.sin(angle) # y-coordenada
+            setup_pos[i, 2] = 0.5 # z-coordenada
+    # línea vertical
+    if (setup_shape == 2):
+        for i in range(NStart, N):
+            setup_pos[i, 0] = setup_starting_point[0] # x-coordenada
+            setup_pos[i, 1] = setup_starting_point[1] + i*0.3 # y-coordenada
             setup_pos[i, 2] = 0.5 # z-coordenada
 
 """ función para obtener pose de markers ROBOTAT """

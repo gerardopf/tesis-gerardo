@@ -49,9 +49,9 @@ form_shape = 1    # 1: triángulo | 2: hexágono alargado
 rigidity_level = 8 # valores entre 1 y 8 (1 es el menos rígido)
 
 """ MARCADORES (AGENTES, OBSTÁCULOS Y OBJETIVO) """
-agents_marker_list = [4,5,6,7,8,10]
+agents_marker_list = [4,5,6]
 obj_marker_list = [13]
-obs_marker_list = [15,16,18]
+obs_marker_list = [15,16,21]
 
 """ Desfases de markers """
 # desfases de markers en quaterniones: 1*,2,3,4,5,6,7,8,9*,10,11,12,13,14,15,16,17,18,19,20,21,22
