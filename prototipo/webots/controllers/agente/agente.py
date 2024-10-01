@@ -1,4 +1,4 @@
-""" Threading implementation - AGENTE """
+""" AGENTE """
 
 from controller import Robot, Compass, Motor
 import math

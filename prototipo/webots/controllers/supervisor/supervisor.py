@@ -1,4 +1,4 @@
-""" Tiempos - SUPERVISOR optimizado """
+""" SUPERVISOR optimizado """
 
 # librerías
 from controller import Robot, Supervisor
