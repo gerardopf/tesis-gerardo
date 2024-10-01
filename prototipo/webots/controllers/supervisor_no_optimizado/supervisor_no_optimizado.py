@@ -33,7 +33,7 @@ carpeta = 'tiempos_no_optim'
 
 nombre_file = 'TiempoNoOptim'
 escenario_file = 'AB1C'
-corrida_file = '1'
+corrida_file = '3'
 
 data_saving = 1 # ¿Guardar datos? | 0: No | 1: Si
 
@@ -49,9 +49,9 @@ form_shape = 1    # 1: triángulo | 2: hexágono alargado
 rigidity_level = 8 # valores entre 1 y 8 (1 es el menos rígido)
 
 """ MARCADORES (AGENTES, OBSTÁCULOS Y OBJETIVO) """
-agents_marker_list = [4,5,6]
-obj_marker_list = [13]
-obs_marker_list = [15,16,21]
+agents_marker_list = [2,3,4,5]
+obj_marker_list = [15]
+obs_marker_list = [19,20,21]
 
 """ Desfases de markers """
 # desfases de markers en quaterniones: 1*,2,3,4,5,6,7,8,9*,10,11,12,13,14,15,16,17,18,19,20,21,22
