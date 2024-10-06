@@ -6,8 +6,8 @@ import os
 
 """ selección de archivo """
 guardar = 0 # 0: no guardar datos | 1: si guardar datos
-optimizado = 1 # 0: no optimizado | 1: optimizado
-file_name = 'TiempoOptim_8A_AB1C_f_0'
+optimizado = 0 # 0: no optimizado | 1: optimizado
+file_name = 'TiempoNoOptim_8A_AB1C_f_1'
 
 """ configuración de ruta y textos """
 archivo = f'{file_name}.npz'
@@ -47,10 +47,10 @@ plt.xlim(0, ciclos)
 plt.ylim(min(tiempo_ciclo), max(tiempo_ciclo))
 plt.xlabel('Ciclos')
 plt.ylabel('Tiempo de ciclo (ms)')
-plt.title(f'Tiempo de cada ciclo en {corrida_numero} {figure_title} con {agentes} agentes')
+plt.title(f'Tiempo de cada ciclo con {agentes} agentes en {figure_title} {corrida_numero}')
 
 x = np.arange(1,ciclos+1)
-plt.plot(x, tiempo_ciclo, color='red')
+plt.plot(x, tiempo_ciclo, color='darkblue')
 
 """ guardado de datos """
 if guardar == 1:
@@ -58,6 +58,7 @@ if guardar == 1:
     if not os.path.exists(img_folder_rute):
         os.makedirs(img_folder_rute)
         print(f'Carpeta {img_folder_rute} creada correctamente')
+        
     # datos a guardar
     if not os.path.exists(f'{folder}/{csv_filename}'):
         data = [
@@ -73,6 +74,7 @@ if guardar == 1:
         writer = csv.writer(file)
         writer.writerows(data)
     print(f"Datos guardados exitosamente en \n{csv_filename}\n")
+    
     # guardar gráfica
     plt.savefig(f'{img_folder_rute}/{file_name}.eps', format='eps', bbox_inches='tight')
     plt.savefig(f'{img_folder_rute}/{file_name}.png', format='png', bbox_inches='tight')
