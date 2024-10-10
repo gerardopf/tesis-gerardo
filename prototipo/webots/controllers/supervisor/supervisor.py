@@ -485,14 +485,14 @@ stop_event = threading.Event()
 latencia = 0
 temp_agents_pose = 0
 temp_agents_pose_old = 0
-bandera_lock = 0
+poses_lock = 0
 def posesRobotat():
     global temp_agents_pose
     global temp_agents_pose_old
     global latencia
     while not stop_event.is_set():
         #sync_event.wait()
-        bandera_lock = 1
+        poses_lock = 1
         try:
             tic_latencia = time.perf_counter_ns()
             temp_agents_pose = update_data(robotat,robotat_markers)
@@ -503,7 +503,7 @@ def posesRobotat():
             print("MAIN LOOP ERROR: Error al obtener poses de agentes, se usa pose anterior")
             temp_agents_pose = temp_agents_pose_old # usar posición anterior
         temp_agents_pose_old = temp_agents_pose
-        bandera_lock = 0
+        poses_lock = 0
         
         #sync_event.clear()
     print("Hilo terminado... -posesRobotat")
@@ -552,11 +552,6 @@ print("Inicio de ciclo principal...")
 while supervisor.step(TIME_STEP) != 1:
     tic_ciclo = time.perf_counter_ns()
     
-    if bandera_lock == 0:
-        agents_pose = temp_agents_pose
-        agents_pose_old = temp_agents_pose_old
-    else:
-        agents_pose = temp_agents_pose_old
     # SIMULACIÓN
     if (fisico == 0):
         # posición de objetivo y obstáculos VIRTUALES
@@ -567,6 +562,11 @@ while supervisor.step(TIME_STEP) != 1:
         
     # FÍSICO
     elif (fisico == 1):
+        if poses_lock == 1:
+            agents_pose = temp_agents_pose_old
+        else:
+            agents_pose = temp_agents_pose
+             
         # obtener posición actual de obstáculos REALES
         if (r_obs == 1):
             for obs in range(0,cantO):
