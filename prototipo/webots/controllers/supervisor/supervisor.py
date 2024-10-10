@@ -483,23 +483,29 @@ stop_event = threading.Event()
 
 # obtener las poses del robotat
 latencia = 0
+temp_agents_pose = 0
+temp_agents_pose_old = 0
+bandera_lock = 0
 def posesRobotat():
-    global agents_pose
-    global agents_pose_old
+    global temp_agents_pose
+    global temp_agents_pose_old
     global latencia
     while not stop_event.is_set():
-        sync_event.wait()
+        #sync_event.wait()
+        bandera_lock = 1
         try:
             tic_latencia = time.perf_counter_ns()
-            agents_pose = update_data(robotat,robotat_markers)
+            temp_agents_pose = update_data(robotat,robotat_markers)
             toc_latencia = time.perf_counter_ns()
-            agents_pose = agents_pose - desfases_numpy # aplicar desfases
+            temp_agents_pose = temp_agents_pose - desfases_numpy # aplicar desfases
             latencia = (toc_latencia - tic_latencia)/1000000
         except:
             print("MAIN LOOP ERROR: Error al obtener poses de agentes, se usa pose anterior")
-            agents_pose = agents_pose_old # usar posición anterior
-        agents_pose_old = agents_pose
-        sync_event.clear()
+            temp_agents_pose = temp_agents_pose_old # usar posición anterior
+        temp_agents_pose_old = temp_agents_pose
+        bandera_lock = 0
+        
+        #sync_event.clear()
     print("Hilo terminado... -posesRobotat")
     
 # ver obstáculos y objetivo en tiempo real en webots
@@ -519,7 +525,7 @@ def realTime():
 if (fisico == 1):
     t1 = threading.Thread(target = posesRobotat) # asignar hilo
     t1.start() # iniciar hilo
-    sync_event.set()
+    #sync_event.set()
     #time.sleep(1) # asegurar que se obtienen las poses una vez
     if r_webots_visual == 1:
         t2 = threading.Thread(target = realTime) # asignar hilo
@@ -545,6 +551,12 @@ if (r_initial_conditions == 1):
 print("Inicio de ciclo principal...")
 while supervisor.step(TIME_STEP) != 1:
     tic_ciclo = time.perf_counter_ns()
+    
+    if bandera_lock == 0:
+        agents_pose = temp_agents_pose
+        agents_pose_old = temp_agents_pose_old
+    else:
+        agents_pose = temp_agents_pose_old
     # SIMULACIÓN
     if (fisico == 0):
         # posición de objetivo y obstáculos VIRTUALES
@@ -592,7 +604,7 @@ while supervisor.step(TIME_STEP) != 1:
         if (rotActuales[0][c] < 0):
             rotActuales[0][c] = rotActuales[0][c] + 360 # angulos siempre positivos
     
-    sync_event.set() # dar paso para obtener poses del robotat
+    #sync_event.set() # dar paso para obtener poses del robotat
     # ----------- algoritmo de sincronización y control de formaciones -----------
     for g in range(NStart, N):
         E0 = 0
@@ -844,7 +856,7 @@ while supervisor.step(TIME_STEP) != 1:
         if (fisico == 1):
             # detener el hilo
             stop_event.set()
-            sync_event.set()
+            #sync_event.set()
             t1.join()   # esperar a que termine el hilo
             if r_webots_visual == 1:
                 t2.join()   # esperar a que termine el hilo
