@@ -33,7 +33,7 @@ carpeta = 'tiempos_optim'
 
 nombre_file = 'TiempoOptim'
 escenario_file = 'AB1C'
-corrida_file = '0'
+corrida_file = '1'
 
 data_saving = 1 # ¿Guardar datos? | 0: No | 1: Si
 
@@ -49,9 +49,9 @@ form_shape = 1    # 1: triángulo | 2: hexágono alargado
 rigidity_level = 8 # valores entre 1 y 8 (1 es el menos rígido)
 
 """ MARCADORES (AGENTES, OBSTÁCULOS Y OBJETIVO) """
-agents_marker_list = [2,3,4,5,6,7,8,10] # agentes (Max. 10)
+agents_marker_list = [2,3,4] # agentes (Max. 10)
 obj_marker_list = [15] # marker del objetivo (1)
-obs_marker_list = [19,20,21] # obstáculos (3)
+obs_marker_list = [20,21,22] # obstáculos (3)
 
 """ configuración marcadores y objetivo """
 NMax = 10  # número máximo de agentes que la formación puede tener
@@ -100,7 +100,7 @@ for marker in robotat_markers:
 print(f"desfases numpy:\n {desfases_numpy} \n")
 
 """ radar """
-r = 0.15	# radio para evitar colisiones (cm)
+r = 0.07	# radio para evitar colisiones (cm)
 R = 4	# rango del radar de detección de agentes (m)
 
 """ posiciones iniciales """
@@ -482,14 +482,19 @@ sync_event = threading.Event()
 stop_event = threading.Event()
 
 # obtener las poses del robotat
+latencia = 0
 def posesRobotat():
     global agents_pose
     global agents_pose_old
+    global latencia
     while not stop_event.is_set():
         sync_event.wait()
         try:
+            tic_latencia = time.perf_counter_ns()
             agents_pose = update_data(robotat,robotat_markers)
+            toc_latencia = time.perf_counter_ns()
             agents_pose = agents_pose - desfases_numpy # aplicar desfases
+            latencia = (toc_latencia - tic_latencia)/1000000
         except:
             print("MAIN LOOP ERROR: Error al obtener poses de agentes, se usa pose anterior")
             agents_pose = agents_pose_old # usar posición anterior
@@ -737,6 +742,7 @@ while supervisor.step(TIME_STEP) != 1:
     print(f"Ciclo: {ciclo}")
     print(f"ETAPA: {cambio}") 
     print(f"Error de formación: {formation_mse} \n")
+    print(f'Latencia Robotat: {latencia}')
     ciclo = ciclo + 1    
     toc_ciclo = time.perf_counter_ns() 
     

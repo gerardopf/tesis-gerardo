@@ -33,7 +33,7 @@ carpeta = 'tiempos_no_optim'
 
 nombre_file = 'TiempoNoOptim'
 escenario_file = 'AB1C'
-corrida_file = '0'
+corrida_file = '000'
 
 data_saving = 1 # ¿Guardar datos? | 0: No | 1: Si
 
@@ -49,7 +49,7 @@ form_shape = 1    # 1: triángulo | 2: hexágono alargado
 rigidity_level = 8 # valores entre 1 y 8 (1 es el menos rígido)
 
 """ MARCADORES (AGENTES, OBSTÁCULOS Y OBJETIVO) """
-agents_marker_list = [2,3,4,5,6,8]
+agents_marker_list = [2,3,4]
 obj_marker_list = [15]
 obs_marker_list = [20,21,22]
 
