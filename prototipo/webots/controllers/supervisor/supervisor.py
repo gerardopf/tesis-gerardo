@@ -49,9 +49,20 @@ form_shape = 1    # 1: triángulo | 2: hexágono alargado
 rigidity_level = 8 # valores entre 1 y 8 (1 es el menos rígido)
 
 """ MARCADORES (AGENTES, OBSTÁCULOS Y OBJETIVO) """
-agents_marker_list = [8,7] # agentes (Max. 10)
+agents_marker_list = [7,8,10] # agentes (Max. 10)
 obj_marker_list = [21] # marker del objetivo (1)
 obs_marker_list = [11,12,13] # obstáculos (3)
+
+""" posiciones iniciales """
+initial_pos_setup = 1 # posiciones iniciales | 0: ALEATORIO | 1: PLANIFICADO
+setup_shape = 0         # formación inicial | 0: LÍNEA H.| 1: CÍRCULO | 2: LÍNEA V.
+
+setup_starting_point = np.array([-1.5, -1]) # punto inicial para las posiciones iniciales
+setup_shape_space = 1.5 # espacio a cubrir con las posiciones iniciales (m)
+
+agent_setup = 5 # configuración de agentes
+
+formation_edge = 0.3 # separación entre agentes en metros (arista del grafo de formación)
 
 """ configuración marcadores y objetivo """
 NMax = 10  # número máximo de agentes que la formación puede tener
@@ -102,17 +113,6 @@ print(f"desfases numpy:\n {desfases_numpy} \n")
 """ radar """
 r = 0.07	# radio para evitar colisiones (cm)
 R = 4	# rango del radar de detección de agentes (m)
-
-""" posiciones iniciales """
-initial_pos_setup = 1 # posiciones iniciales | 0: ALEATORIO | 1: PLANIFICADO
-setup_shape = 0         # formación inicial | 0: LÍNEA H.| 1: CÍRCULO | 2: LÍNEA V.
-
-setup_starting_point = np.array([-1, -1.5]) # punto inicial para las posiciones iniciales
-setup_shape_space = 1.5 # espacio a cubrir con las posiciones iniciales (m)
-
-agent_setup = 5 # configuración de agentes
-
-formation_edge = 0.3 # separación entre agentes en metros (arista del grafo de formación)
 
 """ obtener configuraciones de la corrida en físico """
 if (r_initial_conditions == 1):
@@ -478,7 +478,7 @@ Etapa 3:
 """ -------------- Hilos --------------"""
  
  # hilo para solicitar poses del robotat en segundo plano
-sync_event = threading.Event()
+#sync_event = threading.Event()
 stop_event = threading.Event()
 
 # obtener las poses del robotat
