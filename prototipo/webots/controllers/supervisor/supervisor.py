@@ -33,9 +33,9 @@ carpeta = 'tiempos_optim'
 
 nombre_file = 'TiempoOptim'
 escenario_file = 'AB1C'
-corrida_file = '1'
+corrida_file = '0'
 
-data_saving = 1 # ¿Guardar datos? | 0: No | 1: Si
+data_saving = 0 # ¿Guardar datos? | 0: No | 1: Si
 
 """ modo real o simulación """
 fisico = 1               # 0 Webots | 1 Robotat
@@ -49,9 +49,9 @@ form_shape = 1    # 1: triángulo | 2: hexágono alargado
 rigidity_level = 8 # valores entre 1 y 8 (1 es el menos rígido)
 
 """ MARCADORES (AGENTES, OBSTÁCULOS Y OBJETIVO) """
-agents_marker_list = [2,3,4] # agentes (Max. 10)
-obj_marker_list = [15] # marker del objetivo (1)
-obs_marker_list = [20,21,22] # obstáculos (3)
+agents_marker_list = [8,7] # agentes (Max. 10)
+obj_marker_list = [21] # marker del objetivo (1)
+obs_marker_list = [11,12,13] # obstáculos (3)
 
 """ configuración marcadores y objetivo """
 NMax = 10  # número máximo de agentes que la formación puede tener
@@ -562,10 +562,9 @@ while supervisor.step(TIME_STEP) != 1:
         
     # FÍSICO
     elif (fisico == 1):
-        if poses_lock == 1:
-            agents_pose = temp_agents_pose_old
-        else:
-            agents_pose = temp_agents_pose
+        
+        # cargar posición de agentes
+        agents_pose = temp_agents_pose_old
              
         # obtener posición actual de obstáculos REALES
         if (r_obs == 1):
