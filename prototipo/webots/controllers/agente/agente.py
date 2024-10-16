@@ -22,7 +22,7 @@ lock = Lock()
 
 fisico = 1 # 0: Webots | 1: Robotat
 
-agents_marker_list = [7,8,10]
+agents_marker_list = [2,3,4]
 NStart = 1 # primer agente
 N = len(agents_marker_list)	# último agente
 
@@ -51,6 +51,7 @@ if(fisico == 0):
     
     # ------------------ MAIN LOOP ------------------
     while robot.step(TIME_STEP) != 1:
+        
         # obtener velocidades del supervisor
         lock.acquire()
         pick_V = shm1.buf[:shm1.size] 
@@ -138,6 +139,7 @@ elif(fisico == 1):
         phi_l_f = (v_f-(w_f*l_f))*10/(r_f*10)
         
         # truncar velocidades
+        #print(f'\nagente: {agente} | phiR: {phi_r_f} | phiL {phi_l_f}')
         if(phi_r_f > 0):
             if(phi_r_f > MAX_SPEED_f):
                 phi_r_f = MAX_SPEED_f
@@ -150,6 +152,7 @@ elif(fisico == 1):
         else:
             if(phi_l_f < -MAX_SPEED_f):
                 phi_l_f = -MAX_SPEED_f
+        #print(f'\nagente: {agente} | phiR: {phi_r_f} | phiL {phi_l_f}')
 
         # enviar velocidades al pololu
         if agente in agents_marker_list:

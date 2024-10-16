@@ -33,9 +33,9 @@ carpeta = 'tiempos_optim'
 
 nombre_file = 'TiempoOptim'
 escenario_file = 'AB1C'
-corrida_file = '0'
+corrida_file = '000'
 
-data_saving = 0 # ¿Guardar datos? | 0: No | 1: Si
+data_saving = 1 # ¿Guardar datos? | 0: No | 1: Si
 
 """ modo real o simulación """
 fisico = 1               # 0 Webots | 1 Robotat
@@ -49,15 +49,15 @@ form_shape = 1    # 1: triángulo | 2: hexágono alargado
 rigidity_level = 8 # valores entre 1 y 8 (1 es el menos rígido)
 
 """ MARCADORES (AGENTES, OBSTÁCULOS Y OBJETIVO) """
-agents_marker_list = [7,8,10] # agentes (Max. 10)
-obj_marker_list = [21] # marker del objetivo (1)
-obs_marker_list = [11,12,13] # obstáculos (3)
+agents_marker_list = [2,3,4] # agentes (Max. 10)
+obj_marker_list = [15] # marker del objetivo (1)
+obs_marker_list = [22,21,20] # obstáculos (3)
 
 """ posiciones iniciales """
 initial_pos_setup = 1 # posiciones iniciales | 0: ALEATORIO | 1: PLANIFICADO
 setup_shape = 0         # formación inicial | 0: LÍNEA H.| 1: CÍRCULO | 2: LÍNEA V.
 
-setup_starting_point = np.array([-1.5, -1]) # punto inicial para las posiciones iniciales
+setup_starting_point = np.array([-1, -1.5]) # punto inicial para las posiciones iniciales
 setup_shape_space = 1.5 # espacio a cubrir con las posiciones iniciales (m)
 
 agent_setup = 5 # configuración de agentes
@@ -710,6 +710,7 @@ while supervisor.step(TIME_STEP) != 1:
         # si el líder está a más de X metros del objetivo, espera a la formación
         if (abs(posActuales[0][NStart]-pObjVec[0]) > 0.7 or abs(posActuales[1][NStart]-pObjVec[1]) > 0.7):     
             if (fisico == 1):
+                print("condicion 1")
                 V[0][NStart] = V[0][NStart] + total_agent_weight*(1/(formation_mse))*(posActuales[0][NStart]-pObjVec[0])
                 V[1][NStart] = V[1][NStart] + total_agent_weight*(1/(formation_mse))*(posActuales[1][NStart]-pObjVec[1])
             elif (fisico == 0):          
@@ -718,6 +719,7 @@ while supervisor.step(TIME_STEP) != 1:
         # si el líder está a menos de X metros del objetivo, la constante es mayor y puede llamar a la formación más rápido
         elif (abs(posActuales[0][NStart]-pObjVec[0]) <= 0.7 or abs(posActuales[1][NStart]-pObjVec[1]) <= 0.7):
             if (fisico == 1):
+                print("condicion 2")
                 V[0][NStart] = V[0][NStart] + 10*(posActuales[0][NStart]-pObjVec[0])
                 V[1][NStart] = V[1][NStart] + 10*(posActuales[1][NStart]-pObjVec[1])
             elif (fisico == 0):
