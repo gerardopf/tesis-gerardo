@@ -22,7 +22,7 @@ lock = Lock()
 
 fisico = 1 # 0: Webots | 1: Robotat
 
-agents_marker_list = [2,3,4]
+agents_marker_list = [5,3,4]
 NStart = 1 # primer agente
 N = len(agents_marker_list)	# último agente
 
@@ -152,7 +152,7 @@ elif(fisico == 1):
         else:
             if(phi_l_f < -MAX_SPEED_f):
                 phi_l_f = -MAX_SPEED_f
-        #print(f'\nagente: {agente} | phiR: {phi_r_f} | phiL {phi_l_f}')
+        print(f'\nagente: {agente} | phiR: {phi_r_f} | phiL {phi_l_f}')
 
         # enviar velocidades al pololu
         if agente in agents_marker_list:

@@ -49,7 +49,7 @@ form_shape = 1    # 1: triángulo | 2: hexágono alargado
 rigidity_level = 8 # valores entre 1 y 8 (1 es el menos rígido)
 
 """ MARCADORES (AGENTES, OBSTÁCULOS Y OBJETIVO) """
-agents_marker_list = [2,3,4] # agentes (Max. 10)
+agents_marker_list = [5,3,4] # agentes (Max. 10)
 obj_marker_list = [15] # marker del objetivo (1)
 obs_marker_list = [22,21,20] # obstáculos (3)
 
@@ -707,24 +707,26 @@ while supervisor.step(TIME_STEP) != 1:
         
     # ETAPA 3 -----> SEGUIMIENTO DEL OBJETIVO
     elif (cambio == 3):
+        k_vel1 = 1
+        k_vel2 = 10
         # si el líder está a más de X metros del objetivo, espera a la formación
         if (abs(posActuales[0][NStart]-pObjVec[0]) > 0.7 or abs(posActuales[1][NStart]-pObjVec[1]) > 0.7):     
             if (fisico == 1):
                 print("condicion 1")
-                V[0][NStart] = V[0][NStart] + total_agent_weight*(1/(formation_mse))*(posActuales[0][NStart]-pObjVec[0])
-                V[1][NStart] = V[1][NStart] + total_agent_weight*(1/(formation_mse))*(posActuales[1][NStart]-pObjVec[1])
+                V[0][NStart] = V[0][NStart] + k_vel1*total_agent_weight*(1/(formation_mse))*(posActuales[0][NStart]-pObjVec[0])
+                V[1][NStart] = V[1][NStart] + k_vel1*total_agent_weight*(1/(formation_mse))*(posActuales[1][NStart]-pObjVec[1])
             elif (fisico == 0):          
-                V[0][NStart] = V[0][NStart] - total_agent_weight*(1/(formation_mse))*(posActuales[0][NStart]-pObjVec[0])
-                V[1][NStart] = V[1][NStart] - total_agent_weight*(1/(formation_mse))*(posActuales[1][NStart]-pObjVec[1])
+                V[0][NStart] = V[0][NStart] - k_vel1*total_agent_weight*(1/(formation_mse))*(posActuales[0][NStart]-pObjVec[0])
+                V[1][NStart] = V[1][NStart] - k_vel1*total_agent_weight*(1/(formation_mse))*(posActuales[1][NStart]-pObjVec[1])
         # si el líder está a menos de X metros del objetivo, la constante es mayor y puede llamar a la formación más rápido
         elif (abs(posActuales[0][NStart]-pObjVec[0]) <= 0.7 or abs(posActuales[1][NStart]-pObjVec[1]) <= 0.7):
             if (fisico == 1):
                 print("condicion 2")
-                V[0][NStart] = V[0][NStart] + 10*(posActuales[0][NStart]-pObjVec[0])
-                V[1][NStart] = V[1][NStart] + 10*(posActuales[1][NStart]-pObjVec[1])
+                V[0][NStart] = V[0][NStart] + k_vel2*(posActuales[0][NStart]-pObjVec[0])
+                V[1][NStart] = V[1][NStart] + k_vel2*(posActuales[1][NStart]-pObjVec[1])
             elif (fisico == 0):
-                V[0][NStart] = V[0][NStart] - 10*(posActuales[0][NStart]-pObjVec[0])
-                V[1][NStart] = V[1][NStart] - 10*(posActuales[1][NStart]-pObjVec[1])
+                V[0][NStart] = V[0][NStart] - k_vel2*(posActuales[0][NStart]-pObjVec[0])
+                V[1][NStart] = V[1][NStart] - k_vel2*(posActuales[1][NStart]-pObjVec[1])
         # si el líder está a X metros del objetivo, se cumplió la meta
         if (abs(posActuales[0][NStart]-pObjVec[0]) <= 0.2 and abs(posActuales[1][NStart]-pObjVec[1]) <= 0.2):
             obj_success = 1
