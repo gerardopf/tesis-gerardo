@@ -31,7 +31,7 @@ r_initial_conditions = 0 # 0: nueva simulación | 1: simular escenario físico
 # archivo para guardar una nueva corrida en físico
 carpeta = 'tiempos_no_optim'
 
-nombre_file = 'TiempoNoOptim'
+nombre_file = 'TiempoNoOptimV2'
 escenario_file = 'AB1C'
 corrida_file = '000'
 
