@@ -6,8 +6,8 @@ import os
 
 """ selección de archivo """
 guardar = 1 # 0: no guardar datos | 1: si guardar datos
-optimizado = 1 # 0: no optimizado | 1: optimizado
-file_name = 'TiempoOptim_8A_AB1C_f_0'
+optimizado = 0 # 0: no optimizado | 1: optimizado
+file_name = 'TiempoNoOptimV2_2A_AB1C_f_1'
 
 """ configuración de ruta y textos """
 archivo = f'{file_name}.npz'

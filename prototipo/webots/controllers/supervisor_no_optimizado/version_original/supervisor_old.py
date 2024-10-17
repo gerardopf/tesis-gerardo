@@ -67,21 +67,27 @@ r_obj = 1                # 0: virtual objective | 1: real objective (obtained fr
 r_webots_visual = 1      # 0: doesnt update visuals of real obj and obs | 1: updates visuals of real obj and/or obj
 MAX_SPEED = 30           # MAXIMUM SPEED OF THE WHEELS IN RPM
 
-file_name = 'TiempoNoOptimV2_2A_AB1C_f_000.npz'
-data_saving = 0
-
 # Formation Matrix
 form_shape = 1    # 1: triangle | 2: long hexagon
 rigidity_level = 8 # integer values between 1 and 8, lower being less rigid 
+
+"""radar"""
+r = 0.07	# radius to consider to avoid collisions (in centimeters)
+R = 4	# radar range (how far can the agents detect each other) 
+
+# archivo para guardar una nueva corrida en físico
+carpeta = 'tiempos_optim'
+
+nombre_file = 'TiempoNoOptimV2'
+escenario_file = 'AB1C'
+corrida_file = '1'
+
+data_saving = 1 # ¿Guardar datos? | 0: No | 1: Si
 
 """ Agents """
 NMax = 10  # Maximum agent number that the formation shape can contain
 NStart = 2 # First agent (lower limit of the interval of agents)
 N = 3	# Last agent (higher limit of the interval of agents)
-
-"""radar"""
-r = 0.07	# radius to consider to avoid collisions (in centimeters)
-R = 4	# radar range (how far can the agents detect each other) 
 
 """obstacles and objective"""
 obs_active = 1        # 0: obs not active | 1: obs active
@@ -90,7 +96,7 @@ obs_start_marker = 10 # starting OptiTrack marker for obstacles
 robotat_markers = [1,2,3,4,5,6,7,8,9,10,11,12] #OptiTrack markers
 
 """initial positions"""
-setup_shape = 1         # 0: Initial marks line setup | 1: circle marks setup
+setup_shape = 0         # 0: Initial marks line setup | 1: circle marks setup
 setup_shape_space = 1.5 # space to cover with the setup
 
 # Specify the starting point
@@ -158,13 +164,21 @@ begin_alg_time = -1 # valor arbitrario para inicializar variable
 obs_start_marker = obs_start_marker - 1 
 obj_marker = obj_marker - 1 
 
+""" codificación de archivos """
+if fisico == 1:
+    fisico_file = 'f'
+elif fisico == 0:
+    fisico_file = 'v'
+new_run_file = f'{carpeta}/{nombre_file}_{total_agent_number}A_{escenario_file}_{fisico_file}_{corrida_file}.npz'
+
+
 # defines spawn shape of epucks/starting agent positions
 if (r_initial_conditions == 0):
     # line shape
     if (setup_shape == 0):
         for i in range(NStart,N):
             setup_pos[i, 0] = setup_starting_point[0] + i * 0.3 
-            setup_pos[i, 1] = setup_starting_point[1] + i * 0.3 * 0
+            setup_pos[i, 1] = setup_starting_point[1]
             setup_pos[i, 2] = 0.5
     # circle shape
     elif (setup_shape == 1):
@@ -297,7 +311,7 @@ for i in range(0, NMax):
     agent_pos = agent.getField("translation")
     agent_rot = agent.getField("rotation")
     pos_todos_vec = agent_pos.getSFVec3f()
-    rot_todos_vec = agent_rzot.getSFVec3f()
+    rot_todos_vec = agent_rot.getSFVec3f()
     Agents.append(agent)
     PosTodos.append(agent_pos)
     RotTodos.append(agent_rot)
@@ -665,14 +679,19 @@ while supervisor.step(TIME_STEP) != -1:
             V[1][NStart] = V[1][NStart] + total_agent_weight*(1/(formation_mse))*(posActuales[1][NStart]-pObjVec[1])
         # if the leader is less than 0.7 m away from the objective the constant is higher so that it can pull the formation faster
         elif (abs(posActuales[0][NStart]-pObjVec[0]) <= 0.7 or abs(posActuales[1][NStart]-pObjVec[1]) <= 0.7):
-            V[0][NStart] = V[0][NStart] - 10*(posActuales[0][NStart]-pObjVec[0])
-            V[1][NStart] = V[1][NStart] - 10*(posActuales[1][NStart]-pObjVec[1])
+            V[0][NStart] = V[0][NStart] + 10*(posActuales[0][NStart]-pObjVec[0])
+            V[1][NStart] = V[1][NStart] + 10*(posActuales[1][NStart]-pObjVec[1])
         # when the leader is in 0.5 m proximity of the objective it is considered a success
-        if (abs(posActuales[0][NStart]-pObjVec[0]) <= 0.5 and abs(posActuales[1][NStart]-pObjVec[1]) <= 0.5):
+        if (abs(posActuales[0][NStart]-pObjVec[0]) <= 0.2 and abs(posActuales[1][NStart]-pObjVec[1]) <= 0.2):
             obj_success = 1
             if (obj_cont == 0):
                 obj_success_cycle = ciclo
             obj_cont = 1
+    
+    if obj_success == 1:
+        V[0][NStart] = 0
+        V[1][NStart] = 0
+        
 #1/(errorF*10) o 4
     # data synchronization between the Supervisor program (centrol control unit) and the agents programs
     lock.acquire()                                     # ensures stable comms
@@ -689,9 +708,6 @@ while supervisor.step(TIME_STEP) != -1:
     obsHist.append(posObsAct.copy())
     formation_mseHist.append(formation_mse)
     rotHist.append(rotActuales.copy())
-    print(ciclo)
-    print(cambio) 
-    #print(formation_mse)  
     
     print("Ciclo: ", ciclo)
     print("ETAPA: ", cambio) 
@@ -732,55 +748,64 @@ while supervisor.step(TIME_STEP) != -1:
         NStart = NStart + 1
         obs_start_marker = obs_start_marker + 1 
         obj_marker = obj_marker + 1
+        tiempo_ciclo_data = np.array(tiempo_ciclo_hist)
         # if a new run then saved in npz file with a name of your choosing
+        # guardar datos en archivo .npz de la nueva corrida en físico
         if (data_saving == 1 and r_initial_conditions == 0):
-            np.savez('trial0.npz', trajectory_data = trajectory_data, # agents positions register of the run
-                                       velocity_data = velocity_data, # agents velocities registrr of the run
-                                       normV_data = normV_data,       # agents velocities norm register of the run
-                                       obj_data = obj_data,           # objetive positions register of the run
-                                       obs_data = obs_data,           # objetive positions register of the run 
-                                       formation_mse_data = formation_mse_data, # mse register of the run
-                                       rot_data = rot_data,           # rotation data register of the run
-                                       total_cycle = ciclo,           # total of cycles of the run
-                                       form_cycle = form_cycle,       # cycle when formation began its construction
-                                       obj_cycle = obj_cycle,         # cycle when the leader began following the objective
-                                       quantO = cantO,                # total quantity of obstacles
-                                       posObsAct = posObsAct,         # last position of obstacles when the run ended
-                                       sizeO = sizeO,                 # size of the obstacles
-                                       NStart = NStart,               # first agent (lower limit of the interval of agents)
-                                       N = N,                         # last agent (higher limit of the interval of agents)
-                                       NMax = NMax,                   # maximum agent number that the formation shape can contain
-                                       pObjVec = pObjVec,             # last position of objective when the run ended
-                                       PosRealAgents = PosRealAgents, # position of the agents at the start of stage 1 (initial conditions)
-                                       RotRealAgents = RotRealAgents, # rotation of the agents at the start of stage 1 (initial conditions)
-                                       begin_alg_time = begin_alg_time, # cycle when the algorithm itself started (aka start of stage 1)
-                                       posIniPosVec = posIniPosVec, # position of initial position marks
-                                       fisico = fisico,               # physical (Robotat) or virtual (Webots) world run
-                                       r_initial_conditions = r_initial_conditions, # real initial conditions active or not (fresh run)
-                                       r_obs = r_obs,                 # real or virtual obstacles
-                                       r_obj = r_obj,                 # real or virtual objective
-                                       TIME_STEP = TIME_STEP,         # time step of the program
-                                       agent_setup = agent_setup,     # agent setup used for the run
-                                       obs_active = obs_active,       # obstacles active or not
-                                       initial_pos_setup = initial_pos_setup, # initial position setup (random or not)
-                                       r = r,                         # radio to consider to avoid collisions
-                                       R = R,                         # Radar radio
-                                       MAX_SPEED = MAX_SPEED,         # allowed maximum speed of agents wheels
-                                       form_shape = form_shape,       # shape of the formation    
-                                       rigidity_level = rigidity_level, # rigidity level of the formation 
-                                       total_agent_number = total_agent_number, # total agent number of agents involved in the run
-                                       obj_marker = obj_marker,       # Robotat marker used for the objetive in real life
-                                       obs_start_marker = obs_start_marker, # Robotat starting marker used for the obstacles in real life
-                                       setup_starting_point = setup_starting_point, # beginning of the initial positions shape
-                                       setup_shape = setup_shape,     # initial positions shape
-                                       setup_shape_space = setup_shape_space, # what space to cover with the initial positions
-                                       formation_edge = formation_edge, # how long is the age of the formation
-                                       r_f = r_f,                     # robot dimensions for unicycle model
-                                       l_f = l_f,
-                                       a_f = a_f,
-                                       obj_success = obj_success,     # indicates if the objective was successful
-                                       obj_success_cycle = obj_success_cycle) # objective success cycle      
-        
+            print("Guardando datos de la corrida... -supervisor")
+            try:
+                np.savez(new_run_file, tiempo_total = tiempo_total,
+                                        corrida_numero = corrida_file,
+                                        tiempo_ciclo = tiempo_ciclo_data,
+                                        trajectory_data = trajectory_data, # agents positions register of the run
+                                           velocity_data = velocity_data, # agents velocities registrr of the run
+                                           normV_data = normV_data,       # agents velocities norm register of the run
+                                           obj_data = obj_data,           # objetive positions register of the run
+                                           obs_data = obs_data,           # objetive positions register of the run 
+                                           formation_mse_data = formation_mse_data, # mse register of the run
+                                           rot_data = rot_data,           # rotation data register of the run
+                                           total_cycle = ciclo,           # total of cycles of the run
+                                           form_cycle = form_cycle,       # cycle when formation began its construction
+                                           obj_cycle = obj_cycle,         # cycle when the leader began following the objective
+                                           quantO = cantO,                # total quantity of obstacles
+                                           posObsAct = posObsAct,         # last position of obstacles when the run ended
+                                           sizeO = sizeO,                 # size of the obstacles
+                                           NStart = NStart,               # first agent (lower limit of the interval of agents)
+                                           N = N,                         # last agent (higher limit of the interval of agents)
+                                           NMax = NMax,                   # maximum agent number that the formation shape can contain
+                                           pObjVec = pObjVec,             # last position of objective when the run ended
+                                           PosRealAgents = PosRealAgents, # position of the agents at the start of stage 1 (initial conditions)
+                                           RotRealAgents = RotRealAgents, # rotation of the agents at the start of stage 1 (initial conditions)
+                                           begin_alg_time = begin_alg_time, # cycle when the algorithm itself started (aka start of stage 1)
+                                           posIniPosVec = posIniPosVec, # position of initial position marks
+                                           fisico = fisico,               # physical (Robotat) or virtual (Webots) world run
+                                           r_initial_conditions = r_initial_conditions, # real initial conditions active or not (fresh run)
+                                           r_obs = r_obs,                 # real or virtual obstacles
+                                           r_obj = r_obj,                 # real or virtual objective
+                                           TIME_STEP = TIME_STEP,         # time step of the program
+                                           agent_setup = agent_setup,     # agent setup used for the run
+                                           obs_active = obs_active,       # obstacles active or not
+                                           initial_pos_setup = initial_pos_setup, # initial position setup (random or not)
+                                           r = r,                         # radio to consider to avoid collisions
+                                           R = R,                         # Radar radio
+                                           MAX_SPEED = MAX_SPEED,         # allowed maximum speed of agents wheels
+                                           form_shape = form_shape,       # shape of the formation    
+                                           rigidity_level = rigidity_level, # rigidity level of the formation 
+                                           total_agent_number = total_agent_number, # total agent number of agents involved in the run
+                                           obj_marker = obj_marker,       # Robotat marker used for the objetive in real life
+                                           obs_start_marker = obs_start_marker, # Robotat starting marker used for the obstacles in real life
+                                           setup_starting_point = setup_starting_point, # beginning of the initial positions shape
+                                           setup_shape = setup_shape,     # posición inicial en línea o círculo
+                                           setup_shape_space = setup_shape_space, # espacio a cubrir con las posiciones iniciales
+                                           formation_edge = formation_edge, # largo de la arista para la formación
+                                           r_f = r_f,                     # dimensiones del robot - modelo de uniciclo
+                                           l_f = l_f,
+                                           a_f = a_f,
+                                           obj_success = obj_success,     # indicador de cumplimiento del objetivo
+                                           obj_success_cycle = obj_success_cycle) # ciclo en que se logra el objetivo      
+            except:
+                print("Error al guardar los datos de la corrida")
+                
         if (fisico == 1):
             robotat_disconnect(robotat)
         lock.release()

@@ -1,39 +1,6 @@
-""" =========================================================================
-% SWARM INTELLIGENCE ALGORITHM FOCUSED ON FORMATION SYNCHRONIZATION AND 
-% CONTROL IN A MULTI-AGENT ROBOTIC SYSTEM
-% DYNAMIC MODEL WITH FORMATION CONTROL, USING HYPERBOLIC COSINE, AND
-% COLLISION AVOIDANCE INCLUDING SPEED LIMITS.
-% CENTRAL PROGRAM
+""" SUPERVISOR no optimizado """
 
-% ALGORITMO DE INTELIGENCIA DE ENJAMBRE ENFOCADO EN SINCRONIZACIÓN Y CONTROL
-% DE FORMACIONES CON SISTEMAS ROBÓTICOS MULTI-AGENTE
-% MODELO DINÁMICO CON CONTROL DE FORMACIONES, USANDO COSENO HIPERBÓLICO Y 
-% EVASIÓN DE OBSTÁCULOS USANDO LÍMITES DE VELOCIDAD
-% =========================================================================
-% Author: Alejandro Rodríguez
-% Last update: 12/1/2024
-% =========================================================================
-% The following script implements the dynamic model with a modification to 
-% the consensus equation using the obstacle avoidance and a combination 
-% of the formation control with a hyperbolic cosine function (tension 
-% function) for minimally rigid graphs and collision avoidance. It also
-% includes speed limits to keep the robots within its physical capacity.
-%
-% It is Supervisor controller.
-
-% El siguiente código implementa el modelo dinámico con la ecuación de 
-% consenso modificada utilizando evasión de obstáculos y la combinación
-% del control de formación con la función de coseno hiperbólico (función 
-% de tensión) para grafos mínimamente rígidos y evasión de obstáculos. 
-% Además, se incluye límites de velocidad para mantener a los robots dentro
-% de sus capacidades físicas.
-
-% Controlador del supervisor
-========================================================================="""
-
-"""Supervisor_simulacion_y_fisico_v4 controller."""
-
-# Library imports
+# librerías
 from controller import Robot, Supervisor
 import numpy as np
 import random
@@ -45,87 +12,101 @@ from funVel import Fmatrix
 import funciones
 from multiprocessing import shared_memory, Lock
 from funciones_conjunto import *
+import threading
 
-# shared memory spaces creation to communicate the supervisor program with each individual agent program
+print("inicio de configuracion...")
+# memoria compartida para intercambio de datos entre supervisor y agente
 shm1 = shared_memory.SharedMemory(name="my_shared_memory1", create=True, size=1024)
 shm2 = shared_memory.SharedMemory(name="my_shared_memory2", create=True, size=4096)
 
-# synchronization Lock to ensure a stable communication between programs (IPC, interprocess communication)
+# lock para permitir lectura y escritura de uno a la vez
 lock = Lock()
-TIME_STEP = 64 #each step of the simulation is 64 ms
+TIME_STEP = 64 # paso de simulación 64 ms
+supervisor = Supervisor() # instancia de supervisor
 
-supervisor = Supervisor() # Creates Supervisor instance
-
-"""real or not"""
-fisico = 1               # 0 to use Webots | 1 to use Robotat
-
-initial_conditions_file = 'trial0.npz' # select the initial conditions file (.npz) to compare the physical run to simulation
-r_initial_conditions = 0 # 0: new simulation | 1: simulation based on real physical conditions
-
-r_obs = 1                # 0: virtual obstacles | 1: real obstacles (obtained from OptiTrack markers)
-r_obj = 1                # 0: virtual objective | 1: real objective (obtained from Optitrack marker)
-r_webots_visual = 1      # 0: doesnt update visuals of real obj and obs | 1: updates visuals of real obj and/or obj
-MAX_SPEED = 30           # MAXIMUM SPEED OF THE WHEELS IN RPM
-
-# Formation Matrix
-form_shape = 1    # 1: triangle | 2: long hexagon
-rigidity_level = 8 # integer values between 1 and 8, lower being less rigid 
-
-"""radar"""
-r = 0.07	# radius to consider to avoid collisions (in centimeters)
-R = 4	# radar range (how far can the agents detect each other) 
+# archivo para simular una corrida en físico
+initial_conditions_file = '.npz' 
+r_initial_conditions = 0 # 0: nueva simulación | 1: simular escenario físico
 
 # archivo para guardar una nueva corrida en físico
 carpeta = 'tiempos_no_optim'
 
-nombre_file = 'TiempoNoOptimV2'
+nombre_file = 'TiempoNoOptim'
 escenario_file = 'AB1C'
-corrida_file = '1'
+corrida_file = '000'
 
 data_saving = 1 # ¿Guardar datos? | 0: No | 1: Si
 
-""" Agents """
-NMax = 10  # Maximum agent number that the formation shape can contain
-NStart = 2 # First agent (lower limit of the interval of agents)
-N = 3	# Last agent (higher limit of the interval of agents)
+""" modo real o simulación """
+fisico = 1               # 0 Webots | 1 Robotat
+r_obs = 1                # 0: obstáculos virtuales | 1: obstáculos reales (markers)
+r_obj = 1                # 0: objetivo virtual | 1: objetivo real (marker)
+r_webots_visual = 1      # 0: NO ver objetivo y obstáculos en tiempo real | 1: ver objetivo y obstáculos en tiempo real
+MAX_SPEED = 30           # velocidad máxima de ruedas (rpm)
 
-"""obstacles and objective"""
-obs_active = 1        # 0: obs not active | 1: obs active
-obj_marker = 8        # starting OptiTrack marker for objective 
-obs_start_marker = 10 # starting OptiTrack marker for obstacles  
-robotat_markers = [1,2,3,4,5,6,7,8,9,10,11,12] #OptiTrack markers
+""" matriz de formación """
+form_shape = 1    # 1: triángulo | 2: hexágono alargado
+rigidity_level = 8 # valores entre 1 y 8 (1 es el menos rígido)
 
-"""initial positions"""
-setup_shape = 0         # 0: Initial marks line setup | 1: circle marks setup
-setup_shape_space = 1.5 # space to cover with the setup
+""" MARCADORES (AGENTES, OBSTÁCULOS Y OBJETIVO) """
+agents_marker_list = [2,3,4]
+obj_marker_list = [15]
+obs_marker_list = [20,21,22]
 
-# Specify the starting point
-setup_starting_point = np.array([-1.0, -1.5])
+""" Desfases de markers """
+# desfases de markers en quaterniones: 1*,2,3,4,5,6,7,8,9*,10,11,12,13,14,15,16,17,18,19,20,21,22
+# *los markers no estaban disponibles, se utilizó el desfase encontrado por José Alejandro R.
+desfases_file = 'nueva_calibracion_markers_1_al_22.npy' 
+desfases = np.load(desfases_file) 
+desfases_euler = quat2eul(desfases,'zyx')
+print("archivo desfases euler: \n", desfases_euler)
 
-# Assign revised positions
-agent_setup = 5 # use 5        
-#agent_setup:
-# for simulation
-# 0: actual agent positions
-# 1: random agent instant positions
-# 2: random marker positions, actual agent positions
-# 3: L marker positions, actual agents positions
-# for both simulation and physical
-# 4: is a downgraded version of 5, so avoid using this
+""" configuración marcadores y objetivo """
 
-# 5: MAIN FUNCTIONING --> custom agent positioning taking into account the initial conditions of real world
+NMax = 10  # número máximo de agentes que la formación puede tener
+NStart = 1 # primer agente
+N = len(agents_marker_list)	# último agente
 
-initial_pos_setup = 1 # marker initialization 0: random | 1: planified
+obj_marker = obj_marker_list[0]        # marker del objetivo 
 
-formation_edge = 0.3 # edge length for graph (assigned distance between agents in the matrix)
+quantOMax = 3 # máximo de obstáculos
+obs_active = 1        # 0: SIN obstáculos | 1: CON obstáculos
+obs_start_marker = 1 # marker del primer obstáculo
 
-#robot dimensions
-#pololu
-r_f = 0.017
-l_f = 0.0485
-a_f = 0.0485
+""" codificación de archivos """
+if fisico == 1:
+    fisico_file = 'f'
+elif fisico == 0:
+    fisico_file = 'v'
+new_run_file = f'{carpeta}/{nombre_file}_{N}A_{escenario_file}_{fisico_file}_{corrida_file}.npz'
 
-#initial conditions from real life run
+# optitrack marcadores 
+robotat_markers = agents_marker_list + obj_marker_list + obs_marker_list
+robotat_markers_len = len(robotat_markers)
+print("todos los markers: ", robotat_markers)
+print("agentes: ", agents_marker_list)
+print("objetivo: ", obj_marker_list)
+print("obstáculos: ", obs_marker_list)
+
+print("NStart: ", NStart)
+print("N: ", N)
+
+""" radar """
+r = 0.07	# radio para evitar colisiones (cm)
+R = 4	# rango del radar de detección de agentes (m)
+
+""" posiciones iniciales """
+initial_pos_setup = 1 # posiciones iniciales | 0: ALEATORIO | 1: PLANIFICADO
+setup_shape = 0         # 0: posición inicial LÍNEA | 1: posición inicial CÍRCULO
+setup_shape_space = 1.5 # espacio a cubrir con las posiciones iniciales (m)
+
+setup_starting_point = np.array([-1.0, -1.5]) # punto inicial para las posiciones iniciales
+
+agent_setup = 5 # configuración de agentes
+
+formation_edge = 0.3 # separación entre agentes en metros (arista del grafo de formación)
+
+""" obtener configuraciones de la corrida en físico """
 if (r_initial_conditions == 1):
     initial_data = np.load(initial_conditions_file)
     real_begin_alg_time = initial_data['begin_alg_time']
@@ -147,55 +128,35 @@ if (r_initial_conditions == 1):
     setup_starting_point = initial_data['setup_starting_point']
     agent_setup = initial_data['agent_setup']
     initial_pos_setup = initial_data['initial_pos_setup']
+    
+""" parámetros pololu FÍSICO """
+r_f = 0.017
+l_f = 0.0485
+a_f = 0.0485
 
-# epuck dimensions and max speed for simulation
+""" parámetros epuck SIMULACIÓN """
 if (fisico == 0):
-    MAX_SPEED = 6.28 #radians/s
+    MAX_SPEED = 6.28 # rad/s
     r_f = 0.0205
     l_f = 0.0355
-    a_f = 0.0355  
-
-# initialization of some variables
-setup_pos = np.zeros((NMax, 6))
-NStart = NStart-1 
-total_agent_number = N-NStart
-total_agent_weight = (total_agent_number)/NMax
-begin_alg_time = -1 # valor arbitrario para inicializar variable    
-obs_start_marker = obs_start_marker - 1 
-obj_marker = obj_marker - 1 
-
-""" codificación de archivos """
-if fisico == 1:
-    fisico_file = 'f'
-elif fisico == 0:
-    fisico_file = 'v'
-new_run_file = f'{carpeta}/{nombre_file}_{total_agent_number}A_{escenario_file}_{fisico_file}_{corrida_file}.npz'
-
-
-# defines spawn shape of epucks/starting agent positions
-if (r_initial_conditions == 0):
-    # line shape
-    if (setup_shape == 0):
-        for i in range(NStart,N):
-            setup_pos[i, 0] = setup_starting_point[0] + i * 0.3 
-            setup_pos[i, 1] = setup_starting_point[1]
-            setup_pos[i, 2] = 0.5
-    # circle shape
-    elif (setup_shape == 1):
-        for i in range(NStart,N):
-            angle = 2 * np.pi * i / (total_agent_number)  # Calculate the angle for each marker
-            setup_shape_radius = setup_shape_space/2
-            setup_pos[i, 0] = setup_starting_point[0] + setup_shape_radius * np.cos(angle)  # x-coordinate
-            setup_pos[i, 1] = setup_starting_point[1] + setup_shape_radius * np.sin(angle)  # y-coordinate
-            setup_pos[i, 2] = 0.5  # constant z-coordinate
-
-# set to -1 if the object is not real, i.e. virtual
-if(r_obj == 0):
-   obj_marker = -1 
-if(r_obs == 0):
-   obs_start_marker = -1  
+    a_f = 0.0355
     
-#variable initialization    
+    
+""" algunas variables y banderas """
+setup_pos = np.zeros((NMax, 6)) # guarda la pose de cada agente (x, y, z, eulx, euly, eulz)
+NStart = NStart - 1
+total_agent_number = N-NStart # número de agentes
+total_agent_weight = (total_agent_number)/NMax # peso de la formación
+begin_alg_time = -1 # valor arbitrario para inicializar la variable
+obs_start_marker = obs_start_marker - 1 
+obj_marker = obj_marker - 1
+
+# no utilizar markers en SIMULACIÓN
+if (r_obj == 0):
+    obj_marker = -1
+if (r_obs == 0):
+    obs_start_marker = -1
+    
 trajectory = []
 velocityHist = []
 normVHist = []
@@ -211,54 +172,71 @@ obj_success_cycle = -1
 obj_success = 0
 agents_pose = []
 obj_cont = 0
-ciclo = 0  
-					
-#function to acquire specific markers poses on command
+ciclo = 0 
+ 
+""" configuración de marcas de posiciones iniciales """
+if (r_initial_conditions == 0):
+    # línea
+    if (setup_shape == 0):
+        for i in range(NStart, N):
+            setup_pos[i, 0] = setup_starting_point[0] + i * 0.3 # x-coordenada
+            setup_pos[i, 1] = setup_starting_point[1] # y-coordenada
+            setup_pos[i, 2] = 0.5 # z-coordenada
+    # círculo
+    elif (setup_shape == 1):
+        for i in range(NStart, N):
+            angle = 2 * np.pi * i / (total_agent_number) # ángulo para cada marcador
+            setup_shape_radius = setup_shape_space/2 # radio del círculo 
+            setup_pos[i, 0] = setup_starting_point[0] + setup_shape_radius * np.cos(angle) # x-coordenada
+            setup_pos[i, 1] = setup_starting_point[1] + setup_shape_radius * np.sin(angle) # y-coordenada
+            setup_pos[i, 2] = 0.5 # z-coordenada
+
+""" función para obtener pose de markers ROBOTAT """
 def update_data(robotat, markers_to_use):
     try: 
         if robotat:
-            #print(robotat)
-            n_ag = len(markers_to_use)
-            #print("Number of agents:\n",n_ag)
             pose = robotat_get_pose(robotat, markers_to_use)
             pose_eul = quat2eul(pose,'zyx')
+            #print("poses euler: ", pose_eul)
         else: 
-            print("no connection?")
+            print("No está conectado al Robotat")
             pose_eul = None
     except:
-        print("error")
+        print("Error al obtener poses de los markers")
         print(pose)
         pose_eul = None
     finally:
         return pose_eul   
-
+    
+""" obtener poses y aplicar desfases ROBOTAT"""
 if (fisico == 1):
     try:
         robotat = robotat_connect()
     except:
-        print("error")
-    # takes into account the natural orientation of markers and uses them to calibrate the bearing
-    desfases = np.load('calibracion_markers_inicial.npy') 
-    desfases_euler = quat2eul(desfases,'zyx')
+        print("CONFIGURACIÓN: Error al conectar con el robotat")
     agents_pose = update_data(robotat,robotat_markers)
-    # calibrates the bearing for each agent marker
-    for marker in range(len(agents_pose)):
-            agents_pose[marker,3] = agents_pose[marker,3] - desfases_euler[marker,3]
-    
+    #print("poses marcadores: \n", agents_pose)
+    # aplicar desfases
+    index = 0
+    for marker in robotat_markers:
+        agents_pose[index, 3] = agents_pose[index, 3] - desfases_euler[marker-1, 3]
+        index = index + 1
+        print("desfase marker ", marker, ": ", desfases_euler[marker-1, 3])
+    print("pose con desfases ", agents_pose)
+
 """ Arena """
 arena = supervisor.getFromDef("Arena")
 size = arena.getField("floorSize")
-sizeVec = size.getSFVec2f() # vector containing the arena size
+sizeVec = size.getSFVec2f() # vector con el tamaño de la arena
 
-""" Obstacles """
-cantO = 3  # Adjust this to the number of obstacles you have
-quantOMax = 3
+""" obstáculos """
+cantO = len(obs_marker_list)  # cantidad de obstáculos a usar
 Obstaculos = [] # obstacle obj list
 posObs = []     # obstacle positions list
 posObsAct = np.empty([2,cantO])
 sizeObsIn = np.empty([2,cantO])
 
-# Obstacle initialization
+# inicialización de obstáculos
 for i in range(0, cantO):
     obstacle_name = f"Obs{i}"
     obstacle = supervisor.getFromDef(obstacle_name)
@@ -268,23 +246,18 @@ for i in range(0, cantO):
     posObsAct[0][i] = posObs[i].getSFVec3f()[0]
     posObsAct[1][i] = posObs[i].getSFVec3f()[1]
 
-# minimum distance preferred between agent and obstacle
+# distancia mínima preferida entre agente y obstáculo (m)   
 safety_distance = 0.04 
-# obstacle size to consider
-sizeO = 1*Obstaculos[0].getField("majorRadius").getSFFloat()+1*Obstaculos[0].getField("minorRadius").getSFFloat()+ safety_distance 
 
-#print(sizeO)
-#print(sizeO) 0.175m
-#print(Obstaculos)
+# tamaño del obstáculo
+sizeO = 1*Obstaculos[0].getField("majorRadius").getSFFloat()+1*Obstaculos[0].getField("minorRadius").getSFFloat()+ safety_distance
 
-""" Objetive """
-
+""" objetivo """
 objetivo = supervisor.getFromDef("OBJ")
 pObj = objetivo.getField("translation")
 pObjVec = pObj.getSFVec3f()
 
-""" Agent initialization """
-
+""" inicializar agentes, obstáculos y objetivos """
 Agents = []           # list of agent objects
 PosTodos = []         # list of agent object positions
 RotTodos = []         # list of agent object rotation
@@ -292,12 +265,11 @@ RotTodos = []         # list of agent object rotation
 PosTodosVec = []      # list of agent positions (vector itself)
 RotTodosVec = []      # list of agent rotations (vector itself)
 
-
 initialPositions = [] # list of initial positions object
 posIniPos = []        # list of initial positions object positions
 posIniPosVec = []     # list of initial positions positions (vector itself)
 
-# agent and initial position initialization
+# agentes y marcas de posiciones iniciales 
 for i in range(0, NMax):
     inipos_name = f"IniPos{i+1}"
     inipos = supervisor.getFromDef(inipos_name)
@@ -317,81 +289,84 @@ for i in range(0, NMax):
     RotTodos.append(agent_rot)
     PosTodosVec.append(pos_todos_vec)
     RotTodosVec.append(rot_todos_vec)
- 
+    
+# asignar posiciones aleatorias a los AGENTES
 X = np.empty([2,N])
-
-# Asignar posiciones random a cada agente
 for a in range(0, NMax):
     if a in range(NStart,N):
-        X[0,a] = random.uniform(sizeVec[1]/2-0.5,-sizeVec[1]/2+0.5) # 0.4 m so that the agent is not on the wall
+        X[0,a] = random.uniform(sizeVec[1]/2-0.5,-sizeVec[1]/2+0.5) # 0.4 m para que el agente no esté sobre el muro
         X[1,a] = random.uniform(sizeVec[0]/2-0.5,-sizeVec[0]/2+0.5)
-
-print("X",X)
-
-# Revision of the positions    
-cW1 = 2 # agent on agent counter
+print("Posiciones aleatorias X: \n",X)
+    
+# revisión de posiciones aleatorias  
+cW1 = 2 # contador (agente sobre agente)
 while(cW1 > 1 or cW2 > 1):
     cW1 = 0
     cW2 = 0
-    # Ensure the agents wont start over each other
-    contR = 1 # intersection counter
+    # verificar intersección entre agentes
+    contR = 1 # contador de intersección
     while(contR > 0):
         contR = 0
         for i in range(NStart+1, N):
             for j in range(NStart+1, N-i):
-                resta = math.sqrt((X[0,i]-X[0,i+j])**2+(X[1,i]-X[1,i+j])**2)	# difference between positions
+                resta = math.sqrt((X[0,i]-X[0,i+j])**2+(X[1,i]-X[1,i+j])**2)	# diferencia entre posiciones
                 if(abs(resta) < r):
                     X[0,i+j] = random.uniform(sizeVec[1]/2-0.4,-sizeVec[1]/2+0.4)
-                    X[1,i+j] = random.uniform(sizeVec[0]/2-0.4,-sizeVec[0]/2+0.4) # intersection detected
+                    X[1,i+j] = random.uniform(sizeVec[0]/2-0.4,-sizeVec[0]/2+0.4) # intersección detectada
                     contR = contR+1
         cW1 = cW1+1
-    
-    contRO = 1 # intersections with obstacles counters
+    # verrificar intersección con obstáculos
+    contRO = 1 # contador intersección con obstáculo
     while(contRO > 0):
         contRO = 0
         for i in range(NStart,N):
             for j in range(1,cantO):
-                # distance between agent and obstacle
+                # distancia entre agente y obstáculo acle
                 resta = math.sqrt((X[0,i]-posObs[j].getSFVec3f()[1])**2 + (X[1,i]-posObs[j].getSFVec3f()[0])**2)	
+                # cambio a nueva posición
                 if(abs(resta) < sizeO):
-	         # position change
                     X[0,i+j] = random.uniform(sizeVec[1]/2-0.4,-sizeVec[1]/2+0.4)
                     X[1,i+j] = random.uniform(sizeVec[0]/2-0.4,-sizeVec[0]/2+0.4)
-                    contRO = contRO + 1 # intersection detected
+                    contRO = contRO + 1 # intersección detectada
         cW2 = cW2 + 1        
-
 Xi = X
+print("Posiciones aleatorias modificadas Xi: \n", Xi)
 
-# initializes the obstacles outside the map
+
+# inicializar OBSTÁCULOS fuera del mapa si no están activos
 for i in range(0, quantOMax):
     if (obs_active == 0):
         posObs[i].setSFVec3f([-sizeVec[0], i*0.9, -6.39203e-05])
-    
-# acquires virtual obstacle positions
+
+# obtener posición de OBSTÁCULOS virtuales
 if (r_obs == 0):
     for obs in range(0,cantO):
         posObsAct[0][obs] = posObs[obs].getSFVec3f()[0]
         posObsAct[1][obs] = posObs[obs].getSFVec3f()[1]
- 
-# acquires real obstacles and/or objective markers positions    
-if (fisico == 1):
-    if (r_obs == 1):
-        for obs in range(0,cantO):
-            posObsAct[0][obs] = agents_pose[obs+obs_start_marker,0]
-            posObsAct[1][obs] = agents_pose[obs+obs_start_marker,1]
-            posObs[obs].setSFVec3f([agents_pose[obs+obs_start_marker,0], agents_pose[obs+obs_start_marker,1], -6.39203e-05])
-    if (r_obj == 1):
-        pObjVec[0] = agents_pose[obj_marker,0]
-        pObjVec[1] = agents_pose[obj_marker,1]
-        #pObj.setSFVec3f([pObjVec[0], pObjVec[1], -6.39203e-05])
 
-# initializes unused agents outside the map
+# obtener posiciones de obstáculos y objetivos reales del ROBOTAT
+try:
+    if (fisico == 1):
+        if (r_obs == 1):
+            for obs in range(0,cantO):
+                x_obs = agents_pose[len(agents_pose)-cantO+obs, 0]
+                y_obs = agents_pose[len(agents_pose)-cantO+obs, 1]
+                posObsAct[0][obs] = x_obs
+                posObsAct[1][obs] = y_obs
+                posObs[obs].setSFVec3f([x_obs, y_obs, -6.39203e-05])
+        if (r_obj == 1):
+            pObjVec[0] = agents_pose[len(agents_pose)-cantO-1,0]
+            pObjVec[1] = agents_pose[len(agents_pose)-cantO-1,1]
+except:
+    print("error")
+
+# inicializar agentes y marcas de posiciones iniciales SIN USAR fuera del escenario
 for b in range(0, NMax):
     if (b<NStart or b>=N):
         PosTodos[b].setSFVec3f([-sizeVec[0]+1, b*0.3, 0.3])
         posIniPos[b].setSFVec3f([-sizeVec[0]+1, b*0.3, -6.39203e-05])
 
-# loads some more initial conditions to set the scenario
+# cargar posiciones iniciales para configurar el escenario (basados en archivo de condiciones iniciales)
 if (r_initial_conditions == 1):
     PosRealAgents = initial_data['PosRealAgents']
     RotRealAgents = initial_data['RotRealAgents']
@@ -401,96 +376,98 @@ if (r_initial_conditions == 1):
     obj_data = initial_data['obj_data']
     obs_data = initial_data['obs_data']
 
+# inicializar obstáculos y objetivo (basados en archivo de condiciones iniciales)
 if (r_initial_conditions == 1):
     for i in range(0, cantO):
         posObs[i].setSFVec3f([posObsAct[0,i], posObsAct[1,i], -6.39203e-05])
-    
     pObj.setSFVec3f([pObjVec[0], pObjVec[1], 0.3])
     
-
+# configurar marcas de posición inicial
 for b in range(NStart, N):
-    if (agent_setup == 1): # random agent position spawn
+    if (agent_setup == 1): # posición de agentes aleatoria
         PosTodos[b].setSFVec3f([X[1,b], X[0,b], -6.39203e-05])
         
-    elif (agent_setup == 2): # random initial position markers spawn
+    elif (agent_setup == 2): # marcas de inicio aleatorias
         posIniPos[b].setSFVec3f([X[1,b], X[0,b], 0.3])
-        posIniPosVec[b] = posIniPos[b].getSFVec3f()
-                
-    elif (agent_setup == 3): # instant agent position based on saved setup
+        posIniPosVec[b] = posIniPos[b].getSFVec3f() 
+                    
+    elif (agent_setup == 3): # posición basada en configuración guardada
         with open('D:/AlejandroDigital/tesisAlejandro/codigo/comunicacion_pololu/first_setup.pickle','rb') as f:
             setup_pos = pickle.load(f)
         PosTodos[b].setSFVec3f([setup_pos[b,0], setup_pos[b,1], -6.39203e-05])
-    
+        
     elif (agent_setup == 4): # custom agent positioning (obsolete version of 5) 
-    
         posIniPos[b].setSFVec3f([setup_pos[b,0],setup_pos[b,1], setup_pos[b,2]])
         posIniPosVec[b] = posIniPos[b].getSFVec3f()
         if (fisico == 0):  
             PosTodos[b].setSFVec3f([X[1,b], X[0,b], -6.39203e-05])
-
         elif (fisico == 1):#probarfisico 
             PosTodos[b].setSFVec3f([agents_pose[b,0], agents_pose[b,1], -6.39203e-05])
             RotTodos[b].setSFRotation([0, 0, 1, agents_pose[b,3]])
             PosTodosVec[b] = [agents_pose[b,0], agents_pose[b,1], -6.39203e-05]
             RotTodosVec[b] = [0, 0, 1, agents_pose[b,3]]
-    
-    elif (agent_setup == 5): # custom agent positioning 
-        if (initial_pos_setup == 0):   # sets initial positions at random
+            
+    elif (agent_setup == 5): # posicionamiento personalizado
+        if (initial_pos_setup == 0):   # marcas de posición aleatorias
             posIniPos[b].setSFVec3f([X[1,b], X[0,b], 0.3])
-            
-        elif (initial_pos_setup == 1): # sets initial positions in a planned way
+        elif (initial_pos_setup == 1): # marcas de posición planificadas (línea o círculo)
             posIniPos[b].setSFVec3f([setup_pos[b,0],setup_pos[b,1], setup_pos[b,2]])
-            
+        
+        # simulación  
         if (fisico == 0):
-            
-            if (r_initial_conditions == 0):  # sets agents at random
+            if (r_initial_conditions == 0):  # marcas de posición aleatorias
                 PosTodos[b].setSFVec3f([X[1,b], X[0,b], -6.39203e-05])
-                if (initial_pos_setup == 1): #sets initial positions in a planned way
+                if (initial_pos_setup == 1): # marcas de posición planificadas (línea o círculo)
                     PosTodos[b].setSFVec3f([setup_pos[b,0],setup_pos[b,1], -6.39203e-05])
                 
-            if (r_initial_conditions == 1): # replicates initial conditions from real run
+            if (r_initial_conditions == 1): # replicar condiciones iniciales de la corrida en físico 
                 PosTodos[b].setSFVec3f([PosRealAgents[b,0], PosRealAgents[b,1], -6.39203e-05])
                 RotTodos[b].setSFRotation([0, 0, 1, RotRealAgents[b,3]])
                 posIniPos[b].setSFVec3f([PosRealIniPosVec[b,0], PosRealIniPosVec[b,1], 0.3])    
+        # físico
         if (fisico == 1):  #try elif later
             PosTodos[b].setSFVec3f([agents_pose[b,0], agents_pose[b,1], -6.39203e-05])
             RotTodos[b].setSFRotation([0, 0, 1, agents_pose[b,3]])
             PosTodosVec[b] = [agents_pose[b,0], agents_pose[b,1], -6.39203e-05]
             RotTodosVec[b] = [0, 0, 1, agents_pose[b,3]]
-            
+                     
         posIniPosVec[b] = posIniPos[b].getSFVec3f()
-    #pObjs[b].setSFVec3f([X[1,b], X[0,b], 0.3])
-    #PosTodos[b].setSFVec3f([X[1,b], X[0,b], -6.39203e-05])
-    #PosTodos[b].setSFVec3f([setup_pos[b,0], setup_pos[b,1], -6.39203e-05])
+        print("marcas de posiciones iniciales: \n", posIniPosVec)
+ 
+""" variables actuales """
+posActuales = np.zeros([2,N]) # posición de agentes
+rotActuales = np.zeros([1,N]) # rotación de agentes
+V = np.zeros([2,N]) # velocidad de agentes
 
-# Actual positions initialization
-posActuales = np.zeros([2,N])
-rotActuales = np.zeros([1,N])
-
-# Agent velocities matrix initialization
-V = np.zeros([2,N])
-
-# Matriz de obstaculos
-#posObsAct = np.empty([2,cantO])
-# desired formation matrix generation
+""" matriz de formación """
 formation_matrix = Fmatrix(form_shape,rigidity_level)
-print(formation_matrix)
+print("Matriz de formación: \n", formation_matrix)
+print("Fin de configuracion...")
 
-# the variable cambio represents the stage in the algorithm
+""" -------------- ETAPAS DEL ALGORITMO DE FORMACIÓN --------------
 
-# stage 0: setting the scenario, previous to the actual formation alg (the agents go
-# to the initial positions of the experiment. The stage lasts until every agent reaches their
-# initial position
+La variable "cambio" representa la etapa del algoritmo
 
-# stage 1: the agents get close to each other until the velocities norm gets below 0.5 m/s
+Etapa 0: 
+- Configuración de escenario
+- Previo al algoritmo de formación
+- Los agentes se mueven a la posición inicial del experimento
+- Se espera hasta que todos los agentes lleguen a la posición inicial
 
-# stage 2: the agents make the desired formation. Once the mean squared error between the
-# actual formation and the desired formation falls below 0.5, that means it is good enough,
-# which triggers the change to stage 3.
+Etapa 1:
+- Los agentes de acercan entre sí hasta que las velocidades están por debajo de 0.5 m/s
 
-# stage 3: the leader agent moves towards the objective, and pulls the formation towards it,
-# while also letting the formation catch up to it.
+Etapa 2:
+- Los agentes se mueven a la formación designada.
+- Para verificar la formación, se revisa que el error cuadrático promedio entre la formación actual y la formación deseada esté por debajo de 0.5
+- Se inicializa la etapa 3
 
+Etapa 3:
+- El líder se mueve hacia el objetivo y los agentes de la formación lo siguen dejando que la formación lo alcance
+
+ ------------------------------------------------------------------- """
+
+""" -------------- MAIN LOOP --------------"""
 tic_total = 0
 toc_total = 0
 tiempo_total = 0
@@ -500,168 +477,184 @@ toc_ciclo = 0
 tiempo_ciclo = 0
 tiempo_ciclo_hist = []
 
-cambio = 0	
-# when replicating real initial conditions the stage (cambio) is set to 1, skipping
-# the first stage of setting the agents in the scenario for the experiment, since they spawn in such
-# positions
+# al cargar las condiciones iniciales, se salta la primera etapa ya que los robots
+# ya aparecen en la posición de las marcas iniciales
+cambio = 0
 if (r_initial_conditions == 1):
     cambio = 1
-    begin_alg_time = 0 
-# Main loop:
-# once the user is satisfied with the run, it can press the 'a' key anytime to end the run
-while supervisor.step(TIME_STEP) != -1:
+    begin_alg_time = 0
+
+print("Inicia ciclo principal...")
+while supervisor.step(TIME_STEP) != 1:
     tic_ciclo = time.perf_counter_ns()
-    #print(posActuales)
-    # virtual world (Webots) mode
+    # SIMULACIÓN
     if (fisico == 0):
-        #updates the position information of virtual obstacles and objective
-        for obs in range(0,cantO):
+        # posición de objetivo y obstáculos VIRTUALES
+        for obs in range(0, cantO):
             posObsAct[0][obs] = posObs[obs].getSFVec3f()[0]
             posObsAct[1][obs] = posObs[obs].getSFVec3f()[1]
-        
         pObjVec = pObj.getSFVec3f()
-    
-    # real world (Robotat) mode
-    if (fisico == 1):
-        #lock.acquire()
         
-        # updates the position information of the markers in use from the real world
-        try:#probar locks y quitar try
+    # FÍSICO
+    if (fisico == 1):
+        # pedir pose actual de markers
+        try:
             agents_pose = update_data(robotat,robotat_markers)
-            for marker in range(len(agents_pose)):
-                agents_pose[marker,3] = agents_pose[marker,3] - desfases_euler[marker,3]
+            #print("poses marcadores: \n", agents_pose)
+            # aplicar desfases
+            index = 0
+            for marker in robotat_markers:
+                agents_pose[index, 3] = agents_pose[index, 3] - desfases_euler[marker-1, 3]
+                index = index + 1
+                #print("desfase marker ", marker, ": ", desfases_euler[marker-1, 3])
+            #print("pose con desfases ", agents_pose)
         except:
-            #if the information acquisition is interrupted for some reason it uses the last known position acquired
-            agents_pose = agents_pose_old
+            print("MAIN LOOP ERROR: Error al obtener poses de agentes, se usa pose anterior")
+            agents_pose = agents_pose_old # usar posición anterior
         agents_pose_old = agents_pose
-        #lock.release()
-        #agents_pose = update_data()
-        # updates the real position information of the markers representing the obstacles
+        
+        # obtener posición actual de obstáculos REALES
         if (r_obs == 1):
             for obs in range(0,cantO):
-                posObsAct[0][obs] = agents_pose[obs+obs_start_marker,0]
-                posObsAct[1][obs] = agents_pose[obs+obs_start_marker,1]
-                # updates the current position of the obstacles in a visual way according to the real markers
+                x_obs = agents_pose[len(agents_pose)-cantO+obs, 0]
+                y_obs = agents_pose[len(agents_pose)-cantO+obs, 1]
+                posObsAct[0][obs] = x_obs
+                posObsAct[1][obs] = y_obs
+                # actualizar webots en tiempo real
                 if (r_webots_visual == 1):
-                    posObs[obs].setSFVec3f([agents_pose[obs+obs_start_marker,0], agents_pose[obs+obs_start_marker,1], -6.39203e-05])
-
-        # updates the current position of the virtual obstacles
+                    posObs[obs].setSFVec3f([x_obs, y_obs, -6.39203e-05])
+        # obtener posición actual de obstáculos VIRTUALES
         if (r_obs == 0):
             for obs in range(0,cantO):
                 posObsAct[0][obs] = posObs[obs].getSFVec3f()[0]
                 posObsAct[1][obs] = posObs[obs].getSFVec3f()[1]
-        # updates the real position information of the markers representing the objective
+        # obtener posición actual de objetivo REAL
         if (r_obj == 1):
-            pObjVec[0] = agents_pose[obj_marker,0]
-            pObjVec[1] = agents_pose[obj_marker,1]
-             # updates the current position of the objective in a visual way according to the real marker
+            pObjVec[0] = agents_pose[len(agents_pose)-cantO-1,0]
+            pObjVec[1] = agents_pose[len(agents_pose)-cantO-1,1]
+            # actualizar webots en tiempo real
             if (r_webots_visual == 1):
                 pObj.setSFVec3f([pObjVec[0], pObjVec[1], -6.39203e-05])
-        # updates the current position of the virtual objective
+        # obtener posición actual de objetivo VIRTUAL
         if (r_obj == 0):
             pObjVec = pObj.getSFVec3f() 
         
-    #print("cambio",cambio)
-    	
-    # Current poses of the agents are updated
-    for c in range(NStart,N):
-        # virtual world
+    # actualizar la pose de los agentes
+    for c in range(NStart, N):
+        # SIMULACIÓN
         if (fisico == 0):
             posC = Agents[c].getField("translation")
             rotC = Agents[c].getField("rotation")
-            posActuales[0][c] = posC.getSFVec3f()[0]
-            posActuales[1][c] = posC.getSFVec3f()[1]
-            rotActuales[0][c] = rotC.getSFVec3f()[3]*180/math.pi
-        # real world    
+            posActuales[0][c] = posC.getSFVec3f()[0]    # x-coord
+            posActuales[1][c] = posC.getSFVec3f()[1]    # y-coord
+            rotActuales[0][c] = rotC.getSFVec3f()[3]*180/math.pi    # rotacion
         elif (fisico == 1):
-            posActuales[0][c] = agents_pose[c][0]
-            posActuales[1][c] = agents_pose[c][1]  
-            rotActuales[0][c] = agents_pose[c][3]+90
-                
-        if(rotActuales[0][c] < 0):
-                rotActuales[0][c] = rotActuales[0][c] + 360   
-    # synchronization and formation control algorithm
-    for g in range(NStart,N):
+            posActuales[0][c] = agents_pose[c][0]   # x-coord
+            posActuales[1][c] = agents_pose[c][1]   # y-coord
+            rotActuales[0][c] = agents_pose[c][3]+90    # rotacion compensada con 90 grados
+        
+        if (rotActuales[0][c] < 0):
+            rotActuales[0][c] = rotActuales[0][c] + 360 # angulos siempre positivos
+    
+    # ----------- algoritmo de sincronización y control de formaciones -----------
+    
+    for g in range(NStart, N):
         E0 = 0
         E1 = 0
-        for h in range(NStart,N):
+        for h in range(NStart, N):
             dist = np.asarray([posActuales[0][g]-posActuales[0][h], posActuales[1][g]-posActuales[1][h]]) # vector xi - xj   
-            mdist = math.sqrt(dist[0]**2 + dist[1]**2)	 # euclidean norm vector xi - xj
-            dij = formation_edge*formation_matrix[g][h]	 # desired distance between agents i y j
-            
-	# Weight added to the consensus equation
+            mdist = math.sqrt(dist[0]**2 + dist[1]**2)	 # norma euclidiana vector xi - xj
+            dij = formation_edge*formation_matrix[g][h]	 # distancia deseada entre agentes i y j
+
+            # agregar peso a la ecuación de consenso
             if(mdist == 0 or mdist >= R):
                 w = 0
             else:
-                # stage 1: get agents close to each other
-                if(cambio == 1 or cambio == 0): # start: get the agents close together without colliding
-                    #print("collision avoidance")
+                if(cambio == 1 or cambio == 0):
                     w = 0.05*(mdist - (2*(r+0.05)))/(mdist - (r+0.05))**2 
-                    #w = (mdist - (2*(r+0.05)))/(mdist - (r+0.05))**2 	# collision avoidance
                 elif (cambio == 2 or cambio == 3):
-                    if(dij == 0):	 # if there is no edge, a flat function is used as collision avoidance
-                        #print("cosh")
+                    if(dij == 0):	 # si la arista es igual a 0
                         w = 0.15*math.sinh(15*mdist-6)/mdist 		
-                    else:         # collision avoidance & formation control
-                        #print("formacion")
+                    else:
                         w = (4*(mdist - dij)*(mdist - r) - 2*(mdist - dij)**2)/(mdist*(mdist - r)**2)
-                
-            # edge (arista) tension between agents
-            # weight applied
+            # aplicar el peso
             E0 = E0 + 5*w*dist[0]
             E1 = E1 + 5*w*dist[1]
-        # Collision avoidance with obstacles
+            
+        # evasión de colisiones con obstáculos
         for j in range(0,cantO):
             distO0 = posActuales[0,g] - posObsAct[0][j]
             distO1 = posActuales[1,g] - posObsAct[1][j]  
             mdistO = math.sqrt(distO0**2 + distO1**2) - sizeO
-
             if(abs(mdistO) < 0.0001):
                 mdistO = 0.0001
-            w = -1/(mdistO**2)
-
+            w = -1/(mdistO**2) # peso
             E0 = E0 + 0.6*w*distO0
-            E1 = E1 + 0.6*w*distO1    
-        # Velocities update
-        V[0][g] = 1*(E0)*TIME_STEP/1000 
-        V[1][g] = 1*(E1)*TIME_STEP/1000 
-
-    # When near the desired position switch control
+            E1 = E1 + 0.6*w*distO1  
+            
+        # actualizar velocidades
+        if (fisico == 1):
+            V[0][g] = 1*(E0)*TIME_STEP/1000 
+            V[1][g] = 1*(E1)*TIME_STEP/1000 
+        elif (fisico == 0):
+            V[0][g] = -1*(E0)*TIME_STEP/1000 
+            V[1][g] = -1*(E1)*TIME_STEP/1000 
+            
+    
+    # al acercarse a la posición deseada se cambia el control
     normV2 = 0
-    # calculates the norm of the velocities of the agents
+    # calcular norma de velocidad de agentes
     for m in range(NStart,N):
         nV2 = V[0][m]**2 + V[1][m]**2
         normV2 = normV2 + nV2
     normV = math.sqrt(normV2)
-    print("normV", normV)
+    print("normV: ", normV, " \n")
     
-    #calculates the adjacency matrix of the current formation
+    # calcular matriz de adyacencia de la formación actual
     actual_adjacency = (1/formation_edge)*funciones.DistBetweenAgents(posActuales,NStart,N) 
-    #calculates the mse between the current formation and the desired one
+
+    # calcular en error entre la formación actual y la deseada
     formation_mse = funciones.FormationError(actual_adjacency, Fmatrix(form_shape,rigidity_level),NStart,N)
-    # start stage 2: build formation
+
+    # ETAPA 2 -----> FORMACIÓN
     if(normV < 0.5 and cambio == 1):
         form_cycle = ciclo
         cambio = 2
         tic_total = time.perf_counter()
         
-    # start stage 3: leader starts following objective and pulls formation
+    # ETAPA 3 -----> SEGUIR OBJETIVO
     elif(formation_mse < 0.5 and cambio == 2):
         obj_cycle = ciclo
-        cambio = 3    
-#normV <2
-    # stage 0: agents go to their initial positions for the scenario/experiment
+        cambio = 3   
+        
+    # ETAPA 0 -----> COLOCARSE EN POSICIONES INICIALES
     if (cambio == 0):
         ready_ini_pos = 0
         cont_N = 0
         for obj in range(NStart,N):
             cont_N = cont_N + 1
-            V[0][obj] = V[0][obj] + 5*(posActuales[0][obj]-posIniPosVec[obj][0])
-            V[1][obj] = V[1][obj] + 5*(posActuales[1][obj]-posIniPosVec[obj][1])
+            k_vel = 5
+            dx = posActuales[0][obj]-posIniPosVec[obj][0]
+            dy = posActuales[1][obj]-posIniPosVec[obj][1]
+            if (fisico == 1):
+                V[0][obj] = V[0][obj] + k_vel*dx
+                V[1][obj] = V[1][obj] + k_vel*dy
+            elif (fisico == 0):
+                V[0][obj] = V[0][obj] - k_vel*dx
+                V[1][obj] = V[1][obj] - k_vel*dy
+               
+            #print("\nagente: ", obj)
+            #print("posx: ", posActuales[0][obj])
+            #print("posx ini: ", posIniPosVec[obj][0])
+            #print("dx: ", dx)
+            #print("posy: ", posActuales[1][obj])
+            #print("posy ini: ", posIniPosVec[obj][1])
+            #print("dy: ", dy)
+            # verificar si el agente ya está en la posición inicial
             if ((posActuales[0][obj]-posIniPosVec[obj][0])<0.05 and (posActuales[1][obj]-posIniPosVec[obj][1])<0.05):
                 ready_ini_pos = ready_ini_pos + 1
         if (ready_ini_pos == cont_N):
-            # when all agents are in their positions start stage 1 (algorithm itself)
+            # cuando todos los agentes están en la posición inicial, comienza ETAPA 1
             begin_alg_time = ciclo
             cambio = 1
             if (fisico == 1):
@@ -669,38 +662,47 @@ while supervisor.step(TIME_STEP) != -1:
                     PosTodosVec[b] = [agents_pose[b,0], agents_pose[b,1], -6.39203e-05]
                     RotTodosVec[b] = [0, 0, 1, agents_pose[b,3]]
                 PosRealAgents = np.array(PosTodosVec)
-                RotRealAgents = np.array(RotTodosVec)                            
-        #print(V)
-    # stage 3: objective following    
+                RotRealAgents = np.array(RotTodosVec)  
+        print("número de agentes: ", cont_N)
+        print("No. agentes en marcas iniciales: ", ready_ini_pos)
+        
+    # ETAPA 3 -----> SEGUIMIENTO DEL OBJETIVO
     if (cambio == 3):
-        # if leader is at least 0.7 m away from the objective it pulls and waits for the formation according to the current mse
+        # si el líder está a más de X metros del objetivo, espera a la formación
         if (abs(posActuales[0][NStart]-pObjVec[0]) > 0.7 or abs(posActuales[1][NStart]-pObjVec[1]) > 0.7):     
-            V[0][NStart] = V[0][NStart] + total_agent_weight*(1/(formation_mse))*(posActuales[0][NStart]-pObjVec[0])
-            V[1][NStart] = V[1][NStart] + total_agent_weight*(1/(formation_mse))*(posActuales[1][NStart]-pObjVec[1])
-        # if the leader is less than 0.7 m away from the objective the constant is higher so that it can pull the formation faster
+            if (fisico == 1):
+                V[0][NStart] = V[0][NStart] + total_agent_weight*(1/(formation_mse))*(posActuales[0][NStart]-pObjVec[0])
+                V[1][NStart] = V[1][NStart] + total_agent_weight*(1/(formation_mse))*(posActuales[1][NStart]-pObjVec[1])
+            elif (fisico == 0):          
+                V[0][NStart] = V[0][NStart] - total_agent_weight*(1/(formation_mse))*(posActuales[0][NStart]-pObjVec[0])
+                V[1][NStart] = V[1][NStart] - total_agent_weight*(1/(formation_mse))*(posActuales[1][NStart]-pObjVec[1])
+        # si el líder está a menos de X metros del objetivo, la constante es mayor y puede llamar a la formación más rápido
         elif (abs(posActuales[0][NStart]-pObjVec[0]) <= 0.7 or abs(posActuales[1][NStart]-pObjVec[1]) <= 0.7):
-            V[0][NStart] = V[0][NStart] + 10*(posActuales[0][NStart]-pObjVec[0])
-            V[1][NStart] = V[1][NStart] + 10*(posActuales[1][NStart]-pObjVec[1])
-        # when the leader is in 0.5 m proximity of the objective it is considered a success
+            if (fisico == 1):
+                V[0][NStart] = V[0][NStart] + 10*(posActuales[0][NStart]-pObjVec[0])
+                V[1][NStart] = V[1][NStart] + 10*(posActuales[1][NStart]-pObjVec[1])
+            elif (fisico == 0):
+                V[0][NStart] = V[0][NStart] - 10*(posActuales[0][NStart]-pObjVec[0])
+                V[1][NStart] = V[1][NStart] - 10*(posActuales[1][NStart]-pObjVec[1])
+        # si el líder está a X metros del objetivo, se cumplió la meta
         if (abs(posActuales[0][NStart]-pObjVec[0]) <= 0.2 and abs(posActuales[1][NStart]-pObjVec[1]) <= 0.2):
             obj_success = 1
             if (obj_cont == 0):
                 obj_success_cycle = ciclo
             obj_cont = 1
-    
+            
     if obj_success == 1:
         V[0][NStart] = 0
         V[1][NStart] = 0
-        
-#1/(errorF*10) o 4
-    # data synchronization between the Supervisor program (centrol control unit) and the agents programs
-    lock.acquire()                                     # ensures stable comms
-    pick_V = pickle.dumps(V)                           # saves data in pickle file
-    shm1.buf[:len(pick_V)] = pick_V                    # sends pickle file to shared memory space for the agent to read
-    pick_agents_pose = pickle.dumps(agents_pose)       # same procedure
-    shm2.buf[:len(pick_agents_pose)] = pick_agents_pose
-    lock.release()
-    # data storing process of the run
+    # ENVÍO DE DATOS DEL SUPERVISOR A CADA AGENTE
+    lock.acquire()                                          # bloquear canal de comunicación
+    pick_V = pickle.dumps(V)                                # guardar velocidades en archivo picke
+    shm1.buf[:len(pick_V)] = pick_V                         # enviar velocidades a la memoria compartida
+    pick_agents_pose = pickle.dumps(agents_pose)            # guardar poses de agentes en archivo picke
+    shm2.buf[:len(pick_agents_pose)] = pick_agents_pose     # enviar poses a la memoria compartida
+    lock.release()                                          # liberar canal de comunicación
+    
+    # guardar historial de la corrida
     trajectory.append(posActuales.copy())
     velocityHist.append(V.copy())
     normVHist.append(normV)
@@ -713,8 +715,8 @@ while supervisor.step(TIME_STEP) != -1:
     print("ETAPA: ", cambio) 
     print("Error de formación: ", formation_mse)
     print(" ")
-    ciclo = ciclo + 1     
-    toc_ciclo = time.perf_counter_ns()
+    ciclo = ciclo + 1  
+    toc_ciclo = time.perf_counter_ns()   
     
     if obj_success == 1:
         print("Objetivo logrado, esperando a la formación")
@@ -723,39 +725,37 @@ while supervisor.step(TIME_STEP) != -1:
     print(f'Tiempo de ciclo (ms): {tiempo_ciclo}')
     tiempo_ciclo_hist.append(tiempo_ciclo)
     
-    # when the 'a' key is pressed the run is ended which triggers the following:
-    # - the relevant information of the run is stored in a .npz file
-    # - every agent is stopped (velocities set to 0)
+    # presionar la tecla 'a' para terminar la corrida
     if keyboard.is_pressed('a') or (obj_success == 1 and formation_mse < 0.1):
         toc_total = time.perf_counter()
         tiempo_total = toc_total - tic_total
         print(f'Tiempo total (s): {tiempo_total}')
         print("Fin de la corrida -supervisor")
+        V = np.zeros([2,N]) # velocidades en 0 de agentes
         
-        V = np.zeros([2,N]) #agents stopped
-        
-        lock.acquire()
+        # enviar datos a la memoria compartida
+        lock.acquire()  
         pick_V = pickle.dumps(V)
         shm1.buf[:len(pick_V)] = pick_V
         pick_agents_pose = pickle.dumps(agents_pose)
         shm2.buf[:len(pick_agents_pose)] = pick_agents_pose
         
-        # relevant data saved
-        trajectory_data = np.array(trajectory)
-        velocity_data = np.array(velocityHist)
-        normV_data = np.array(normVHist) 
-        obj_data = np.array(objHist) 
-        obs_data = np.array(obsHist)
-        formation_mse_data = np.array(formation_mseHist)
-        rot_data = np.array(rotHist)
+        # guardar datos relevantes
+        trajectory_data = np.array(trajectory)  # trayectoria
+        velocity_data = np.array(velocityHist)  # velocidades
+        normV_data = np.array(normVHist)    # norma de velocidades 
+        obj_data = np.array(objHist)    # posición de objetivos
+        obs_data = np.array(obsHist)    # posición de obstáculos
+        formation_mse_data = np.array(formation_mseHist)    # error cuadrático para formación
+        rot_data = np.array(rotHist)    # rotación de agentes
         NStart = NStart + 1
         obs_start_marker = obs_start_marker + 1 
         obj_marker = obj_marker + 1
         tiempo_ciclo_data = np.array(tiempo_ciclo_hist)
-        # if a new run then saved in npz file with a name of your choosing
+        
         # guardar datos en archivo .npz de la nueva corrida en físico
         if (data_saving == 1 and r_initial_conditions == 0):
-            print("Guardando datos de la corrida... -supervisor")
+            print("Guardando datos de la corrida...")
             try:
                 np.savez(new_run_file, tiempo_total = tiempo_total,
                                         corrida_numero = corrida_file,
@@ -806,15 +806,13 @@ while supervisor.step(TIME_STEP) != -1:
                                            a_f = a_f,
                                            obj_success = obj_success,     # indicador de cumplimiento del objetivo
                                            obj_success_cycle = obj_success_cycle) # ciclo en que se logra el objetivo      
-            except:
+            except e:
+                print(e)
                 print("Error al guardar los datos de la corrida")
-                
+    
+        # desconectar del Robotat
         if (fisico == 1):
             robotat_disconnect(robotat)
         lock.release()
-        #shm1.close()
-        #shm2.close()  
         break
-
     
-     

@@ -33,7 +33,7 @@ carpeta = 'tiempos_optim'
 
 nombre_file = 'TiempoOptim'
 escenario_file = 'AB1C'
-corrida_file = '000'
+corrida_file = '3'
 
 data_saving = 1 # ¿Guardar datos? | 0: No | 1: Si
 
@@ -49,9 +49,9 @@ form_shape = 1    # 1: triángulo | 2: hexágono alargado
 rigidity_level = 8 # valores entre 1 y 8 (1 es el menos rígido)
 
 """ MARCADORES (AGENTES, OBSTÁCULOS Y OBJETIVO) """
-agents_marker_list = [5,3,4] # agentes (Max. 10)
-obj_marker_list = [15] # marker del objetivo (1)
-obs_marker_list = [22,21,20] # obstáculos (3)
+agents_marker_list = [2,3] # agentes (Max. 10)
+obj_marker_list = [8] # marker del objetivo (1)
+obs_marker_list = [10,11,12] # obstáculos (3)
 
 """ posiciones iniciales """
 initial_pos_setup = 1 # posiciones iniciales | 0: ALEATORIO | 1: PLANIFICADO
@@ -666,7 +666,7 @@ while supervisor.step(TIME_STEP) != 1:
     if(normV < 0.5 and cambio == 1):
         form_cycle = ciclo
         cambio = 2
-        tic_total = time.time()
+        tic_total = time.perf_counter()
         
     # ETAPA 3 -----> SEGUIR OBJETIVO
     elif(formation_mse < 0.5 and cambio == 2):
@@ -771,7 +771,7 @@ while supervisor.step(TIME_STEP) != 1:
     # presionar la tecla 'a' para terminar la corrida 
     # espera a que se cumpla el objetivo
     if keyboard.is_pressed('a') or (obj_success == 1 and formation_mse < 0.1):
-        toc_total = time.time()
+        toc_total = time.perf_counter()
         tiempo_total = toc_total - tic_total
         print(f'Tiempo total (s): {tiempo_total}')
         print("Fin de la corrida... -supervisor")
