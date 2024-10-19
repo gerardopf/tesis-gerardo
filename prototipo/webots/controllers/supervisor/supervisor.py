@@ -29,11 +29,12 @@ initial_conditions_file = '.npz'
 r_initial_conditions = 0 # 0: nueva simulación | 1: simular escenario físico
 
 # archivo para guardar una nueva corrida en físico
-carpeta = 'tiempos_optim'
+carpeta = 'escenarios_mov'
 
-nombre_file = 'TiempoOptimV2'
-escenario_file = 'AB1C'
-corrida_file = '0'
+nombre_file = 'ObsMovV1'
+corrida_file = '1'
+
+escenario_file = f'Escenario {corrida_file}'
 
 data_saving = 1 # ¿Guardar datos? | 0: No | 1: Si
 
@@ -49,9 +50,9 @@ form_shape = 1    # 1: triángulo | 2: hexágono alargado
 rigidity_level = 8 # valores entre 1 y 8 (1 es el menos rígido)
 
 """ MARCADORES (AGENTES, OBSTÁCULOS Y OBJETIVO) """
-agents_marker_list = [2,3,4,5,6,7] # agentes (Max. 10)
-obj_marker_list = [8] # marker del objetivo (1)
-obs_marker_list = [10,11,12] # obstáculos (3)
+agents_marker_list = [2,3,4] # agentes (Max. 10)
+obj_marker_list = [15] # marker del objetivo (1)
+obs_marker_list = [11,12,13] # obstáculos (3)
 
 """ posiciones iniciales """
 initial_pos_setup = 1 # posiciones iniciales | 0: ALEATORIO | 1: PLANIFICADO
@@ -518,7 +519,7 @@ def realTime():
             y_obs = agents_pose[len(agents_pose)-cantO+obs, 1]
             posObs[obs].setSFVec3f([x_obs, y_obs, -6.39203e-05])
         pObj.setSFVec3f([pObjVec[0], pObjVec[1], -6.39203e-05])
-        time.sleep(0.1) # tasa de refresto para visualización en tiempo real
+        time.sleep(0.01) # tasa de refresto para visualización en tiempo real
     print("Hilo terminado... -realTime")
     
 # inicializar hilos
