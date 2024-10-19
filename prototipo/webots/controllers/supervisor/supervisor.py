@@ -31,9 +31,9 @@ r_initial_conditions = 0 # 0: nueva simulación | 1: simular escenario físico
 # archivo para guardar una nueva corrida en físico
 carpeta = 'tiempos_optim'
 
-nombre_file = 'TiempoOptim'
+nombre_file = 'TiempoOptimV2'
 escenario_file = 'AB1C'
-corrida_file = '3'
+corrida_file = '0'
 
 data_saving = 1 # ¿Guardar datos? | 0: No | 1: Si
 
@@ -49,7 +49,7 @@ form_shape = 1    # 1: triángulo | 2: hexágono alargado
 rigidity_level = 8 # valores entre 1 y 8 (1 es el menos rígido)
 
 """ MARCADORES (AGENTES, OBSTÁCULOS Y OBJETIVO) """
-agents_marker_list = [2,3] # agentes (Max. 10)
+agents_marker_list = [2,3,4,5,6,7] # agentes (Max. 10)
 obj_marker_list = [8] # marker del objetivo (1)
 obs_marker_list = [10,11,12] # obstáculos (3)
 

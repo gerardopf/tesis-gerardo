@@ -80,14 +80,14 @@ carpeta = 'tiempos_no_optim'
 
 nombre_file = 'TiempoNoOptimV2'
 escenario_file = 'AB1C'
-corrida_file = '1'
+corrida_file = '0'
 
 data_saving = 1 # ¿Guardar datos? | 0: No | 1: Si
 
 """ Agents """
 NMax = 10  # Maximum agent number that the formation shape can contain
 NStart = 2 # First agent (lower limit of the interval of agents)
-N = 3	# Last agent (higher limit of the interval of agents)
+N = 5	# Last agent (higher limit of the interval of agents)
 
 """obstacles and objective"""
 obs_active = 1        # 0: obs not active | 1: obs active
