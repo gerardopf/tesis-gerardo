@@ -25,16 +25,16 @@ TIME_STEP = 64 # paso de simulación 64 ms
 supervisor = Supervisor() # instancia de supervisor
 
 # archivo para simular una corrida en físico
-initial_conditions_file = '.npz' 
+initial_conditions_file = 'None.npz' 
 r_initial_conditions = 0 # 0: nueva simulación | 1: simular escenario físico
 
 # archivo para guardar una nueva corrida en físico
 carpeta = 'escenarios_mov'
 
+# nombre para guardar la corrida
 nombre_file = 'ObsMovV1'
+escenario_file = '1'
 corrida_file = '1'
-
-escenario_file = f'Escenario {corrida_file}'
 
 data_saving = 1 # ¿Guardar datos? | 0: No | 1: Si
 
@@ -55,8 +55,8 @@ obj_marker_list = [15] # marker del objetivo (1)
 obs_marker_list = [11,12,13] # obstáculos (3)
 
 """ posiciones iniciales """
-initial_pos_setup = 1 # posiciones iniciales | 0: ALEATORIO | 1: PLANIFICADO
-setup_shape = 0         # formación inicial | 0: LÍNEA H.| 1: CÍRCULO | 2: LÍNEA V.
+initial_pos_setup = 1 # posiciones iniciales | 0: Aleatorio | 1: Planificado
+setup_shape = 0         # formación inicial | 0: Línea Horizontal| 1: Círculo | 2: Línea vertical
 
 setup_starting_point = np.array([-1, -1.5]) # punto inicial para las posiciones iniciales
 setup_shape_space = 1.5 # espacio a cubrir con las posiciones iniciales (m)
@@ -82,7 +82,6 @@ if fisico == 1:
 elif fisico == 0:
     fisico_file = 'v'
 new_run_file = f'{carpeta}/{nombre_file}_{N}A_{escenario_file}_{fisico_file}_{corrida_file}.npz'
-
 
 # optitrack marcadores 
 robotat_markers = agents_marker_list + obj_marker_list + obs_marker_list
