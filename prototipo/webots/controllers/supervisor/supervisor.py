@@ -33,7 +33,7 @@ carpeta = 'escenarios_mov'
 
 # nombre para guardar la corrida
 nombre_file = 'ObsMovV1'
-escenario_file = '1'
+escenario_file = 'moviles'
 corrida_file = '1'
 
 data_saving = 1 # ¿Guardar datos? | 0: No | 1: Si
@@ -50,9 +50,9 @@ form_shape = 1    # 1: triángulo | 2: hexágono alargado
 rigidity_level = 8 # valores entre 1 y 8 (1 es el menos rígido)
 
 """ MARCADORES (AGENTES, OBSTÁCULOS Y OBJETIVO) """
-agents_marker_list = [2,3,4] # agentes (Max. 10)
+agents_marker_list = [3,4,5] # agentes (Max. 10)
 obj_marker_list = [15] # marker del objetivo (1)
-obs_marker_list = [11,12,13] # obstáculos (3)
+obs_marker_list = [22,21,20] # obstáculos (3)
 
 """ posiciones iniciales """
 initial_pos_setup = 1 # posiciones iniciales | 0: Aleatorio | 1: Planificado
