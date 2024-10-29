@@ -23,8 +23,12 @@ El siguiente segmento implementa el control proporcional de la Ecuación (\ref{e
 
 Donde $v$ es la velocidad del agente y $k$ es la ganancia o constante de proporcionalidad que multiplica a la distancia entre el punto de interés y la posición del agente evaluado. Una vez se obtienen las componentes de velocidad en $X$ y $Y$, se calcula la norma de velocidad, la cual se utiliza para la toma de decisiones dentro del algoritmo.
 
+En la Figura \ref{fig:diagrama_supervisor} se muestra el diagrama de flujo que representa el programa del supervisor.
+
 \section{Programa de los agentes}
 El programa del los agentes recibe las velocidades calculadas por el supervisor. Luego, se encarga de convertirlas en sus componentes lineal y angular para calcular la velocidad de cada rueda de los Pololu 3Pi+, utilizando el modelo del uniciclo. Este programa es individual para cada agente y solo procesa los datos correspondientes a su propio funcionamiento.
+
+En la Figura \ref{fig:diagrama_agentes} se muestra el diagrama de flujo que representa el control de los agentes.
 
 \section{Funcionamiento del algoritmo}
 El algoritmo consta de las siguientes etapas para su ejecución:
@@ -36,8 +40,6 @@ El algoritmo consta de las siguientes etapas para su ejecución:
 \end{itemize}
 
 Cabe mencionar que durante toda la ejecución del algoritmo, se realiza la evasión de obstáculos y colisiones.
-
-En las Figuras \ref{fig:diagrama_supervisor} y \ref{fig:diagrama_agentes} se muestra el diagrama de flujo que representan el programa del supervisor y el control de los agentes.
 
 \begin{figure}[H]
 	\centering

@@ -31,7 +31,7 @@ En la Figura \ref{fig:control_centralizado_descentralizado} se observa la difere
 \end{figure}
 
 
-\section{Conceptos básicos en Teoría de grafos}
+\section{Conceptos básicos en teoría de grafos}
 
 \subsection{Teoría de grafos}
 La teoría de grafos es una rama de la matemática y ciencias de la computación que se dedica a estudiar los grafos \cite{teoria_de_grafos}. El grafo es un conjunto de vértices conectados por aristas tal como se observa en la Figura \ref{fig:teoria_de_grafos}. Esta teoría se utiliza en diversas aplicaciones como mapeo de entornos, generación de rutas, análisis de datos, telecomunicaciones, entre otras. En este trabajo de graduación, se utilizó la teoría de grafos para definir formaciones y la red de comunicación entre agentes.
@@ -80,7 +80,7 @@ La representación gráfica de un grafo es poco práctica para su análisis, por
 
 
 \begin{itemize}
-	\item Matriz de incidencia (I): Se tiene una matriz de $v$ vértices por $e$ aristas. El elemento $a_{ve} = 1 $ si la arista conecta con el vértice, de lo contrario $a_{ve} = 0$
+	\item Matriz de incidencia (I): Se tiene una matriz de $v$ vértices por $e$ aristas. El elemento $a_{ve} = 1 $ si la arista conecta con el vértice, de lo contrario $a_{ve} = 0$.
 	
 	\[
 	I = 
@@ -237,7 +237,7 @@ Adicional a esto, se puede calcular la velocidad controlada de la rueda derecha 
 Para mantener una correcta formación y distribución del enjambre, se necesitan herramientas como la ecuación de consenso y la función de tensión.
 
 \subsection{Ecuación de consenso}
-La ecuación \ref{eq:consenso} se utiliza para mantener la formación de los agentes en la posición asignada. Esta toma en cuenta el centro de masa de la formación y calcula la velocidad de cada agente para mantener la forma del grafo \cite{PenaAM_2019_tesis}.
+La ecuación (\ref{eq:consenso}) se utiliza para mantener la formación de los agentes en la posición asignada. Esta toma en cuenta el centro de masa de la formación y calcula la velocidad de cada agente para mantener la forma del grafo \cite{PenaAM_2019_tesis}.
 
 \begin{equation}
 	v_i(t) = \sum_{j \in N(i)} (x_j(t) - x_i(t)), i = 1, 2, ..., n
@@ -246,7 +246,7 @@ La ecuación \ref{eq:consenso} se utiliza para mantener la formación de los age
 
 Donde $N(i)$ es el conjunto de unidades adyacentes de la unidad $i$ en la red multi-agente.
 
-Luego de añadir los pesos, se obtiene la ecuación \ref{eq:consenso2}:
+Luego de añadir los pesos, se obtiene la ecuación (\ref{eq:consenso2}):
 
 \begin{equation}
 	\frac{\partial \varepsilon_{i,j}}{\partial x_i} = w_{i,j}(\Vert x_i - x_j \Vert)(x_i - x_j)
@@ -281,7 +281,7 @@ Para modificar la ecuación de consenso es necesario hallar la tensión utilizan
 	
 	\item Modelo 4: Modelo dinámico con control de formación y evasión de obstáculos.\par
 	
-	Se utiliza un modelo dinámico que al inicio, cuando los agentes comienzan en posiciones aleatorias, se utiliza únicamente el control para evitar colisiones. Luego, cuando los agentes están lo suficientemente cerca sin chocarse, se cambia al modelo de la ecuación \ref{eq:ConsensoModelo3} que toma en cuenta el control de la formación 
+	Se utiliza un modelo dinámico que al inicio, cuando los agentes comienzan en posiciones aleatorias, se utiliza únicamente el control para evitar colisiones. Luego, cuando los agentes están lo suficientemente cerca sin chocarse, se cambia al modelo de la ecuación (\ref{eq:ConsensoModelo3}) que toma en cuenta el control de la formación 
 	
 	\item Modelo 5: Modelo dinámico con control de formación usando coseno hiperbólico y evasión de obstáculos.
 	\begin{equation}
@@ -291,7 +291,7 @@ Para modificar la ecuación de consenso es necesario hallar la tensión utilizan
 	Se utilizó el coseno hiperbólico ya que es una función ``plana'' que permite que el control de formación sea el que decida dónde deben posicionarse los agentes en caso de tener un mínimo erróneo en una distancia de 0.
 	
 	\item Modelo 6: Modelo dinámico con control de formación usando coseno hiperbólico y evasión de obstáculos incluyendo límites de velocidad.\par
-	Esta modificación no afecta directamente a la ecuación. Se realiza después de esta y consiste en incluir un límite de velocidad al modelo de la ecuación \ref{eq:ConsensoModelo5}. Por lo tanto, si la velocidad obtenida con el modelo es mayor al límite establecido, solo se tomará en cuenta la dirección.
+	Esta modificación no afecta directamente a la ecuación. Se realiza después de esta y consiste en incluir un límite de velocidad al modelo de la ecuación (\ref{eq:ConsensoModelo5}). Por lo tanto, si la velocidad obtenida con el modelo es mayor al límite establecido, solo se tomará en cuenta la dirección.
 	
 \end{itemize}
 
