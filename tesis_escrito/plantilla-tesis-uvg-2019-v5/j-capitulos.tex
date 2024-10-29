@@ -56,16 +56,17 @@ Cabe mencionar que durante toda la ejecución del algoritmo, se realiza la evasi
 \end{figure}
 
 
-\chapter{Restauración del algoritmo desarrollado en fases previas}\label{cap:restauracion}
-La implementación en físico del algoritmo de sincronización y control de formaciones realizada por José Alejandro Rodríguez \cite{RodriguezJA_2023_tesis}, se llevó a cabo en Webots, versión R2023b, la misma que se utiliza en la fase actual. Además, se optó por utilizar Python 3.10 como lenguaje de programación para el controlador del supervisor y los agentes ya que es una de las versiones más recientes y es la misma empleada en la fase anterior.
+\chapter{Verificación de funcionalidad del algoritmo desarrollado en fases previas}\label{cap:restauracion}
 
-Por otro lado, se han realizado cambios en las conexiones con el servidor del Robotat y los Pololu 3Pi+, lo que hace necesario un reajuste de parámetros y configuraciones.
+La implementación
 
-En este capítulo se detallarán las modificaciones necesarias para restaurar el algoritmo y garantizar su correcta ejecución tanto en simulaciones de Webots como en un entorno físico en el Robotat. Además, se validará la naturaleza del algoritmo en escenarios con obstáculos móviles.
+La implementación en físico del algoritmo de sincronización y control de formaciones realizada por José Alejandro Rodríguez \cite{RodriguezJA_2023_tesis}, se llevó a cabo en Webots, versión R2023b, la misma que se utiliza en la fase actual del proyecto. Para el desarrollo del controlador del supervisor y los agentes, se optó por utilizar Python 3.10 como lenguaje de programación ya que es una de las versiones más recientes y es la misma empleada en la fase anterior. Asimismo, el servidor del Robotat ha experimentado cambios en su infraestructura, lo que ha afectado la conexión con los Pololu 3Pi+. Como resultado, ha sido necesario un reajuste de parámetros y configuraciones en el algoritmo para adaptarlo a las nuevas condiciones de conexión.
+
+En este capítulo se detallan las modificaciones necesarias para ejecutar el algoritmo y garantizar su correcto funcionamiento tanto en simulaciones de Webots como en un entorno físico en el Robotat. Además, se valida la naturaleza del algoritmo en escenarios con obstáculos móviles.
 
 
-\section{Replicar simulaciones de Webots}
-El primer paso de la restauración, fue recrear algunas simulaciones en Webots. Para esto, fue necesario instalar las siguientes librerías que no se encuentran dentro de la biblioteca estándar de Python:
+\section{Réplica de simulaciones de Webots}
+El primer paso de la verificación, fue recrear algunas simulaciones en Webots. Para esto, fue necesario instalar las siguientes librerías que no se encuentran dentro de las librerías estándar de Python:
 
 \begin{itemize}
 	\item Keyboard - versión 0.13.5
@@ -93,7 +94,7 @@ Al ejecutar la primera simulación, se encontró que dos agentes permanecían in
 
 Esto se debe a que actualmente se está utilizando una computadora con mayor capacidad de procesamiento que la utilizada en la fase anterior y esto se ve reflejado en la velocidad de ejecución de los programas. 
 
-Dado que la comunicación entre el supervisor y los agentes se realiza por medio de una memoria compartida, al tener mayor velocidad de procesamiento, el controlador de los dos primeros agentes se ejecuta antes de que el espacio de memoria compartida se haya inicializado correctamente. Para solucionar esto, en el programa de los agentes, se agregó un tiempo de espera de 3 segundos antes de inicializar y acceder a la memoria compartida. Esto permite que se cree correctamente en el programa del supervisor.
+Dado que la comunicación entre el supervisor y los agentes se realiza por medio de una memoria compartida, al tener mayor velocidad de procesamiento, el controlador de los dos primeros agentes se ejecuta antes de que el espacio de memoria compartida se haya inicializado correctamente. Para solucionar esto, en el programa de los agentes, se agregó un tiempo de espera de 3 segundos antes de inicializar y acceder a la memoria compartida. Esto permite que se inicialice correctamente en el programa del supervisor.
 
 \subsection{Prueba del algoritmo con simulaciones basadas en escenarios previos}
 Una vez solucionado el problema de comunicación, se realizó las primeras simulaciones para replicar algunos de los escenarios realizados por José Alejandro Rodríguez \cite{RodriguezJA_2023_tesis} y comprobar el funcionamiento correcto del algoritmo. 
@@ -167,7 +168,7 @@ En la Figura \ref{fig:tercera_simulacion}, las imágenes en el orden de izquierd
 \end{figure}
 
 \section{Replicar el funcionamiento del algoritmo en el Robotat}
-Una vez que el algoritmo funciona correctamente en Webots, el siguiente paso fue verificar que se ejecute correctamente en el Robotat.
+Una vez que el algoritmo funcionó correctamente en Webots, el siguiente paso fue verificar que se ejecutara correctamente en el Robotat.
 
 \subsection{Pruebas de conexión con el Pololu 3Pi+ y el Robotat}
  Primero, se realizaron pruebas de conexión con el Robotat y los Pololu 3Pi+ utilizando las funciones creadas en Python por José Alejandro Rodríguez \cite{RodriguezJA_2023_tesis}:
@@ -302,7 +303,7 @@ Al obtener la pose de cada marcador, se realizó la conversión a ángulos de Eu
 \end{table}
 
 \subsection{Selección de marcadores a utilizar}
-Una vez guardada la calibración de marcadores, se realizó pruebas en el Robotat para ejecutar el algoritmo de sincronización y control de formaciones. Sin embargo, el primer problema que se identificó fue que al menos un agente siempre permanecía inmóvil. En la Figura \ref{fig:agente_inmovil} se observa la ejecución del algoritmo donde únicamente se mueve un agente de los dos utilizados.
+Una vez guardada la calibración de marcadores, se realizaron pruebas en el Robotat para ejecutar el algoritmo de sincronización y control de formaciones. Sin embargo, el primer problema que se identificó fue que al menos un agente siempre permanecía inmóvil. En la Figura \ref{fig:agente_inmovil} se observa la ejecución del algoritmo donde únicamente se mueve un agente de los dos utilizados.
 
 \begin{figure}[H]
 	\centering
@@ -314,7 +315,7 @@ Una vez guardada la calibración de marcadores, se realizó pruebas en el Robota
 
 Anteriormente, para obtener las poses de los marcadores se utilizaba una lista predeterminada con los valores enteros del $1$ al $12$ en orden ascendente que serían los marcadores a utilizar. Sin embargo esto ocasionaba diferentes problemas.
 
-Para obtener las poses de los marcadores se utiliza la función ``robotat\_get\_pose'', esta recibe como argumentos el objeto TCP y los números de marcadores. Al tener una lista predeterminada de valores, siempre se está solicitando la pose de los $12$ marcadores aunque no todos estén en uso, resultando en una solicitud de datos innecesaria para el servidor. Además, dado que actualmente no se tienen disponibles los marcadores $1$ y $9$, se excede el tiempo de espera (\textit{Time Out}) para obtención de sus poses, lo que resulta en tiempos muertos durante la ejecución del código.
+Para obtener las poses de los marcadores se utiliza la función ``robotat\_get\_pose'', esta recibe como argumentos el objeto TCP y los números de marcadores. Al tener una lista predeterminada de valores, siempre se está solicitando la pose de los $12$ marcadores aunque no todos estén en uso, resultando en una solicitud de datos innecesaria para el servidor. Además, dado que durante el desarrollo de este trabajo no se tienen disponibles los marcadores $1$ y $9$, se excede el tiempo de espera (\textit{Time Out}) para obtención de sus poses, lo que resulta en tiempos muertos durante la ejecución del algoritmo.
 
 Para solucionar esto, se optó por solicitar únicamente las poses de los marcadores a utilizar con una lista que contiene los números de todos los marcadores con el orden: agentes, objetivo y obstáculos. A continuación se muestra un ejemplo de esto.
 
@@ -326,7 +327,7 @@ Marcadores de obstáculos = $ = [14, 15, 16]$
 
 Marcadores a solicitar $ = [1, 2, 3, 4, 22, 14, 15, 16]$
 
-Por otro lado, para asignar los marcadores de cada agente, se debía elegir un intervalo  de valores consecutivos de manera ascendente dentro de la lista predeterminada. Esto limita a utilizar únicamente los agentes dentro del intervalo seleccionado, por lo que si un agente se descargaba, era obligatorio reemplazar las baterías para volver a utilizarlo. Por esto, cambió la asignación de los marcadores para cada agente permitiendo seleccionar cualquier marcador disponible en el Robotat sin algún orden específico. Ahora, para obtener las poses de los marcadores, únicamente se solicitan los datos al servidor de que están en uso. Esto, permite agilizar las pruebas ya que en múltiples ocasiones es necesario compartir los agentes Pololu 3Pi+ con otros compañeros.
+Por otro lado, para asignar los marcadores de cada agente, se debía elegir un intervalo  de valores consecutivos de manera ascendente dentro de la lista predeterminada. Esto limita a utilizar únicamente los agentes dentro del intervalo seleccionado, por lo que si un agente se descargaba, era obligatorio reemplazar las baterías para volver a utilizarlo. Por esto, se cambió la asignación de los marcadores para cada agente permitiendo seleccionar cualquier marcador disponible en el Robotat sin algún orden específico. Ahora, para obtener las poses de los marcadores, únicamente se solicitan los datos al servidor de que están en uso. Esto permite agilizar las pruebas ya que en múltiples ocasiones fue necesario compartir los agentes Pololu 3Pi+ con otros compañeros.
 
 En la Figura \ref{fig:seleccion_agentes}, el número dentro del círculo, representa el número de marcador asignado al agente. A la izquierda observa la asignación de los marcadores a cada agente con la implementación del algoritmo original, mientras que del lado derecho se realiza una asignación arbitraria luego del cambio mencionado.
 
