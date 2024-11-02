@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.25 (MiKTeX 24.1) (preloaded format=pdflatex 2024.1.31)  29 OCT 2024 10:51
+This is pdfTeX, Version 3.141592653-2.6-1.40.25 (MiKTeX 24.1) (preloaded format=pdflatex 2024.1.31)  1 NOV 2024 19:05
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -66,6 +66,13 @@ Package: inputenc 2021/02/14 v1.3d Input encoding file
 Package: fontenc 2021/04/29 v2.0v Standard LaTeX package
 )
 (0-datos_estudiante.tex) (1-opciones_adicionales.tex)
+(C:\Users\gerar\AppData\Local\Programs\MiKTeX\tex/latex/multirow\multirow.sty
+Package: multirow 2021/03/15 v2.8 Span multiple rows of a table
+\multirow@colwidth=\skip50
+\multirow@cntb=\count199
+\multirow@dima=\skip51
+\bigstrutjot=\dimen142
+)
 (C:\Users\gerar\AppData\Local\Programs\MiKTeX\tex/latex/xcolor\xcolor.sty
 Package: xcolor 2023/11/15 v3.01 LaTeX color extensions (UK)
 
@@ -97,7 +104,7 @@ LaTeX Font Info:    Overwriting math alphabet `\mathfrak' in version `bold'
 (Font)                  U/euf/m/n --> U/euf/b/n on input line 106.
 ) (C:\Users\gerar\AppData\Local\Programs\MiKTeX\tex/latex/amsmath\amsmath.sty
 Package: amsmath 2023/05/13 v2.17o AMS math features
-\@mathmargin=\skip50
+\@mathmargin=\skip52
 
 For additional information on amsmath, use the `?' option.
 (C:\Users\gerar\AppData\Local\Programs\MiKTeX\tex/latex/amsmath\amstext.sty
@@ -106,23 +113,23 @@ Package: amstext 2021/08/26 v2.01 AMS text
 (C:\Users\gerar\AppData\Local\Programs\MiKTeX\tex/latex/amsmath\amsgen.sty
 File: amsgen.sty 1999/11/30 v2.0 generic functions
 \@emptytoks=\toks21
-\ex@=\dimen142
+\ex@=\dimen143
 ))
 (C:\Users\gerar\AppData\Local\Programs\MiKTeX\tex/latex/amsmath\amsbsy.sty
 Package: amsbsy 1999/11/29 v1.2d Bold Symbols
-\pmbraise@=\dimen143
+\pmbraise@=\dimen144
 )
 (C:\Users\gerar\AppData\Local\Programs\MiKTeX\tex/latex/amsmath\amsopn.sty
 Package: amsopn 2022/04/08 v2.04 operator names
 )
-\inf@bad=\count199
+\inf@bad=\count266
 LaTeX Info: Redefining \frac on input line 234.
-\uproot@=\count266
-\leftroot@=\count267
+\uproot@=\count267
+\leftroot@=\count268
 LaTeX Info: Redefining \overline on input line 399.
 LaTeX Info: Redefining \colon on input line 410.
-\classnum@=\count268
-\DOTSCASE@=\count269
+\classnum@=\count269
+\DOTSCASE@=\count270
 LaTeX Info: Redefining \ldots on input line 496.
 LaTeX Info: Redefining \dots on input line 499.
 LaTeX Info: Redefining \cdots on input line 620.
@@ -132,33 +139,33 @@ LaTeX Info: Redefining \big on input line 722.
 LaTeX Info: Redefining \Big on input line 723.
 LaTeX Info: Redefining \bigg on input line 724.
 LaTeX Info: Redefining \Bigg on input line 725.
-\big@size=\dimen144
+\big@size=\dimen145
 LaTeX Font Info:    Redeclaring font encoding OML on input line 743.
 LaTeX Font Info:    Redeclaring font encoding OMS on input line 744.
-\macc@depth=\count270
+\macc@depth=\count271
 LaTeX Info: Redefining \bmod on input line 905.
 LaTeX Info: Redefining \pmod on input line 910.
 LaTeX Info: Redefining \smash on input line 940.
 LaTeX Info: Redefining \relbar on input line 970.
 LaTeX Info: Redefining \Relbar on input line 971.
-\c@MaxMatrixCols=\count271
+\c@MaxMatrixCols=\count272
 \dotsspace@=\muskip16
-\c@parentequation=\count272
-\dspbrk@lvl=\count273
+\c@parentequation=\count273
+\dspbrk@lvl=\count274
 \tag@help=\toks22
-\row@=\count274
-\column@=\count275
-\maxfields@=\count276
+\row@=\count275
+\column@=\count276
+\maxfields@=\count277
 \andhelp@=\toks23
-\eqnshift@=\dimen145
-\alignsep@=\dimen146
-\tagshift@=\dimen147
-\tagwidth@=\dimen148
-\totwidth@=\dimen149
-\lineht@=\dimen150
+\eqnshift@=\dimen146
+\alignsep@=\dimen147
+\tagshift@=\dimen148
+\tagwidth@=\dimen149
+\totwidth@=\dimen150
+\lineht@=\dimen151
 \@envbody=\toks24
-\multlinegap=\skip51
-\multlinetaggap=\skip52
+\multlinegap=\skip53
+\multlinetaggap=\skip54
 \mathdisplay@stack=\toks25
 LaTeX Info: Redefining \[ on input line 2953.
 LaTeX Info: Redefining \] on input line 2954.
@@ -173,9 +180,9 @@ Package: amsthm 2020/05/29 v2.20.6
 \thm@headfont=\toks28
 \thm@notefont=\toks29
 \thm@headpunct=\toks30
-\thm@preskip=\skip53
-\thm@postskip=\skip54
-\thm@headsep=\skip55
+\thm@preskip=\skip55
+\thm@postskip=\skip56
+\thm@headsep=\skip57
 \dth@everypar=\toks31
 )
 (C:\Users\gerar\AppData\Local\Programs\MiKTeX\tex/latex/mathtools\mathtools.sty
@@ -186,31 +193,31 @@ Package: keyval 2022/05/29 v1.15 key=value parser (DPC)
 )
 (C:\Users\gerar\AppData\Local\Programs\MiKTeX\tex/latex/tools\calc.sty
 Package: calc 2023/07/08 v4.3 Infix arithmetic (KKT,FJ)
-\calc@Acount=\count277
-\calc@Bcount=\count278
-\calc@Adimen=\dimen151
-\calc@Bdimen=\dimen152
-\calc@Askip=\skip56
-\calc@Bskip=\skip57
+\calc@Acount=\count278
+\calc@Bcount=\count279
+\calc@Adimen=\dimen152
+\calc@Bdimen=\dimen153
+\calc@Askip=\skip58
+\calc@Bskip=\skip59
 LaTeX Info: Redefining \setlength on input line 80.
 LaTeX Info: Redefining \addtolength on input line 81.
-\calc@Ccount=\count279
-\calc@Cskip=\skip58
+\calc@Ccount=\count280
+\calc@Cskip=\skip60
 )
 (C:\Users\gerar\AppData\Local\Programs\MiKTeX\tex/latex/mathtools\mhsetup.sty
 Package: mhsetup 2021/03/18 v1.4 programming setup (MH)
 )
-\g_MT_multlinerow_int=\count280
-\l_MT_multwidth_dim=\dimen153
-\origjot=\skip59
-\l_MT_shortvdotswithinadjustabove_dim=\dimen154
-\l_MT_shortvdotswithinadjustbelow_dim=\dimen155
-\l_MT_above_intertext_sep=\dimen156
-\l_MT_below_intertext_sep=\dimen157
-\l_MT_above_shortintertext_sep=\dimen158
-\l_MT_below_shortintertext_sep=\dimen159
+\g_MT_multlinerow_int=\count281
+\l_MT_multwidth_dim=\dimen154
+\origjot=\skip61
+\l_MT_shortvdotswithinadjustabove_dim=\dimen155
+\l_MT_shortvdotswithinadjustbelow_dim=\dimen156
+\l_MT_above_intertext_sep=\dimen157
+\l_MT_below_intertext_sep=\dimen158
+\l_MT_above_shortintertext_sep=\dimen159
+\l_MT_below_shortintertext_sep=\dimen160
 \xmathstrut@box=\box53
-\xmathstrut@dim=\dimen160
+\xmathstrut@dim=\dimen161
 ) (C:\Users\gerar\AppData\Local\Programs\MiKTeX\tex/latex/graphics\graphicx.sty
 Package: graphicx 2021/09/16 v1.2d Enhanced LaTeX Graphics (DPC,SPQR)
 
@@ -226,8 +233,8 @@ File: graphics.cfg 2016/06/04 v1.11 sample graphics configuration
 )
 Package graphics Info: Driver file: pdftex.def on input line 107.
 )
-\Gin@req@height=\dimen161
-\Gin@req@width=\dimen162
+\Gin@req@height=\dimen162
+\Gin@req@width=\dimen163
 )
 (C:\Users\gerar\AppData\Local\Programs\MiKTeX\tex/latex/l3packages/xfrac\xfrac.
 sty (C:\Users\gerar\AppData\Local\Programs\MiKTeX\tex/latex/l3kernel\expl3.sty
@@ -236,7 +243,7 @@ Package: expl3 2024-01-22 L3 programming layer (loader)
 (C:\Users\gerar\AppData\Local\Programs\MiKTeX\tex/latex/l3backend\l3backend-pdf
 tex.def
 File: l3backend-pdftex.def 2024-01-04 L3 backend support: PDF output (pdfTeX)
-\l__color_backend_stack_int=\count281
+\l__color_backend_stack_int=\count282
 \l__pdf_internal_box=\box54
 ))
 (C:\Users\gerar\AppData\Local\Programs\MiKTeX\tex/latex/l3packages/l3keys2e\l3k
@@ -253,19 +260,19 @@ Package: xparse 2023-10-10 L3 Experimental document command parser
 (C:\Users\gerar\AppData\Local\Programs\MiKTeX\tex/latex/l3packages/xtemplate\xt
 emplate.sty
 Package: xtemplate 2023-10-10 L3 Experimental prototype document functions
-\l__xtemplate_tmp_dim=\dimen163
-\l__xtemplate_tmp_int=\count282
+\l__xtemplate_tmp_dim=\dimen164
+\l__xtemplate_tmp_int=\count283
 \l__xtemplate_tmp_muskip=\muskip17
-\l__xtemplate_tmp_skip=\skip60
+\l__xtemplate_tmp_skip=\skip62
 )
 Package: xfrac 2023-10-10 L3 Experimental split-level fractions
 \l__xfrac_slash_box=\box55
 \l__xfrac_tmp_box=\box56
-\l__xfrac_denominator_bot_sep_dim=\dimen164
-\l__xfrac_numerator_bot_sep_dim=\dimen165
-\l__xfrac_numerator_top_sep_dim=\dimen166
-\l__xfrac_slash_left_sep_dim=\dimen167
-\l__xfrac_slash_right_sep_dim=\dimen168
+\l__xfrac_denominator_bot_sep_dim=\dimen165
+\l__xfrac_numerator_bot_sep_dim=\dimen166
+\l__xfrac_numerator_top_sep_dim=\dimen167
+\l__xfrac_slash_left_sep_dim=\dimen168
+\l__xfrac_slash_right_sep_dim=\dimen169
 \l__xfrac_slash_left_muskip=\muskip18
 \l__xfrac_slash_right_muskip=\muskip19
 
@@ -275,7 +282,7 @@ Package xtemplate Info: Declaring object type 'xfrac' taking 3 argument(s) on
 )
 (C:\Users\gerar\AppData\Local\Programs\MiKTeX\tex/latex/float\float.sty
 Package: float 2001/11/08 v1.3d Float enhancements (AL)
-\c@float@type=\count283
+\c@float@type=\count284
 \float@exts=\toks33
 \float@box=\box57
 \@float@everytoks=\toks34
@@ -333,15 +340,15 @@ Package: gettitlestring 2019/12/15 v1.6 Cleanup title references (HO)
 (C:\Users\gerar\AppData\Local\Programs\MiKTeX\tex/latex/kvoptions\kvoptions.sty
 Package: kvoptions 2022-06-15 v3.15 Key value format for package options (HO)
 ))
-\c@section@level=\count284
+\c@section@level=\count285
 )
 (C:\Users\gerar\AppData\Local\Programs\MiKTeX\tex/latex/etoolbox\etoolbox.sty
 Package: etoolbox 2020/10/05 v2.5k e-TeX tools for LaTeX (JAW)
-\etb@tempcnta=\count285
+\etb@tempcnta=\count286
 )
-\@linkdim=\dimen169
-\Hy@linkcounter=\count286
-\Hy@pagecounter=\count287
+\@linkdim=\dimen170
+\Hy@linkcounter=\count287
+\Hy@pagecounter=\count288
 
 (C:\Users\gerar\AppData\Local\Programs\MiKTeX\tex/latex/hyperref\pd1enc.def
 File: pd1enc.def 2024-01-20 v7.01h Hyperref: PDFDocEncoding definition (HO)
@@ -351,7 +358,7 @@ Now handling font encoding PD1 ...
 (C:\Users\gerar\AppData\Local\Programs\MiKTeX\tex/generic/intcalc\intcalc.sty
 Package: intcalc 2019/12/15 v1.3 Expandable calculations with integers (HO)
 )
-\Hy@SavedSpaceFactor=\count288
+\Hy@SavedSpaceFactor=\count289
 
 (C:\Users\gerar\AppData\Local\Programs\MiKTeX\tex/latex/hyperref\puenc.def
 File: puenc.def 2024-01-20 v7.01h Hyperref: PDF Unicode definition (HO)
@@ -366,14 +373,14 @@ Package hyperref Info: Plain pages OFF on input line 4194.
 Package hyperref Info: Backreferencing OFF on input line 4199.
 Package hyperref Info: Implicit mode ON; LaTeX internals redefined.
 Package hyperref Info: Bookmarks ON on input line 4446.
-\c@Hy@tempcnt=\count289
+\c@Hy@tempcnt=\count290
 
 (C:\Users\gerar\AppData\Local\Programs\MiKTeX\tex/latex/url\url.sty
 \Urlmuskip=\muskip20
 Package: url 2013/09/16  ver 3.4  Verb mode for urls, etc.
 )
 LaTeX Info: Redefining \url on input line 4784.
-\XeTeXLinkMargin=\dimen170
+\XeTeXLinkMargin=\dimen171
 
 (C:\Users\gerar\AppData\Local\Programs\MiKTeX\tex/generic/bitset\bitset.sty
 Package: bitset 2019/12/09 v1.3 Handle bit-vector datatype (HO)
@@ -383,9 +390,9 @@ Package: bitset 2019/12/09 v1.3 Handle bit-vector datatype (HO)
 Package: bigintcalc 2019/12/15 v1.5 Expandable calculations on big integers (HO
 )
 ))
-\Fld@menulength=\count290
-\Field@Width=\dimen171
-\Fld@charsize=\dimen172
+\Fld@menulength=\count291
+\Field@Width=\dimen172
+\Fld@charsize=\dimen173
 Package hyperref Info: Hyper figures OFF on input line 6063.
 Package hyperref Info: Link nesting OFF on input line 6068.
 Package hyperref Info: Hyper index ON on input line 6071.
@@ -398,9 +405,9 @@ Package hyperref Info: PDF/A mode OFF on input line 6093.
 Package: atbegshi-ltx 2021/01/10 v1.0c Emulation of the original atbegshi
 package with kernel methods
 )
-\Hy@abspage=\count291
-\c@Item=\count292
-\c@Hfootnote=\count293
+\Hy@abspage=\count292
+\c@Item=\count293
+\c@Hfootnote=\count294
 )
 Package hyperref Info: Driver (autodetected): hpdftex.
 (C:\Users\gerar\AppData\Local\Programs\MiKTeX\tex/latex/hyperref\hpdftex.def
@@ -411,8 +418,8 @@ Package: atveryend-ltx 2020/08/19 v1.0a Emulation of the original atveryend pac
 kage
 with kernel methods
 )
-\Fld@listcount=\count294
-\c@bookmark@seq@number=\count295
+\Fld@listcount=\count295
+\c@bookmark@seq@number=\count296
 
 (C:\Users\gerar\AppData\Local\Programs\MiKTeX\tex/latex/rerunfilecheck\rerunfil
 echeck.sty
@@ -425,34 +432,34 @@ Package: uniquecounter 2019/12/15 v1.4 Provide unlimited unique counter (HO)
 Package uniquecounter Info: New unique counter `rerunfilecheck' on input line 2
 85.
 )
-\Hy@SectionHShift=\skip61
+\Hy@SectionHShift=\skip63
 )
 (C:\Users\gerar\AppData\Local\Programs\MiKTeX\tex/latex/caption\caption.sty
 Package: caption 2023/08/05 v3.6o Customizing captions (AR)
 
 (C:\Users\gerar\AppData\Local\Programs\MiKTeX\tex/latex/caption\caption3.sty
 Package: caption3 2023/07/31 v2.4d caption3 kernel (AR)
-\caption@tempdima=\dimen173
-\captionmargin=\dimen174
-\caption@leftmargin=\dimen175
-\caption@rightmargin=\dimen176
-\caption@width=\dimen177
-\caption@indent=\dimen178
-\caption@parindent=\dimen179
-\caption@hangindent=\dimen180
+\caption@tempdima=\dimen174
+\captionmargin=\dimen175
+\caption@leftmargin=\dimen176
+\caption@rightmargin=\dimen177
+\caption@width=\dimen178
+\caption@indent=\dimen179
+\caption@parindent=\dimen180
+\caption@hangindent=\dimen181
 Package caption Info: Standard document class detected.
 )
-\c@caption@flags=\count296
-\c@continuedfloat=\count297
+\c@caption@flags=\count297
+\c@continuedfloat=\count298
 Package caption Info: float package is loaded.
 Package caption Info: hyperref package is loaded.
 )
 (C:\Users\gerar\AppData\Local\Programs\MiKTeX\tex/latex/caption\subcaption.sty
 Package: subcaption 2023/07/28 v1.6b Sub-captions (AR)
 Package caption Info: New subtype `subfigure' on input line 238.
-\c@subfigure=\count298
+\c@subfigure=\count299
 Package caption Info: New subtype `subtable' on input line 238.
-\c@subtable=\count299
+\c@subtable=\count300
 ) (C:\Users\gerar\AppData\Local\Programs\MiKTeX\tex/latex/xpatch\xpatch.sty
 Package: xpatch 2020/03/25 v0.3a Extending etoolbox patching commands
 )
@@ -466,20 +473,20 @@ LaTeX Info: Redefining \_ on input line 43.
 ) (C:\Users\gerar\AppData\Local\Programs\MiKTeX\tex/latex/fancyhdr\fancyhdr.sty
 Package: fancyhdr 2022/11/09 v4.1 Extensive control of page headers and footers
 
-\f@nch@headwidth=\skip62
-\f@nch@O@elh=\skip63
-\f@nch@O@erh=\skip64
-\f@nch@O@olh=\skip65
-\f@nch@O@orh=\skip66
-\f@nch@O@elf=\skip67
-\f@nch@O@erf=\skip68
-\f@nch@O@olf=\skip69
-\f@nch@O@orf=\skip70
+\f@nch@headwidth=\skip64
+\f@nch@O@elh=\skip65
+\f@nch@O@erh=\skip66
+\f@nch@O@olh=\skip67
+\f@nch@O@orh=\skip68
+\f@nch@O@elf=\skip69
+\f@nch@O@erf=\skip70
+\f@nch@O@olf=\skip71
+\f@nch@O@orf=\skip72
 ) (C:\Users\gerar\AppData\Local\Programs\MiKTeX\tex/latex/biblatex\biblatex.sty
 Package: biblatex 2023/03/05 v3.19 programmable bibliographies (PK/MW)
 (C:\Users\gerar\AppData\Local\Programs\MiKTeX\tex/latex/logreq\logreq.sty
 Package: logreq 2010/08/04 v1.0 xml request logger
-\lrq@indent=\count300
+\lrq@indent=\count301
 
 (C:\Users\gerar\AppData\Local\Programs\MiKTeX\tex/latex/logreq\logreq.def
 File: logreq.def 2010/08/04 v1.0 logreq spec v1.0
@@ -487,63 +494,63 @@ File: logreq.def 2010/08/04 v1.0 logreq spec v1.0
 (C:\Users\gerar\AppData\Local\Programs\MiKTeX\tex/latex/base\ifthen.sty
 Package: ifthen 2022/04/13 v1.1d Standard LaTeX ifthen package (DPC)
 )
-\c@tabx@nest=\count301
-\c@listtotal=\count302
-\c@listcount=\count303
-\c@liststart=\count304
-\c@liststop=\count305
-\c@citecount=\count306
-\c@citetotal=\count307
-\c@multicitecount=\count308
-\c@multicitetotal=\count309
-\c@instcount=\count310
-\c@maxnames=\count311
-\c@minnames=\count312
-\c@maxitems=\count313
-\c@minitems=\count314
-\c@citecounter=\count315
-\c@maxcitecounter=\count316
-\c@savedcitecounter=\count317
-\c@uniquelist=\count318
-\c@uniquename=\count319
-\c@refsection=\count320
-\c@refsegment=\count321
-\c@maxextratitle=\count322
-\c@maxextratitleyear=\count323
-\c@maxextraname=\count324
-\c@maxextradate=\count325
-\c@maxextraalpha=\count326
-\c@abbrvpenalty=\count327
-\c@highnamepenalty=\count328
-\c@lownamepenalty=\count329
-\c@maxparens=\count330
-\c@parenlevel=\count331
-\blx@tempcnta=\count332
-\blx@tempcntb=\count333
-\blx@tempcntc=\count334
-\c@blx@maxsection=\count335
-\blx@maxsegment@0=\count336
-\blx@notetype=\count337
-\blx@parenlevel@text=\count338
-\blx@parenlevel@foot=\count339
-\blx@sectionciteorder@0=\count340
-\blx@sectionciteorderinternal@0=\count341
-\blx@entrysetcounter=\count342
-\blx@biblioinstance=\count343
-\labelnumberwidth=\skip71
-\labelalphawidth=\skip72
-\biblabelsep=\skip73
-\bibitemsep=\skip74
-\bibnamesep=\skip75
-\bibinitsep=\skip76
-\bibparsep=\skip77
-\bibhang=\skip78
+\c@tabx@nest=\count302
+\c@listtotal=\count303
+\c@listcount=\count304
+\c@liststart=\count305
+\c@liststop=\count306
+\c@citecount=\count307
+\c@citetotal=\count308
+\c@multicitecount=\count309
+\c@multicitetotal=\count310
+\c@instcount=\count311
+\c@maxnames=\count312
+\c@minnames=\count313
+\c@maxitems=\count314
+\c@minitems=\count315
+\c@citecounter=\count316
+\c@maxcitecounter=\count317
+\c@savedcitecounter=\count318
+\c@uniquelist=\count319
+\c@uniquename=\count320
+\c@refsection=\count321
+\c@refsegment=\count322
+\c@maxextratitle=\count323
+\c@maxextratitleyear=\count324
+\c@maxextraname=\count325
+\c@maxextradate=\count326
+\c@maxextraalpha=\count327
+\c@abbrvpenalty=\count328
+\c@highnamepenalty=\count329
+\c@lownamepenalty=\count330
+\c@maxparens=\count331
+\c@parenlevel=\count332
+\blx@tempcnta=\count333
+\blx@tempcntb=\count334
+\blx@tempcntc=\count335
+\c@blx@maxsection=\count336
+\blx@maxsegment@0=\count337
+\blx@notetype=\count338
+\blx@parenlevel@text=\count339
+\blx@parenlevel@foot=\count340
+\blx@sectionciteorder@0=\count341
+\blx@sectionciteorderinternal@0=\count342
+\blx@entrysetcounter=\count343
+\blx@biblioinstance=\count344
+\labelnumberwidth=\skip73
+\labelalphawidth=\skip74
+\biblabelsep=\skip75
+\bibitemsep=\skip76
+\bibnamesep=\skip77
+\bibinitsep=\skip78
+\bibparsep=\skip79
+\bibhang=\skip80
 \blx@bcfin=\read3
 \blx@bcfout=\write3
 \blx@langwohyphens=\language81
-\c@mincomprange=\count344
-\c@maxcomprange=\count345
-\c@mincompwidth=\count346
+\c@mincomprange=\count345
+\c@maxcomprange=\count346
+\c@mincompwidth=\count347
 Package biblatex Info: Trying to load biblatex default data model...
 Package biblatex Info: ... file 'blx-dm.def' found.
 
@@ -554,88 +561,88 @@ Package biblatex Info: Trying to load biblatex style data model...
 Package biblatex Info: ... file 'ieee.dbx' not found.
 Package biblatex Info: Trying to load biblatex custom data model...
 Package biblatex Info: ... file 'biblatex-dm.cfg' not found.
-\c@afterword=\count347
-\c@savedafterword=\count348
-\c@annotator=\count349
-\c@savedannotator=\count350
-\c@author=\count351
-\c@savedauthor=\count352
-\c@bookauthor=\count353
-\c@savedbookauthor=\count354
-\c@commentator=\count355
-\c@savedcommentator=\count356
-\c@editor=\count357
-\c@savededitor=\count358
-\c@editora=\count359
-\c@savededitora=\count360
-\c@editorb=\count361
-\c@savededitorb=\count362
-\c@editorc=\count363
-\c@savededitorc=\count364
-\c@foreword=\count365
-\c@savedforeword=\count366
-\c@holder=\count367
-\c@savedholder=\count368
-\c@introduction=\count369
-\c@savedintroduction=\count370
-\c@namea=\count371
-\c@savednamea=\count372
-\c@nameb=\count373
-\c@savednameb=\count374
-\c@namec=\count375
-\c@savednamec=\count376
-\c@translator=\count377
-\c@savedtranslator=\count378
-\c@shortauthor=\count379
-\c@savedshortauthor=\count380
-\c@shorteditor=\count381
-\c@savedshorteditor=\count382
-\c@labelname=\count383
-\c@savedlabelname=\count384
-\c@institution=\count385
-\c@savedinstitution=\count386
-\c@lista=\count387
-\c@savedlista=\count388
-\c@listb=\count389
-\c@savedlistb=\count390
-\c@listc=\count391
-\c@savedlistc=\count392
-\c@listd=\count393
-\c@savedlistd=\count394
-\c@liste=\count395
-\c@savedliste=\count396
-\c@listf=\count397
-\c@savedlistf=\count398
-\c@location=\count399
-\c@savedlocation=\count400
-\c@organization=\count401
-\c@savedorganization=\count402
-\c@origlocation=\count403
-\c@savedoriglocation=\count404
-\c@origpublisher=\count405
-\c@savedorigpublisher=\count406
-\c@publisher=\count407
-\c@savedpublisher=\count408
-\c@language=\count409
-\c@savedlanguage=\count410
-\c@origlanguage=\count411
-\c@savedoriglanguage=\count412
-\c@pageref=\count413
-\c@savedpageref=\count414
-\shorthandwidth=\skip79
-\shortjournalwidth=\skip80
-\shortserieswidth=\skip81
-\shorttitlewidth=\skip82
-\shortauthorwidth=\skip83
-\shorteditorwidth=\skip84
-\locallabelnumberwidth=\skip85
-\locallabelalphawidth=\skip86
-\localshorthandwidth=\skip87
-\localshortjournalwidth=\skip88
-\localshortserieswidth=\skip89
-\localshorttitlewidth=\skip90
-\localshortauthorwidth=\skip91
-\localshorteditorwidth=\skip92
+\c@afterword=\count348
+\c@savedafterword=\count349
+\c@annotator=\count350
+\c@savedannotator=\count351
+\c@author=\count352
+\c@savedauthor=\count353
+\c@bookauthor=\count354
+\c@savedbookauthor=\count355
+\c@commentator=\count356
+\c@savedcommentator=\count357
+\c@editor=\count358
+\c@savededitor=\count359
+\c@editora=\count360
+\c@savededitora=\count361
+\c@editorb=\count362
+\c@savededitorb=\count363
+\c@editorc=\count364
+\c@savededitorc=\count365
+\c@foreword=\count366
+\c@savedforeword=\count367
+\c@holder=\count368
+\c@savedholder=\count369
+\c@introduction=\count370
+\c@savedintroduction=\count371
+\c@namea=\count372
+\c@savednamea=\count373
+\c@nameb=\count374
+\c@savednameb=\count375
+\c@namec=\count376
+\c@savednamec=\count377
+\c@translator=\count378
+\c@savedtranslator=\count379
+\c@shortauthor=\count380
+\c@savedshortauthor=\count381
+\c@shorteditor=\count382
+\c@savedshorteditor=\count383
+\c@labelname=\count384
+\c@savedlabelname=\count385
+\c@institution=\count386
+\c@savedinstitution=\count387
+\c@lista=\count388
+\c@savedlista=\count389
+\c@listb=\count390
+\c@savedlistb=\count391
+\c@listc=\count392
+\c@savedlistc=\count393
+\c@listd=\count394
+\c@savedlistd=\count395
+\c@liste=\count396
+\c@savedliste=\count397
+\c@listf=\count398
+\c@savedlistf=\count399
+\c@location=\count400
+\c@savedlocation=\count401
+\c@organization=\count402
+\c@savedorganization=\count403
+\c@origlocation=\count404
+\c@savedoriglocation=\count405
+\c@origpublisher=\count406
+\c@savedorigpublisher=\count407
+\c@publisher=\count408
+\c@savedpublisher=\count409
+\c@language=\count410
+\c@savedlanguage=\count411
+\c@origlanguage=\count412
+\c@savedoriglanguage=\count413
+\c@pageref=\count414
+\c@savedpageref=\count415
+\shorthandwidth=\skip81
+\shortjournalwidth=\skip82
+\shortserieswidth=\skip83
+\shorttitlewidth=\skip84
+\shortauthorwidth=\skip85
+\shorteditorwidth=\skip86
+\locallabelnumberwidth=\skip87
+\locallabelalphawidth=\skip88
+\localshorthandwidth=\skip89
+\localshortjournalwidth=\skip90
+\localshortserieswidth=\skip91
+\localshorttitlewidth=\skip92
+\localshortauthorwidth=\skip93
+\localshorteditorwidth=\skip94
 Package biblatex Info: Trying to load compatibility code...
 Package biblatex Info: ... file 'blx-compat.def' found.
 
@@ -646,19 +653,19 @@ Package biblatex Info: Trying to load generic definitions...
 Package biblatex Info: ... file 'biblatex.def' found.
  (C:\Users\gerar\AppData\Local\Programs\MiKTeX\tex/latex/biblatex\biblatex.def
 File: biblatex.def 2023/03/05 v3.19 biblatex compatibility (PK/MW)
-\c@textcitecount=\count415
-\c@textcitetotal=\count416
-\c@textcitemaxnames=\count417
-\c@biburlbigbreakpenalty=\count418
-\c@biburlbreakpenalty=\count419
-\c@biburlnumpenalty=\count420
-\c@biburlucpenalty=\count421
-\c@biburllcpenalty=\count422
+\c@textcitecount=\count416
+\c@textcitetotal=\count417
+\c@textcitemaxnames=\count418
+\c@biburlbigbreakpenalty=\count419
+\c@biburlbreakpenalty=\count420
+\c@biburlnumpenalty=\count421
+\c@biburlucpenalty=\count422
+\c@biburllcpenalty=\count423
 \biburlbigskip=\muskip21
 \biburlnumskip=\muskip22
 \biburlucskip=\muskip23
 \biburllcskip=\muskip24
-\c@smartand=\count423
+\c@smartand=\count424
 )
 Package biblatex Info: Trying to load bibliography style 'ieee'...
 Package biblatex Info: ... file 'ieee.bbx' found.
@@ -683,8 +690,8 @@ Package biblatex Info: ... file 'standard.bbx' found.
 (C:\Users\gerar\AppData\Local\Programs\MiKTeX\tex/latex/biblatex/bbx\standard.b
 bx
 File: standard.bbx 2023/03/05 v3.19 biblatex bibliography style (PK/MW)
-\c@bbx:relatedcount=\count424
-\c@bbx:relatedtotal=\count425
+\c@bbx:relatedcount=\count425
+\c@bbx:relatedtotal=\count426
 ))))
 Package biblatex Info: Trying to load citation style 'ieee'...
 Package biblatex Info: ... file 'ieee.cbx' found.
@@ -697,10 +704,10 @@ Package biblatex Info: ... file 'numeric-comp.cbx' found.
 (C:\Users\gerar\AppData\Local\Programs\MiKTeX\tex/latex/biblatex/cbx\numeric-co
 mp.cbx
 File: numeric-comp.cbx 2023/03/05 v3.19 biblatex citation style (PK/MW)
-\c@cbx@tempcnta=\count426
-\c@cbx@tempcntb=\count427
-\c@cbx@tempcntc=\count428
-\c@cbx@tempcntd=\count429
+\c@cbx@tempcnta=\count427
+\c@cbx@tempcntb=\count428
+\c@cbx@tempcntc=\count429
+\c@cbx@tempcntd=\count430
 Package biblatex Info: Redefining '\cite'.
 Package biblatex Info: Redefining '\parencite'.
 Package biblatex Info: Redefining '\footcite'.
@@ -739,21 +746,21 @@ Package: overpic 2024/01/06 2.1 picture overlays (RN)
 
 (C:\Users\gerar\AppData\Local\Programs\MiKTeX\tex/latex/eepic\epic.sty
 Enhancements to Picture Environment. Version 1.2 - Released June 1, 1986
-\@@multicnt=\count430
-\d@lta=\count431
-\@delta=\dimen181
-\@@delta=\dimen182
-\@gridcnt=\count432
-\@joinkind=\count433
-\@dotgap=\dimen183
-\@ddotgap=\dimen184
-\@x@diff=\count434
-\@y@diff=\count435
-\x@diff=\dimen185
-\y@diff=\dimen186
+\@@multicnt=\count431
+\d@lta=\count432
+\@delta=\dimen182
+\@@delta=\dimen183
+\@gridcnt=\count433
+\@joinkind=\count434
+\@dotgap=\dimen184
+\@ddotgap=\dimen185
+\@x@diff=\count435
+\@y@diff=\count436
+\x@diff=\dimen186
+\y@diff=\dimen187
 \@dotbox=\box59
-\num@segments=\count436
-\num@segmentsi=\count437
+\num@segments=\count437
+\num@segmentsi=\count438
 \@datafile=\read4
 )
 \OVP@box=\box60
@@ -775,7 +782,7 @@ Package: xkeyval 2022/06/16 v2.9 package option processing (HA)
 \XKV@toks=\toks35
 \XKV@tempa@toks=\toks36
 )
-\XKV@depth=\count438
+\XKV@depth=\count439
 File: xkeyval.tex 2014/12/03 v2.7a key=value parser (HA)
 ))
 (C:\Users\gerar\AppData\Local\Programs\MiKTeX\tex/latex/mfirstuc\mfirstuc.sty
@@ -791,7 +798,7 @@ sty
 Package: datatool-base 2019/09/27 v2.32 (NLCT)
  (C:\Users\gerar\AppData\Local\Programs\MiKTeX\tex/latex/substr\substr.sty
 Package: substr 2009/10/20 v1.2 Handle substrings
-\c@su@anzahl=\count439
+\c@su@anzahl=\count440
 )
 (C:\Users\gerar\AppData\Local\Programs\MiKTeX\tex/latex/datatool\datatool-fp.st
 y
@@ -802,19 +809,19 @@ Package: fp 1995/04/02
 `Fixed Point Package', Version 0.8, April 2, 1995 (C) Michael Mehlich
 (C:\Users\gerar\AppData\Local\Programs\MiKTeX\tex/latex/fp\defpattern.sty
 Package: defpattern 1994/10/12
-\actioncount=\count440
+\actioncount=\count441
 )
 (C:\Users\gerar\AppData\Local\Programs\MiKTeX\tex/latex/fp\fp-basic.sty
 Package: fp-basic 1996/05/13
-\FP@xs=\count441
-\FP@xia=\count442
-\FP@xib=\count443
-\FP@xfa=\count444
-\FP@xfb=\count445
-\FP@rega=\count446
-\FP@regb=\count447
-\FP@regs=\count448
-\FP@times=\count449
+\FP@xs=\count442
+\FP@xia=\count443
+\FP@xib=\count444
+\FP@xfa=\count445
+\FP@xfb=\count446
+\FP@rega=\count447
+\FP@regb=\count448
+\FP@regs=\count449
+\FP@times=\count450
 )
 (C:\Users\gerar\AppData\Local\Programs\MiKTeX\tex/latex/fp\fp-addons.sty
 Package: fp-addons 1995/03/15
@@ -833,7 +840,7 @@ Package: fp-pas 1994/08/29
 )
 (C:\Users\gerar\AppData\Local\Programs\MiKTeX\tex/latex/fp\fp-random.sty
 Package: fp-random 1995/02/23
-\FPseed=\count450
+\FPseed=\count451
 )
 (C:\Users\gerar\AppData\Local\Programs\MiKTeX\tex/latex/fp\fp-eqn.sty
 Package: fp-eqn 1995/04/03
@@ -845,14 +852,14 @@ Package: fp-upn 1996/10/21
 Package: fp-eval 1995/04/03
 )))
 \@dtl@toks=\toks39
-\@dtl@tmpcount=\count451
-\dtl@tmplength=\skip93
-\dtl@sortresult=\count452
-\@dtl@numgrpsepcount=\count453
-\@dtl@datatype=\count454
-\dtl@codeA=\count455
-\dtl@codeB=\count456
-\@dtl@foreach@level=\count457
+\@dtl@tmpcount=\count452
+\dtl@tmplength=\skip95
+\dtl@sortresult=\count453
+\@dtl@numgrpsepcount=\count454
+\@dtl@datatype=\count455
+\dtl@codeA=\count456
+\dtl@codeB=\count457
+\@dtl@foreach@level=\count458
 )
 (C:\Users\gerar\AppData\Local\Programs\MiKTeX\tex/latex/tracklang\tracklang.sty
 Package: tracklang 2022/12/13 v1.6.1 (NLCT) Track Languages
@@ -869,9 +876,9 @@ File: glossaries-spanish.ldf 2014/11/23 v1.0
 
 (C:\Users\gerar\AppData\Local\Programs\MiKTeX\tex/latex/glossaries-spanish\glos
 saries-spanish-utf8.ldf))
-\gls@level=\count458
+\gls@level=\count459
 \@gls@tmpb=\toks40
-\gls@tmplen=\skip94
+\gls@tmplen=\skip96
 \glskeylisttok=\toks41
 \glslabeltok=\toks42
 \glsshorttok=\toks43
@@ -884,7 +891,7 @@ Package: glossary-hypernav 2024/04/03 v4.54 (NLCT)
 (C:\Users\gerar\AppData\Local\Programs\MiKTeX\tex/latex/glossaries/styles\gloss
 ary-list.sty
 Package: glossary-list 2024/04/03 v4.54 (NLCT)
-\glslistdottedwidth=\skip95
+\glslistdottedwidth=\skip97
 )
 (C:\Users\gerar\AppData\Local\Programs\MiKTeX\tex/latex/glossaries/styles\gloss
 ary-long.sty
@@ -892,25 +899,25 @@ Package: glossary-long 2024/04/03 v4.54 (NLCT)
 
 (C:\Users\gerar\AppData\Local\Programs\MiKTeX\tex/latex/tools\longtable.sty
 Package: longtable 2023-11-01 v4.19 Multi-page Table package (DPC)
-\LTleft=\skip96
-\LTright=\skip97
-\LTpre=\skip98
-\LTpost=\skip99
-\LTchunksize=\count459
-\LTcapwidth=\dimen187
+\LTleft=\skip98
+\LTright=\skip99
+\LTpre=\skip100
+\LTpost=\skip101
+\LTchunksize=\count460
+\LTcapwidth=\dimen188
 \LT@head=\box61
 \LT@firsthead=\box62
 \LT@foot=\box63
 \LT@lastfoot=\box64
 \LT@gbox=\box65
-\LT@cols=\count460
-\LT@rows=\count461
-\c@LT@tables=\count462
-\c@LT@chunks=\count463
+\LT@cols=\count461
+\LT@rows=\count462
+\c@LT@tables=\count463
+\c@LT@chunks=\count464
 \LT@p@ftn=\toks45
 )
-\glsdescwidth=\skip100
-\glspagelistwidth=\skip101
+\glsdescwidth=\skip102
+\glspagelistwidth=\skip103
 )
 (C:\Users\gerar\AppData\Local\Programs\MiKTeX\tex/latex/glossaries/styles\gloss
 ary-super.sty
@@ -919,32 +926,32 @@ Package: glossary-super 2024/04/03 v4.54 (NLCT)
 (C:\Users\gerar\AppData\Local\Programs\MiKTeX\tex/latex/supertabular\supertabul
 ar.sty
 Package: supertabular 2020/02/02 v4.1g the supertabular environment
-\c@tracingst=\count464
-\ST@wd=\dimen188
-\ST@rightskip=\skip102
-\ST@leftskip=\skip103
-\ST@parfillskip=\skip104
-\ST@pageleft=\dimen189
-\ST@headht=\dimen190
-\ST@tailht=\dimen191
-\ST@pagesofar=\dimen192
-\ST@pboxht=\dimen193
-\ST@lineht=\dimen194
-\ST@prevht=\dimen195
-\ST@toadd=\dimen196
-\ST@dimen=\dimen197
+\c@tracingst=\count465
+\ST@wd=\dimen189
+\ST@rightskip=\skip104
+\ST@leftskip=\skip105
+\ST@parfillskip=\skip106
+\ST@pageleft=\dimen190
+\ST@headht=\dimen191
+\ST@tailht=\dimen192
+\ST@pagesofar=\dimen193
+\ST@pboxht=\dimen194
+\ST@lineht=\dimen195
+\ST@prevht=\dimen196
+\ST@toadd=\dimen197
+\ST@dimen=\dimen198
 \ST@pbox=\box66
 ))
 (C:\Users\gerar\AppData\Local\Programs\MiKTeX\tex/latex/glossaries/styles\gloss
 ary-tree.sty
 Package: glossary-tree 2024/04/03 v4.54 (NLCT)
-\glstreeindent=\skip105
+\glstreeindent=\skip107
 ))
 \glswrite=\write4
 \glo@main@file=\write5
 \openout5 = `z-main.glo'.
 
-Package glossaries Info: Writing glossary file z-main.glo on input line 64.
+Package glossaries Info: Writing glossary file z-main.glo on input line 65.
  (o-glosario.tex)
 (C:\Users\gerar\AppData\Local\Programs\MiKTeX\tex/latex/geometry\geometry.sty
 Package: geometry 2020/01/02 v5.9 Page Geometry
@@ -952,37 +959,37 @@ Package: geometry 2020/01/02 v5.9 Page Geometry
 (C:\Users\gerar\AppData\Local\Programs\MiKTeX\tex/generic/iftex\ifvtex.sty
 Package: ifvtex 2019/10/25 v1.7 ifvtex legacy package. Use iftex instead.
 )
-\Gm@cnth=\count465
-\Gm@cntv=\count466
-\c@Gm@tempcnt=\count467
-\Gm@bindingoffset=\dimen198
-\Gm@wd@mp=\dimen199
-\Gm@odd@mp=\dimen256
-\Gm@even@mp=\dimen257
-\Gm@layoutwidth=\dimen258
-\Gm@layoutheight=\dimen259
-\Gm@layouthoffset=\dimen260
-\Gm@layoutvoffset=\dimen261
+\Gm@cnth=\count466
+\Gm@cntv=\count467
+\c@Gm@tempcnt=\count468
+\Gm@bindingoffset=\dimen199
+\Gm@wd@mp=\dimen256
+\Gm@odd@mp=\dimen257
+\Gm@even@mp=\dimen258
+\Gm@layoutwidth=\dimen259
+\Gm@layoutheight=\dimen260
+\Gm@layouthoffset=\dimen261
+\Gm@layoutvoffset=\dimen262
 \Gm@dimlist=\toks46
 
 (C:\Users\gerar\AppData\Local\Programs\MiKTeX\tex/latex/geometry\geometry.cfg))
 (C:\Users\gerar\AppData\Local\Programs\MiKTeX\tex/latex/fncychap\fncychap.sty
 Package: fncychap 2007/07/30 v1.34 LaTeX package (Revised chapters)
-\RW=\skip106
-\mylen=\skip107
-\myhi=\skip108
-\px=\skip109
-\py=\skip110
-\pyy=\skip111
-\pxx=\skip112
+\RW=\skip108
+\mylen=\skip109
+\myhi=\skip110
+\px=\skip111
+\py=\skip112
+\pyy=\skip113
+\pxx=\skip114
 )
 (2-paquetes_y_comandos_usuario.tex)
 
 Package biblatex Warning: 'babel/polyglossia' detected but 'csquotes' missing.
 (biblatex)                Loading 'csquotes' recommended.
 
-\@quotelevel=\count468
-\@quotereset=\count469
+\@quotelevel=\count469
+\@quotereset=\count470
 (z-main.aux
 LaTeX Info: Redefining \. on input line 9.
 LaTeX Info: Redefining \% on input line 9.
@@ -991,40 +998,40 @@ LaTeX Info: Redefining \% on input line 16.
 )
 \openout1 = `z-main.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 109.
-LaTeX Font Info:    ... okay on input line 109.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 109.
-LaTeX Font Info:    ... okay on input line 109.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 109.
-LaTeX Font Info:    ... okay on input line 109.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 109.
-LaTeX Font Info:    ... okay on input line 109.
-LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 109.
-LaTeX Font Info:    ... okay on input line 109.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 109.
-LaTeX Font Info:    ... okay on input line 109.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 109.
-LaTeX Font Info:    ... okay on input line 109.
-LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 109.
-LaTeX Font Info:    ... okay on input line 109.
-LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 109.
-LaTeX Font Info:    ... okay on input line 109.
-LaTeX Info: Redefining \. on input line 109.
-LaTeX Info: Redefining \% on input line 109.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 110.
+LaTeX Font Info:    ... okay on input line 110.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 110.
+LaTeX Font Info:    ... okay on input line 110.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 110.
+LaTeX Font Info:    ... okay on input line 110.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 110.
+LaTeX Font Info:    ... okay on input line 110.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 110.
+LaTeX Font Info:    ... okay on input line 110.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 110.
+LaTeX Font Info:    ... okay on input line 110.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 110.
+LaTeX Font Info:    ... okay on input line 110.
+LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 110.
+LaTeX Font Info:    ... okay on input line 110.
+LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 110.
+LaTeX Font Info:    ... okay on input line 110.
+LaTeX Info: Redefining \. on input line 110.
+LaTeX Info: Redefining \% on input line 110.
 
 (C:\Users\gerar\AppData\Local\Programs\MiKTeX\tex/context/base/mkii\supp-pdf.mk
 ii
 [Loading MPS to PDF converter (version 2006.09.02).]
-\scratchcounter=\count470
-\scratchdimen=\dimen262
+\scratchcounter=\count471
+\scratchdimen=\dimen263
 \scratchbox=\box67
-\nofMPsegments=\count471
-\nofMParguments=\count472
+\nofMPsegments=\count472
+\nofMParguments=\count473
 \everyMPshowfont=\toks47
-\MPscratchCnt=\count473
-\MPscratchDim=\dimen263
-\MPnumerator=\count474
-\makeMPintoPDFobject=\count475
+\MPscratchCnt=\count474
+\MPscratchDim=\dimen264
+\MPnumerator=\count475
+\makeMPintoPDFobject=\count476
 \everyMPtoPDFconversion=\toks48
 )
 (C:\Users\gerar\AppData\Local\Programs\MiKTeX\tex/latex/epstopdf-pkg\epstopdf-b
@@ -1045,7 +1052,7 @@ G,.JBIG2,.JB2,.eps]
 fg
 File: epstopdf-sys.cfg 2021/03/18 v2.0 Configuration of epstopdf for MiKTeX
 ))
-Package hyperref Info: Link coloring OFF on input line 109.
+Package hyperref Info: Link coloring OFF on input line 110.
  (z-main.out) (z-main.out)
 \@outlinefile=\write6
 \openout6 = `z-main.out'.
@@ -1073,8 +1080,8 @@ Package biblatex Info: Automatic encoding selection.
 Package biblatex Info: Trying to load bibliographic data...
 Package biblatex Info: ... file 'z-main.bbl' found.
  (z-main.bbl)
-Package biblatex Info: Reference section=0 on input line 109.
-Package biblatex Info: Reference segment=0 on input line 109.
+Package biblatex Info: Reference section=0 on input line 110.
+Package biblatex Info: Reference segment=0 on input line 110.
 
 *geometry* driver: auto-detecting
 *geometry* detected driver: pdftex
@@ -1143,19 +1150,19 @@ Package biblatex Info: Reference segment=0 on input line 109.
 * (1in=72.27pt=25.4mm, 1cm=28.453pt)
 
 
-Overfull \hbox (29.81235pt too wide) in paragraph at lines 128--128
+Overfull \hbox (29.81235pt too wide) in paragraph at lines 129--129
 \T1/cmr/m/n/24.88 de enjambre enfocado en sincronización y control
  []
 
 <plantilla/portadacit.jpg, id=379, 1927.2pt x 752.8125pt>
 File: plantilla/portadacit.jpg Graphic file (type jpg)
 <use plantilla/portadacit.jpg>
-Package pdftex.def Info: plantilla/portadacit.jpg  used on input line 140.
+Package pdftex.def Info: plantilla/portadacit.jpg  used on input line 141.
 (pdftex.def)             Requested size: 965.1268pt x 376.99901pt.
 <plantilla/fondologo_grande.png, id=380, 969.02025pt x 430.0065pt>
 File: plantilla/fondologo_grande.png Graphic file (type png)
 <use plantilla/fondologo_grande.png>
-Package pdftex.def Info: plantilla/fondologo_grande.png  used on input line 140
+Package pdftex.def Info: plantilla/fondologo_grande.png  used on input line 141
 .
 (pdftex.def)             Requested size: 187.27997pt x 83.11005pt.
 Package epstopdf Info: Source file: <plantilla/logoUVGblanco.eps>
@@ -1167,14 +1174,14 @@ df>
 (epstopdf)                    size: 8894 bytes
 (epstopdf)             Command: <miktex-epstopdf --outfile=plantilla/logoUVGbla
 nco-eps-converted-to.pdf plantilla/logoUVGblanco.eps>
-(epstopdf)             \includegraphics on input line 140.
+(epstopdf)             \includegraphics on input line 141.
 Package epstopdf Info: Output file is already uptodate.
 <plantilla/logoUVGblanco-eps-converted-to.pdf, id=382, 680.5425pt x 174.6525pt>
 
 File: plantilla/logoUVGblanco-eps-converted-to.pdf Graphic file (type pdf)
 <use plantilla/logoUVGblanco-eps-converted-to.pdf>
 Package pdftex.def Info: plantilla/logoUVGblanco-eps-converted-to.pdf  used on 
-input line 140.
+input line 141.
 (pdftex.def)             Requested size: 154.88077pt x 39.74872pt.
 [1
 
@@ -1194,25 +1201,25 @@ pdf>
 (epstopdf)                    size: 37956 bytes
 (epstopdf)             Command: <miktex-epstopdf --outfile=plantilla/escudoUVGn
 egro-eps-converted-to.pdf plantilla/escudoUVGnegro.eps>
-(epstopdf)             \includegraphics on input line 164.
+(epstopdf)             \includegraphics on input line 165.
 Package epstopdf Info: Output file is already uptodate.
 <plantilla/escudoUVGnegro-eps-converted-to.pdf, id=397, 141.52875pt x 209.78375
 pt>
 File: plantilla/escudoUVGnegro-eps-converted-to.pdf Graphic file (type pdf)
 <use plantilla/escudoUVGnegro-eps-converted-to.pdf>
 Package pdftex.def Info: plantilla/escudoUVGnegro-eps-converted-to.pdf  used on
- input line 164.
+ input line 165.
 (pdftex.def)             Requested size: 105.574pt x 156.49014pt.
  [1
 
 
  <./plantilla/escudoUVGnegro-eps-converted-to.pdf>]
-Underfull \hbox (badness 10000) in paragraph at lines 221--222
+Underfull \hbox (badness 10000) in paragraph at lines 222--223
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 228--229
+Underfull \hbox (badness 10000) in paragraph at lines 229--230
 
  []
 
@@ -1220,7 +1227,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 228--229
 
 ]
 LaTeX Font Info:    Trying to load font information for T1+cmss on input line 2
-55.
+56.
  (C:\Users\gerar\AppData\Local\Programs\MiKTeX\tex/latex/base\t1cmss.fd
 File: t1cmss.fd 2023/04/13 v2.5m Standard LaTeX font definitions
 )
@@ -1296,7 +1303,7 @@ Cap\'{\i }tulo 1.
 ] [2]
 Cap\'{\i }tulo 2.
 (e-antecedentes.tex
-<figuras/Bluebot.jpg, id=746, 534.49687pt x 452.4403pt>
+<figuras/Bluebot.jpg, id=738, 534.49687pt x 452.4403pt>
 File: figuras/Bluebot.jpg Graphic file (type jpg)
 <use figuras/Bluebot.jpg>
 Package pdftex.def Info: figuras/Bluebot.jpg  used on input line 15.
@@ -1304,27 +1311,27 @@ Package pdftex.def Info: figuras/Bluebot.jpg  used on input line 15.
  [3
 
 ]
-<figuras/robotarium.jpg, id=757, 1505.625pt x 732.7375pt>
+<figuras/robotarium.jpg, id=749, 1505.625pt x 732.7375pt>
 File: figuras/robotarium.jpg Graphic file (type jpg)
 <use figuras/robotarium.jpg>
 Package pdftex.def Info: figuras/robotarium.jpg  used on input line 25.
 (pdftex.def)             Requested size: 216.81pt x 105.51187pt.
  [4 <./figuras/Bluebot.jpg> <./figuras/robotarium.jpg>]
-<figuras/robotatUVG.jpg, id=767, 1690.315pt x 1126.2075pt>
+<figuras/robotatUVG.jpg, id=759, 1690.315pt x 1126.2075pt>
 File: figuras/robotatUVG.jpg Graphic file (type jpg)
 <use figuras/robotatUVG.jpg>
 Package pdftex.def Info: figuras/robotatUVG.jpg  used on input line 37.
 (pdftex.def)             Requested size: 216.81pt x 144.45308pt.
 
 [5 <./figuras/robotatUVG.jpg>]
-<figuras/simulacion_inicio_tesis_andreaPena.png, id=779, 539.01375pt x 316.1812
+<figuras/simulacion_inicio_tesis_andreaPena.png, id=771, 539.01375pt x 316.1812
 4pt>
 File: figuras/simulacion_inicio_tesis_andreaPena.png Graphic file (type png)
 <use figuras/simulacion_inicio_tesis_andreaPena.png>
 Package pdftex.def Info: figuras/simulacion_inicio_tesis_andreaPena.png  used o
 n input line 59.
 (pdftex.def)             Requested size: 173.44534pt x 101.7397pt.
-<figuras/simulacion_final_tesis_andreaPena.png, id=780, 527.72156pt x 267.24844
+<figuras/simulacion_final_tesis_andreaPena.png, id=772, 527.72156pt x 267.24844
 pt>
 File: figuras/simulacion_final_tesis_andreaPena.png Graphic file (type png)
 <use figuras/simulacion_final_tesis_andreaPena.png>
@@ -1347,7 +1354,7 @@ Cap\'{\i }tulo 5.
 ]
 Cap\'{\i }tulo 6.
 (i-marco_teorico.tex
-<figuras/enjambre.jpg, id=804, 460.72125pt x 375.65344pt>
+<figuras/enjambre.jpg, id=797, 460.72125pt x 375.65344pt>
 File: figuras/enjambre.jpg Graphic file (type jpg)
 <use figuras/enjambre.jpg>
 Package pdftex.def Info: figuras/enjambre.jpg  used on input line 8.
@@ -1355,7 +1362,7 @@ Package pdftex.def Info: figuras/enjambre.jpg  used on input line 8.
  [10
 
  <./figuras/enjambre.jpg>]
-<figuras/control_centralizado_descentralizado.png, id=815, 676.77844pt x 403.50
+<figuras/control_centralizado_descentralizado.png, id=808, 676.77844pt x 403.50
 75pt>
 File: figuras/control_centralizado_descentralizado.png Graphic file (type png)
 <use figuras/control_centralizado_descentralizado.png>
@@ -1363,7 +1370,7 @@ Package pdftex.def Info: figuras/control_centralizado_descentralizado.png  used
  on input line 28.
 (pdftex.def)             Requested size: 433.62001pt x 258.53946pt.
  [11]
-<figuras/grafo_matrices_andrea.png, id=825, 373.395pt x 247.67531pt>
+<figuras/grafo_matrices_andrea.png, id=818, 373.395pt x 247.67531pt>
 File: figuras/grafo_matrices_andrea.png Graphic file (type png)
 <use figuras/grafo_matrices_andrea.png>
 Package pdftex.def Info: figuras/grafo_matrices_andrea.png  used on input line 
@@ -1371,20 +1378,20 @@ Package pdftex.def Info: figuras/grafo_matrices_andrea.png  used on input line
 (pdftex.def)             Requested size: 216.81pt x 143.8105pt.
  [12 <./figuras/control_centralizado_descentralizado.png> <./figuras/grafo_matr
 ices_andrea.png>]
-<figuras/tipos_de_grafos.png, id=839, 752.0597pt x 420.82219pt>
+<figuras/tipos_de_grafos.png, id=832, 752.0597pt x 420.82219pt>
 File: figuras/tipos_de_grafos.png Graphic file (type png)
 <use figuras/tipos_de_grafos.png>
 Package pdftex.def Info: figuras/tipos_de_grafos.png  used on input line 73.
 (pdftex.def)             Requested size: 433.62001pt x 242.63867pt.
 
 [13] [14 <./figuras/tipos_de_grafos.png>] [15]
-<figuras/grafo_formacion_triangular.png, id=867, 325.215pt x 213.04594pt>
+<figuras/grafo_formacion_triangular.png, id=860, 325.215pt x 213.04594pt>
 File: figuras/grafo_formacion_triangular.png Graphic file (type png)
 <use figuras/grafo_formacion_triangular.png>
 Package pdftex.def Info: figuras/grafo_formacion_triangular.png  used on input 
 line 165.
 (pdftex.def)             Requested size: 173.44534pt x 113.62573pt.
-<figuras/grafo_formacion_hexagonal.png, id=868, 218.31563pt x 225.84375pt>
+<figuras/grafo_formacion_hexagonal.png, id=861, 218.31563pt x 225.84375pt>
 File: figuras/grafo_formacion_hexagonal.png Graphic file (type png)
 <use figuras/grafo_formacion_hexagonal.png>
 Package pdftex.def Info: figuras/grafo_formacion_hexagonal.png  used on input l
@@ -1392,26 +1399,26 @@ ine 166.
 (pdftex.def)             Requested size: 173.44534pt x 179.42775pt.
  [16 <./figuras/grafo_formacion_triangular.png> <./figuras/grafo_formacion_hexa
 gonal.png>]
-<figuras/lazo_cerrado_control.png, id=887, 697.8572pt x 180.675pt>
+<figuras/lazo_cerrado_control.png, id=880, 697.8572pt x 180.675pt>
 File: figuras/lazo_cerrado_control.png Graphic file (type png)
 <use figuras/lazo_cerrado_control.png>
 Package pdftex.def Info: figuras/lazo_cerrado_control.png  used on input line 1
 96.
 (pdftex.def)             Requested size: 346.89732pt x 89.8107pt.
-<figuras/modelo_uniciclo.png, id=895, 321.45094pt x 262.73157pt>
+<figuras/modelo_uniciclo.png, id=888, 321.45094pt x 262.73157pt>
 File: figuras/modelo_uniciclo.png Graphic file (type png)
 <use figuras/modelo_uniciclo.png>
 Package pdftex.def Info: figuras/modelo_uniciclo.png  used on input line 219.
 (pdftex.def)             Requested size: 216.81pt x 177.21187pt.
  [17 <./figuras/lazo_cerrado_control.png>] [18 <./figuras/modelo_uniciclo.png>]
  [19]
-<figuras/webots.png, id=934, 1928.20375pt x 1005.7575pt>
+<figuras/webots.png, id=927, 1928.20375pt x 1005.7575pt>
 File: figuras/webots.png Graphic file (type png)
 <use figuras/webots.png>
 Package pdftex.def Info: figuras/webots.png  used on input line 313.
 (pdftex.def)             Requested size: 346.89732pt x 180.93646pt.
  [20 <./figuras/webots.png>]
-<figuras/paralelismo_dependencia_tareas.png, id=945, 335.75438pt x 263.48438pt>
+<figuras/paralelismo_dependencia_tareas.png, id=938, 335.75438pt x 263.48438pt>
 
 File: figuras/paralelismo_dependencia_tareas.png Graphic file (type png)
 <use figuras/paralelismo_dependencia_tareas.png>
@@ -1419,18 +1426,18 @@ Package pdftex.def Info: figuras/paralelismo_dependencia_tareas.png  used on in
 put line 330.
 (pdftex.def)             Requested size: 260.17465pt x 204.17415pt.
  [21 <./figuras/paralelismo_dependencia_tareas.png>]
-<figuras/primex41.png, id=955, 640.3925pt x 377.41pt>
+<figuras/primex41.png, id=948, 640.3925pt x 377.41pt>
 File: figuras/primex41.png Graphic file (type png)
 <use figuras/primex41.png>
 Package pdftex.def Info: figuras/primex41.png  used on input line 357.
 (pdftex.def)             Requested size: 216.81pt x 127.77061pt.
  [22 <./figuras/primex41.png>]
-<figuras/pololu_sensores1.jpg, id=965, 543.96774pt x 498.89613pt>
+<figuras/pololu_sensores1.jpg, id=958, 543.96774pt x 498.89613pt>
 File: figuras/pololu_sensores1.jpg Graphic file (type jpg)
 <use figuras/pololu_sensores1.jpg>
 Package pdftex.def Info: figuras/pololu_sensores1.jpg  used on input line 380.
 (pdftex.def)             Requested size: 195.12767pt x 178.96301pt.
-<figuras/pololu_sensores2.jpg, id=966, 543.96774pt x 498.89613pt>
+<figuras/pololu_sensores2.jpg, id=959, 543.96774pt x 498.89613pt>
 File: figuras/pololu_sensores2.jpg Graphic file (type jpg)
 <use figuras/pololu_sensores2.jpg>
 Package pdftex.def Info: figuras/pololu_sensores2.jpg  used on input line 380.
@@ -1441,7 +1448,7 @@ Cap\'{\i }tulo 7.
 [24
 
 ] [25]
-<figuras/optimizacion/diagrama_supervisor.png, id=986, 179.67125pt x 954.56625p
+<figuras/optimizacion/diagrama_supervisor.png, id=979, 179.67125pt x 954.56625p
 t>
 File: figuras/optimizacion/diagrama_supervisor.png Graphic file (type png)
 <use figuras/optimizacion/diagrama_supervisor.png>
@@ -1449,7 +1456,7 @@ Package pdftex.def Info: figuras/optimizacion/diagrama_supervisor.png  used on
 input line 46.
 (pdftex.def)             Requested size: 108.405pt x 575.9486pt.
  [26]
-<figuras/optimizacion/diagrama_agentes.png, id=991, 283.0575pt x 693.59125pt>
+<figuras/optimizacion/diagrama_agentes.png, id=984, 283.0575pt x 693.59125pt>
 File: figuras/optimizacion/diagrama_agentes.png Graphic file (type png)
 <use figuras/optimizacion/diagrama_agentes.png>
 Package pdftex.def Info: figuras/optimizacion/diagrama_agentes.png  used on inp
@@ -1461,111 +1468,110 @@ Cap\'{\i }tulo 8.
 [29
 
 ]
-<figuras/replicar_webots/delaygpu_v2_1.png, id=1008, 487.8225pt x 499.11469pt>
+<figuras/replicar_webots/delaygpu_v2_1.png, id=1001, 487.8225pt x 499.11469pt>
 File: figuras/replicar_webots/delaygpu_v2_1.png Graphic file (type png)
 <use figuras/replicar_webots/delaygpu_v2_1.png>
 Package pdftex.def Info: figuras/replicar_webots/delaygpu_v2_1.png  used on inp
 ut line 88.
 (pdftex.def)             Requested size: 130.08733pt x 133.09488pt.
-<figuras/replicar_webots/delaygpu_v2_2.png, id=1009, 487.8225pt x 499.11469pt>
+<figuras/replicar_webots/delaygpu_v2_2.png, id=1002, 487.8225pt x 499.11469pt>
 File: figuras/replicar_webots/delaygpu_v2_2.png Graphic file (type png)
 <use figuras/replicar_webots/delaygpu_v2_2.png>
 Package pdftex.def Info: figuras/replicar_webots/delaygpu_v2_2.png  used on inp
 ut line 89.
 (pdftex.def)             Requested size: 130.08733pt x 133.09488pt.
-<figuras/replicar_webots/delaygpu_v2_3.png, id=1010, 487.8225pt x 499.11469pt>
+<figuras/replicar_webots/delaygpu_v2_3.png, id=1003, 487.8225pt x 499.11469pt>
 File: figuras/replicar_webots/delaygpu_v2_3.png Graphic file (type png)
 <use figuras/replicar_webots/delaygpu_v2_3.png>
 Package pdftex.def Info: figuras/replicar_webots/delaygpu_v2_3.png  used on inp
 ut line 90.
 (pdftex.def)             Requested size: 130.08733pt x 133.09488pt.
- [30 <./figuras/replicar_webots/delaygpu_v2_1.png (PNG copy)> <./figuras/replic
-ar_webots/delaygpu_v2_2.png (PNG copy)> <./figuras/replicar_webots/delaygpu_v2_
-3.png (PNG copy)>]
-<figuras/replicar_webots/sim1_p1.png, id=1017, 546.54187pt x 554.07pt>
+ [30 <./figuras/replicar_webots/delaygpu_v2_1.png> <./figuras/replicar_webots/d
+elaygpu_v2_2.png> <./figuras/replicar_webots/delaygpu_v2_3.png>]
+<figuras/replicar_webots/sim1_p1.png, id=1013, 546.54187pt x 554.07pt>
 File: figuras/replicar_webots/sim1_p1.png Graphic file (type png)
 <use figuras/replicar_webots/sim1_p1.png>
 Package pdftex.def Info: figuras/replicar_webots/sim1_p1.png  used on input lin
 e 118.
 (pdftex.def)             Requested size: 195.12767pt x 197.81644pt.
-<figuras/replicar_webots/sim1_p2.png, id=1018, 546.54187pt x 554.07pt>
+<figuras/replicar_webots/sim1_p2.png, id=1014, 546.54187pt x 554.07pt>
 File: figuras/replicar_webots/sim1_p2.png Graphic file (type png)
 <use figuras/replicar_webots/sim1_p2.png>
 Package pdftex.def Info: figuras/replicar_webots/sim1_p2.png  used on input lin
 e 119.
 (pdftex.def)             Requested size: 195.12767pt x 197.81644pt.
-<figuras/replicar_webots/sim1_p3.png, id=1019, 546.54187pt x 554.07pt>
+<figuras/replicar_webots/sim1_p3.png, id=1015, 546.54187pt x 554.07pt>
 File: figuras/replicar_webots/sim1_p3.png Graphic file (type png)
 <use figuras/replicar_webots/sim1_p3.png>
 Package pdftex.def Info: figuras/replicar_webots/sim1_p3.png  used on input lin
 e 120.
 (pdftex.def)             Requested size: 195.12767pt x 197.81644pt.
-<figuras/replicar_webots/sim1_p4.png, id=1020, 546.54187pt x 554.07pt>
+<figuras/replicar_webots/sim1_p4.png, id=1016, 546.54187pt x 554.07pt>
 File: figuras/replicar_webots/sim1_p4.png Graphic file (type png)
 <use figuras/replicar_webots/sim1_p4.png>
 Package pdftex.def Info: figuras/replicar_webots/sim1_p4.png  used on input lin
 e 121.
 (pdftex.def)             Requested size: 195.12767pt x 197.81644pt.
  [31]
-<figuras/replicar_webots/sim2_p1.png, id=1028, 546.54187pt x 554.07pt>
+<figuras/replicar_webots/sim2_p1.png, id=1024, 546.54187pt x 554.07pt>
 File: figuras/replicar_webots/sim2_p1.png Graphic file (type png)
 <use figuras/replicar_webots/sim2_p1.png>
 Package pdftex.def Info: figuras/replicar_webots/sim2_p1.png  used on input lin
 e 140.
 (pdftex.def)             Requested size: 195.12767pt x 197.81644pt.
-<figuras/replicar_webots/sim2_p2.png, id=1029, 546.54187pt x 554.07pt>
+<figuras/replicar_webots/sim2_p2.png, id=1025, 546.54187pt x 554.07pt>
 File: figuras/replicar_webots/sim2_p2.png Graphic file (type png)
 <use figuras/replicar_webots/sim2_p2.png>
 Package pdftex.def Info: figuras/replicar_webots/sim2_p2.png  used on input lin
 e 141.
 (pdftex.def)             Requested size: 195.12767pt x 197.81644pt.
-<figuras/replicar_webots/sim2_p3.png, id=1030, 546.54187pt x 554.07pt>
+<figuras/replicar_webots/sim2_p3.png, id=1026, 546.54187pt x 554.07pt>
 File: figuras/replicar_webots/sim2_p3.png Graphic file (type png)
 <use figuras/replicar_webots/sim2_p3.png>
 Package pdftex.def Info: figuras/replicar_webots/sim2_p3.png  used on input lin
 e 142.
 (pdftex.def)             Requested size: 195.12767pt x 197.81644pt.
-<figuras/replicar_webots/sim2_p4.png, id=1031, 546.54187pt x 554.07pt>
+<figuras/replicar_webots/sim2_p4.png, id=1027, 546.54187pt x 554.07pt>
 File: figuras/replicar_webots/sim2_p4.png Graphic file (type png)
 <use figuras/replicar_webots/sim2_p4.png>
 Package pdftex.def Info: figuras/replicar_webots/sim2_p4.png  used on input lin
 e 143.
 (pdftex.def)             Requested size: 195.12767pt x 197.81644pt.
- [32 <./figuras/replicar_webots/sim1_p1.png (PNG copy)> <./figuras/replicar_web
-ots/sim1_p2.png (PNG copy)> <./figuras/replicar_webots/sim1_p3.png (PNG copy)> 
-<./figuras/replicar_webots/sim1_p4.png (PNG copy)>]
-<figuras/replicar_webots/sim3_p1.png, id=1038, 546.54187pt x 554.07pt>
+
+[32 <./figuras/replicar_webots/sim1_p1.png (PNG copy)> <./figuras/replicar_webo
+ts/sim1_p2.png (PNG copy)> <./figuras/replicar_webots/sim1_p3.png (PNG copy)> <
+./figuras/replicar_webots/sim1_p4.png (PNG copy)>]
+<figuras/replicar_webots/sim3_p1.png, id=1034, 546.54187pt x 554.07pt>
 File: figuras/replicar_webots/sim3_p1.png Graphic file (type png)
 <use figuras/replicar_webots/sim3_p1.png>
 Package pdftex.def Info: figuras/replicar_webots/sim3_p1.png  used on input lin
 e 162.
 (pdftex.def)             Requested size: 195.12767pt x 197.81644pt.
-<figuras/replicar_webots/sim3_p2.png, id=1039, 546.54187pt x 554.07pt>
+<figuras/replicar_webots/sim3_p2.png, id=1035, 546.54187pt x 554.07pt>
 File: figuras/replicar_webots/sim3_p2.png Graphic file (type png)
 <use figuras/replicar_webots/sim3_p2.png>
 Package pdftex.def Info: figuras/replicar_webots/sim3_p2.png  used on input lin
 e 163.
 (pdftex.def)             Requested size: 195.12767pt x 197.81644pt.
-<figuras/replicar_webots/sim3_p3.png, id=1040, 546.54187pt x 554.07pt>
+<figuras/replicar_webots/sim3_p3.png, id=1036, 546.54187pt x 554.07pt>
 File: figuras/replicar_webots/sim3_p3.png Graphic file (type png)
 <use figuras/replicar_webots/sim3_p3.png>
 Package pdftex.def Info: figuras/replicar_webots/sim3_p3.png  used on input lin
 e 164.
 (pdftex.def)             Requested size: 195.12767pt x 197.81644pt.
-<figuras/replicar_webots/sim3_p4.png, id=1041, 546.54187pt x 554.07pt>
+<figuras/replicar_webots/sim3_p4.png, id=1037, 546.54187pt x 554.07pt>
 File: figuras/replicar_webots/sim3_p4.png Graphic file (type png)
 <use figuras/replicar_webots/sim3_p4.png>
 Package pdftex.def Info: figuras/replicar_webots/sim3_p4.png  used on input lin
 e 165.
 (pdftex.def)             Requested size: 195.12767pt x 197.81644pt.
-
-[33 <./figuras/replicar_webots/sim2_p1.png (PNG copy)> <./figuras/replicar_webo
-ts/sim2_p2.png (PNG copy)> <./figuras/replicar_webots/sim2_p3.png (PNG copy)> <
-./figuras/replicar_webots/sim2_p4.png (PNG copy)>] [34 <./figuras/replicar_webo
-ts/sim3_p1.png (PNG copy)> <./figuras/replicar_webots/sim3_p2.png (PNG copy)> <
-./figuras/replicar_webots/sim3_p3.png (PNG copy)> <./figuras/replicar_webots/si
-m3_p4.png (PNG copy)>]
-<figuras/replicar_fisico_pruebas/error_conexion.png, id=1053, 573.64313pt x 63.
+ [33 <./figuras/replicar_webots/sim2_p1.png (PNG copy)> <./figuras/replicar_web
+ots/sim2_p2.png (PNG copy)> <./figuras/replicar_webots/sim2_p3.png (PNG copy)> 
+<./figuras/replicar_webots/sim2_p4.png (PNG copy)>] [34 <./figuras/replicar_web
+ots/sim3_p1.png (PNG copy)> <./figuras/replicar_webots/sim3_p2.png (PNG copy)> 
+<./figuras/replicar_webots/sim3_p3.png (PNG copy)> <./figuras/replicar_webots/s
+im3_p4.png (PNG copy)>]
+<figuras/replicar_fisico_pruebas/error_conexion.png, id=1049, 573.64313pt x 63.
 98906pt>
 File: figuras/replicar_fisico_pruebas/error_conexion.png Graphic file (type png
 )
@@ -1573,7 +1579,7 @@ File: figuras/replicar_fisico_pruebas/error_conexion.png Graphic file (type png
 Package pdftex.def Info: figuras/replicar_fisico_pruebas/error_conexion.png  us
 ed on input line 190.
 (pdftex.def)             Requested size: 346.89732pt x 38.6964pt.
-<figuras/replicar_fisico_pruebas/marcadores_disponibles.png, id=1055, 963.6pt x
+<figuras/replicar_fisico_pruebas/marcadores_disponibles.png, id=1051, 963.6pt x
  580.41844pt>
 File: figuras/replicar_fisico_pruebas/marcadores_disponibles.png Graphic file (
 type png)
@@ -1581,8 +1587,9 @@ type png)
 Package pdftex.def Info: figuras/replicar_fisico_pruebas/marcadores_disponibles
 .png  used on input line 202.
 (pdftex.def)             Requested size: 346.89732pt x 208.95047pt.
- [35 <./figuras/replicar_fisico_pruebas/error_conexion.png>]
-<figuras/replicar_fisico_pruebas/marcadores_ejey.png, id=1063, 722.7pt x 772.38
+
+[35 <./figuras/replicar_fisico_pruebas/error_conexion.png>]
+<figuras/replicar_fisico_pruebas/marcadores_ejey.png, id=1059, 722.7pt x 772.38
 562pt>
 File: figuras/replicar_fisico_pruebas/marcadores_ejey.png Graphic file (type pn
 g)
@@ -1591,112 +1598,104 @@ Package pdftex.def Info: figuras/replicar_fisico_pruebas/marcadores_ejey.png  u
 sed on input line 211.
 (pdftex.def)             Requested size: 260.17465pt x 278.05861pt.
  [36 <./figuras/replicar_fisico_pruebas/marcadores_disponibles.png> <./figuras/
-replicar_fisico_pruebas/marcadores_ejey.png>] [37] [38]
-<figuras/replicar_fisico_pruebas/agente_inmovil_p1.png, id=1085, 300.3722pt x 3
+replicar_fisico_pruebas/marcadores_ejey.png>]
+<figuras/replicar_fisico_pruebas/agente_inmovil_p1.png, id=1068, 300.3722pt x 3
 00.3722pt>
 File: figuras/replicar_fisico_pruebas/agente_inmovil_p1.png Graphic file (type 
 png)
 <use figuras/replicar_fisico_pruebas/agente_inmovil_p1.png>
 Package pdftex.def Info: figuras/replicar_fisico_pruebas/agente_inmovil_p1.png 
- used on input line 310.
+ used on input line 258.
 (pdftex.def)             Requested size: 195.12767pt x 195.13419pt.
-<figuras/replicar_fisico_pruebas/agente_inmovil_p2.png, id=1086, 304.88907pt x 
+<figuras/replicar_fisico_pruebas/agente_inmovil_p2.png, id=1069, 304.88907pt x 
 304.88907pt>
 File: figuras/replicar_fisico_pruebas/agente_inmovil_p2.png Graphic file (type 
 png)
 <use figuras/replicar_fisico_pruebas/agente_inmovil_p2.png>
 Package pdftex.def Info: figuras/replicar_fisico_pruebas/agente_inmovil_p2.png 
- used on input line 311.
+ used on input line 259.
 (pdftex.def)             Requested size: 195.12767pt x 195.13298pt.
- [39 <./figuras/replicar_fisico_pruebas/agente_inmovil_p1.png> <./figuras/repli
-car_fisico_pruebas/agente_inmovil_p2.png>]
-<figuras/replicar_fisico_pruebas/seleccion_agentes.png, id=1094, 1533.73pt x 11
+ [37] [38 <./figuras/replicar_fisico_pruebas/agente_inmovil_p1.png> <./figuras/
+replicar_fisico_pruebas/agente_inmovil_p2.png>]
+<figuras/replicar_fisico_pruebas/seleccion_agentes.png, id=1082, 1533.73pt x 11
 72.38pt>
 File: figuras/replicar_fisico_pruebas/seleccion_agentes.png Graphic file (type 
 png)
 <use figuras/replicar_fisico_pruebas/seleccion_agentes.png>
 Package pdftex.def Info: figuras/replicar_fisico_pruebas/seleccion_agentes.png 
- used on input line 337.
+ used on input line 285.
 (pdftex.def)             Requested size: 260.17465pt x 198.87262pt.
-<figuras/replicar_fisico_pruebas/divergencia_p1.png, id=1096, 774.64406pt x 619
+<figuras/replicar_fisico_pruebas/divergencia_p1.png, id=1084, 774.64406pt x 619
 .56468pt>
 File: figuras/replicar_fisico_pruebas/divergencia_p1.png Graphic file (type png
 )
 <use figuras/replicar_fisico_pruebas/divergencia_p1.png>
 Package pdftex.def Info: figuras/replicar_fisico_pruebas/divergencia_p1.png  us
-ed on input line 348.
+ed on input line 296.
 (pdftex.def)             Requested size: 195.12767pt x 156.06305pt.
-<figuras/replicar_fisico_pruebas/divergencia_p2.png, id=1097, 809.27344pt x 647
+<figuras/replicar_fisico_pruebas/divergencia_p2.png, id=1085, 809.27344pt x 647
 .41875pt>
 File: figuras/replicar_fisico_pruebas/divergencia_p2.png Graphic file (type png
 )
 <use figuras/replicar_fisico_pruebas/divergencia_p2.png>
 Package pdftex.def Info: figuras/replicar_fisico_pruebas/divergencia_p2.png  us
-ed on input line 349.
+ed on input line 297.
 (pdftex.def)             Requested size: 195.12767pt x 156.09494pt.
- [40 <./figuras/replicar_fisico_pruebas/seleccion_agentes.png>]
-<figuras/replicar_fisico_pruebas/divergencia2_p1.png, id=1104, 966.61125pt x 96
+
+[39 <./figuras/replicar_fisico_pruebas/seleccion_agentes.png> <./figuras/replic
+ar_fisico_pruebas/divergencia_p1.png> <./figuras/replicar_fisico_pruebas/diverg
+encia_p2.png>]
+<figuras/replicar_fisico_pruebas/divergencia2_p1.png, id=1094, 966.61125pt x 96
 6.61125pt>
 File: figuras/replicar_fisico_pruebas/divergencia2_p1.png Graphic file (type pn
 g)
 <use figuras/replicar_fisico_pruebas/divergencia2_p1.png>
 Package pdftex.def Info: figuras/replicar_fisico_pruebas/divergencia2_p1.png  u
-sed on input line 358.
+sed on input line 306.
 (pdftex.def)             Requested size: 195.12767pt x 195.11824pt.
-<figuras/replicar_fisico_pruebas/divergencia2_p2.png, id=1105, 966.61125pt x 96
+<figuras/replicar_fisico_pruebas/divergencia2_p2.png, id=1095, 966.61125pt x 96
 6.61125pt>
 File: figuras/replicar_fisico_pruebas/divergencia2_p2.png Graphic file (type pn
 g)
 <use figuras/replicar_fisico_pruebas/divergencia2_p2.png>
 Package pdftex.def Info: figuras/replicar_fisico_pruebas/divergencia2_p2.png  u
-sed on input line 359.
+sed on input line 307.
 (pdftex.def)             Requested size: 195.12767pt x 195.11824pt.
- [41 <./figuras/replicar_fisico_pruebas/divergencia_p1.png> <./figuras/replicar
-_fisico_pruebas/divergencia_p2.png> <./figuras/replicar_fisico_pruebas/divergen
-cia2_p1.png> <./figuras/replicar_fisico_pruebas/divergencia2_p2.png>]
-<figuras/replicar_fisico_pruebas/prueba_fisico_p1.png, id=1117, 963.6pt x 963.6
-pt>
-File: figuras/replicar_fisico_pruebas/prueba_fisico_p1.png Graphic file (type p
-ng)
-<use figuras/replicar_fisico_pruebas/prueba_fisico_p1.png>
-Package pdftex.def Info: figuras/replicar_fisico_pruebas/prueba_fisico_p1.png  
-used on input line 375.
+<figuras/replicar_fisico_pruebas/prueba_fisico_p1v2.png, id=1098, 963.6pt x 963
+.6pt>
+File: figuras/replicar_fisico_pruebas/prueba_fisico_p1v2.png Graphic file (type
+ png)
+<use figuras/replicar_fisico_pruebas/prueba_fisico_p1v2.png>
+Package pdftex.def Info: figuras/replicar_fisico_pruebas/prueba_fisico_p1v2.png
+  used on input line 323.
 (pdftex.def)             Requested size: 195.12767pt x 195.12793pt.
-<figuras/replicar_fisico_pruebas/prueba_fisico_p2.png, id=1118, 963.6pt x 963.6
-pt>
-File: figuras/replicar_fisico_pruebas/prueba_fisico_p2.png Graphic file (type p
-ng)
-<use figuras/replicar_fisico_pruebas/prueba_fisico_p2.png>
-Package pdftex.def Info: figuras/replicar_fisico_pruebas/prueba_fisico_p2.png  
-used on input line 376.
-(pdftex.def)             Requested size: 195.12767pt x 195.12793pt.
-<figuras/replicar_fisico_pruebas/prueba_fisico_p3.png, id=1119, 963.6pt x 963.6
+<figuras/replicar_fisico_pruebas/prueba_fisico_p3.png, id=1099, 963.6pt x 963.6
 pt>
 File: figuras/replicar_fisico_pruebas/prueba_fisico_p3.png Graphic file (type p
 ng)
 <use figuras/replicar_fisico_pruebas/prueba_fisico_p3.png>
 Package pdftex.def Info: figuras/replicar_fisico_pruebas/prueba_fisico_p3.png  
-used on input line 377.
+used on input line 324.
 (pdftex.def)             Requested size: 195.12767pt x 195.12793pt.
-<figuras/replicar_fisico_pruebas/prueba_fisico_p4.png, id=1120, 963.6pt x 963.6
+<figuras/replicar_fisico_pruebas/prueba_fisico_p4.png, id=1100, 963.6pt x 963.6
 pt>
 File: figuras/replicar_fisico_pruebas/prueba_fisico_p4.png Graphic file (type p
 ng)
 <use figuras/replicar_fisico_pruebas/prueba_fisico_p4.png>
 Package pdftex.def Info: figuras/replicar_fisico_pruebas/prueba_fisico_p4.png  
-used on input line 378.
+used on input line 325.
 (pdftex.def)             Requested size: 195.12767pt x 195.12793pt.
-
-[42 <./figuras/replicar_fisico_pruebas/prueba_fisico_p1.png> <./figuras/replica
-r_fisico_pruebas/prueba_fisico_p2.png> <./figuras/replicar_fisico_pruebas/prueb
-a_fisico_p3.png> <./figuras/replicar_fisico_pruebas/prueba_fisico_p4.png>]
-[43]
-<figuras/replicar_fisico_escenarios/test_f1.png, id=1142, 2061.95343pt x 2061.9
+ [40 <./figuras/replicar_fisico_pruebas/divergencia2_p1.png> <./figuras/replica
+r_fisico_pruebas/divergencia2_p2.png>] [41 <./figuras/replicar_fisico_pruebas/p
+rueba_fisico_p1v2.png> <./figuras/replicar_fisico_pruebas/prueba_fisico_p3.png>
+ <./figuras/replicar_fisico_pruebas/prueba_fisico_p4.png>]
+[42]
+<figuras/replicar_fisico_escenarios/test_f1.png, id=1127, 2061.95343pt x 2061.9
 5343pt>
 File: figuras/replicar_fisico_escenarios/test_f1.png Graphic file (type png)
 <use figuras/replicar_fisico_escenarios/test_f1.png>
 Package pdftex.def Info: figuras/replicar_fisico_escenarios/test_f1.png  used o
-n input line 443.
+n input line 390.
 (pdftex.def)             Requested size: 346.89732pt x 346.87776pt.
 Package epstopdf Info: Source file: <figuras/replicar_fisico_escenarios/traj_te
 st_2A_AAA_f_1.eps>
@@ -1709,24 +1708,24 @@ st_2A_AAA_f_1-eps-converted-to.pdf>
 (epstopdf)             Command: <miktex-epstopdf --outfile=figuras/replicar_fis
 ico_escenarios/traj_test_2A_AAA_f_1-eps-converted-to.pdf figuras/replicar_fisic
 o_escenarios/traj_test_2A_AAA_f_1.eps>
-(epstopdf)             \includegraphics on input line 449.
+(epstopdf)             \includegraphics on input line 396.
 Package epstopdf Info: Output file is already uptodate.
 <figuras/replicar_fisico_escenarios/traj_test_2A_AAA_f_1-eps-converted-to.pdf, 
-id=1143, 409.53pt x 453.695pt>
+id=1128, 409.53pt x 453.695pt>
 File: figuras/replicar_fisico_escenarios/traj_test_2A_AAA_f_1-eps-converted-to.
 pdf Graphic file (type pdf)
 <use figuras/replicar_fisico_escenarios/traj_test_2A_AAA_f_1-eps-converted-to.p
 df>
 Package pdftex.def Info: figuras/replicar_fisico_escenarios/traj_test_2A_AAA_f_
-1-eps-converted-to.pdf  used on input line 449.
+1-eps-converted-to.pdf  used on input line 396.
 (pdftex.def)             Requested size: 346.89732pt x 384.33415pt.
- [44 <./figuras/replicar_fisico_escenarios/test_f1.png>]
-<figuras/replicar_fisico_escenarios/test_f2.png, id=1152, 2275.75218pt x 2275.7
+ [43 <./figuras/replicar_fisico_escenarios/test_f1.png>]
+<figuras/replicar_fisico_escenarios/test_f2.png, id=1138, 2275.75218pt x 2275.7
 5218pt>
 File: figuras/replicar_fisico_escenarios/test_f2.png Graphic file (type png)
 <use figuras/replicar_fisico_escenarios/test_f2.png>
 Package pdftex.def Info: figuras/replicar_fisico_escenarios/test_f2.png  used o
-n input line 459.
+n input line 406.
 (pdftex.def)             Requested size: 346.89732pt x 346.8694pt.
 Package epstopdf Info: Source file: <figuras/replicar_fisico_escenarios/traj_te
 st_6A_AAA_f_1.eps>
@@ -1739,24 +1738,24 @@ st_6A_AAA_f_1-eps-converted-to.pdf>
 (epstopdf)             Command: <miktex-epstopdf --outfile=figuras/replicar_fis
 ico_escenarios/traj_test_6A_AAA_f_1-eps-converted-to.pdf figuras/replicar_fisic
 o_escenarios/traj_test_6A_AAA_f_1.eps>
-(epstopdf)             \includegraphics on input line 465.
+(epstopdf)             \includegraphics on input line 412.
 Package epstopdf Info: Output file is already uptodate.
 <figuras/replicar_fisico_escenarios/traj_test_6A_AAA_f_1-eps-converted-to.pdf, 
-id=1153, 409.53pt x 453.695pt>
+id=1139, 409.53pt x 453.695pt>
 File: figuras/replicar_fisico_escenarios/traj_test_6A_AAA_f_1-eps-converted-to.
 pdf Graphic file (type pdf)
 <use figuras/replicar_fisico_escenarios/traj_test_6A_AAA_f_1-eps-converted-to.p
 df>
 Package pdftex.def Info: figuras/replicar_fisico_escenarios/traj_test_6A_AAA_f_
-1-eps-converted-to.pdf  used on input line 465.
+1-eps-converted-to.pdf  used on input line 412.
 (pdftex.def)             Requested size: 346.89732pt x 384.33415pt.
- [45 <./figuras/replicar_fisico_escenarios/traj_test_2A_AAA_f_1-eps-converted-t
-o.pdf>] [46 <./figuras/replicar_fisico_escenarios/test_f2.png>]
-<figuras/replicar_fisico_escenarios/test_f3.png, id=1207, 963.6pt x 963.6pt>
+ [44 <./figuras/replicar_fisico_escenarios/traj_test_2A_AAA_f_1-eps-converted-t
+o.pdf>] [45 <./figuras/replicar_fisico_escenarios/test_f2.png>]
+<figuras/replicar_fisico_escenarios/test_f3.png, id=1193, 963.6pt x 963.6pt>
 File: figuras/replicar_fisico_escenarios/test_f3.png Graphic file (type png)
 <use figuras/replicar_fisico_escenarios/test_f3.png>
 Package pdftex.def Info: figuras/replicar_fisico_escenarios/test_f3.png  used o
-n input line 475.
+n input line 422.
 (pdftex.def)             Requested size: 346.89732pt x 346.89574pt.
 Package epstopdf Info: Source file: <figuras/replicar_fisico_escenarios/traj_te
 st_6A_ACA_f_1.eps>
@@ -1769,24 +1768,24 @@ st_6A_ACA_f_1-eps-converted-to.pdf>
 (epstopdf)             Command: <miktex-epstopdf --outfile=figuras/replicar_fis
 ico_escenarios/traj_test_6A_ACA_f_1-eps-converted-to.pdf figuras/replicar_fisic
 o_escenarios/traj_test_6A_ACA_f_1.eps>
-(epstopdf)             \includegraphics on input line 481.
+(epstopdf)             \includegraphics on input line 428.
 Package epstopdf Info: Output file is already uptodate.
 <figuras/replicar_fisico_escenarios/traj_test_6A_ACA_f_1-eps-converted-to.pdf, 
-id=1208, 409.53pt x 453.695pt>
+id=1194, 409.53pt x 453.695pt>
 File: figuras/replicar_fisico_escenarios/traj_test_6A_ACA_f_1-eps-converted-to.
 pdf Graphic file (type pdf)
 <use figuras/replicar_fisico_escenarios/traj_test_6A_ACA_f_1-eps-converted-to.p
 df>
 Package pdftex.def Info: figuras/replicar_fisico_escenarios/traj_test_6A_ACA_f_
-1-eps-converted-to.pdf  used on input line 481.
+1-eps-converted-to.pdf  used on input line 428.
 (pdftex.def)             Requested size: 346.89732pt x 384.33415pt.
- [47 <./figuras/replicar_fisico_escenarios/traj_test_6A_AAA_f_1-eps-converted-t
-o.pdf>] [48 <./figuras/replicar_fisico_escenarios/test_f3.png>]
-<figuras/replicar_fisico_escenarios/test_f4.png, id=1265, 963.6pt x 963.6pt>
+ [46 <./figuras/replicar_fisico_escenarios/traj_test_6A_AAA_f_1-eps-converted-t
+o.pdf>] [47 <./figuras/replicar_fisico_escenarios/test_f3.png>]
+<figuras/replicar_fisico_escenarios/test_f4.png, id=1251, 963.6pt x 963.6pt>
 File: figuras/replicar_fisico_escenarios/test_f4.png Graphic file (type png)
 <use figuras/replicar_fisico_escenarios/test_f4.png>
 Package pdftex.def Info: figuras/replicar_fisico_escenarios/test_f4.png  used o
-n input line 491.
+n input line 438.
 (pdftex.def)             Requested size: 346.89732pt x 346.89574pt.
 Package epstopdf Info: Source file: <figuras/replicar_fisico_escenarios/traj_te
 st_3A_ACC_f_1.eps>
@@ -1799,24 +1798,24 @@ st_3A_ACC_f_1-eps-converted-to.pdf>
 (epstopdf)             Command: <miktex-epstopdf --outfile=figuras/replicar_fis
 ico_escenarios/traj_test_3A_ACC_f_1-eps-converted-to.pdf figuras/replicar_fisic
 o_escenarios/traj_test_3A_ACC_f_1.eps>
-(epstopdf)             \includegraphics on input line 497.
+(epstopdf)             \includegraphics on input line 444.
 Package epstopdf Info: Output file is already uptodate.
 <figuras/replicar_fisico_escenarios/traj_test_3A_ACC_f_1-eps-converted-to.pdf, 
-id=1266, 409.53pt x 453.695pt>
+id=1252, 409.53pt x 453.695pt>
 File: figuras/replicar_fisico_escenarios/traj_test_3A_ACC_f_1-eps-converted-to.
 pdf Graphic file (type pdf)
 <use figuras/replicar_fisico_escenarios/traj_test_3A_ACC_f_1-eps-converted-to.p
 df>
 Package pdftex.def Info: figuras/replicar_fisico_escenarios/traj_test_3A_ACC_f_
-1-eps-converted-to.pdf  used on input line 497.
+1-eps-converted-to.pdf  used on input line 444.
 (pdftex.def)             Requested size: 346.89732pt x 384.33415pt.
- [49 <./figuras/replicar_fisico_escenarios/traj_test_6A_ACA_f_1-eps-converted-t
-o.pdf>] [50 <./figuras/replicar_fisico_escenarios/test_f4.png>]
-<figuras/replicar_fisico_escenarios/test_f5.png, id=1326, 963.6pt x 963.6pt>
+ [48 <./figuras/replicar_fisico_escenarios/traj_test_6A_ACA_f_1-eps-converted-t
+o.pdf>] [49 <./figuras/replicar_fisico_escenarios/test_f4.png>]
+<figuras/replicar_fisico_escenarios/test_f5.png, id=1312, 963.6pt x 963.6pt>
 File: figuras/replicar_fisico_escenarios/test_f5.png Graphic file (type png)
 <use figuras/replicar_fisico_escenarios/test_f5.png>
 Package pdftex.def Info: figuras/replicar_fisico_escenarios/test_f5.png  used o
-n input line 507.
+n input line 454.
 (pdftex.def)             Requested size: 346.89732pt x 346.89574pt.
 Package epstopdf Info: Source file: <figuras/replicar_fisico_escenarios/traj_te
 st_3A_ACA_f_1.eps>
@@ -1829,23 +1828,23 @@ st_3A_ACA_f_1-eps-converted-to.pdf>
 (epstopdf)             Command: <miktex-epstopdf --outfile=figuras/replicar_fis
 ico_escenarios/traj_test_3A_ACA_f_1-eps-converted-to.pdf figuras/replicar_fisic
 o_escenarios/traj_test_3A_ACA_f_1.eps>
-(epstopdf)             \includegraphics on input line 513.
+(epstopdf)             \includegraphics on input line 460.
 Package epstopdf Info: Output file is already uptodate.
 <figuras/replicar_fisico_escenarios/traj_test_3A_ACA_f_1-eps-converted-to.pdf, 
-id=1327, 409.53pt x 453.695pt>
+id=1313, 409.53pt x 453.695pt>
 File: figuras/replicar_fisico_escenarios/traj_test_3A_ACA_f_1-eps-converted-to.
 pdf Graphic file (type pdf)
 <use figuras/replicar_fisico_escenarios/traj_test_3A_ACA_f_1-eps-converted-to.p
 df>
 Package pdftex.def Info: figuras/replicar_fisico_escenarios/traj_test_3A_ACA_f_
-1-eps-converted-to.pdf  used on input line 513.
+1-eps-converted-to.pdf  used on input line 460.
 (pdftex.def)             Requested size: 346.89732pt x 384.33415pt.
- [51 <./figuras/replicar_fisico_escenarios/traj_test_3A_ACC_f_1-eps-converted-t
-o.pdf>] [52 <./figuras/replicar_fisico_escenarios/test_f5.png>]
-[53 <./figuras/replicar_fisico_escenarios/traj_test_3A_ACA_f_1-eps-converted-to
+ [50 <./figuras/replicar_fisico_escenarios/traj_test_3A_ACC_f_1-eps-converted-t
+o.pdf>] [51 <./figuras/replicar_fisico_escenarios/test_f5.png>]
+[52 <./figuras/replicar_fisico_escenarios/traj_test_3A_ACA_f_1-eps-converted-to
 .pdf>]
 Cap\'{\i }tulo 9.
-[54
+[53
 
 ]
 Package epstopdf Info: Source file: <figuras/test_sim_ObsM/traj_testSim_6A_ADA_
@@ -1859,15 +1858,15 @@ v_1-eps-converted-to.pdf>
 (epstopdf)             Command: <miktex-epstopdf --outfile=figuras/test_sim_Obs
 M/traj_testSim_6A_ADA_v_1-eps-converted-to.pdf figuras/test_sim_ObsM/traj_testS
 im_6A_ADA_v_1.eps>
-(epstopdf)             \includegraphics on input line 532.
+(epstopdf)             \includegraphics on input line 479.
 Package epstopdf Info: Output file is already uptodate.
-<figuras/test_sim_ObsM/traj_testSim_6A_ADA_v_1-eps-converted-to.pdf, id=1437, 4
+<figuras/test_sim_ObsM/traj_testSim_6A_ADA_v_1-eps-converted-to.pdf, id=1423, 4
 09.53pt x 453.695pt>
 File: figuras/test_sim_ObsM/traj_testSim_6A_ADA_v_1-eps-converted-to.pdf Graphi
 c file (type pdf)
 <use figuras/test_sim_ObsM/traj_testSim_6A_ADA_v_1-eps-converted-to.pdf>
 Package pdftex.def Info: figuras/test_sim_ObsM/traj_testSim_6A_ADA_v_1-eps-conv
-erted-to.pdf  used on input line 532.
+erted-to.pdf  used on input line 479.
 (pdftex.def)             Requested size: 346.89732pt x 384.33415pt.
 Package epstopdf Info: Source file: <figuras/test_sim_ObsM/traj_testSim_6A_ADA_
 v_2.eps>
@@ -1880,17 +1879,17 @@ v_2-eps-converted-to.pdf>
 (epstopdf)             Command: <miktex-epstopdf --outfile=figuras/test_sim_Obs
 M/traj_testSim_6A_ADA_v_2-eps-converted-to.pdf figuras/test_sim_ObsM/traj_testS
 im_6A_ADA_v_2.eps>
-(epstopdf)             \includegraphics on input line 540.
+(epstopdf)             \includegraphics on input line 487.
 Package epstopdf Info: Output file is already uptodate.
-<figuras/test_sim_ObsM/traj_testSim_6A_ADA_v_2-eps-converted-to.pdf, id=1438, 4
+<figuras/test_sim_ObsM/traj_testSim_6A_ADA_v_2-eps-converted-to.pdf, id=1424, 4
 09.53pt x 453.695pt>
 File: figuras/test_sim_ObsM/traj_testSim_6A_ADA_v_2-eps-converted-to.pdf Graphi
 c file (type pdf)
 <use figuras/test_sim_ObsM/traj_testSim_6A_ADA_v_2-eps-converted-to.pdf>
 Package pdftex.def Info: figuras/test_sim_ObsM/traj_testSim_6A_ADA_v_2-eps-conv
-erted-to.pdf  used on input line 540.
+erted-to.pdf  used on input line 487.
 (pdftex.def)             Requested size: 346.89732pt x 384.33415pt.
- [55 <./figuras/test_sim_ObsM/traj_testSim_6A_ADA_v_1-eps-converted-to.pdf>]
+ [54 <./figuras/test_sim_ObsM/traj_testSim_6A_ADA_v_1-eps-converted-to.pdf>]
 Package epstopdf Info: Source file: <figuras/test_sim_ObsM/traj_testSim_6A_ADA_
 v_3.eps>
 (epstopdf)                    date: 2024-09-23 00:17:11
@@ -1902,17 +1901,17 @@ v_3-eps-converted-to.pdf>
 (epstopdf)             Command: <miktex-epstopdf --outfile=figuras/test_sim_Obs
 M/traj_testSim_6A_ADA_v_3-eps-converted-to.pdf figuras/test_sim_ObsM/traj_testS
 im_6A_ADA_v_3.eps>
-(epstopdf)             \includegraphics on input line 548.
+(epstopdf)             \includegraphics on input line 495.
 Package epstopdf Info: Output file is already uptodate.
-<figuras/test_sim_ObsM/traj_testSim_6A_ADA_v_3-eps-converted-to.pdf, id=1490, 4
+<figuras/test_sim_ObsM/traj_testSim_6A_ADA_v_3-eps-converted-to.pdf, id=1475, 4
 09.53pt x 453.695pt>
 File: figuras/test_sim_ObsM/traj_testSim_6A_ADA_v_3-eps-converted-to.pdf Graphi
 c file (type pdf)
 <use figuras/test_sim_ObsM/traj_testSim_6A_ADA_v_3-eps-converted-to.pdf>
 Package pdftex.def Info: figuras/test_sim_ObsM/traj_testSim_6A_ADA_v_3-eps-conv
-erted-to.pdf  used on input line 548.
+erted-to.pdf  used on input line 495.
 (pdftex.def)             Requested size: 346.89732pt x 384.33415pt.
- [56 <./figuras/test_sim_ObsM/traj_testSim_6A_ADA_v_2-eps-converted-to.pdf>]
+ [55 <./figuras/test_sim_ObsM/traj_testSim_6A_ADA_v_2-eps-converted-to.pdf>]
 Package epstopdf Info: Source file: <figuras/test_fisico_ObsM/traj_test_3A_ADB_
 f_1.eps>
 (epstopdf)                    date: 2024-09-23 00:17:11
@@ -1924,18 +1923,18 @@ f_1-eps-converted-to.pdf>
 (epstopdf)             Command: <miktex-epstopdf --outfile=figuras/test_fisico_
 ObsM/traj_test_3A_ADB_f_1-eps-converted-to.pdf figuras/test_fisico_ObsM/traj_te
 st_3A_ADB_f_1.eps>
-(epstopdf)             \includegraphics on input line 562.
+(epstopdf)             \includegraphics on input line 509.
 Package epstopdf Info: Output file is already uptodate.
-<figuras/test_fisico_ObsM/traj_test_3A_ADB_f_1-eps-converted-to.pdf, id=1542, 4
+<figuras/test_fisico_ObsM/traj_test_3A_ADB_f_1-eps-converted-to.pdf, id=1528, 4
 09.53pt x 453.695pt>
 File: figuras/test_fisico_ObsM/traj_test_3A_ADB_f_1-eps-converted-to.pdf Graphi
 c file (type pdf)
 <use figuras/test_fisico_ObsM/traj_test_3A_ADB_f_1-eps-converted-to.pdf>
 Package pdftex.def Info: figuras/test_fisico_ObsM/traj_test_3A_ADB_f_1-eps-conv
-erted-to.pdf  used on input line 562.
+erted-to.pdf  used on input line 509.
 (pdftex.def)             Requested size: 346.89732pt x 384.33415pt.
 
-[57 <./figuras/test_sim_ObsM/traj_testSim_6A_ADA_v_3-eps-converted-to.pdf>]
+[56 <./figuras/test_sim_ObsM/traj_testSim_6A_ADA_v_3-eps-converted-to.pdf>]
 Package epstopdf Info: Source file: <figuras/test_fisico_ObsM/traj_test_3A_ADC_
 f_1.eps>
 (epstopdf)                    date: 2024-09-23 00:17:11
@@ -1947,18 +1946,18 @@ f_1-eps-converted-to.pdf>
 (epstopdf)             Command: <miktex-epstopdf --outfile=figuras/test_fisico_
 ObsM/traj_test_3A_ADC_f_1-eps-converted-to.pdf figuras/test_fisico_ObsM/traj_te
 st_3A_ADC_f_1.eps>
-(epstopdf)             \includegraphics on input line 571.
+(epstopdf)             \includegraphics on input line 518.
 Package epstopdf Info: Output file is already uptodate.
-<figuras/test_fisico_ObsM/traj_test_3A_ADC_f_1-eps-converted-to.pdf, id=1594, 4
+<figuras/test_fisico_ObsM/traj_test_3A_ADC_f_1-eps-converted-to.pdf, id=1580, 4
 09.53pt x 453.695pt>
 File: figuras/test_fisico_ObsM/traj_test_3A_ADC_f_1-eps-converted-to.pdf Graphi
 c file (type pdf)
 <use figuras/test_fisico_ObsM/traj_test_3A_ADC_f_1-eps-converted-to.pdf>
 Package pdftex.def Info: figuras/test_fisico_ObsM/traj_test_3A_ADC_f_1-eps-conv
-erted-to.pdf  used on input line 571.
+erted-to.pdf  used on input line 518.
 (pdftex.def)             Requested size: 346.89732pt x 384.33415pt.
 
-[58 <./figuras/test_fisico_ObsM/traj_test_3A_ADB_f_1-eps-converted-to.pdf>]
+[57 <./figuras/test_fisico_ObsM/traj_test_3A_ADB_f_1-eps-converted-to.pdf>]
 Package epstopdf Info: Source file: <figuras/test_fisico_ObsM/traj_test_3A_ADC_
 f_3.eps>
 (epstopdf)                    date: 2024-09-23 00:17:11
@@ -1970,18 +1969,18 @@ f_3-eps-converted-to.pdf>
 (epstopdf)             Command: <miktex-epstopdf --outfile=figuras/test_fisico_
 ObsM/traj_test_3A_ADC_f_3-eps-converted-to.pdf figuras/test_fisico_ObsM/traj_te
 st_3A_ADC_f_3.eps>
-(epstopdf)             \includegraphics on input line 581.
+(epstopdf)             \includegraphics on input line 528.
 Package epstopdf Info: Output file is already uptodate.
-<figuras/test_fisico_ObsM/traj_test_3A_ADC_f_3-eps-converted-to.pdf, id=1644, 4
+<figuras/test_fisico_ObsM/traj_test_3A_ADC_f_3-eps-converted-to.pdf, id=1630, 4
 09.53pt x 453.695pt>
 File: figuras/test_fisico_ObsM/traj_test_3A_ADC_f_3-eps-converted-to.pdf Graphi
 c file (type pdf)
 <use figuras/test_fisico_ObsM/traj_test_3A_ADC_f_3-eps-converted-to.pdf>
 Package pdftex.def Info: figuras/test_fisico_ObsM/traj_test_3A_ADC_f_3-eps-conv
-erted-to.pdf  used on input line 581.
+erted-to.pdf  used on input line 528.
 (pdftex.def)             Requested size: 346.89732pt x 384.33415pt.
 
-[59 <./figuras/test_fisico_ObsM/traj_test_3A_ADC_f_1-eps-converted-to.pdf>]
+[58 <./figuras/test_fisico_ObsM/traj_test_3A_ADC_f_1-eps-converted-to.pdf>]
 Package epstopdf Info: Source file: <figuras/test_fisico_ObsM/traj_test_3A_ADC_
 f_2.eps>
 (epstopdf)                    date: 2024-09-23 00:17:11
@@ -1993,78 +1992,78 @@ f_2-eps-converted-to.pdf>
 (epstopdf)             Command: <miktex-epstopdf --outfile=figuras/test_fisico_
 ObsM/traj_test_3A_ADC_f_2-eps-converted-to.pdf figuras/test_fisico_ObsM/traj_te
 st_3A_ADC_f_2.eps>
-(epstopdf)             \includegraphics on input line 591.
+(epstopdf)             \includegraphics on input line 538.
 Package epstopdf Info: Output file is already uptodate.
-<figuras/test_fisico_ObsM/traj_test_3A_ADC_f_2-eps-converted-to.pdf, id=1694, 4
+<figuras/test_fisico_ObsM/traj_test_3A_ADC_f_2-eps-converted-to.pdf, id=1680, 4
 09.53pt x 453.695pt>
 File: figuras/test_fisico_ObsM/traj_test_3A_ADC_f_2-eps-converted-to.pdf Graphi
 c file (type pdf)
 <use figuras/test_fisico_ObsM/traj_test_3A_ADC_f_2-eps-converted-to.pdf>
 Package pdftex.def Info: figuras/test_fisico_ObsM/traj_test_3A_ADC_f_2-eps-conv
-erted-to.pdf  used on input line 591.
+erted-to.pdf  used on input line 538.
 (pdftex.def)             Requested size: 346.89732pt x 384.33415pt.
 
-[60 <./figuras/test_fisico_ObsM/traj_test_3A_ADC_f_3-eps-converted-to.pdf>]
-[61 <./figuras/test_fisico_ObsM/traj_test_3A_ADC_f_2-eps-converted-to.pdf>]
+[59 <./figuras/test_fisico_ObsM/traj_test_3A_ADC_f_3-eps-converted-to.pdf>]
+[60 <./figuras/test_fisico_ObsM/traj_test_3A_ADC_f_2-eps-converted-to.pdf>]
 Cap\'{\i }tulo 10.
-[62
+[61
 
 ]
-<figuras/optimizacion/grafo_formacion1.png, id=1798, 683.55376pt x 381.425pt>
+<figuras/optimizacion/grafo_formacion1.png, id=1784, 683.55376pt x 381.425pt>
 File: figuras/optimizacion/grafo_formacion1.png Graphic file (type png)
 <use figuras/optimizacion/grafo_formacion1.png>
 Package pdftex.def Info: figuras/optimizacion/grafo_formacion1.png  used on inp
-ut line 626.
+ut line 573.
 (pdftex.def)             Requested size: 346.89732pt x 193.5755pt.
- [63]
-<figuras/optimizacion/grafo_formacion2.png, id=1804, 648.4225pt x 381.425pt>
+ [62]
+<figuras/optimizacion/grafo_formacion2.png, id=1790, 648.4225pt x 381.425pt>
 File: figuras/optimizacion/grafo_formacion2.png Graphic file (type png)
 <use figuras/optimizacion/grafo_formacion2.png>
 Package pdftex.def Info: figuras/optimizacion/grafo_formacion2.png  used on inp
-ut line 635.
+ut line 582.
 (pdftex.def)             Requested size: 346.89732pt x 204.05743pt.
- [64 <./figuras/optimizacion/grafo_formacion1.png> <./figuras/optimizacion/graf
-o_formacion2.png>] [65]
-<figuras/optimizacion/tiempos_desfases.png, id=1826, 517.935pt x 250.536pt>
+ [63 <./figuras/optimizacion/grafo_formacion1.png> <./figuras/optimizacion/graf
+o_formacion2.png>] [64]
+<figuras/optimizacion/tiempos_desfases.png, id=1812, 517.935pt x 250.536pt>
 File: figuras/optimizacion/tiempos_desfases.png Graphic file (type png)
 <use figuras/optimizacion/tiempos_desfases.png>
 Package pdftex.def Info: figuras/optimizacion/tiempos_desfases.png  used on inp
-ut line 717.
+ut line 664.
 (pdftex.def)             Requested size: 433.62001pt x 209.76067pt.
- [66] [67 <./figuras/optimizacion/tiempos_desfases.png>]
-<figuras/optimizacion/tiempos_distancias.png, id=1843, 517.935pt x 250.536pt>
+ [65] [66 <./figuras/optimizacion/tiempos_desfases.png>]
+<figuras/optimizacion/tiempos_distancias.png, id=1828, 517.935pt x 250.536pt>
 File: figuras/optimizacion/tiempos_distancias.png Graphic file (type png)
 <use figuras/optimizacion/tiempos_distancias.png>
 Package pdftex.def Info: figuras/optimizacion/tiempos_distancias.png  used on i
-nput line 773.
+nput line 720.
 (pdftex.def)             Requested size: 433.62001pt x 209.76067pt.
- [68 <./figuras/optimizacion/tiempos_distancias.png>]
-<figuras/optimizacion/tiempos_error.png, id=1852, 517.935pt x 250.536pt>
+ [67 <./figuras/optimizacion/tiempos_distancias.png>]
+<figuras/optimizacion/tiempos_error.png, id=1838, 517.935pt x 250.536pt>
 File: figuras/optimizacion/tiempos_error.png Graphic file (type png)
 <use figuras/optimizacion/tiempos_error.png>
 Package pdftex.def Info: figuras/optimizacion/tiempos_error.png  used on input 
-line 830.
+line 777.
 (pdftex.def)             Requested size: 433.62001pt x 209.76067pt.
- [69] [70 <./figuras/optimizacion/tiempos_error.png>]
+ [68] [69 <./figuras/optimizacion/tiempos_error.png>]
 Cap\'{\i }tulo 11.
-) [71
+) [70
 
 ]
 Cap\'{\i }tulo 12.
-(k-conclusiones.tex) [72
+(k-conclusiones.tex) [71
 
 ]
 Cap\'{\i }tulo 13.
-(l-recomendaciones.tex) [73
+(l-recomendaciones.tex) [72
 
 ]
 Cap\'{\i }tulo 14.
 LaTeX Font Info:    Trying to load font information for T1+cmtt on input line 4
-38.
+39.
 (C:\Users\gerar\AppData\Local\Programs\MiKTeX\tex/latex/base\t1cmtt.fd
 File: t1cmtt.fd 2023/04/13 v2.5m Standard LaTeX font definitions
 )
-[74
+[73
 
 
 ]
@@ -2073,7 +2072,7 @@ Package glossaries Warning: No \printglossary or \printglossaries found.
 (Remove \makeglossaries if you don't want any glossaries.) 
 This document will not have a glossary.
 
-[75] (z-main.aux
+[74] (z-main.aux
 LaTeX Info: Redefining \sptext on input line 9.
 LaTeX Info: Redefining \. on input line 9.
 LaTeX Info: Redefining \% on input line 9.
@@ -2086,16 +2085,16 @@ LaTeX2e <2023-11-01> patch level 1
 L3 programming layer <2020/03/25>
  ***********
 Package rerunfilecheck Info: File `z-main.out' has not changed.
-(rerunfilecheck)             Checksum: D88A966004C78AB5D756FFA6A294CB37;21097.
+(rerunfilecheck)             Checksum: 59C8556D8029E243388C17034A3501B2;21097.
 Package logreq Info: Writing requests to 'z-main.run.xml'.
 \openout1 = `z-main.run.xml'.
 
  ) 
 Here is how much of TeX's memory you used:
- 30491 strings out of 474542
- 577761 string characters out of 5744446
- 1945978 words of memory out of 5000000
- 51928 multiletter control sequences out of 15000+600000
+ 30532 strings out of 474542
+ 578273 string characters out of 5744446
+ 1946978 words of memory out of 5000000
+ 51968 multiletter control sequences out of 15000+600000
  577067 words of font info for 80 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  94i,15n,93p,2343b,2750s stack positions out of 10000i,1000n,20000p,200000b,200000s
@@ -2129,9 +2128,9 @@ ers/gerar/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr6.pfb
 mr8.pfb><C:/Users/gerar/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfon
 ts/cm/cmsy10.pfb><C:/Users/gerar/AppData/Local/Programs/MiKTeX/fonts/type1/publ
 ic/amsfonts/cm/cmsy8.pfb>
-Output written on z-main.pdf (87 pages, 57570264 bytes).
+Output written on z-main.pdf (86 pages, 57183668 bytes).
 PDF statistics:
- 2716 PDF objects out of 2984 (max. 8388607)
- 311 named destinations out of 1000 (max. 500000)
- 1128 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 2702 PDF objects out of 2984 (max. 8388607)
+ 308 named destinations out of 1000 (max. 500000)
+ 1123 words of extra memory for PDF output out of 10000 (max. 10000000)
 

@@ -81,7 +81,7 @@ Luego, se realizó la prueba del código para el controlador del supervisor y lo
 \end{itemize} 
 
 \subsection{Comunicación entre supervisor y agentes}
-Al ejecutar la primera simulación, se encontró que dos agentes permanecían inmóviles durante la primera etapa del algoritmo que consiste en mover a los agentes a sus posiciones iniciales, tal como se muestra en la Figura \ref{fig:delaygpu}.
+Al ejecutar la primera simulación, se encontró que dos agentes permanecían inmóviles durante la ejecución del programa, tal como se muestra en la Figura \ref{fig:delaygpu}.
 
 \begin{figure}[H]
 	\centering
@@ -213,92 +213,40 @@ Para corregir el desfase de cada marcador, primero se obtiene la orientación co
 	\label{fig:marcadores_calibracion}
 \end{figure}
 
-Al obtener la pose de cada marcador, se realizó la conversión a ángulos de Euler en la secuencia $zyx$ y se obtuvo los ángulos de desfase del Cuadro \ref{cuadro:desfases_iniciales}. Al comparar los desfases actuales con los obtenidos en la fase previa mostrados en el Cuadro \ref{cuadro:desfases_anteriores}, se observó que los valores son similares por lo que se tomó los desfases anteriores para los marcadores $1$ y $9$ faltantes en la calibración actual. Por último, en el Cuadro \ref{cuadro:desfases_finales} se observan los desfases finales para cada uno de los marcadores del $1$ al $22$. Estos valores se guardaron en un archivo .npy llamado ``nueva\_calibracion\_markers\_1\_al\_22.npy'' para aplicarlos luego de obtener la pose de cada marcador en el algoritmo y así tener siempre un ángulo respecto del eje $z$ igual a cero ($\theta_z$ = 0).
+Al obtener la pose de cada marcador, se realizó la conversión a ángulos de Euler en la secuencia $zyx$ y se obtuvo los ángulos de desfase para cada marcador. En el cuadro \ref{cuadro:desfases_finales} se presentan los desfases obtenidos en la fase previa, los desfases obtenidos en la fase actual y los desfases finales utilizados para cada uno de los marcadores del $1$ al $22$. 
+
+Dado que los desfases actuales son similares a los obtenidos en la fase previa, se decidió utilizar los desfases anteriores para los marcadores $1$ y $9$ faltantes en la calibración actual. Por último, los desfases de los marcadores del $1$ al $22$ finales se guardaron en un archivo .npy llamado ``nueva\_calibracion\_markers\_1\_al\_22.npy'' para aplicarlos luego de obtener la pose de cada marcador en el algoritmo y así tener siempre un ángulo respecto del eje $z$ igual a cero ($\theta_z$ = 0).
 
 \begin{table}[H]
 	\centering
-	\begin{tabular}{|l|l|}
+	\begin{tabular}{|c|rrr|}
 		\hline
-		\textbf{Marcador} & \textbf{Desfase  $\theta_z$ en grados} \\ \hline
-		2 & -47.2746822 \\ \hline
-		3 & -90.32278167 \\ \hline
-		4 & -135.7890952 \\ \hline
-		5 & 179.3715195 \\ \hline
-		6 & -141.0274548 \\ \hline
-		7 & -175.0541793 \\ \hline
-		8 & -78.11543097 \\ \hline
-		10 & 143.2079276 \\ \hline
-		11 & 111.0832797 \\ \hline
-		12 & 166.1718189 \\ \hline
-		13 & -127.3111755 \\ \hline
-		14 & -109.4993486 \\ \hline
-		15 & -40.73944282 \\ \hline
-		16 & -104.1691129 \\ \hline
-		17 & -121.1927571 \\ \hline
-		18 & -92.48122033 \\ \hline
-		19 & 4.298050244 \\ \hline
-		20 & -133.2161012 \\ \hline
-		21 & -112.0477043 \\ \hline
-		22 & -15.28469666 \\ \hline
+		\multirow{2}{*}{\textbf{Marcador}} & \multicolumn{3}{c|}{\textbf{Desfase   $\theta_z$ en grados}}                                                                            \\ \cline{2-4} 
+		& \multicolumn{1}{c|}{\textbf{Fase previa}} & \multicolumn{1}{c|}{\textbf{Fase actual}} & \multicolumn{1}{c|}{\textbf{Combinado}} \\ \hline
+		1                                  & \multicolumn{1}{r|}{91.9947}              & \multicolumn{1}{r|}{N/A}                  & 91.9947                                 \\ \hline
+		2                                  & \multicolumn{1}{r|}{-46.8146}             & \multicolumn{1}{r|}{-47.2747}             & -47.2747                                \\ \hline
+		3                                  & \multicolumn{1}{r|}{-92.3905}             & \multicolumn{1}{r|}{-90.3228}             & -90.3228                                \\ \hline
+		4                                  & \multicolumn{1}{r|}{-138.2067}            & \multicolumn{1}{r|}{-135.7891}            & -135.7891                               \\ \hline
+		5                                  & \multicolumn{1}{r|}{176.3752}             & \multicolumn{1}{r|}{179.3715}             & 179.3715                                \\ \hline
+		6                                  & \multicolumn{1}{r|}{-144.1822}            & \multicolumn{1}{r|}{-141.0275}            & -141.0275                               \\ \hline
+		7                                  & \multicolumn{1}{r|}{-176.3193}            & \multicolumn{1}{r|}{-175.0542}            & -175.0542                               \\ \hline
+		8                                  & \multicolumn{1}{r|}{-79.9525}             & \multicolumn{1}{r|}{-78.1154}             & -78.1154                                \\ \hline
+		9                                  & \multicolumn{1}{r|}{-9.8762}              & \multicolumn{1}{r|}{N/A}                  & -9.8762                                 \\ \hline
+		10                                 & \multicolumn{1}{r|}{139.3579}             & \multicolumn{1}{r|}{143.2079}             & 143.2079                                \\ \hline
+		11                                 & \multicolumn{1}{r|}{111.9328}             & \multicolumn{1}{r|}{111.0833}             & 111.0833                                \\ \hline
+		12                                 & \multicolumn{1}{r|}{167.5761}             & \multicolumn{1}{r|}{166.1718}             & 166.1718                                \\ \hline
+		13                                 & \multicolumn{1}{r|}{-128.0709}            & \multicolumn{1}{r|}{-127.3112}            & -127.3112                               \\ \hline
+		14                                 & \multicolumn{1}{r|}{-111.1404}            & \multicolumn{1}{r|}{-109.4993}            & -109.4993                               \\ \hline
+		15                                 & \multicolumn{1}{r|}{-43.4112}             & \multicolumn{1}{r|}{-40.7394}             & -40.7394                                \\ \hline
+		16                                 & \multicolumn{1}{r|}{N/A}                  & \multicolumn{1}{r|}{-104.1691}            & -104.1691                               \\ \hline
+		17                                 & \multicolumn{1}{r|}{N/A}                  & \multicolumn{1}{r|}{-121.1928}            & -121.1928                               \\ \hline
+		18                                 & \multicolumn{1}{r|}{N/A}                  & \multicolumn{1}{r|}{-92.4812}             & -92.4812                                \\ \hline
+		19                                 & \multicolumn{1}{r|}{N/A}                  & \multicolumn{1}{r|}{4.2981}               & 4.2981                                  \\ \hline
+		20                                 & \multicolumn{1}{r|}{N/A}                  & \multicolumn{1}{r|}{-133.2161}            & -133.2161                               \\ \hline
+		21                                 & \multicolumn{1}{r|}{N/A}                  & \multicolumn{1}{r|}{-112.0477}            & -112.0477                               \\ \hline
+		22                                 & \multicolumn{1}{r|}{N/A}                  & \multicolumn{1}{r|}{-15.2847}             & -15.2847                                \\ \hline
 	\end{tabular}
-	\caption{Desfases de marcadores disponibles alineados con el eye $y$ de la mesa de pruebas del Robotat.}
-	\label{cuadro:desfases_iniciales}
-\end{table}
-
-\begin{table}[H]
-	\centering
-	\begin{tabular}{|l|l|}
-		\hline
-		\textbf{Marcador} & \textbf{Desfase $\theta _{z}$ en grados} \\ \hline
-		1                 & 91.99470274710572                      \\ \hline
-		2                 & -46.814569482191594                    \\ \hline
-		3                 & -92.39049071644509                     \\ \hline
-		4                 & -138.20668559103328                    \\ \hline
-		5                 & 176.37515477240987                     \\ \hline
-		6                 & -144.1821533175259                     \\ \hline
-		7                 & -176.31925348204803                    \\ \hline
-		8                 & -79.95245389000435                     \\ \hline
-		9                 & -9.87621045801094                      \\ \hline
-		10                & 139.3578557303511                      \\ \hline
-		11                & 111.93284607034238                     \\ \hline
-		12                & 167.57610128913143                     \\ \hline
-		13                & -128.0708601137765                     \\ \hline
-		14                & -111.1403638963379                     \\ \hline
-		15                & -43.41121657780576                     \\ \hline
-	\end{tabular}
-	\caption{Desfases de marcadores obtenidos en la fase previa por José Alejandro Rodríguez \cite{RodriguezJA_2023_tesis}.}
-	\label{cuadro:desfases_anteriores}
-\end{table}
-
-\begin{table}[!ht]
-	\centering
-	\begin{tabular}{|l|l|}
-		\hline
-		\textbf{Marcador} & \textbf{Desfase $\theta_z$ en grados} \\ \hline
-		1 & 91.99470275 \\ \hline
-		2 & -47.2746822 \\ \hline
-		3 & -90.32278167 \\ \hline
-		4 & -135.7890952 \\ \hline
-		5 & 179.3715195 \\ \hline
-		6 & -141.0274548 \\ \hline
-		7 & -175.0541793 \\ \hline
-		8 & -78.11543097 \\ \hline
-		9 & -9.876210458 \\ \hline
-		10 & 143.2079276 \\ \hline
-		11 & 111.0832797 \\ \hline
-		12 & 166.1718189 \\ \hline
-		13 & -127.3111755 \\ \hline
-		14 & -109.4993486 \\ \hline
-		15 & -40.73944282 \\ \hline
-		16 & -104.1691129 \\ \hline
-		17 & -121.1927571 \\ \hline
-		18 & -92.48122033 \\ \hline
-		19 & 4.298050244 \\ \hline
-		20 & -133.2161012 \\ \hline
-		21 & -112.0477043 \\ \hline
-		22 & -15.28469666 \\ \hline
-	\end{tabular}
-	\caption{Desfases finales para calibración de marcadores del $1$ al $22$.}
+	\caption{Desfases para la calibración de marcadores del $1$ al $22$.}
 	\label{cuadro:desfases_finales}
 \end{table}
 
@@ -329,7 +277,7 @@ Marcadores a solicitar $ = [1, 2, 3, 4, 22, 14, 15, 16]$
 
 Por otro lado, para asignar los marcadores de cada agente, se debía elegir un intervalo  de valores consecutivos de manera ascendente dentro de la lista predeterminada. Esto limita a utilizar únicamente los agentes dentro del intervalo seleccionado, por lo que si un agente se descargaba, era obligatorio reemplazar las baterías para volver a utilizarlo. Por esto, se cambió la asignación de los marcadores para cada agente permitiendo seleccionar cualquier marcador disponible en el Robotat sin algún orden específico. Ahora, para obtener las poses de los marcadores, únicamente se solicitan los datos al servidor de que están en uso. Esto permite agilizar las pruebas ya que en múltiples ocasiones fue necesario compartir los agentes Pololu 3Pi+ con otros compañeros.
 
-En la Figura \ref{fig:seleccion_agentes}, el número dentro del círculo, representa el número de marcador asignado al agente. A la izquierda observa la asignación de los marcadores a cada agente con la implementación del algoritmo original, mientras que del lado derecho se realiza una asignación arbitraria luego del cambio mencionado.
+En la Figura \ref{fig:seleccion_agentes}, el número dentro del círculo, representa el número de marcador asignado al agente. A la izquierda se observa la asignación de los marcadores a cada agente con la implementación del algoritmo original, mientras que del lado derecho se realiza un ejemplo de asignación arbitraria luego del cambio mencionado.
 
 
 \begin{figure}[H]
@@ -368,18 +316,22 @@ Con esto, se determinó que el patrón de divergencia se presentaba en todas las
 	\label{eq:controlador_proporcional2}
 \end{equation}
 
-Con esto, se logró solucionar la divergencia de los agentes y se realizó la primera ejecución del algoritmo exitosa utilizando dos agentes, sin obstáculos tal como se observa en la Figura \ref{fig:prueba_fisico1}. Las imágenes en el orden de izquierda a derecha y luego de arriba hacia abajo muestran la secuencia de ejecución del algoritmo.
+Con esto, se logró solucionar la divergencia de los agentes y se realizó la primera ejecución del algoritmo exitosa utilizando dos agentes, sin obstáculos y una meta en la esquina, tal como se observa en la Figura \ref{fig:prueba_fisico1}. Las imágenes en el orden de izquierda a derecha y luego de arriba hacia abajo muestran la secuencia de ejecución del algoritmo donde el líder se dirige hacia la meta y la formación lo sigue durante todo el trayecto.
 
 \begin{figure}[H]
 	\centering
-	\includegraphics[width=0.45\textwidth]{replicar_fisico_pruebas/prueba_fisico_p1.png}
-	\includegraphics[width=0.45\textwidth]{replicar_fisico_pruebas/prueba_fisico_p2.png}
+	\includegraphics[width=0.45\textwidth]{replicar_fisico_pruebas/prueba_fisico_p1v2.png}
 	\includegraphics[width=0.45\textwidth]{replicar_fisico_pruebas/prueba_fisico_p3.png}
 	\includegraphics[width=0.45\textwidth]{replicar_fisico_pruebas/prueba_fisico_p4.png}
 	\caption{Primera prueba exitosa de funcionamiento en físico.}
 	\label{fig:prueba_fisico1}
 \end{figure}
 
+Una vez realizada la primera prueba en físico, se simuló un escenario arbitrario en Webots con el fin de verificar el funcionamiento del nuevo control proporcional en un ambiente simulado, sin embargo, se encontró que ahora la simulación presentaba los mismos patrones de divergencia en todas las etapas del algoritmo... ARGUMENTAR
+
+Por esto, se optó por implementar el control proporcional de la Ecuación (\ref{eq:controlador_proporcional}) para las simulaciones y otro control proporcional con la Ecuación (\ref{eq:controlador_proporcional2}) para ejecutar el algoritmo en físico. Con esta modificación, se logró replicar el funcionamiento completo del algoritmo tanto para simulaciones en Webots como en el Robotat.
+
+------
 Una vez realizada la primera prueba, se simuló un escenario arbitrario en Webots, sin embargo se encontró que ahora la simulación presentaba los mismos patrones de divergencia en todas las etapas del algoritmo. Por esto, se optó por implementar el control proporcional de la Ecuación (\ref{eq:controlador_proporcional}) para las simulaciones y otro control proporcional con la Ecuación (\ref{eq:controlador_proporcional2}) para ejecutar el algoritmo en físico. Con esta modificación, se logró replicar el funcionamiento completo del algoritmo tanto para simulaciones en Webots como en el Robotat.
 
 \subsection{Configuraciones para el escenario}
