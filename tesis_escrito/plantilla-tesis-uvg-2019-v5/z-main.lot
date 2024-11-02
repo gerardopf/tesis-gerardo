@@ -13,9 +13,9 @@
 \addvspace {10\p@ }
 \addvspace {10\p@ }
 \contentsline {table}{\numberline {3}{\ignorespaces Ventajas y desventajas de lenguajes de programación.}}{62}{table.caption.162}%
-\contentsline {table}{\numberline {4}{\ignorespaces Media de tiempo y desviación estándar para aplicar desfases de marcadores con bucles}}{65}{table.caption.179}%
+\contentsline {table}{\numberline {4}{\ignorespaces Media de tiempo y desviación estándar para aplicar desfases de marcadores con bucles.}}{65}{table.caption.179}%
 \contentsline {table}{\numberline {5}{\ignorespaces Media de tiempo y desviación estándar para aplicar desfases de marcadores con NumPy.}}{65}{table.caption.180}%
-\contentsline {table}{\numberline {6}{\ignorespaces Media de tiempo y desviación estándar para calcular la distancia entre agentes con bucles}}{67}{table.caption.183}%
+\contentsline {table}{\numberline {6}{\ignorespaces Media de tiempo y desviación estándar para calcular la distancia entre agentes con bucles.}}{67}{table.caption.183}%
 \contentsline {table}{\numberline {7}{\ignorespaces Media de tiempo y desviación estándar para calcular la distancia entre agentes con NumPy.}}{67}{table.caption.184}%
 \contentsline {table}{\numberline {8}{\ignorespaces Media de tiempo y desviación estándar para calcular el error de formación con bucles.}}{68}{table.caption.187}%
 \contentsline {table}{\numberline {9}{\ignorespaces Media de tiempo y desviación estándar para calcular el error de formación con NumPy.}}{68}{table.caption.188}%

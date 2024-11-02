@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.25 (MiKTeX 24.1) (preloaded format=pdflatex 2024.1.31)  2 NOV 2024 09:25
+This is pdfTeX, Version 3.141592653-2.6-1.40.25 (MiKTeX 24.1) (preloaded format=pdflatex 2024.1.31)  2 NOV 2024 12:22
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -2084,7 +2084,7 @@ LaTeX2e <2023-11-01> patch level 1
 L3 programming layer <2020/03/25>
  ***********
 Package rerunfilecheck Info: File `z-main.out' has not changed.
-(rerunfilecheck)             Checksum: 59C8556D8029E243388C17034A3501B2;21097.
+(rerunfilecheck)             Checksum: 9AB6B16EB9370B11119CC15DAF0DD87A;21113.
 Package logreq Info: Writing requests to 'z-main.run.xml'.
 \openout1 = `z-main.run.xml'.
 
@@ -2127,7 +2127,7 @@ ers/gerar/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr6.pfb
 mr8.pfb><C:/Users/gerar/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfon
 ts/cm/cmsy10.pfb><C:/Users/gerar/AppData/Local/Programs/MiKTeX/fonts/type1/publ
 ic/amsfonts/cm/cmsy8.pfb>
-Output written on z-main.pdf (86 pages, 56394023 bytes).
+Output written on z-main.pdf (86 pages, 56394154 bytes).
 PDF statistics:
  2703 PDF objects out of 2984 (max. 8388607)
  308 named destinations out of 1000 (max. 500000)

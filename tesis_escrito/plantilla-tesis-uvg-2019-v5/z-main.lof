@@ -57,7 +57,7 @@
 \contentsline {figure}{\numberline {46}{\ignorespaces Trayectoria de los 3 agentes en el escenario ADC, corrida 2, en físico.}}{60}{figure.caption.159}%
 \addvspace {10\p@ }
 \contentsline {figure}{\numberline {47}{\ignorespaces Posiciones de agentes según el grafo de formación con la implementación original del algoritmo.}}{63}{figure.caption.164}%
-\contentsline {figure}{\numberline {48}{\ignorespaces Posiciones de agentes según el grafo de formación con la implementación original del algoritmo.}}{63}{figure.caption.165}%
+\contentsline {figure}{\numberline {48}{\ignorespaces Posiciones de agentes según el grafo de formación con la implementación nueva del algoritmo.}}{63}{figure.caption.165}%
 \contentsline {figure}{\numberline {49}{\ignorespaces Gráfica con medias de tiempo para aplicar desfases de marcadores con bucles y operaciones con NumPy.}}{66}{figure.caption.181}%
 \contentsline {figure}{\numberline {50}{\ignorespaces Gráfica con medias de tiempo para calcular la distancia entre agentes con bucles y operaciones con NumPy.}}{67}{figure.caption.185}%
 \contentsline {figure}{\numberline {51}{\ignorespaces Gráfica con medias de tiempo para calcular el error de formación con bucles y operaciones con NumPy.}}{69}{figure.caption.189}%
