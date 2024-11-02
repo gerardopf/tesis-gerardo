@@ -71,7 +71,7 @@
 \contentsline {subsection}{\numberline {8.2.2}Calibración de marcadores}{35}{subsection.112}%
 \contentsline {subsection}{\numberline {8.2.3}Selección de marcadores a utilizar}{37}{subsection.116}%
 \contentsline {subsection}{\numberline {8.2.4}Ajuste de parámetros en el algoritmo}{39}{subsection.119}%
-\contentsline {subsection}{\numberline {8.2.5}Configuraciones para el escenario}{41}{subsection.124}%
+\contentsline {subsection}{\numberline {8.2.5}Configuraciones para el escenario}{42}{subsection.124}%
 \contentsline {subsection}{\numberline {8.2.6}Prueba del algoritmo en físico con escenarios previos}{42}{subsection.126}%
 \contentsline {subsubsection}{Primer escenario}{43}{section*.127}%
 \contentsline {subsubsection}{Segundo escenario}{44}{section*.130}%
