@@ -132,7 +132,7 @@ elif(fisico == 1):
         agents_pose = pickle.loads(pick_agents_pose)
 
         # orientación del robot
-        theta_o_f = agents_pose[argc][3]+90 # 90° para compensar la orientación real
+        theta_o_f = agents_pose[argc][3]-90 # 90° para compensar la orientación real
         if(theta_o_f < 0):
             thetha_o_f = theta_o_f + 360    # ángulo siempre positivo
             

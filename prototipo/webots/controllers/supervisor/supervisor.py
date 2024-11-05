@@ -44,10 +44,10 @@ obs_marker_list = [20,21,22] # obstáculos (Máx. 3)
 MAX_SPEED = 30 # velocidad máxima de ruedas (rpm)
 
 """ modo real o simulación """
-fisico = 1               # 0 Webots | 1 Robotat
-r_obs = 1                # 0: obstáculos virtuales | 1: obstáculos reales (markers)
-r_obj = 1                # 0: objetivo virtual | 1: objetivo real (marker)
-r_webots_visual = 1      # 0: NO simular en tiempo real | 1: simular en tiempo real
+fisico = 0               # 0 Webots | 1 Robotat
+r_obs = 0                # 0: obstáculos virtuales | 1: obstáculos reales (markers)
+r_obj = 0                # 0: objetivo virtual | 1: objetivo real (marker)
+r_webots_visual = 0      # 0: NO simular en tiempo real | 1: simular en tiempo real
 
 # archivo para simular una corrida que se realizó en físico
 initial_conditions_file = 'None.npz' 
@@ -643,7 +643,7 @@ while supervisor.step(TIME_STEP) != 1:
         elif (fisico == 1):
             posActuales[0][c] = agents_pose[c][0]   # x-coord
             posActuales[1][c] = agents_pose[c][1]   # y-coord
-            rotActuales[0][c] = agents_pose[c][3]+90    # rotacion compensada con 90 grados
+            rotActuales[0][c] = agents_pose[c][3]-90    # rotacion compensada con 90 grados
         
         if (rotActuales[0][c] < 0):
             rotActuales[0][c] = rotActuales[0][c] + 360 # angulos siempre positivos
@@ -685,12 +685,8 @@ while supervisor.step(TIME_STEP) != 1:
             E1 = E1 + 0.6*w*distO1  
             
         # actualizar velocidades
-        if (fisico == 1):
-            V[0][g] = 1*(E0)*TIME_STEP/1000 
-            V[1][g] = 1*(E1)*TIME_STEP/1000 
-        elif (fisico == 0):
-            V[0][g] = -1*(E0)*TIME_STEP/1000 
-            V[1][g] = -1*(E1)*TIME_STEP/1000 
+        V[0][g] = -1*(E0)*TIME_STEP/1000 
+        V[1][g] = -1*(E1)*TIME_STEP/1000 
             
     # al acercarse a la posición deseada se cambia el control
     normV2 = 0
@@ -726,12 +722,8 @@ while supervisor.step(TIME_STEP) != 1:
             k_vel = 5
             dx = posActuales[0][obj]-posIniPosVec[obj][0]
             dy = posActuales[1][obj]-posIniPosVec[obj][1]
-            if (fisico == 1):
-                V[0][obj] = V[0][obj] + k_vel*dx
-                V[1][obj] = V[1][obj] + k_vel*dy
-            elif (fisico == 0):
-                V[0][obj] = V[0][obj] - k_vel*dx
-                V[1][obj] = V[1][obj] - k_vel*dy
+            V[0][obj] = V[0][obj] - k_vel*dx
+            V[1][obj] = V[1][obj] - k_vel*dy
                
             # verificar si el agente ya está en la posición inicial
             if ((posActuales[0][obj]-posIniPosVec[obj][0])<0.06 and (posActuales[1][obj]-posIniPosVec[obj][1])<0.06):
@@ -754,23 +746,13 @@ while supervisor.step(TIME_STEP) != 1:
         k_vel1 = 1
         k_vel2 = 10
         # si el líder está a más de X metros del objetivo, espera a la formación
-        if (abs(posActuales[0][NStart]-pObjVec[0]) > 0.7 or abs(posActuales[1][NStart]-pObjVec[1]) > 0.7):     
-            if (fisico == 1):
-                #print("condicion 1")
-                V[0][NStart] = V[0][NStart] + k_vel1*total_agent_weight*(1/(formation_mse))*(posActuales[0][NStart]-pObjVec[0])
-                V[1][NStart] = V[1][NStart] + k_vel1*total_agent_weight*(1/(formation_mse))*(posActuales[1][NStart]-pObjVec[1])
-            elif (fisico == 0):          
-                V[0][NStart] = V[0][NStart] - k_vel1*total_agent_weight*(1/(formation_mse))*(posActuales[0][NStart]-pObjVec[0])
-                V[1][NStart] = V[1][NStart] - k_vel1*total_agent_weight*(1/(formation_mse))*(posActuales[1][NStart]-pObjVec[1])
+        if (abs(posActuales[0][NStart]-pObjVec[0]) > 0.7 or abs(posActuales[1][NStart]-pObjVec[1]) > 0.7):             
+            V[0][NStart] = V[0][NStart] - k_vel1*total_agent_weight*(1/(formation_mse))*(posActuales[0][NStart]-pObjVec[0])
+            V[1][NStart] = V[1][NStart] - k_vel1*total_agent_weight*(1/(formation_mse))*(posActuales[1][NStart]-pObjVec[1])
         # si el líder está a menos de X metros del objetivo, la constante es mayor y puede llamar a la formación más rápido
         elif (abs(posActuales[0][NStart]-pObjVec[0]) <= 0.7 or abs(posActuales[1][NStart]-pObjVec[1]) <= 0.7):
-            if (fisico == 1):
-                #print("condicion 2")
-                V[0][NStart] = V[0][NStart] + k_vel2*(posActuales[0][NStart]-pObjVec[0])
-                V[1][NStart] = V[1][NStart] + k_vel2*(posActuales[1][NStart]-pObjVec[1])
-            elif (fisico == 0):
-                V[0][NStart] = V[0][NStart] - k_vel2*(posActuales[0][NStart]-pObjVec[0])
-                V[1][NStart] = V[1][NStart] - k_vel2*(posActuales[1][NStart]-pObjVec[1])
+            V[0][NStart] = V[0][NStart] - k_vel2*(posActuales[0][NStart]-pObjVec[0])
+            V[1][NStart] = V[1][NStart] - k_vel2*(posActuales[1][NStart]-pObjVec[1])
         # si el líder está a X metros del objetivo, se cumplió la meta
         if (abs(posActuales[0][NStart]-pObjVec[0]) <= 0.2 and abs(posActuales[1][NStart]-pObjVec[1]) <= 0.2):
             obj_success = 1
