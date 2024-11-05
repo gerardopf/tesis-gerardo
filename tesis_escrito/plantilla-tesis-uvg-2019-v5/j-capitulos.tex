@@ -97,7 +97,7 @@ Esto se debe a que actualmente se está utilizando una computadora con mayor cap
 Dado que la comunicación entre el supervisor y los agentes se realiza por medio de una memoria compartida, al tener mayor velocidad de procesamiento, el controlador de los dos primeros agentes se ejecuta antes de que el espacio de memoria compartida se haya inicializado correctamente. Para solucionar esto, en el programa de los agentes, se agregó un tiempo de espera de 3 segundos antes de inicializar y acceder a la memoria compartida. Esto permite que se inicialice correctamente en el programa del supervisor.
 
 \subsection{Prueba del algoritmo con simulaciones basadas en escenarios previos}
-Una vez solucionado el problema de comunicación, se realizó las primeras simulaciones para replicar algunos de los escenarios realizados por José Alejandro Rodríguez \cite{RodriguezJA_2023_tesis} y comprobar el funcionamiento correcto del algoritmo. 
+Una vez solucionado el problema de comunicación, se realizó las primeras simulaciones para replicar algunos de los escenarios realizados en la fase previa y comprobar el funcionamiento correcto del algoritmo. 
 
 El código del supervisor ya cuenta con un modo de simulación en el que se ejecuta el algoritmo basado en condiciones iniciales tomadas de un escenario físico. Para esto, se debe cargar un archivo .npz que cuenta con la información necesaria para configurar la simulación según el escenario real en que se ejecutó el algoritmo.
 
@@ -171,7 +171,7 @@ En la Figura \ref{fig:tercera_simulacion}, las imágenes en el orden de izquierd
 Una vez que el algoritmo funcionó correctamente en Webots, el siguiente paso fue verificar que se ejecutara correctamente en el Robotat.
 
 \subsection{Pruebas de conexión con el Pololu 3Pi+ y el Robotat}
- Primero, se realizaron pruebas de conexión con el Robotat y los Pololu 3Pi+ utilizando las funciones creadas en Python por José Alejandro Rodríguez \cite{RodriguezJA_2023_tesis}:
+ Primero, se realizaron pruebas de conexión con el Robotat y los Pololu 3Pi+ utilizando las funciones creadas en Python durante la fase previa:
  
 \begin{itemize}
 	\item robotat\_connect
@@ -282,7 +282,7 @@ En la Figura \ref{fig:seleccion_agentes}, el número dentro del círculo, repres
 \begin{figure}[H]
 	\centering
 	\includegraphics[width=0.6\textwidth]{replicar_fisico_pruebas/seleccion_agentes.png}
-	\caption{Selección de marcadores para cada agente antes y después de las modificaciones.}
+	\caption{Selección de marcadores para cada agente. A la izquierda se observa como era la asignación anteriormente y a la derecha como es una selección arbitraria actualmente.}
 	\label{fig:seleccion_agentes}
 \end{figure}
 
@@ -298,7 +298,7 @@ Luego de las modificaciones anteriores, al ejecutar el algoritmo en físico con 
 	\label{fig:divergencia1}
 \end{figure}
 
-Para intentar solucionar esto, se invirtió signo de la constante de proporcionalidad en el control de velocidad aplicado en la etapa 0 del algoritmo. Anteriormente se utilizaba $k = 5$, ahora se utiliza $k = -5$. Al aplicar el cambio, se encontró que ahora los agentes si se colocan en sus posiciones iniciales, sin embargo, el comportamiento de divergencia se sigue presentando en las demás etapas del algoritmo, tal como se observa en la Figura \ref{fig:divergencia2}.
+Para intentar solucionar esto, se invirtió el signo de la constante de proporcionalidad en el control de velocidad aplicado en la etapa 0 del algoritmo. Al realizar el cambio, se encontró que ahora los agentes si se colocan en sus posiciones iniciales, sin embargo, el comportamiento de divergencia se sigue presentando de manera consistente en las demás etapas del algoritmo, tal como se observa en la Figura \ref{fig:divergencia2}, por lo que se optó por revertir el cambio.
 
 \begin{figure}[H]
 	\centering
@@ -308,35 +308,12 @@ Para intentar solucionar esto, se invirtió signo de la constante de proporciona
 	\label{fig:divergencia2}
 \end{figure}
 
-Con esto, se determinó que el patrón de divergencia se presentaba en todas las secciones donde se aplica el control proporcional para la velocidad de los agentes. Sabiendo esto, se optó por invertir el signo de la velocidad $v_n$ y la constante $k$ de la Ecuación (\ref{eq:controlador_proporcional}) tal como se observa a continuación:
-
-\begin{equation}
-	v_{n+1} = -v_n - k(x_{objetivo} - x_{agente})
-	\label{eq:controlador_proporcional2}
-\end{equation}
-
-Con esto, se logró solucionar la divergencia de los agentes y se realizó la primera ejecución del algoritmo exitosa utilizando dos agentes, sin obstáculos y una meta en la esquina, tal como se observa en la Figura \ref{fig:prueba_fisico1}. Las imágenes en el orden de izquierda a derecha y luego de arriba hacia abajo muestran la secuencia de ejecución del algoritmo donde el líder se dirige hacia la meta y la formación lo sigue durante todo el trayecto.
-
-\begin{figure}[H]
-	\centering
-	\includegraphics[width=0.45\textwidth]{replicar_fisico_pruebas/prueba_fisico_p1v2.png}
-	\includegraphics[width=0.45\textwidth]{replicar_fisico_pruebas/prueba_fisico_p3.png}
-	\includegraphics[width=0.45\textwidth]{replicar_fisico_pruebas/prueba_fisico_p4.png}
-	\caption{Primera prueba exitosa de funcionamiento en físico.}
-	\label{fig:prueba_fisico1}
-\end{figure}
-
-Una vez realizada la primera prueba en físico, se simuló un escenario arbitrario en Webots con el fin de verificar el funcionamiento del nuevo control proporcional en un ambiente simulado, sin embargo, se encontró que ahora la simulación presentaba los mismos patrones de divergencia en todas las etapas del algoritmo... ARGUMENTAR
-
-Por esto, se optó por implementar el control proporcional de la Ecuación (\ref{eq:controlador_proporcional}) para las simulaciones y otro control proporcional con la Ecuación (\ref{eq:controlador_proporcional2}) para ejecutar el algoritmo en físico. Con esta modificación, se logró replicar el funcionamiento completo del algoritmo tanto para simulaciones en Webots como en el Robotat.
-
-------
-Una vez realizada la primera prueba, se simuló un escenario arbitrario en Webots, sin embargo se encontró que ahora la simulación presentaba los mismos patrones de divergencia en todas las etapas del algoritmo. Por esto, se optó por implementar el control proporcional de la Ecuación (\ref{eq:controlador_proporcional}) para las simulaciones y otro control proporcional con la Ecuación (\ref{eq:controlador_proporcional2}) para ejecutar el algoritmo en físico. Con esta modificación, se logró replicar el funcionamiento completo del algoritmo tanto para simulaciones en Webots como en el Robotat.
+Al analizar el patrón de divergencia, se observó que los agentes se movían en dirección contraria a la esperada. Con esto, se determinó que la causa estaba relacionada con la dirección de movimiento y la rotación de los agentes. En la fase actual, el proceso de calibración de los marcadores se realizó igual que en la fase previa donde los marcadores están alineados con el eje $y$ del Robotat, mientras que los agentes del algoritmo en Webots están alineados con el eje $x$. En la fase previa, esta discrepancia se corregía aplicando un desfase de compensación adicional de $+90^{\circ}$ al ángulo $\theta_z$. Sin embargo, debido a cambios en la infraestructura del Robotat, en esta fase fue necesario invertir dicho desfase a $-90^{\circ}$ para mantener la consistencia en la orientación de los agentes entre lo programado con la simulación y el Robotat. Con esta modificación, se logró replicar correctamente el funcionamiento del algoritmo tanto en el entorno de simulación de Webots como en el Robotat.
 
 \subsection{Configuraciones para el escenario}
 Para clasificar las ejecuciones del algoritmo según las condiciones del escenario, se decidió utilizar la misma convención implementada en la fase previa. Esta se enfoca en diferenciar los escenarios según las posiciones de las marcas iniciales para los agentes, los obstáculos y el objetivo.
 
-En el Cuadro \ref{cuadro:configuraciones_escenario} se muestra la codificación a utilizar para los experimentos. El orden para identificarlos es el siguiente: (Posición inicial de los agentes)-(Obstáculos)-(Objetivo). A continuación, se presenta el ejemplo de clasificación A-D-B, que significa:
+En el Cuadro \ref{cuadro:configuraciones_escenario} se muestra la codificación utilizada para los experimentos. El orden para identificarlos es el siguiente: (Posición inicial de los agentes)-(Obstáculos)-(Objetivo). A continuación, se presenta el ejemplo de clasificación A-D-B, que significa:
 
 \begin{itemize}
 	\item Posicionamiento inicial de los agentes en línea.
@@ -391,45 +368,49 @@ Para el primer escenario, se utilizó la configuración AAA con 2 agentes. En la
 
 \begin{figure}[H]
 	\centering
-	\includegraphics[width=0.8\textwidth]{replicar_fisico_escenarios/test_f1v2.png}
+	\includegraphics[width=0.45\textwidth]{replicar_fisico_escenarios/test_f1v2.png}
 	\caption{Mesa de pruebas con 2 agentes en el escenario AAA, corrida 1, en físico.}
 	\label{fig:test_fisico1}
 \end{figure}
 \begin{figure}[H]
 	\centering
-	\includegraphics[width=0.8\textwidth]{replicar_fisico_escenarios/traj_test_2A_AAA_f_1.eps}
+	\includegraphics[width=0.45\textwidth]{replicar_fisico_escenarios/traj_test_2A_AAA_f_1.eps}
 	\caption{Trayectoria de los 2 agentes en el escenario AAA, corrida 1, en físico.}
 	\label{fig:traj_test_2A_AAA_f_1}
 \end{figure}
 
 \subsubsection{Segundo escenario}
-Para el segundo escenario, se utilizó la configuración AAA con 6 agentes. En la Figura \ref{fig:test_fisico2} se muestra el escenario en la mesa de pruebas con los agentes antes de colocarse en sus posiciones iniciales y en la Figura \ref{fig:traj_test_6A_AAA_f_1} las trayectorias de los agentes luego de colocarse en sus posiciones iniciales.
+Para el segundo escenario, se utilizó la configuración AAA con 6 agentes. En la Figura \ref{fig:test_fisico2} se muestra el escenario en la mesa de pruebas con los agentes antes de colocarse en sus posiciones iniciales y en la Figura \ref{fig:traj_test_6A_AAA_f_1} las trayectorias de los agentes luego de colocarse en sus posiciones iniciales. 
+
+Para este escenario, se observó que las trayectorias no son igual de sencillas y directas que con el primer escenario. Esto es ya que, al tener más agentes, estos ajustan sus trayectorias para mantener su posición en la formación evitando colisionar entre sí, al mismo tiempo que mantienen una distancia de seguridad ante colisiones.
 
 \begin{figure}[H]
 	\centering
-	\includegraphics[width=0.8\textwidth]{replicar_fisico_escenarios/test_f2v2.png}
+	\includegraphics[width=0.45\textwidth]{replicar_fisico_escenarios/test_f2v2.png}
 	\caption{Mesa de pruebas con 6 agentes en el escenario AAA, corrida 1, en físico.}
 	\label{fig:test_fisico2}
 \end{figure}
 \begin{figure}[H]
 	\centering
-	\includegraphics[width=0.8\textwidth]{replicar_fisico_escenarios/traj_test_6A_AAA_f_1.eps}
+	\includegraphics[width=0.45\textwidth]{replicar_fisico_escenarios/traj_test_6A_AAA_f_1.eps}
 	\caption{Trayectoria de los 6 agentes en el escenario AAA, corrida 1, en físico.}
 	\label{fig:traj_test_6A_AAA_f_1}
 \end{figure}
 
 \subsubsection{Tercer escenario}
-Para el tercer escenario, se utilizó la configuración AAA con 6 agentes. En la Figura \ref{fig:test_fisico3} se muestra el escenario en la mesa de pruebas con los agentes antes de colocarse en sus posiciones iniciales y en la Figura \ref{fig:traj_test_6A_ACA_f_1} las trayectorias de los agentes luego de colocarse en sus posiciones iniciales.
+Para el tercer escenario, se utilizó la configuración ACA con 6 agentes. En la Figura \ref{fig:test_fisico3} se muestra el escenario en la mesa de pruebas con los agentes antes de colocarse en sus posiciones iniciales y en la Figura \ref{fig:traj_test_6A_ACA_f_1} las trayectorias de los agentes luego de colocarse en sus posiciones iniciales.
+
+Este escenario fue configurado como el segundo escenario con la adición de tres obstáculos. En las trayectorias de los agentes, se observa que estos lograron mantener su formación y evitaron los obstáculos al trasladarse entre ellos. Además, se observa con la complejidad de las trayectorias, que los agentes se estuvieron movilizando para evitar colisionar entre sí y mantener su posición en la formación.
 
 \begin{figure}[H]
 	\centering
-	\includegraphics[width=0.8\textwidth]{replicar_fisico_escenarios/test_f3v2.png}
+	\includegraphics[width=0.45\textwidth]{replicar_fisico_escenarios/test_f3v2.png}
 	\caption{Mesa de pruebas con 6 agentes en el escenario ACA, corrida 1, en físico.}
 	\label{fig:test_fisico3}
 \end{figure}
 \begin{figure}[H]
 	\centering
-	\includegraphics[width=0.8\textwidth]{replicar_fisico_escenarios/traj_test_6A_ACA_f_1.eps}
+	\includegraphics[width=0.45\textwidth]{replicar_fisico_escenarios/traj_test_6A_ACA_f_1.eps}
 	\caption{Trayectoria de los 6 agentes en el escenario ACA, corrida 1, en físico.}
 	\label{fig:traj_test_6A_ACA_f_1}
 \end{figure}
@@ -437,15 +418,17 @@ Para el tercer escenario, se utilizó la configuración AAA con 6 agentes. En la
 \subsubsection{Cuarto escenario}
 Para el cuarto escenario, se utilizó la configuración ACC con 3 agentes. En la Figura \ref{fig:test_fisico4} se muestra el escenario en la mesa de pruebas con los agentes antes de colocarse en sus posiciones iniciales y en la Figura \ref{fig:traj_test_3A_ACC_f_1} las trayectorias de los agentes luego de colocarse en sus posiciones iniciales.
 
+Para este escenario también se adicionó tres obstáculos. En las trayectorias, se observa que los agentes lograron evadirlos y pasar entre ellos para llegar al objetivo, además, al tener menos agentes en la formación, las trayectorias fueron más sencillas ya que se tenía menos agentes con los que podrían colisionar entre sí.
+
 \begin{figure}[H]
 	\centering
-	\includegraphics[width=0.8\textwidth]{replicar_fisico_escenarios/test_f4v2.png}
+	\includegraphics[width=0.45\textwidth]{replicar_fisico_escenarios/test_f4v2.png}
 	\caption{Mesa de pruebas con 3 agentes en el escenario ACC, corrida 1, en físico.}
 	\label{fig:test_fisico4}
 \end{figure}
 \begin{figure}[H]
 	\centering
-	\includegraphics[width=0.8\textwidth]{replicar_fisico_escenarios/traj_test_3A_ACC_f_1.eps}
+	\includegraphics[width=0.45\textwidth]{replicar_fisico_escenarios/traj_test_3A_ACC_f_1.eps}
 	\caption{Trayectoria de los 3 agentes en el escenario ACC, corrida 1, en físico.}
 	\label{fig:traj_test_3A_ACC_f_1}
 \end{figure}
@@ -453,15 +436,17 @@ Para el cuarto escenario, se utilizó la configuración ACC con 3 agentes. En la
 \subsubsection{Quinto escenario}
 Para el quinto escenario, se utilizó la configuración ACA con 3 agentes. En la Figura \ref{fig:test_fisico5} se muestra el escenario en la mesa de pruebas con los agentes antes de colocarse en sus posiciones iniciales y en la Figura \ref{fig:traj_test_3A_ACA_f_1} las trayectorias de los agentes luego de colocarse en sus posiciones iniciales.
 
+Para este escenario se agregaron tres obstáculos de manera similar al cuarto escenario. En las trayectorias, se observa que los agentes lograron evadirlos y pasar entre ellos para llegar al objetivo, además, al tener pocos agentes en la formación, las trayectorias fueron más sencillas ya que se tenía menos agentes con los que podrían colisionar entre sí.
+
 \begin{figure}[H]
 	\centering
-	\includegraphics[width=0.8\textwidth]{replicar_fisico_escenarios/test_f5v2.png}
+	\includegraphics[width=0.45\textwidth]{replicar_fisico_escenarios/test_f5v2.png}
 	\caption{Mesa de pruebas con 3 agentes en el escenario ACA, corrida 1, en físico.}
 	\label{fig:test_fisico5}
 \end{figure}
 \begin{figure}[H]
 	\centering
-	\includegraphics[width=0.8\textwidth]{replicar_fisico_escenarios/traj_test_3A_ACA_f_1.eps}
+	\includegraphics[width=0.45\textwidth]{replicar_fisico_escenarios/traj_test_3A_ACA_f_1.eps}
 	\caption{Trayectoria de los 3 agentes en el escenario ACA, corrida 1, en físico.}
 	\label{fig:traj_test_3A_ACA_f_1}
 \end{figure}
@@ -472,7 +457,7 @@ En este capítulo, se explica y se pone a prueba la naturaleza dinámica del alg
 \section{Naturaleza dinámica del algoritmo}
 Como se mencionó anteriormente, se cuenta con el archivo ``data\_graphing.py'' para generar las gráficas y trayectorias del experimento. Sin embargo, este no mostraba el recorrido de los obstáculos en movimiento, por lo que se agregó esta función a manera de visualizar la posición inicial, y final, así como las trayectorias de los obstáculos.
 
-A continuación, se presentan los escenarios en los que se puso a prueba el algoritmo con obstáculos móviles en simulaciones y en físico. En todos los casos, se observa que los agentes lograron reposicionarse y cambiar su trayectoria al moverse los obstáculos, manteniendo su formación mientras siguen el objetivo. Esto es posible gracias a la naturaleza dinámica del algoritmo, que se debe a la manera en que se planteó originalmente la ecuación de consenso y el cálculo del peso para determinar las velocidades. Además, el algoritmo está constantemente evaluando la posición actual de cada agente y la compara con la posición actual de los obstáculos. Con esto, se ajusta de forma dinámica el peso $w$ y se re calcula la ecuación de consenso para evitar posibles colisiones.
+A continuación, se presentan los escenarios en los que se puso a prueba el algoritmo con obstáculos móviles en simulaciones y en físico. En todos los casos, se observa que los agentes lograron reposicionarse y cambiar su trayectoria al moverse los obstáculos, manteniendo su formación mientras siguen el objetivo. Esto es posible gracias a la naturaleza dinámica del algoritmo, que se debe a la manera en que se planteó originalmente la ecuación de consenso y el cálculo del peso para determinar las velocidades de los agentes. Además, el algoritmo está constantemente evaluando la posición actual de cada agente y la compara con la posición actual de los obstáculos. Con esto, se ajusta de forma dinámica el peso $w$ y se re calcula la ecuación de consenso para evitar posibles colisiones.
 
 \section{Simulaciones utilizando obstáculos móviles}
 Para las simulaciones mostradas en las Figuras \ref{fig:traj_testSim_6A_ADA_v_1}, \ref{fig:traj_testSim_6A_ADA_v_2} y \ref{fig:traj_testSim_6A_ADA_v_3} se optó por utilizar una configuración ADA con 6 agentes y se movilizó los obstáculos a manera de que estos interfirieran con la trayectoria de la formación durante el seguimiento al objetivo. Cabe mencionar que la movilización de los obstáculos se hizo de manera aleatoria y sin ningún patrón en específico. 
@@ -593,7 +578,7 @@ NumPy es una librería de Python especializada para el cálculo numérico y cien
 
 Al revisar los programas de los controladores, se encontró varios segmentos de código que se realizan con bucles (ciclos \textit{for}) simples y otros anidados. Esto presenta una deficiencia al realizar los cálculos y solicitud de datos al servidor del Robotat por lo que se optó por optimizar dichos procesos utilizando funciones matemáticas y operaciones matriciales con NumPy. A continuación, se detallará los segmentos del algoritmo que se optimizaron implementando operaciones con NumPy y se mostrará la comparativa en cuanto a tiempos de ejecución utilizando la librería ``time'' de Python y análisis estadísticos.
 
-\subsection{Aplicar desfases de los marcadores}
+\subsection{Aplicación de desfases a los marcadores}
 A continuación se explica los pasos que anteriormente se realizaban para aplicar los desfases de la calibración de marcadores, donde $n$ es la cantidad de marcadores a utilizar.
 
 \begin{itemize}
