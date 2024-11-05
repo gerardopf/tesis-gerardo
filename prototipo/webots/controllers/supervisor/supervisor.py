@@ -37,17 +37,17 @@ escenario_file = 'moviles'
 corrida_file = '10'
 
 """ MARCADORES (AGENTES, OBSTÁCULOS Y OBJETIVO) """
-agents_marker_list = [1,2,3,4] # agentes (Máx. 10)
+agents_marker_list = [2,3,4] # agentes (Máx. 10)
 obj_marker_list = [15] # marker del objetivo (Máx. 1)
-obs_marker_list = [22] # obstáculos (Máx. 3)
+obs_marker_list = [20,21,22] # obstáculos (Máx. 3)
 
 MAX_SPEED = 30 # velocidad máxima de ruedas (rpm)
 
 """ modo real o simulación """
-fisico = 0               # 0 Webots | 1 Robotat
-r_obs = 0                # 0: obstáculos virtuales | 1: obstáculos reales (markers)
-r_obj = 0                # 0: objetivo virtual | 1: objetivo real (marker)
-r_webots_visual = 0      # 0: NO simular en tiempo real | 1: simular en tiempo real
+fisico = 1               # 0 Webots | 1 Robotat
+r_obs = 1                # 0: obstáculos virtuales | 1: obstáculos reales (markers)
+r_obj = 1                # 0: objetivo virtual | 1: objetivo real (marker)
+r_webots_visual = 1      # 0: NO simular en tiempo real | 1: simular en tiempo real
 
 # archivo para simular una corrida que se realizó en físico
 initial_conditions_file = 'None.npz' 
@@ -511,6 +511,7 @@ Etapa 3:
  # hilo para solicitar poses del robotat en segundo plano
 #sync_event = threading.Event()
 stop_event = threading.Event()
+sync_event = threading.Event()
 
 # obtener las poses del robotat
 latencia = 0
@@ -540,12 +541,13 @@ def posesRobotat():
     print("Hilo terminado... -posesRobotat")
     
 # ver obstáculos y objetivo en tiempo real en webots
-fps = 0.01 # tasa de refresco
+#fps = 5 # tasa de refresco (ms)
 def realTime():
     global posObs
     global pObj
     global posAgentes_rtv
     while not stop_event.is_set():
+        sync_event.wait()
         # obstáculos
         for obs in range(0,cantO):
             x_obs = agents_pose[len(agents_pose)-cantO+obs, 0]
@@ -557,8 +559,8 @@ def realTime():
         for agente in range(0, cantAgentes_rtv):
             x_pos = agents_pose[agente,0]
             y_pos = agents_pose[agente,1]
-            posAgentes_rtv[agente].setSFVec3f([x_pos, y_pos, -6.39203e-05])
-        time.sleep(fps) 
+            posAgentes_rtv[agente].setSFVec3f([x_pos, y_pos, 0.5])
+        #time.sleep(fps/1000) 
     print("Hilo terminado... -realTime")
     
 # inicializar hilos
@@ -593,7 +595,8 @@ if (r_initial_conditions == 1):
 print("Inicio de ciclo principal...")
 while supervisor.step(TIME_STEP) != 1:
     tic_ciclo = time.perf_counter_ns()
-    
+    if (r_webots_visual == 1):
+        sync_event.set()
     # SIMULACIÓN
     if (fisico == 0):
         # posición de objetivo y obstáculos VIRTUALES
@@ -913,6 +916,7 @@ while supervisor.step(TIME_STEP) != 1:
             #sync_event.set()
             t1.join()   # esperar a que termine el hilo
             if r_webots_visual == 1:
+                sync_event.wait()
                 t2.join()   # esperar a que termine el hilo
             
             robotat_disconnect(robotat)

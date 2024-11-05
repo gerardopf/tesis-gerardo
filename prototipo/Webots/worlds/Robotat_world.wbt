@@ -256,7 +256,8 @@ DEF Agent_rtv0 Solid {
   children [
     DEF BALL_SHAPE Shape {
       appearance PBRAppearance {
-        baseColor 0 0 1
+        baseColor 1 1 0
+        transparency 0.01
         roughness 0.3
         metalness 0
       }
@@ -276,6 +277,7 @@ DEF Agent_rtv1 Solid {
     DEF BALL_SHAPE Shape {
       appearance PBRAppearance {
         baseColor 0 0 1
+        transparency 0.01
         roughness 0.3
         metalness 0
       }
@@ -295,6 +297,7 @@ DEF Agent_rtv2 Solid {
     DEF BALL_SHAPE Shape {
       appearance PBRAppearance {
         baseColor 0 0 1
+        transparency 0.01
         roughness 0.3
         metalness 0
       }
@@ -314,6 +317,7 @@ DEF Agent_rtv3 Solid {
     DEF BALL_SHAPE Shape {
       appearance PBRAppearance {
         baseColor 0 0 1
+        transparency 0.01
         roughness 0.3
         metalness 0
       }
@@ -333,6 +337,7 @@ DEF Agent_rtv4 Solid {
     DEF BALL_SHAPE Shape {
       appearance PBRAppearance {
         baseColor 0 0 1
+        transparency 0.01
         roughness 0.3
         metalness 0
       }
@@ -352,6 +357,7 @@ DEF Agent_rtv5 Solid {
     DEF BALL_SHAPE Shape {
       appearance PBRAppearance {
         baseColor 0 0 1
+        transparency 0.01
         roughness 0.3
         metalness 0
       }
@@ -371,6 +377,7 @@ DEF Agent_rtv6 Solid {
     DEF BALL_SHAPE Shape {
       appearance PBRAppearance {
         baseColor 0 0 1
+        transparency 0.01
         roughness 0.3
         metalness 0
       }
@@ -390,6 +397,7 @@ DEF Agent_rtv7 Solid {
     DEF BALL_SHAPE Shape {
       appearance PBRAppearance {
         baseColor 0 0 1
+        transparency 0.01
         roughness 0.3
         metalness 0
       }
@@ -409,6 +417,7 @@ DEF Agent_rtv8 Solid {
     DEF BALL_SHAPE Shape {
       appearance PBRAppearance {
         baseColor 0 0 1
+        transparency 0.01
         roughness 0.3
         metalness 0
       }
@@ -428,6 +437,7 @@ DEF Agent_rtv9 Solid {
     DEF BALL_SHAPE Shape {
       appearance PBRAppearance {
         baseColor 0 0 1
+        transparency 0.01
         roughness 0.3
         metalness 0
       }
