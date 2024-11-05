@@ -39,15 +39,15 @@ corrida_file = '10'
 """ MARCADORES (AGENTES, OBSTÁCULOS Y OBJETIVO) """
 agents_marker_list = [2,3,4] # agentes (Máx. 10)
 obj_marker_list = [15] # marker del objetivo (Máx. 1)
-obs_marker_list = [20,21,22] # obstáculos (Máx. 3)
+obs_marker_list = [22] # obstáculos (Máx. 3)
 
 MAX_SPEED = 30 # velocidad máxima de ruedas (rpm)
 
 """ modo real o simulación """
-fisico = 0               # 0 Webots | 1 Robotat
-r_obs = 0                # 0: obstáculos virtuales | 1: obstáculos reales (markers)
-r_obj = 0                # 0: objetivo virtual | 1: objetivo real (marker)
-r_webots_visual = 0      # 0: NO simular en tiempo real | 1: simular en tiempo real
+fisico = 1               # 0 Webots | 1 Robotat
+r_obs = 1                # 0: obstáculos virtuales | 1: obstáculos reales (markers)
+r_obj = 1                # 0: objetivo virtual | 1: objetivo real (marker)
+r_webots_visual = 1      # 0: NO simular en tiempo real | 1: simular en tiempo real
 
 # archivo para simular una corrida que se realizó en físico
 initial_conditions_file = 'None.npz' 
