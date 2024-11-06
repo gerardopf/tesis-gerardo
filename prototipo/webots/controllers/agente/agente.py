@@ -9,25 +9,31 @@ from multiprocessing import shared_memory, Lock
 from funciones_conjunto_3pi import *
 import time
 
+# abrir memoria compartida
 time.sleep(3)
-
-TIME_STEP = 64  # paso para simulación 64 ms
-MAX_SPEED = 6.28    # simulación epucks (rad/s)
-MAX_SPEED_f = 30  # físico Pololu 3Pi+ (rpm)
-
-# creación de memoria compartida
 shm1 = shared_memory.SharedMemory(name="my_shared_memory1")
 shm2 = shared_memory.SharedMemory(name="my_shared_memory2")
+shm3 = shared_memory.SharedMemory(name="my_shared_memory3")
+shm4 = shared_memory.SharedMemory(name="my_shared_memory4")
 lock = Lock()
 
-fisico = 1 # 0: Webots | 1: Robotat
+# obtener markers de agentes y configuración del supervisor
+lock.acquire()
+data_agents = shm3.buf[:shm3.size]
+data_config = shm4.buf[:shm4.size]
+lock.release()
 
-agents_marker_list = [6,4,7]
+fisico = pickle.loads(data_config)[0] # físico o simulado
+MAX_SPEED_f = pickle.loads(data_config)[1]  # velocidad máx. Pololu 3Pi+ (rpm)
+TIME_STEP = pickle.loads(data_config)[2]  # paso para simulación
+
+agents_marker_list = pickle.loads(data_agents)
 NStart = 1 # primer agente
 N = len(agents_marker_list)	# último agente
 
 # SIMULACIÓN - webots
 if(fisico == 0):
+    MAX_SPEED = 6.28    # simulación epucks (rad/s)
     # dimensiones del robot - epuck
     r = 0.0205
     l = 0.0355
@@ -126,7 +132,7 @@ elif(fisico == 1):
         agents_pose = pickle.loads(pick_agents_pose)
 
         # orientación del robot
-        theta_o_f = agents_pose[argc][3]+90 # 90° para compensar la orientación real
+        theta_o_f = agents_pose[argc][3]-90 # 90° para compensar la orientación real
         if(theta_o_f < 0):
             thetha_o_f = theta_o_f + 360    # ángulo siempre positivo
             

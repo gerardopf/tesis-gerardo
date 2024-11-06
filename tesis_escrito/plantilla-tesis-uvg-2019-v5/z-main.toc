@@ -71,33 +71,33 @@
 \contentsline {subsection}{\numberline {8.2.2}Calibración de marcadores}{35}{subsection.112}%
 \contentsline {subsection}{\numberline {8.2.3}Selección de marcadores a utilizar}{37}{subsection.116}%
 \contentsline {subsection}{\numberline {8.2.4}Ajuste de parámetros en el algoritmo}{39}{subsection.119}%
-\contentsline {subsection}{\numberline {8.2.5}Configuraciones para el escenario}{42}{subsection.124}%
-\contentsline {subsection}{\numberline {8.2.6}Prueba del algoritmo en físico con escenarios previos}{42}{subsection.126}%
-\contentsline {subsubsection}{Primer escenario}{43}{section*.127}%
-\contentsline {subsubsection}{Segundo escenario}{44}{section*.130}%
-\contentsline {subsubsection}{Tercer escenario}{46}{section*.133}%
-\contentsline {subsubsection}{Cuarto escenario}{48}{section*.136}%
-\contentsline {subsubsection}{Quinto escenario}{50}{section*.139}%
-\contentsline {chapter}{\numberline {9}Prueba de la naturaleza dinámica del algoritmo con obstáculos móviles}{53}{chapter.142}%
-\contentsline {section}{\numberline {9.1}Naturaleza dinámica del algoritmo}{53}{section.143}%
-\contentsline {section}{\numberline {9.2}Simulaciones utilizando obstáculos móviles}{53}{section.144}%
-\contentsline {subsection}{\numberline {9.2.1}Primer escenario}{54}{subsection.145}%
-\contentsline {subsection}{\numberline {9.2.2}Segundo escenario}{55}{subsection.147}%
-\contentsline {subsection}{\numberline {9.2.3}Tercer escenario}{56}{subsection.149}%
-\contentsline {section}{\numberline {9.3}Escenarios físicos utilizando obstáculos móviles}{56}{section.151}%
-\contentsline {subsection}{\numberline {9.3.1}Primer escenario}{56}{subsection.152}%
-\contentsline {subsection}{\numberline {9.3.2}Segundo escenario}{57}{subsection.154}%
-\contentsline {subsection}{\numberline {9.3.3}Tercer escenario}{58}{subsection.156}%
-\contentsline {subsection}{\numberline {9.3.4}Cuarto escenario}{59}{subsection.158}%
-\contentsline {chapter}{\numberline {10}Optimización del algoritmo y su implementación}{61}{chapter.160}%
-\contentsline {section}{\numberline {10.1}Lenguaje de programación y limpieza de código}{61}{section.161}%
-\contentsline {section}{\numberline {10.2}Posición de cada agente según el grafo de formación}{62}{section.163}%
-\contentsline {section}{\numberline {10.3}Mejora de la eficiencia computacional con NumPy}{64}{section.166}%
-\contentsline {subsection}{\numberline {10.3.1}Aplicar desfases de los marcadores}{64}{subsection.167}%
-\contentsline {subsection}{\numberline {10.3.2}Cálculo de la distancia entre agentes}{66}{subsection.182}%
-\contentsline {subsection}{\numberline {10.3.3}Cálculo del error de formación}{67}{subsection.186}%
-\contentsline {section}{\numberline {10.4}Ajuste de parámetros del algoritmo}{69}{section.190}%
-\contentsline {chapter}{\numberline {11}Validación del algoritmo optimizado en escenarios físicos con obstáculos móviles}{70}{chapter.191}%
-\contentsline {chapter}{\numberline {12}Conclusiones}{71}{chapter.192}%
-\contentsline {chapter}{\numberline {13}Recomendaciones}{72}{chapter.193}%
-\contentsline {chapter}{\numberline {14}Bibliograf\'{\i }a}{73}{chapter.195}%
+\contentsline {subsection}{\numberline {8.2.5}Configuraciones para el escenario}{40}{subsection.122}%
+\contentsline {subsection}{\numberline {8.2.6}Prueba del algoritmo en físico con escenarios previos}{41}{subsection.124}%
+\contentsline {subsubsection}{Primer escenario}{42}{section*.125}%
+\contentsline {subsubsection}{Segundo escenario}{43}{section*.128}%
+\contentsline {subsubsection}{Tercer escenario}{44}{section*.131}%
+\contentsline {subsubsection}{Cuarto escenario}{45}{section*.134}%
+\contentsline {subsubsection}{Quinto escenario}{46}{section*.137}%
+\contentsline {chapter}{\numberline {9}Prueba de la naturaleza dinámica del algoritmo con obstáculos móviles}{47}{chapter.140}%
+\contentsline {section}{\numberline {9.1}Naturaleza dinámica del algoritmo}{47}{section.141}%
+\contentsline {section}{\numberline {9.2}Simulaciones utilizando obstáculos móviles}{47}{section.142}%
+\contentsline {subsection}{\numberline {9.2.1}Primer escenario}{48}{subsection.143}%
+\contentsline {subsection}{\numberline {9.2.2}Segundo escenario}{49}{subsection.145}%
+\contentsline {subsection}{\numberline {9.2.3}Tercer escenario}{50}{subsection.147}%
+\contentsline {section}{\numberline {9.3}Escenarios físicos utilizando obstáculos móviles}{50}{section.149}%
+\contentsline {subsection}{\numberline {9.3.1}Primer escenario}{50}{subsection.150}%
+\contentsline {subsection}{\numberline {9.3.2}Segundo escenario}{51}{subsection.152}%
+\contentsline {subsection}{\numberline {9.3.3}Tercer escenario}{52}{subsection.154}%
+\contentsline {subsection}{\numberline {9.3.4}Cuarto escenario}{53}{subsection.156}%
+\contentsline {chapter}{\numberline {10}Optimización del algoritmo y su implementación}{55}{chapter.158}%
+\contentsline {section}{\numberline {10.1}Lenguaje de programación y limpieza de código}{55}{section.159}%
+\contentsline {section}{\numberline {10.2}Posición de cada agente según el grafo de formación}{56}{section.161}%
+\contentsline {section}{\numberline {10.3}Mejora de la eficiencia computacional con NumPy}{58}{section.164}%
+\contentsline {subsection}{\numberline {10.3.1}Aplicación de desfases a los marcadores}{58}{subsection.165}%
+\contentsline {subsection}{\numberline {10.3.2}Cálculo de la distancia entre agentes}{60}{subsection.180}%
+\contentsline {subsection}{\numberline {10.3.3}Cálculo del error de formación}{61}{subsection.184}%
+\contentsline {section}{\numberline {10.4}Ajuste de parámetros del algoritmo}{63}{section.188}%
+\contentsline {chapter}{\numberline {11}Validación del algoritmo optimizado en escenarios físicos con obstáculos móviles}{64}{chapter.189}%
+\contentsline {chapter}{\numberline {12}Conclusiones}{65}{chapter.190}%
+\contentsline {chapter}{\numberline {13}Recomendaciones}{66}{chapter.191}%
+\contentsline {chapter}{\numberline {14}Bibliograf\'{\i }a}{67}{chapter.193}%

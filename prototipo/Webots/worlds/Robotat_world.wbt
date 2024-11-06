@@ -9,8 +9,8 @@ EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2023a/project
 WorldInfo {
 }
 Viewpoint {
-  orientation -0.5773502691896257 0.5773502691896257 0.5773502691896257 2.0943245915045035
-  position 0.00011634227682438749 -4.6385249842466896e-05 7.806877926215865
+  orientation -0.5773502691896258 0.5773502691896258 0.5773502691896258 2.0944
+  position 1.303895329237004e-05 1.3038990164053913e-05 8.256432020210424
 }
 TexturedBackground {
 }
@@ -21,7 +21,7 @@ DEF Arena RectangleArena {
   floorTileSize 1.9 1.924
 }
 DEF Obs0 SolidTorus {
-  translation -0.141 0 0
+  translation 2.2 -0.5 0.3
   majorRadius 0.07
   minorRadius 0.1
   appearance PBRAppearance {
@@ -31,12 +31,13 @@ DEF Obs0 SolidTorus {
         "https://raw.githubusercontent.com/cyberbotics/webots/R2023a/projects/default/worlds/textures/tagged_wall.jpg"
       ]
     }
+    transparency 0.01
     roughness 0.5
     metalness 0
   }
 }
 DEF Obs1 SolidTorus {
-  translation -0.5 0.75 0
+  translation 2.2 -1 0.3
   name "torus(1)"
   majorRadius 0.07
   minorRadius 0.1
@@ -47,12 +48,13 @@ DEF Obs1 SolidTorus {
         "https://raw.githubusercontent.com/cyberbotics/webots/R2023a/projects/default/worlds/textures/tagged_wall.jpg"
       ]
     }
+    transparency 0.01
     roughness 0.5
     metalness 0
   }
 }
 DEF Obs2 SolidTorus {
-  translation -0.75 -0.5 0
+  translation 2.2 -1.5 0.3
   name "torus(2)"
   majorRadius 0.07
   minorRadius 0.1
@@ -63,6 +65,7 @@ DEF Obs2 SolidTorus {
         "https://raw.githubusercontent.com/cyberbotics/webots/R2023a/projects/default/worlds/textures/tagged_wall.jpg"
       ]
     }
+    transparency 0.01
     roughness 0.5
     metalness 0
   }
@@ -73,8 +76,8 @@ DEF IniPos1 Solid {
   children [
     DEF BALL_SHAPE Shape {
       appearance PBRAppearance {
-        baseColor 1 0 0
-        transparency 0.6
+        baseColor 0 0.666667 0
+        transparency 0.4
         roughness 0.2
         metalness 0
       }
@@ -88,13 +91,13 @@ DEF IniPos1 Solid {
   boundingObject USE BALL_SHAPE
 }
 DEF OBJ Solid {
-  translation 1.06 1.52 0.3
+  translation 0 1 0.3
   rotation 0 1 0 0
   children [
     DEF BALL_SHAPE Shape {
       appearance PBRAppearance {
-        baseColor 1 0.666667 0
-        transparency 0.1
+        baseColor 1 0 0
+        transparency 0.01
         roughness 0.2
         metalness 0
       }
@@ -113,8 +116,8 @@ DEF IniPos2 Solid {
   children [
     DEF BALL_SHAPE Shape {
       appearance PBRAppearance {
-        baseColor 1 0 0
-        transparency 0.6
+        baseColor 0 0.666667 0
+        transparency 0.4
         roughness 0.3
         metalness 0
       }
@@ -133,8 +136,8 @@ DEF IniPos3 Solid {
   children [
     DEF BALL_SHAPE Shape {
       appearance PBRAppearance {
-        baseColor 1 0 0
-        transparency 0.6
+        baseColor 0 0.666667 0
+        transparency 0.4
         roughness 0.3
         metalness 0
       }
@@ -153,8 +156,8 @@ DEF IniPos4 Solid {
   children [
     DEF BALL_SHAPE Shape {
       appearance PBRAppearance {
-        baseColor 1 0 0
-        transparency 0.6
+        baseColor 0 0.666667 0
+        transparency 0.4
         roughness 0.3
         metalness 0
       }
@@ -173,8 +176,8 @@ DEF IniPos5 Solid {
   children [
     DEF BALL_SHAPE Shape {
       appearance PBRAppearance {
-        baseColor 1 0 0
-        transparency 0.6
+        baseColor 0 0.666667 0
+        transparency 0.4
         roughness 0.3
         metalness 0
       }
@@ -193,8 +196,8 @@ DEF IniPos6 Solid {
   children [
     DEF BALL_SHAPE Shape {
       appearance PBRAppearance {
-        baseColor 1 0 0
-        transparency 0.6
+        baseColor 0 0.666667 0
+        transparency 0.4
         roughness 0.3
         metalness 0
       }
@@ -213,8 +216,8 @@ DEF IniPos7 Solid {
   children [
     DEF BALL_SHAPE Shape {
       appearance PBRAppearance {
-        baseColor 1 0 0
-        transparency 0.6
+        baseColor 0 0.666667 0
+        transparency 0.4
         roughness 0.3
         metalness 0
       }
@@ -233,8 +236,8 @@ DEF IniPos8 Solid {
   children [
     DEF BALL_SHAPE Shape {
       appearance PBRAppearance {
-        baseColor 1 0 0
-        transparency 0.6
+        baseColor 0 0.666667 0
+        transparency 0.4
         roughness 0.3
         metalness 0
       }
@@ -247,14 +250,214 @@ DEF IniPos8 Solid {
   model "ball"
   boundingObject USE BALL_SHAPE
 }
+DEF Agent_rtv0 Solid {
+  translation 2.18 1.8 0.3
+  rotation 0 1 0 0
+  children [
+    DEF BALL_SHAPE Shape {
+      appearance PBRAppearance {
+        baseColor 1 1 0
+        transparency 0.01
+        roughness 0.3
+        metalness 0
+      }
+      geometry Sphere {
+        radius 0.05
+      }
+    }
+  ]
+  name "ball(12)"
+  model "ball"
+  boundingObject USE BALL_SHAPE
+}
+DEF Agent_rtv1 Solid {
+  translation 2.18 1.6 0.3
+  rotation 0 1 0 0
+  children [
+    DEF BALL_SHAPE Shape {
+      appearance PBRAppearance {
+        baseColor 0 0 1
+        transparency 0.01
+        roughness 0.3
+        metalness 0
+      }
+      geometry Sphere {
+        radius 0.05
+      }
+    }
+  ]
+  name "ball(13)"
+  model "ball"
+  boundingObject USE BALL_SHAPE
+}
+DEF Agent_rtv2 Solid {
+  translation 2.18 1.4 0.3
+  rotation 0 1 0 0
+  children [
+    DEF BALL_SHAPE Shape {
+      appearance PBRAppearance {
+        baseColor 0 0 1
+        transparency 0.01
+        roughness 0.3
+        metalness 0
+      }
+      geometry Sphere {
+        radius 0.05
+      }
+    }
+  ]
+  name "ball(14)"
+  model "ball"
+  boundingObject USE BALL_SHAPE
+}
+DEF Agent_rtv3 Solid {
+  translation 2.18 1.2 0.3
+  rotation 0 1 0 0
+  children [
+    DEF BALL_SHAPE Shape {
+      appearance PBRAppearance {
+        baseColor 0 0 1
+        transparency 0.01
+        roughness 0.3
+        metalness 0
+      }
+      geometry Sphere {
+        radius 0.05
+      }
+    }
+  ]
+  name "ball(15)"
+  model "ball"
+  boundingObject USE BALL_SHAPE
+}
+DEF Agent_rtv4 Solid {
+  translation 2.18 1 0.3
+  rotation 0 1 0 0
+  children [
+    DEF BALL_SHAPE Shape {
+      appearance PBRAppearance {
+        baseColor 0 0 1
+        transparency 0.01
+        roughness 0.3
+        metalness 0
+      }
+      geometry Sphere {
+        radius 0.05
+      }
+    }
+  ]
+  name "ball(16)"
+  model "ball"
+  boundingObject USE BALL_SHAPE
+}
+DEF Agent_rtv5 Solid {
+  translation 2.18 0.8 0.3
+  rotation 0 1 0 0
+  children [
+    DEF BALL_SHAPE Shape {
+      appearance PBRAppearance {
+        baseColor 0 0 1
+        transparency 0.01
+        roughness 0.3
+        metalness 0
+      }
+      geometry Sphere {
+        radius 0.05
+      }
+    }
+  ]
+  name "ball(17)"
+  model "ball"
+  boundingObject USE BALL_SHAPE
+}
+DEF Agent_rtv6 Solid {
+  translation 2.18 0.6 0.3
+  rotation 0 1 0 0
+  children [
+    DEF BALL_SHAPE Shape {
+      appearance PBRAppearance {
+        baseColor 0 0 1
+        transparency 0.01
+        roughness 0.3
+        metalness 0
+      }
+      geometry Sphere {
+        radius 0.05
+      }
+    }
+  ]
+  name "ball(18)"
+  model "ball"
+  boundingObject USE BALL_SHAPE
+}
+DEF Agent_rtv7 Solid {
+  translation 2.18 0.4 0.3
+  rotation 0 1 0 0
+  children [
+    DEF BALL_SHAPE Shape {
+      appearance PBRAppearance {
+        baseColor 0 0 1
+        transparency 0.01
+        roughness 0.3
+        metalness 0
+      }
+      geometry Sphere {
+        radius 0.05
+      }
+    }
+  ]
+  name "ball(19)"
+  model "ball"
+  boundingObject USE BALL_SHAPE
+}
+DEF Agent_rtv8 Solid {
+  translation 2.18 0.2 0.3
+  rotation 0 1 0 0
+  children [
+    DEF BALL_SHAPE Shape {
+      appearance PBRAppearance {
+        baseColor 0 0 1
+        transparency 0.01
+        roughness 0.3
+        metalness 0
+      }
+      geometry Sphere {
+        radius 0.05
+      }
+    }
+  ]
+  name "ball(20)"
+  model "ball"
+  boundingObject USE BALL_SHAPE
+}
+DEF Agent_rtv9 Solid {
+  translation 2.18 0 0.3
+  rotation 0 1 0 0
+  children [
+    DEF BALL_SHAPE Shape {
+      appearance PBRAppearance {
+        baseColor 0 0 1
+        transparency 0.01
+        roughness 0.3
+        metalness 0
+      }
+      geometry Sphere {
+        radius 0.05
+      }
+    }
+  ]
+  name "ball(21)"
+  model "ball"
+  boundingObject USE BALL_SHAPE
+}
 DEF IniPos9 Solid {
   translation -1.2 1.8 0.3
   rotation 0 1 0 0
   children [
     DEF BALL_SHAPE Shape {
       appearance PBRAppearance {
-        baseColor 1 0 0
-        transparency 0.6
+        baseColor 0 0.666667 0
+        transparency 0.4
         roughness 0.3
         metalness 0
       }
@@ -273,8 +476,8 @@ DEF IniPos10 Solid {
   children [
     DEF BALL_SHAPE Shape {
       appearance PBRAppearance {
-        baseColor 1 0 0
-        transparency 0.6
+        baseColor 0 0.666667 0
+        transparency 0.4
         roughness 0.3
         metalness 0
       }
