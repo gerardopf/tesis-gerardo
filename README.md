@@ -2,11 +2,7 @@
 
 # Optimización de un algoritmo de inteligencia de enjambre enfocado en sincronización y control de formaciones de sistemas robóticos multi-agente para escenarios con obstáculos móviles
 
-![Static Badge](https://img.shields.io/badge/Estado-en%20desarrollo-purple)
-
-Desarrollado en `Webots R2023b` y `Python 3.10.4`.
-
-Resumen...
+![Static Badge](https://img.shields.io/badge/Estado-en%20desarrollo-purple) ![Static Badge](https://img.shields.io/badge/Python-3.10.4-blue) ![Static Badge](https://img.shields.io/badge/Webots-R2023b-darkred)
 
 ## Autor
 
@@ -19,6 +15,14 @@ Carné: 20173
 Correo institucional: [paz20173@uvg.edu.gt](mailto:paz20173@uvg.edu.gt)
 
 Correo alternativo: [gerardopaz322@gmail.com](mailto:gerardopaz322@gmail.com)
+
+## Asesor
+
+Dr. Luis Alberto Rivera Estrada
+
+### Información de contacto
+
+Correo institucional: [larivera@uvg.edu.gt](mailto:larivera@uvg.edu.gt)
 
 ## Resumen de contenido
 
@@ -60,5 +64,5 @@ El algoritmo consiste en las siguientes etapas para su ejecución:
 
 ### Fase previa
 
-Aquí puedes revisar la [fase previa](https://github.com/rod19131/tesisAlejandro) del algoritmo realizada por José Alejandro Rodríguez.
+Aquí puedes [revisar la fase previa](https://github.com/rod19131/tesisAlejandro) del algoritmo realizada por José Alejandro Rodríguez.
 
