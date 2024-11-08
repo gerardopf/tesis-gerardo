@@ -20,6 +20,10 @@ Correo institucional: [paz20173@uvg.edu.gt](mailto:paz20173@uvg.edu.gt)
 
 Correo alternativo: [gerardopaz322@gmail.com](mailto:gerardopaz322@gmail.com)
 
+## Resumen de contenido
+
+
+
 ## Funcionamiento
 
 ### Etapas del algoritmo
