@@ -55,3 +55,10 @@ El algoritmo consiste en las siguientes etapas para su ejecución:
 - NumPy - versión 1.23.2
 - SciPy - versión 1.13.0
 - Keyboard - versión 0.13.5
+
+## Recursos adicionales
+
+### Fase previa
+
+Aquí puedes revisar la [fase previa](https://github.com/rod19131/tesisAlejandro) del algoritmo realizada por José Alejandro Rodríguez.
+
