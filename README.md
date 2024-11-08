@@ -38,6 +38,12 @@ Correo institucional: [larivera@uvg.edu.gt](mailto:larivera@uvg.edu.gt)
 
 El objetivo principal de este trabajo de graduación fue optimizar la implementación del algoritmo de inteligencia de enjambre enfocado en sincronización y control de formaciones de sistemas robóticos.
 
+Este trabajo es la tercera fase de la línea de investicación: `inteligencia computacional y robótica de enjambre`. 
+
+Visita los [recursos adicionales](#clipboard-recursos-adicionales) para más información sobre las fases anteriores de esta línea de investigación.
+
+
+
 ## Funcionamiento
 
 ### Etapas del algoritmo
@@ -49,7 +55,7 @@ El algoritmo consiste en las siguientes etapas para su ejecución:
 - `Etapa 2`: colocación de los agentes en su posición en la formación.
 - `Etapa 3`: movilización de la formación hacia el objetivo.
 
-### :gear: Configuración de escenarios
+### :wrench: Configuración de escenarios
 
 - Mínimo de agentes: `2`
 - Máximo de agentes: `10`
@@ -88,7 +94,7 @@ El algoritmo consiste en las siguientes etapas para su ejecución:
 - `VRAM`: 8 GB
 - `RAM`: 32 GB
 
-## :computer: Recursos adicionales
+## :clipboard: Recursos adicionales
 
 ### Fase previa
 
