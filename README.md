@@ -4,7 +4,7 @@
 
 ![Static Badge](https://img.shields.io/badge/estado-en%20desarrollo-purple)
 
-## Descripción del proyecto
+Resumen...
 
 ## Autor
 
