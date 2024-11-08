@@ -25,7 +25,7 @@ Correo alternativo: [gerardopaz322@gmail.com](mailto:gerardopaz322@gmail.com)
 | Carpeta    | Contenido                                                                                                                     |
 |------------|-------------------------------------------------------------------------------------------------------------------------------|
 | documentos | Contiene el contenido el protocolo y la el trabajo escrito de tesis.                                                          |
-| prototipo  | Contiene todos los recursos utilzados para realizar el proyecto. Incluye versiones de prueba y finales de códigos y gráficas. |
+| prototipo  | Contiene todos los recursos utilizados para realizar el proyecto. Incluye versiones de prueba y finales de códigos y gráficas. |
 
 ## Funcionamiento
 
@@ -52,6 +52,6 @@ El algoritmo consiste en las siguientes etapas para su ejecución:
 - Python 3.10.4
 
 ### Librerías de Python
-- Keyboard - versión 0.13.5
 - NumPy - versión 1.23.2
 - SciPy - versión 1.13.0
+- Keyboard - versión 0.13.5
