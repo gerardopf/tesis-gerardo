@@ -68,13 +68,25 @@ El algoritmo consiste en las siguientes etapas para su ejecución:
 :construction: Colocar gráfica... :construction:
 
 ## :heavy_check_mark: Requisitos para la ejecución del programa
-- Webots R2023b
-- Python 3.10.4
+
+### Lenguaje de programación
+
+![Static Badge](https://img.shields.io/badge/Python-3.10.4-blue)
+
+### Software
+
+![Static Badge](https://img.shields.io/badge/Webots-R2023b-darkred)
 
 ### Librerías de Python
 ![Static Badge](https://img.shields.io/badge/NumPy-1.23.2-blue)
 ![Static Badge](https://img.shields.io/badge/SciPy-1.13.0-blue)
 ![Static Badge](https://img.shields.io/badge/Keyboard-0.13.5-blue)
+
+### Hardware utilizado
+- `CPU`: AMD Ryzen 9 5900HX
+- `GPU`: NVIDIA GeForce RTX 3070
+- `VRAM`: 8 GB
+- `RAM`: 32 GB
 
 ## :computer: Recursos adicionales
 
