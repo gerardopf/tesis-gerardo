@@ -36,7 +36,7 @@ Correo institucional: [larivera@uvg.edu.gt](mailto:larivera@uvg.edu.gt)
 
 ## Descripción
 
-El objetivo principal de este trabao de graduación fue optimizar la implementación del algoritmo de inteligencia de enjambre enfocado en sincronización y control de formaciones de sistemas robóticos.
+El objetivo principal de este trabajo de graduación fue optimizar la implementación del algoritmo de inteligencia de enjambre enfocado en sincronización y control de formaciones de sistemas robóticos.
 
 ## Funcionamiento
 
