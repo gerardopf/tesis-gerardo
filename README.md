@@ -29,7 +29,7 @@ El algoritmo consiste en las siguientes etapas para su ejecución:
 - Etapa 2: colocación de los agentes en su posición en la formación.
 - Etapa 3: movilización de la formación hacia el objetivo.
 
-### Limitaciones para configuración de escenarios
+### Configuración de escenarios
 
 - Mínimo de agentes: 2
 - Máximo de agentes: 10
