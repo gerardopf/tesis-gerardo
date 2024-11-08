@@ -65,7 +65,7 @@ El algoritmo consiste en las siguientes etapas para su ejecución:
 
 #### Trayectorias de los agentes y obstáculos
 
-Colocar gráfica...
+:construction: Colocar gráfica... :construction:
 
 ## Requisitos para la ejecución del programa
 - Webots R2023b
