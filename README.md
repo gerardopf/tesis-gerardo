@@ -57,7 +57,7 @@ El algoritmo consiste en las siguientes etapas para su ejecución:
 - Máximo de obstáculos: `3`
 - Objetivos: `1`
 
-### Ejecución del algoritmo en el Robotat
+### :rocket: Ejecución del algoritmo en el Robotat
 
 #### Animación
 
@@ -67,7 +67,7 @@ El algoritmo consiste en las siguientes etapas para su ejecución:
 
 :construction: Colocar gráfica... :construction:
 
-## Requisitos para la ejecución del programa
+## :heavy_check_mark: Requisitos para la ejecución del programa
 - Webots R2023b
 - Python 3.10.4
 
@@ -76,7 +76,7 @@ El algoritmo consiste en las siguientes etapas para su ejecución:
 ![Static Badge](https://img.shields.io/badge/SciPy-1.13.0-blue)
 ![Static Badge](https://img.shields.io/badge/Keyboard-0.13.5-blue)
 
-## Recursos adicionales
+## :computer: Recursos adicionales
 
 ### Fase previa
 
