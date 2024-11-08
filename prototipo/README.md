@@ -2,7 +2,7 @@
 
 | Carpeta                     | Contenido                                                                                                                  |
 |-----------------------------|----------------------------------------------------------------------------------------------------------------------------|
-| backups_outdated            | Versiones de respaldo desactualizadas de los controladores. Primeras iteraciones.                                          |
+| backups_outdated            | Versiones de respaldo desactualizadas de los controladores.                                          |
 | calibracion_markers         | Calibración de los marcadores del Robotat para obtener los desfases del ángulo.                                            |
 | funciones                   | Funciones necesarias para ejecutar del algoritmo, conectarse con el Robotat y los Pololu 3Pi+ y gráficar las trayectorias. |
 | graficas                    | Gráficas y trayectorias generadas.                                                                                         |
