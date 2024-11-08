@@ -2,7 +2,10 @@
 
 # Optimización de un algoritmo de inteligencia de enjambre enfocado en sincronización y control de formaciones de sistemas robóticos multi-agente para escenarios con obstáculos móviles
 
-![Static Badge](https://img.shields.io/badge/Estado-en%20desarrollo-purple) ![Static Badge](https://img.shields.io/badge/Python-3.10.4-blue) ![Static Badge](https://img.shields.io/badge/Webots-R2023b-darkred)
+![Static Badge](https://img.shields.io/badge/Estado-en%20desarrollo-purple)
+![Static Badge](https://img.shields.io/badge/Fase-3-purple)
+![Static Badge](https://img.shields.io/badge/Python-3.10.4-blue)
+![Static Badge](https://img.shields.io/badge/Webots-R2023b-darkred)
 
 ## Autor
 
@@ -31,6 +34,10 @@ Correo institucional: [larivera@uvg.edu.gt](mailto:larivera@uvg.edu.gt)
 | documentos | Contiene el contenido el protocolo y la el trabajo escrito de tesis.                                                          |
 | prototipo  | Contiene todos los recursos utilizados para realizar el proyecto. Incluye versiones de prueba y finales de códigos y gráficas. |
 
+## Descripción
+
+El objetivo principal de este trabao de graduación fue optimizar la implementación del algoritmo de inteligencia de enjambre enfocado en sincronización y control de formaciones de sistemas robóticos.
+
 ## Funcionamiento
 
 ### Etapas del algoritmo
@@ -50,15 +57,24 @@ El algoritmo consiste en las siguientes etapas para su ejecución:
 - Máximo de obstáculos: `3`
 - Objetivos: `1`
 
+### Ejecución del algoritmo en el Robotat
+
+#### Animación
+
+:construction: Colocar GIF... :construction:
+
+#### Trayectorias de los agentes y obstáculos
+
+Colocar gráfica...
 
 ## Requisitos para la ejecución del programa
 - Webots R2023b
 - Python 3.10.4
 
 ### Librerías de Python
-- NumPy - versión 1.23.2
-- SciPy - versión 1.13.0
-- Keyboard - versión 0.13.5
+![Static Badge](https://img.shields.io/badge/NumPy-1.23.2-blue)
+![Static Badge](https://img.shields.io/badge/SciPy-1.13.0-blue)
+![Static Badge](https://img.shields.io/badge/Keyboard-0.13.5-blue)
 
 ## Recursos adicionales
 
