@@ -22,7 +22,10 @@ Correo alternativo: [gerardopaz322@gmail.com](mailto:gerardopaz322@gmail.com)
 
 ## Resumen de contenido
 
-
+| Carpeta    | Contenido                                                                                                                     |
+|------------|-------------------------------------------------------------------------------------------------------------------------------|
+| documentos | Contiene el contenido el protocolo y la el trabajo escrito de tesis.                                                          |
+| prototipo  | Contiene todos los recursos utilzados para realizar el proyecto. Incluye versiones de prueba y finales de códigos y gráficas. |
 
 ## Funcionamiento
 
