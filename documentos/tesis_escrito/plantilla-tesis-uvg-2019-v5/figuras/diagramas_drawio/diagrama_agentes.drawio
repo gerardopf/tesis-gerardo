@@ -1,0 +1,96 @@
+<mxfile host="app.diagrams.net" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/130.0.0.0 Safari/537.36" version="24.8.3">
+  <diagram name="Página-1" id="Niypi8H3w26r-LajFlWQ">
+    <mxGraphModel dx="385" dy="654" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="uO_4DPwW7-oUKfp0ueYz-16" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" parent="1" source="uO_4DPwW7-oUKfp0ueYz-2" target="uO_4DPwW7-oUKfp0ueYz-4" edge="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="uO_4DPwW7-oUKfp0ueYz-2" value="INICIO" style="rounded=0;whiteSpace=wrap;html=1;fontSize=10;" parent="1" vertex="1">
+          <mxGeometry x="340" y="70" width="120" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="uO_4DPwW7-oUKfp0ueYz-14" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" parent="1" source="uO_4DPwW7-oUKfp0ueYz-3" target="uO_4DPwW7-oUKfp0ueYz-5" edge="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="uO_4DPwW7-oUKfp0ueYz-19" value="Sí" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" parent="uO_4DPwW7-oUKfp0ueYz-14" vertex="1" connectable="0">
+          <mxGeometry x="-0.3143" y="-1" relative="1" as="geometry">
+            <mxPoint x="-9" as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="uO_4DPwW7-oUKfp0ueYz-17" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=1;entryY=0.5;entryDx=0;entryDy=0;" parent="1" source="uO_4DPwW7-oUKfp0ueYz-3" target="uO_4DPwW7-oUKfp0ueYz-4" edge="1">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="510" y="280" />
+              <mxPoint x="510" y="165" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="uO_4DPwW7-oUKfp0ueYz-18" value="No" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" parent="uO_4DPwW7-oUKfp0ueYz-17" vertex="1" connectable="0">
+          <mxGeometry x="0.049" y="3" relative="1" as="geometry">
+            <mxPoint x="-7" as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="uO_4DPwW7-oUKfp0ueYz-3" value="Argumento ==&amp;nbsp;&lt;div style=&quot;font-size: 10px;&quot;&gt;ID agente&lt;/div&gt;" style="rhombus;whiteSpace=wrap;html=1;fontSize=10;" parent="1" vertex="1">
+          <mxGeometry x="350" y="230" width="100" height="100" as="geometry" />
+        </mxCell>
+        <mxCell id="uO_4DPwW7-oUKfp0ueYz-15" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" parent="1" source="uO_4DPwW7-oUKfp0ueYz-4" target="uO_4DPwW7-oUKfp0ueYz-3" edge="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="uO_4DPwW7-oUKfp0ueYz-4" value="Recepción de velocidades calculadas por el supervisor" style="rounded=0;whiteSpace=wrap;html=1;fontSize=10;" parent="1" vertex="1">
+          <mxGeometry x="340" y="130" width="120" height="70" as="geometry" />
+        </mxCell>
+        <mxCell id="uO_4DPwW7-oUKfp0ueYz-13" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" parent="1" source="uO_4DPwW7-oUKfp0ueYz-5" target="uO_4DPwW7-oUKfp0ueYz-6" edge="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="uO_4DPwW7-oUKfp0ueYz-5" value="Calcular velocidad lineal y angular" style="rounded=0;whiteSpace=wrap;html=1;fontSize=10;" parent="1" vertex="1">
+          <mxGeometry x="340" y="370" width="120" height="50" as="geometry" />
+        </mxCell>
+        <mxCell id="uO_4DPwW7-oUKfp0ueYz-12" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" parent="1" source="uO_4DPwW7-oUKfp0ueYz-6" target="uO_4DPwW7-oUKfp0ueYz-8" edge="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="uO_4DPwW7-oUKfp0ueYz-6" value="Calcular velocidad de las ruedas" style="rounded=0;whiteSpace=wrap;html=1;fontSize=10;" parent="1" vertex="1">
+          <mxGeometry x="340" y="450" width="120" height="50" as="geometry" />
+        </mxCell>
+        <mxCell id="CnqzNMY4VW-4nm08jtYf-1" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" parent="1" source="uO_4DPwW7-oUKfp0ueYz-7" target="uO_4DPwW7-oUKfp0ueYz-23" edge="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="uO_4DPwW7-oUKfp0ueYz-7" value="Enviar velocidades a las ruedas del agente" style="rounded=0;whiteSpace=wrap;html=1;fontSize=10;" parent="1" vertex="1">
+          <mxGeometry x="340" y="660" width="120" height="50" as="geometry" />
+        </mxCell>
+        <mxCell id="uO_4DPwW7-oUKfp0ueYz-10" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" parent="1" source="uO_4DPwW7-oUKfp0ueYz-8" target="uO_4DPwW7-oUKfp0ueYz-7" edge="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="uO_4DPwW7-oUKfp0ueYz-20" value="Sí" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" parent="uO_4DPwW7-oUKfp0ueYz-10" vertex="1" connectable="0">
+          <mxGeometry x="-0.3143" y="2" relative="1" as="geometry">
+            <mxPoint x="-12" as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="uO_4DPwW7-oUKfp0ueYz-11" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;" parent="1" source="uO_4DPwW7-oUKfp0ueYz-8" target="uO_4DPwW7-oUKfp0ueYz-9" edge="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="uO_4DPwW7-oUKfp0ueYz-21" value="No" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" parent="uO_4DPwW7-oUKfp0ueYz-11" vertex="1" connectable="0">
+          <mxGeometry x="0.1257" y="-1" relative="1" as="geometry">
+            <mxPoint y="-11" as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="uO_4DPwW7-oUKfp0ueYz-8" value="¿La velocidad&amp;nbsp;&lt;div&gt;está dentro del rango superior e inferior?&lt;/div&gt;" style="rhombus;fontSize=10;horizontal=1;align=center;labelBackgroundColor=none;labelBorderColor=none;textShadow=0;whiteSpace=wrap;html=1;spacingTop=0;spacing=4;" parent="1" vertex="1">
+          <mxGeometry x="350" y="530" width="100" height="100" as="geometry" />
+        </mxCell>
+        <mxCell id="uO_4DPwW7-oUKfp0ueYz-22" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=1;entryY=0.5;entryDx=0;entryDy=0;" parent="1" source="uO_4DPwW7-oUKfp0ueYz-9" target="uO_4DPwW7-oUKfp0ueYz-7" edge="1">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="560" y="685" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="uO_4DPwW7-oUKfp0ueYz-9" value="Truncar velocidades" style="rounded=0;whiteSpace=wrap;html=1;fontSize=10;" parent="1" vertex="1">
+          <mxGeometry x="500" y="555" width="120" height="50" as="geometry" />
+        </mxCell>
+        <mxCell id="uO_4DPwW7-oUKfp0ueYz-23" value="FIN" style="rounded=0;whiteSpace=wrap;html=1;fontSize=10;" parent="1" vertex="1">
+          <mxGeometry x="340" y="730" width="120" height="30" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

@@ -1,0 +1,11 @@
+La creación del algoritmo de sincronización y control de formaciones abrió la puerta a su experimentación en diferentes escenarios. Además, la adaptación previa del algoritmo para su uso, tanto en simulaciones como en entornos reales dentro del Robotat, proporcionó la infraestructura necesaria para continuar evaluando su alcance utilizando plataformas robóticas como el Pololu 3Pi+. 
+
+El algoritmo funciona adecuadamente en ambientes dinámicos gracias a la forma en que se planteó originalmente la ecuación de consenso y el cálculo del peso. En un entorno real, se evalúa constantemente la posición actual de cada agente y se compara con la ubicación de los obstáculos para ajustar la ecuación de consenso y evitar posibles colisiones.
+
+Actualmente, el algoritmo permite utilizar formaciones con un máximo de 10 agentes. Esto se debe a que el grafo de formación fue diseñado para ser mínimamente rígido con ese número de gentes. Sin embargo, en futuras implementaciones podría modificarse el grafo de formación a manera que soporte formaciones más grandes.
+
+El algoritmo está desarrollado completamente en Python, un lenguaje de código abierto \textit{open source}, lo que facilita el desarrollo para futuros investigadores. Además, Python cuenta con librerías que permiten mejorar la eficiencia computacional.
+
+En este proyecto, se optimizó el algoritmo mediante el uso de operaciones matriciales en lugar de bucles, lo que redujo el tiempo de procesamiento. Esta optimización es aún más notable a medida que aumenta el número de agentes en la formación. También, se modificó el código de procesamiento de datos para generar gráficas y trayectorias que muestren el comportamiento de los obstáculos móviles.
+
+Una de las limitaciones al optimizar el algoritmo y realizar pruebas físicas fue la disponibilidad de solo 8 agentes robóticos, debido a la cantidad de robots disponibles en la universidad y al uso compartido con otros estudiantes. Además, el tiempo de pruebas en el Robotat fue limitado por la necesidad de compartir la mesa de pruebas y los agentes robóticos con otros estudiantes, requiriendo todo el espacio disponible.
