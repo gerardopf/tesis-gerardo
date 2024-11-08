@@ -3,7 +3,7 @@
 # Optimización de un algoritmo de inteligencia de enjambre enfocado en sincronización y control de formaciones de sistemas robóticos multi-agente para escenarios con obstáculos móviles
 
 ![Static Badge](https://img.shields.io/badge/Estado-en%20desarrollo-purple)
-![Static Badge](https://img.shields.io/badge/Fase-3-purple)
+![Static Badge](https://img.shields.io/badge/Fase-3-white)
 ![Static Badge](https://img.shields.io/badge/Python-3.10.4-blue)
 ![Static Badge](https://img.shields.io/badge/Webots-R2023b-darkred)
 
