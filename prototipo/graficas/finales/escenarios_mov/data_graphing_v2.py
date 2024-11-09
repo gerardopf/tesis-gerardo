@@ -9,7 +9,7 @@ import math
 import os
 import re
 
-archivo = 'ObsMovV1_3A_Escenario 1_f_1.npz'
+archivo = 'ObsMov_3A_moviles_f_10.npz'
 show_images = 0
 
 show_real_cycle = 0
@@ -89,6 +89,7 @@ with open(f'finaltrials/{filename_without_extension}/latex.txt', 'w') as file:
     pass
 
 # cargar variables 
+tiempo_total = data['tiempo_total']
 fisico = data['fisico']
 r_f = data['r_f']
 l_f = data['l_f']
@@ -158,9 +159,9 @@ else:
     escala_temp = 't (ciclos)'
 
 if (fisico == 0):
-    virtualtext = f'corrida {extracted_number}, en simulación'
+    virtualtext = f'escenario {extracted_number}, en simulación'
 elif (fisico == 1):
-    virtualtext = f'corrida {extracted_number}, en físico'
+    virtualtext = f'escenario {extracted_number}, en físico'
 
 if (fisico == 0):
     combined_fv = 0
@@ -191,6 +192,12 @@ if (show_in_seconds == 1):
     obj_cycle = obj_cycle*TIME_STEP/1000
 #print(time_steps)
 
+print(f'{virtualtext}')
+print(f"Agentes: {vx_positions.shape[1]}")
+print(f"Tiempo de corrida (s): {tiempo_total}")
+# print(f"NStart: {NStart}")
+# print(f"N: {N}")
+
 """ ---------- Gráficar trayectoria de agentes y obstáculos ---------- """
 plt.figure(figsize=(3.8*1.5, 4.8*1.5))
 
@@ -201,10 +208,6 @@ factor_m = 0.0003528 # m por punto de scatter
 diam_agente = l_f #diametro promedio agentes
 
 num_agents = x_positions.shape[1]  # Get the number of agents
-print(f"Agentes: {vx_positions.shape[1]}")
-print(f"Ciclo inicio algoritmo: {graphCycleStart}")
-print(f"NStart: {NStart}")
-print(f"N: {N}")
 NStart = NStart - 1
 agent_number = N-NStart
 obs_number = quantO
@@ -238,7 +241,7 @@ plt.grid()
 # Save the plot
 plt.savefig(f'finaltrials/{filename_without_extension}/traj_{filename_without_extension}.eps', format='eps', bbox_inches='tight')
 plt.savefig(f'finaltrials/{filename_without_extension}/traj_{filename_without_extension}.png', format='png', bbox_inches='tight')
-print_latex_figure(f'traj_{filename_without_extension}.eps', f'Trayectoria de los {agent_number} agentes y {obs_number} obstáculos en el escenario '+f'{extracted_value}, '+ f'{virtualtext}.', f'traj_{filename_without_extension}', "0.8")
+print_latex_figure(f'traj_{filename_without_extension}.eps', f'Trayectoria de los {agent_number} agentes y {obs_number} obstáculos en el '+ f'{virtualtext}.', f'traj_{filename_without_extension}', "0.8")
     
 """ ---------- Gráficar trayectoria de agentes ---------- """
 plt.figure(figsize=(3.8*1.5, 4.8*1.5))
@@ -279,7 +282,7 @@ plt.grid()
 # Save the plot
 plt.savefig(f'finaltrials/{filename_without_extension}/traj_agents_{filename_without_extension}.eps', format='eps', bbox_inches='tight')
 plt.savefig(f'finaltrials/{filename_without_extension}/traj_agents_{filename_without_extension}.png', format='png', bbox_inches='tight')
-print_latex_figure(f'traj_agents_{filename_without_extension}.eps', f'Trayectoria de los {agent_number} agentes en el escenario '+f'{extracted_value}, '+ f'{virtualtext}.', f'traj_{filename_without_extension}', "0.8")
+print_latex_figure(f'traj_agents_{filename_without_extension}.eps', f'Trayectoria de los {agent_number} agentes en el '+ f'{virtualtext}.', f'traj_{filename_without_extension}', "0.8")
     
 """ ---------- Gráficar trayectoria de obstáculos ---------- """
 plt.figure(figsize=(3.8*1.5, 4.8*1.5))
@@ -320,7 +323,7 @@ plt.grid()
 # Save the plot
 plt.savefig(f'finaltrials/{filename_without_extension}/traj_obs_{filename_without_extension}.eps', format='eps', bbox_inches='tight')
 plt.savefig(f'finaltrials/{filename_without_extension}/traj_obs_{filename_without_extension}.png', format='png', bbox_inches='tight')
-print_latex_figure(f'traj_obs_{filename_without_extension}.eps', f'Trayectoria de los {obs_number} obstáculos en el escenario '+f'{extracted_value}, '+ f'{virtualtext}.', f'traj_{filename_without_extension}', "0.8")
+print_latex_figure(f'traj_obs_{filename_without_extension}.eps', f'Trayectoria de los {obs_number} obstáculos en el '+ f'{virtualtext}.', f'traj_{filename_without_extension}', "0.8")
     
 """ ---------- Gráficar trayectoria del centro de masa de la formación ---------- """
 plt.figure(figsize=(3.8*1.5, 4.8*1.5))
@@ -361,7 +364,7 @@ coordinate_success = graphCycleStart
 for coordinate in x_positions[graphCycleStart:graphCycleEnd]:
     #print(x_positions[coordinate_success, NStart])
     if (abs(np.mean(x_positions[coordinate_success, NStart:])-x_pObjVec)<0.5 and abs(np.mean(y_positions[coordinate_success, NStart:])-y_pObjVec)<0.5):
-        print((coordinate_success-graphCycleStart)*TIME_STEP/1000)
+        #print((coordinate_success-graphCycleStart)*TIME_STEP/1000)
         #print("******************************************************************************")
         break
     coordinate_success = coordinate_success+1
@@ -369,17 +372,17 @@ for coordinate in x_positions[graphCycleStart:graphCycleEnd]:
 # Save the plot
 plt.savefig(f'finaltrials/{filename_without_extension}/cm_{filename_without_extension}.eps', format='eps', bbox_inches='tight')
 plt.savefig(f'finaltrials/{filename_without_extension}/cm_{filename_without_extension}.png', format='png', bbox_inches='tight')
-print_latex_figure(f'cm_{filename_without_extension}.eps', "Trayectoria del centro de masa de la formación en el escenario "+f'{extracted_value}, '+ f'{virtualtext}.', f'cm_{filename_without_extension}', "0.8")
+print_latex_figure(f'cm_{filename_without_extension}.eps', "Trayectoria del centro de masa de la formación en el "+ f'{virtualtext}.', f'cm_{filename_without_extension}', "0.8")
 
-if (combined_fv == 1):
-    print_latex_figure_two(f'traj_{filename_without_extension}.eps',f'traj_{formatted_file}.eps', f'Trayectoria de los {agent_number} agentes en el escenario '+ f'{extracted_value}, corrida {extracted_number} en físico (izquierda) y simulación (derecha).', f'traj_{filename_without_extension}', "0.49")
-    print_latex_figure_two(f'cm_{filename_without_extension}.eps',f'cm_{formatted_file}.eps', f'Trayectoria del centro de masa de la formación en el escenario {extracted_value}, corrida {extracted_number} en físico (izquierda) y simulación (derecha).', f'traj_{filename_without_extension}', "0.49")
+# if (combined_fv == 1):
+#     print_latex_figure_two(f'traj_{filename_without_extension}.eps',f'traj_{formatted_file}.eps', f'Trayectoria de los {agent_number} agentes en el escenario '+ f'{extracted_value}, corrida {extracted_number} en físico (izquierda) y simulación (derecha).', f'traj_{filename_without_extension}', "0.49")
+#     print_latex_figure_two(f'cm_{filename_without_extension}.eps',f'cm_{formatted_file}.eps', f'Trayectoria del centro de masa de la formación en el escenario {extracted_value}, corrida {extracted_number} en físico (izquierda) y simulación (derecha).', f'traj_{filename_without_extension}', "0.49")
 
 """ ---------- Gráficar norma de velocidad de la formación ---------- """
 plt.figure()
 plt.plot(time_steps,normV_data[graphCycleStart:graphCycleEnd])
-plt.axvline(x=form_cycle, color='black', linestyle='--', label=f'Inicio Form:\n{form_cycle}')
-plt.axvline(x=obj_cycle, color='red', linestyle='--', label=f'Seguir Obj:\n{obj_cycle}')
+plt.axvline(x=form_cycle, color='black', linestyle='--', label=f'Inicio form.:\n{form_cycle}')
+plt.axvline(x=obj_cycle, color='red', linestyle='--', label=f'Seguir obj.:\n{obj_cycle}')
 
 plt.ylim([-40, 40])
 
@@ -401,8 +404,8 @@ plt.savefig(f'finaltrials/{filename_without_extension}/normV_{filename_without_e
 plt.figure()
 plt.plot(time_steps,formation_mse_data[graphCycleStart:graphCycleEnd])
 plt.axhline(y=1, color='pink', linestyle='--', label='Límite = 1')
-plt.axvline(x=form_cycle, color='black', linestyle='--', label=f'Inicio Form:\n{form_cycle}')
-plt.axvline(x=obj_cycle, color='red', linestyle='--', label=f'Seguir Obj:\n{obj_cycle}')
+plt.axvline(x=form_cycle, color='black', linestyle='--', label=f'Inicio form.:\n{form_cycle}')
+plt.axvline(x=obj_cycle, color='red', linestyle='--', label=f'Seguir obj.:\n{obj_cycle}')
 
 plt.xlabel(f'{escala_temp}')
 plt.ylabel('Velocidad (m/s)')
@@ -417,16 +420,16 @@ legend.set_bbox_to_anchor((1.26, 1))
 
 plt.savefig(f'finaltrials/{filename_without_extension}/mse_{filename_without_extension}.eps', format='eps', bbox_inches='tight')
 plt.savefig(f'finaltrials/{filename_without_extension}/mse_{filename_without_extension}.png', format='png', bbox_inches='tight')
-print_latex_figure_two(f'normV_{filename_without_extension}.eps',f'mse_{filename_without_extension}.eps', "Histórico de norma de velocidad de la formación y error cuadrático medio en el escenario "+f'{extracted_value}, '+ f'{virtualtext}.', f'normVmse_{filename_without_extension}', "0.49")
+print_latex_figure_two(f'normV_{filename_without_extension}.eps',f'mse_{filename_without_extension}.eps', "Histórico de norma de velocidad de la formación y error cuadrático medio en el "+ f'{virtualtext}.', f'normVmse_{filename_without_extension}', "0.49")
 
-if (combined_fv == 1):
-    print_latex_figure_two(f'normV_{formatted_file}.eps',f'mse_{formatted_file}.eps', f'Histórico de norma de velocidad de la formación y error cuadrático medio en el escenario {extracted_value}, corrida {extracted_number}, en simulación.', f'normVmse_{formatted_file}', "0.49")
+# if (combined_fv == 1):
+#     print_latex_figure_two(f'normV_{formatted_file}.eps',f'mse_{formatted_file}.eps', f'Histórico de norma de velocidad de la formación y error cuadrático medio en el escenario {extracted_value}, corrida {extracted_number}, en simulación.', f'normVmse_{formatted_file}', "0.49")
 
 """ ---------- Gráficar velocidades ---------- """
 plt.figure()
 plt.plot(time_steps,np.sqrt(vx_positions[graphCycleStart:graphCycleEnd,NStart:N]**2+vy_positions[graphCycleStart:graphCycleEnd,NStart:N]**2), label = labels)
-plt.axvline(x=form_cycle, color='black', linestyle='--', label=f'Inicio Form:\n{form_cycle}')
-plt.axvline(x=obj_cycle, color='red', linestyle='--', label=f'Seguir Obj:\n{obj_cycle}')
+plt.axvline(x=form_cycle, color='black', linestyle='--', label=f'Inicio form.:\n{form_cycle}')
+plt.axvline(x=obj_cycle, color='red', linestyle='--', label=f'Seguir obj.:\n{obj_cycle}')
 
 plt.ylim([-20, 20])
 
@@ -448,8 +451,8 @@ plt.savefig(f'finaltrials/{filename_without_extension}/vel_{filename_without_ext
 """ ---------- Gráficar velocidades en X ---------- """
 plt.figure()
 plt.plot(time_steps,vx_positions[graphCycleStart:graphCycleEnd,NStart:N], label = labels)
-plt.axvline(x=form_cycle, color='black', linestyle='--', label=f'Inicio Form:\n{form_cycle}')
-plt.axvline(x=obj_cycle, color='red', linestyle='--', label=f'Seguir Obj:\n{obj_cycle}')
+plt.axvline(x=form_cycle, color='black', linestyle='--', label=f'Inicio form.:\n{form_cycle}')
+plt.axvline(x=obj_cycle, color='red', linestyle='--', label=f'Seguir obj.:\n{obj_cycle}')
 plt.ylim([-20, 20])
 
 plt.xlabel(f'{escala_temp}')
@@ -471,8 +474,8 @@ plt.savefig(f'finaltrials/{filename_without_extension}/xvel_{filename_without_ex
 """ ---------- Gráficar velocidades en Y ---------- """
 plt.figure()
 plt.plot(time_steps,vy_positions[graphCycleStart:graphCycleEnd,NStart:N], label = labels)
-plt.axvline(x=form_cycle, color='black', linestyle='--', label=f'Inicio Form:\n{form_cycle}')
-plt.axvline(x=obj_cycle, color='red', linestyle='--', label=f'Seguir Obj:\n{obj_cycle}')
+plt.axvline(x=form_cycle, color='black', linestyle='--', label=f'Inicio form.:\n{form_cycle}')
+plt.axvline(x=obj_cycle, color='red', linestyle='--', label=f'Seguir obj.:\n{obj_cycle}')
 
 plt.ylim([-20, 20])
 
@@ -491,13 +494,12 @@ plt.grid()
 
 plt.savefig(f'finaltrials/{filename_without_extension}/yvel_{filename_without_extension}.eps', format='eps', bbox_inches='tight')
 plt.savefig(f'finaltrials/{filename_without_extension}/yvel_{filename_without_extension}.png', format='png', bbox_inches='tight')
-print_latex_figure_two(f'xvel_{filename_without_extension}.eps',f'yvel_{filename_without_extension}.eps', "Histórico de velocidades de los agentes en el escenario "+f'{extracted_value}, '+ f'{virtualtext}.', f'vel_{filename_without_extension}', "0.49")
+print_latex_figure_two(f'xvel_{filename_without_extension}.eps',f'yvel_{filename_without_extension}.eps', "Histórico de velocidades de los agentes en el "+ f'{virtualtext}.', f'vel_{filename_without_extension}', "0.49")
 
-if (combined_fv == 1):
-    print_latex_figure_two(f'xvel_{formatted_file}.eps',f'yvel_{formatted_file}.eps', "Histórico de velocidades de los agentes en el escenario "+f'{extracted_value}, '+ f'corrida {extracted_number}, en simulación.', f'vel_{formatted_file}', "0.49")
+# if (combined_fv == 1):
+#     print_latex_figure_two(f'xvel_{formatted_file}.eps',f'yvel_{formatted_file}.eps', "Histórico de velocidades de los agentes en el escenario "+f'{extracted_value}, '+ f'corrida {extracted_number}, en simulación.', f'vel_{formatted_file}', "0.49")
 
 """ ---------- Gráficar velocidades R ---------- """
-
 plt.figure()
 
 phi = np.zeros([2,N])
@@ -547,8 +549,8 @@ phi_r_data = phi_data_array[:, 0, :]
 phi_l_data = phi_data_array[:, 1, :]
 
 plt.plot(time_steps,phi_r_data[graphCycleStart:graphCycleEnd,NStart:N], label = labels)
-plt.axvline(x=form_cycle, color='black', linestyle='--', label=f'Inicio Form:\n{form_cycle}')
-plt.axvline(x=obj_cycle, color='red', linestyle='--', label=f'Seguir Obj:\n{obj_cycle}')
+plt.axvline(x=form_cycle, color='black', linestyle='--', label=f'Inicio form.:\n{form_cycle}')
+plt.axvline(x=obj_cycle, color='red', linestyle='--', label=f'Seguir obj.:\n{obj_cycle}')
 
 plt.ylim([-70, 70])
 
@@ -569,8 +571,8 @@ plt.savefig(f'finaltrials/{filename_without_extension}/phiR_{filename_without_ex
 """ ---------- Gráficar velocidades L ---------- """
 plt.figure()
 plt.plot(time_steps,phi_l_data[graphCycleStart:graphCycleEnd,NStart:N], label = labels)
-plt.axvline(x=form_cycle, color='black', linestyle='--', label=f'Inicio Form:\n{form_cycle}')
-plt.axvline(x=obj_cycle, color='red', linestyle='--', label=f'Seguir Obj:\n{obj_cycle}')
+plt.axvline(x=form_cycle, color='black', linestyle='--', label=f'Inicio form.:\n{form_cycle}')
+plt.axvline(x=obj_cycle, color='red', linestyle='--', label=f'Seguir obj.:\n{obj_cycle}')
 
 plt.ylim([-70, 70])
 
@@ -587,10 +589,10 @@ legend.set_bbox_to_anchor((0.99, 1))
 
 plt.savefig(f'finaltrials/{filename_without_extension}/phiL_{filename_without_extension}.eps', format='eps', bbox_inches='tight')
 plt.savefig(f'finaltrials/{filename_without_extension}/phiL_{filename_without_extension}.png', format='png', bbox_inches='tight')
-print_latex_figure_two(f'phiL_{filename_without_extension}.eps',f'phiR_{filename_without_extension}.eps', "Histórico de velocidades en las ruedas de los agentes en el escenario "+f'{extracted_value}, '+ f'{virtualtext}.', f'phi_{filename_without_extension}', "0.49")
+print_latex_figure_two(f'phiL_{filename_without_extension}.eps',f'phiR_{filename_without_extension}.eps', "Histórico de velocidades en las ruedas de los agentes en el "+ f'{virtualtext}.', f'phi_{filename_without_extension}', "0.49")
 
-if (combined_fv == 1):
-    print_latex_figure_two(f'phiL_{formatted_file}.eps',f'phiR_{formatted_file}.eps', "Histórico de velocidades en las ruedas de los agentes en el escenario "+f'{extracted_value}, '+ f'corrida {extracted_number}, en simulación.', f'phi_{formatted_file}', "0.49")
+# if (combined_fv == 1):
+#     print_latex_figure_two(f'phiL_{formatted_file}.eps',f'phiR_{formatted_file}.eps', "Histórico de velocidades en las ruedas de los agentes en el escenario "+f'{extracted_value}, '+ f'corrida {extracted_number}, en simulación.', f'phi_{formatted_file}', "0.49")
 
 """ ---------- Mostrar todas las gráficas ---------- """
 if (show_images == 1):
@@ -607,16 +609,8 @@ scatter_goal = ax.scatter([], [], marker='*', color='red', label='Objetivo', zor
 if obs_active == 1:
     scatter_obstacles = ax.scatter([], [], marker='o', color='purple', label='Obstáculos', zorder=3, s = sizeO/factor_m)
 
-real_time_text = ax.text(1.03, 0.8, '', transform=ax.transAxes, fontsize=10, bbox=dict(facecolor='white', edgecolor='black', boxstyle='round'))
+# real_time_text = ax.text(0.03, 0.93, '', transform=ax.transAxes, fontsize=10, bbox=dict(facecolor='white', edgecolor='black', boxstyle='round'))
 
-"""
-total_frames = len(np.arange(graphCycleStart, graphCycleEnd, 8))
-
-snapshot_frame_1 = begin_alg_time
-snapshot_frame_2 = total_frames // 3
-snapshot_frame_3 = 2 * (total_frames // 3)
-snapshot_frame_4 = total_frames - 1
-"""
 
 # Plot the initial positions
 scatter_agents.set_offsets(np.column_stack([x_positions[graphCycleStart:graphCycleEnd, NStart:N], y_positions[graphCycleStart:graphCycleEnd, NStart:N]]))
@@ -631,41 +625,17 @@ def update(frame):
     if obs_active == 1:
         scatter_obstacles.set_offsets(np.column_stack([x_positions_obs[frame], y_positions_obs[frame]]))
     # Update the real-time timer in the title
-        # Save equally spaced snapshots
-    """    
-    if (snapframes == 1):
-        if frame == snapshot_frame_1:
-            plt.savefig(f'finaltrials/{filename_without_extension}/snap1_{filename_without_extension}.eps', format='eps', bbox_inches='tight')
-            plt.savefig(f'finaltrials/{filename_without_extension}/snap1_{filename_without_extension}.png', format='png', bbox_inches='tight')
-        elif frame == snapshot_frame_2:
-            plt.savefig(f'finaltrials/{filename_without_extension}/snap2_{filename_without_extension}.eps', format='eps', bbox_inches='tight')
-            plt.savefig(f'finaltrials/{filename_without_extension}/snap2_{filename_without_extension}.png', format='png', bbox_inches='tight')
-        elif frame == snapshot_frame_3:
-            plt.savefig(f'finaltrials/{filename_without_extension}/snap3_{filename_without_extension}.eps', format='eps', bbox_inches='tight')
-            plt.savefig(f'finaltrials/{filename_without_extension}/snap3_{filename_without_extension}.png', format='png', bbox_inches='tight')
-        elif frame == snapshot_frame_4:
-            plt.savefig(f'finaltrials/{filename_without_extension}/snap4_{filename_without_extension}.eps', format='eps', bbox_inches='tight')
-            plt.savefig(f'finaltrials/{filename_without_extension}/snap4_{filename_without_extension}.png', format='png', bbox_inches='tight')
-    """
-    real_time_seconds = frame
-    if (fisico == 1 and show_real_cycle == 0):
-        real_time_seconds = frame - begin_alg_time
-    if (show_in_seconds == 1):
-        real_time_seconds = real_time_seconds * TIME_STEP/1000
-        #plt.title(f'Trayectorias - Tiempo Real: {real_time_seconds:.2f} segundos')
-        real_time_text.set_text(f'Tiempo Real: \n{real_time_seconds:.2f} s')
-    else:
-        real_time_seconds = frame
-        #plt.title(f'Trayectorias - Tiempo Real: {real_time_seconds} ciclos')
-        real_time_text.set_text(f'Tiempo Real: \n{real_time_seconds} ciclos')
+
+    # real_time_seconds = tiempo_total/(graphCycleEnd-graphCycleStart)*frame
+    # real_time_text.set_text(f'Tiempo: \n{real_time_seconds:.2f} s')
 
 # Create the animation
-animation = FuncAnimation(fig, update, frames=np.arange(graphCycleStart, graphCycleEnd, 8), interval = 50, blit=False)
+animation = FuncAnimation(fig, update, frames=np.arange(graphCycleStart, graphCycleEnd, 10), interval = 30, blit=False)
 
 # Display the plot
 plt.xlabel('Eje x (m)')
 plt.ylabel('Eje y (m)')
-plt.title('Trayectorias')
+plt.title('Animación de la corrida en físico')
 
 legend = plt.legend(markerscale=0.5)
 for text in legend.get_texts():
