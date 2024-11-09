@@ -42,8 +42,6 @@ Este trabajo es la tercera fase de la línea de investicación: `inteligencia co
 
 Visita los [recursos adicionales](#clipboard-recursos-adicionales) para más información sobre las fases anteriores de esta línea de investigación.
 
-
-
 ## Funcionamiento
 
 ### Etapas del algoritmo
@@ -67,11 +65,11 @@ El algoritmo consiste en las siguientes etapas para su ejecución:
 
 #### Animación
 
-:construction: Colocar GIF... :construction:
+![animation_ObsMov_3A_moviles_f_4](https://github.com/user-attachments/assets/193f64e2-6325-412c-a73c-5230e1f0eca7)
 
 #### Trayectorias de los agentes y obstáculos
 
-:construction: Colocar gráfica... :construction:
+![traj_ObsMov_3A_moviles_f_4](https://github.com/user-attachments/assets/2d0fbedf-9fef-4258-839a-913546adc74f)
 
 ## :heavy_check_mark: Requisitos para la ejecución del programa
 
