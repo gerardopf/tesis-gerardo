@@ -44,10 +44,10 @@ obs_marker_list = [14,18,22,16,9,17,15,21,12] # obstáculos (Máx. 3)
 MAX_SPEED = 30 # velocidad máxima de ruedas (rpm)
 
 """ modo real o simulación """
-fisico = 1               # 0 Webots | 1 Robotat
-r_obs = 1                # 0: obstáculos virtuales | 1: obstáculos reales (markers)
-r_obj = 1                # 0: objetivo virtual | 1: objetivo real (marker)
-r_webots_visual = 1      # 0: NO simular en tiempo real | 1: simular en tiempo real
+fisico = 0               # 0 Webots | 1 Robotat
+r_obs = 0                # 0: obstáculos virtuales | 1: obstáculos reales (markers)
+r_obj = 0                # 0: objetivo virtual | 1: objetivo real (marker)
+r_webots_visual = 0      # 0: NO simular en tiempo real | 1: simular en tiempo real
 
 # archivo para simular una corrida que se realizó en físico
 initial_conditions_file = 'None.npz' 
@@ -376,7 +376,7 @@ Xi = X
 # inicializar OBSTÁCULOS fuera del mapa si no están activos
 for i in range(0, quantOMax):
     if (obs_active == 0):
-        posObs[i].setSFVec3f([-sizeVec[0], i*0.9, -6.39203e-05])
+        posObs[i].setSFVec3f([-3, -i*0.2, -6.39203e-05])
 
 # obtener posición de OBSTÁCULOS virtuales
 if (r_obs == 0):
