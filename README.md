@@ -63,7 +63,7 @@ El algoritmo consiste en las siguientes etapas para su ejecución:
 
 ### :rocket: Ejecución del algoritmo en el Robotat
 
-#### Animación
+#### Animación (velocidad aumentada)
 
 ![animation_ObsMov_3A_moviles_f_4](https://github.com/user-attachments/assets/193f64e2-6325-412c-a73c-5230e1f0eca7)
 
