@@ -37,17 +37,17 @@ escenario_file = 'moviles'
 corrida_file = '10'
 
 """ MARCADORES (AGENTES, OBSTÁCULOS Y OBJETIVO) """
-agents_marker_list = [2,3,4] # agentes (Máx. 10)
-obj_marker_list = [15] # marker del objetivo (Máx. 1)
-obs_marker_list = [22] # obstáculos (Máx. 3)
+agents_marker_list = [2,5,8] # agentes (Máx. 10)
+obj_marker_list = [19] # marker del objetivo (Máx. 1)
+obs_marker_list = [14,18,22,16,9,17,15,21,12] # obstáculos (Máx. 3)
 
 MAX_SPEED = 30 # velocidad máxima de ruedas (rpm)
 
 """ modo real o simulación """
-fisico = 0               # 0 Webots | 1 Robotat
-r_obs = 0                # 0: obstáculos virtuales | 1: obstáculos reales (markers)
-r_obj = 0                # 0: objetivo virtual | 1: objetivo real (marker)
-r_webots_visual = 0      # 0: NO simular en tiempo real | 1: simular en tiempo real
+fisico = 1               # 0 Webots | 1 Robotat
+r_obs = 1                # 0: obstáculos virtuales | 1: obstáculos reales (markers)
+r_obj = 1                # 0: objetivo virtual | 1: objetivo real (marker)
+r_webots_visual = 1      # 0: NO simular en tiempo real | 1: simular en tiempo real
 
 # archivo para simular una corrida que se realizó en físico
 initial_conditions_file = 'None.npz' 
@@ -61,7 +61,7 @@ rigidity_level = 8 # valores entre 1 y 8 (1 es el menos rígido)
 initial_pos_setup = 1 # posiciones iniciales | 0: Aleatorio | 1: Planificado
 setup_shape = 0         # formación inicial | 0: Línea Horizontal| 1: Círculo | 2: Línea vertical
 
-setup_starting_point = np.array([-1, -1.5]) # punto inicial para las posiciones iniciales
+setup_starting_point = np.array([0, -1.5]) # punto inicial para las posiciones iniciales
 setup_shape_space = 1.5 # espacio a cubrir con las posiciones iniciales (m)
 
 agent_setup = 5 # configuración de agentes

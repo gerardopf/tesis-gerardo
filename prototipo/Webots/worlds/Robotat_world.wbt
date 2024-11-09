@@ -10,7 +10,7 @@ WorldInfo {
 }
 Viewpoint {
   orientation -0.5773502691896258 0.5773502691896258 0.5773502691896258 2.0944
-  position 1.303895329237004e-05 1.3038990164053913e-05 8.256432020210424
+  position 0.09318836148221576 -0.20219943121852385 8.413481099767216
 }
 TexturedBackground {
 }
@@ -37,7 +37,7 @@ DEF Obs0 SolidTorus {
   }
 }
 DEF Obs1 SolidTorus {
-  translation 2.2 -1 0.3
+  translation 2.2 -0.91 0.3
   name "torus(1)"
   majorRadius 0.07
   minorRadius 0.1
@@ -54,8 +54,127 @@ DEF Obs1 SolidTorus {
   }
 }
 DEF Obs2 SolidTorus {
-  translation 2.2 -1.5 0.3
+  translation 2.2 -1.3 0.3
   name "torus(2)"
+  majorRadius 0.07
+  minorRadius 0.1
+  appearance PBRAppearance {
+    baseColor 0.333 0 0.498
+    baseColorMap ImageTexture {
+      url [
+        "https://raw.githubusercontent.com/cyberbotics/webots/R2023a/projects/default/worlds/textures/tagged_wall.jpg"
+      ]
+    }
+    transparency 0.01
+    roughness 0.5
+    metalness 0
+  }
+}
+DEF Obs3 SolidTorus {
+  translation 2.2 -1.7 0.3
+  name "torus(3)"
+  majorRadius 0.07
+  minorRadius 0.1
+  appearance PBRAppearance {
+    baseColor 0.333 0 0.498
+    baseColorMap ImageTexture {
+      url [
+        "https://raw.githubusercontent.com/cyberbotics/webots/R2023a/projects/default/worlds/textures/tagged_wall.jpg"
+      ]
+    }
+    transparency 0.01
+    roughness 0.5
+    metalness 0
+  }
+}
+DEF Obs4 SolidTorus {
+  translation 2.2 -2.1 0.3
+  name "torus(4)"
+  majorRadius 0.07
+  minorRadius 0.1
+  appearance PBRAppearance {
+    baseColor 0.333 0 0.498
+    baseColorMap ImageTexture {
+      url [
+        "https://raw.githubusercontent.com/cyberbotics/webots/R2023a/projects/default/worlds/textures/tagged_wall.jpg"
+      ]
+    }
+    transparency 0.01
+    roughness 0.5
+    metalness 0
+  }
+}
+DEF Obs5 SolidTorus {
+  translation 2.2 -2.5 0.3
+  name "torus(5)"
+  majorRadius 0.07
+  minorRadius 0.1
+  appearance PBRAppearance {
+    baseColor 0.333 0 0.498
+    baseColorMap ImageTexture {
+      url [
+        "https://raw.githubusercontent.com/cyberbotics/webots/R2023a/projects/default/worlds/textures/tagged_wall.jpg"
+      ]
+    }
+    transparency 0.01
+    roughness 0.5
+    metalness 0
+  }
+}
+DEF Obs6 SolidTorus {
+  translation 1.8 -2.7 0.3
+  name "torus(6)"
+  majorRadius 0.07
+  minorRadius 0.1
+  appearance PBRAppearance {
+    baseColor 0.333 0 0.498
+    baseColorMap ImageTexture {
+      url [
+        "https://raw.githubusercontent.com/cyberbotics/webots/R2023a/projects/default/worlds/textures/tagged_wall.jpg"
+      ]
+    }
+    transparency 0.01
+    roughness 0.5
+    metalness 0
+  }
+}
+DEF Obs7 SolidTorus {
+  translation 1.4 -2.7 0.3
+  name "torus(7)"
+  majorRadius 0.07
+  minorRadius 0.1
+  appearance PBRAppearance {
+    baseColor 0.333 0 0.498
+    baseColorMap ImageTexture {
+      url [
+        "https://raw.githubusercontent.com/cyberbotics/webots/R2023a/projects/default/worlds/textures/tagged_wall.jpg"
+      ]
+    }
+    transparency 0.01
+    roughness 0.5
+    metalness 0
+  }
+}
+DEF Obs8 SolidTorus {
+  translation 1 -2.7 0.3
+  name "torus(8)"
+  majorRadius 0.07
+  minorRadius 0.1
+  appearance PBRAppearance {
+    baseColor 0.333 0 0.498
+    baseColorMap ImageTexture {
+      url [
+        "https://raw.githubusercontent.com/cyberbotics/webots/R2023a/projects/default/worlds/textures/tagged_wall.jpg"
+      ]
+    }
+    transparency 0.01
+    roughness 0.5
+    metalness 0
+  }
+}
+DEF Obs9 SolidTorus {
+  translation 0.6 -2.7 0.3
+  name "torus(9)"
   majorRadius 0.07
   minorRadius 0.1
   appearance PBRAppearance {
