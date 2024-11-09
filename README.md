@@ -31,7 +31,7 @@ Correo institucional: [larivera@uvg.edu.gt](mailto:larivera@uvg.edu.gt)
 
 | Carpeta    | Contenido                                                                                                                     |
 |------------|-------------------------------------------------------------------------------------------------------------------------------|
-| documentos | Contiene el contenido el protocolo y la el trabajo escrito de tesis.                                                          |
+| documentos | Contiene el protocolo y la el trabajo escrito de tesis.                                                          |
 | prototipo  | Contiene todos los recursos utilizados para realizar el proyecto. Incluye versiones de prueba y finales de códigos y gráficas. |
 
 ## Descripción
