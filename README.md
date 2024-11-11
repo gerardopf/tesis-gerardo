@@ -96,7 +96,7 @@ El algoritmo consiste en las siguientes etapas para su ejecución:
 
 ### Fase previa
 
-[Ver repositorio](https://github.com/rod19131/tesisAlejandro) de la fase actual realizada por Gerardo Paz Fuentes. 
+[Ver repositorio](https://github.com/gerardopf/tesis-gerardo) de la fase actual realizada por Gerardo Paz Fuentes. 
 
 [Ver repositorio](https://github.com/rod19131/tesisAlejandro) de la fase previa realizada por José Alejandro Rodriguez Porras.
 
