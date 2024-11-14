@@ -96,8 +96,8 @@
 \contentsline {subsection}{\numberline {10.3.1}Aplicación de desfases a los marcadores}{56}{subsection.165}%
 \contentsline {subsection}{\numberline {10.3.2}Cálculo de la distancia entre agentes}{58}{subsection.180}%
 \contentsline {subsection}{\numberline {10.3.3}Cálculo del error de formación}{59}{subsection.184}%
-\contentsline {section}{\numberline {10.4}Ajuste de parámetros del algoritmo}{61}{section.188}%
-\contentsline {section}{\numberline {10.5}Implementación de paralelismo computacional}{61}{section.189}%
+\contentsline {section}{\numberline {10.4}Implementación de paralelismo computacional}{61}{section.188}%
+\contentsline {section}{\numberline {10.5}Ajuste de parámetros del algoritmo}{61}{section.189}%
 \contentsline {section}{\numberline {10.6}Validación de la optimización del algoritmo}{61}{section.190}%
 \contentsline {chapter}{\numberline {11}Validación del algoritmo optimizado en escenarios físicos con obstáculos móviles}{62}{chapter.191}%
 \contentsline {chapter}{\numberline {12}Conclusiones}{63}{chapter.192}%

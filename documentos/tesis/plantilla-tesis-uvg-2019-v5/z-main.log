@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.25 (MiKTeX 24.1) (preloaded format=pdflatex 2024.1.31)  8 NOV 2024 15:23
+This is pdfTeX, Version 3.141592653-2.6-1.40.25 (MiKTeX 24.1) (preloaded format=pdflatex 2024.1.31)  13 NOV 2024 12:56
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1976,19 +1976,20 @@ Cap\'{\i }tulo 10.
 [53
 
 ]
-<figuras/optimizacion/grafo_formacion1.png, id=1745, 683.55376pt x 381.425pt>
+<figuras/optimizacion/grafo_formacion1.png, id=1745, 693.59125pt x 402.50375pt>
+
 File: figuras/optimizacion/grafo_formacion1.png Graphic file (type png)
 <use figuras/optimizacion/grafo_formacion1.png>
 Package pdftex.def Info: figuras/optimizacion/grafo_formacion1.png  used on inp
 ut line 561.
-(pdftex.def)             Requested size: 346.89732pt x 193.5755pt.
+(pdftex.def)             Requested size: 346.89732pt x 201.31279pt.
  [54]
-<figuras/optimizacion/grafo_formacion2.png, id=1751, 648.4225pt x 381.425pt>
+<figuras/optimizacion/grafo_formacion2.png, id=1751, 648.4225pt x 398.48875pt>
 File: figuras/optimizacion/grafo_formacion2.png Graphic file (type png)
 <use figuras/optimizacion/grafo_formacion2.png>
 Package pdftex.def Info: figuras/optimizacion/grafo_formacion2.png  used on inp
 ut line 578.
-(pdftex.def)             Requested size: 346.89732pt x 204.05743pt.
+(pdftex.def)             Requested size: 346.89732pt x 213.18633pt.
  [55 <./figuras/optimizacion/grafo_formacion1.png> <./figuras/optimizacion/graf
 o_formacion2.png>] [56]
 <figuras/optimizacion/tiempos_desfases.png, id=1774, 517.935pt x 250.536pt>
@@ -2052,7 +2053,7 @@ LaTeX2e <2023-11-01> patch level 1
 L3 programming layer <2020/03/25>
  ***********
 Package rerunfilecheck Info: File `z-main.out' has not changed.
-(rerunfilecheck)             Checksum: 6F940DCC24FE2BCA543B8DE9D1B69690;21721.
+(rerunfilecheck)             Checksum: E3130363DC43FB903484D845BE5EC458;21721.
 Package logreq Info: Writing requests to 'z-main.run.xml'.
 \openout1 = `z-main.run.xml'.
 
@@ -2060,7 +2061,7 @@ Package logreq Info: Writing requests to 'z-main.run.xml'.
 Here is how much of TeX's memory you used:
  30497 strings out of 474542
  576802 string characters out of 5744446
- 1946978 words of memory out of 5000000
+ 1947978 words of memory out of 5000000
  51941 multiletter control sequences out of 15000+600000
  577067 words of font info for 80 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
@@ -2074,10 +2075,10 @@ pen/ec/dpi600\ecbi1200.pk> <C:\Users\gerar\AppData\Local\MiKTeX\fonts/pk/ljfour
 ljfour/jknappen/ec/dpi600\ecbx1200.pk> <C:\Users\gerar\AppData\Local\MiKTeX\fon
 ts/pk/ljfour/jknappen/ec/dpi600\ecss2488.pk> <C:\Users\gerar\AppData\Local\MiKT
 eX\fonts/pk/ljfour/jknappen/ec/dpi600\ecti1095.pk> <C:\Users\gerar\AppData\Loca
-l\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ecrm1095.pk> <C:\Users\gerar\AppDat
-a\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ecxc1095.pk> <C:\Users\gerar\
-AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ecbx1095.pk> <C:\Users\
-gerar\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\eccc1095.pk> <C:\
+l\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ecxc1095.pk> <C:\Users\gerar\AppDat
+a\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ecbx1095.pk> <C:\Users\gerar\
+AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\eccc1095.pk> <C:\Users\
+gerar\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ecrm1095.pk> <C:\
 Users\gerar\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ecss1440.pk
 > <C:\Users\gerar\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ecrm1
 200.pk> <C:\Users\gerar\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600
@@ -2095,9 +2096,9 @@ ers/gerar/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr6.pfb
 mr8.pfb><C:/Users/gerar/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfon
 ts/cm/cmsy10.pfb><C:/Users/gerar/AppData/Local/Programs/MiKTeX/fonts/type1/publ
 ic/amsfonts/cm/cmsy8.pfb>
-Output written on z-main.pdf (78 pages, 53371899 bytes).
+Output written on z-main.pdf (78 pages, 53378872 bytes).
 PDF statistics:
- 2665 PDF objects out of 2984 (max. 8388607)
+ 2666 PDF objects out of 2984 (max. 8388607)
  300 named destinations out of 1000 (max. 500000)
  1124 words of extra memory for PDF output out of 10000 (max. 10000000)
 
