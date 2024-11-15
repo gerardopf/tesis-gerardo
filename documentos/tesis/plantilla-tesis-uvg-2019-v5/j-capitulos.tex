@@ -530,7 +530,7 @@ Para este escenario, se movilizó el obstáculo una sola vez a manera que cambia
 
 
 \chapter{Optimización del algoritmo y su implementación}\label{cap:optimizacion}
-En este capítulo se describen los puntos de mejora identificados en la implementación del algoritmo de sincronización y control de formaciones. Además, se detalla cómo se abordó cada uno de ellos empleando técnicas de optimización como la reducción de complejidad computacional y ajuste de parámetros de control.
+En este capítulo se describen los puntos de mejora identificados en la implementación del algoritmo de sincronización y control de formaciones. Además, se detalla cómo se abordó cada uno de ellos empleando técnicas de optimización como la reducción de complejidad computacional, paralelización y ajuste de parámetros de control. Por último, se compara el rendimiento del algoritmo con su implementación original y su versión optimizada.
 
 \section{Lenguaje de programación y limpieza de código}
 El primer paso para la optimización fue analizar el lenguaje de programación empleado para los controladores. Se tomó en cuenta tres lenguajes y se compararon con base en a las ventajas y desventajas que proponen para su implementación con el estado actual del algoritmo: MATLAB, Python y C. En el Cuadro \ref{cuadro:lenguajes_programacion} se describen las ventajas y desventajas de cada uno.
@@ -545,11 +545,11 @@ El primer paso para la optimización fue analizar el lenguaje de programación e
 		Python   & \begin{tabular}[c]{@{}l@{}}- Es un lenguaje de código abierto.\\ \\ - Tiene una amplia variedad de librerías para optimizar \\ el cálculo numérico como NumPy, SciPy, multithreading \\ o multiprocessing.\\ \\ - Tiene un buen equilibrio entre rendmiento \\ computacional y facilidad de desarrollo.\end{tabular} & \begin{tabular}[c]{@{}l@{}}- Es un lenguaje más eficiente que MATLAB pero menos eficiente \\ que C debido a que es un lenguaje interpretado.\\ \\ - Requiere dependencias externas para lograr un alto rendimiento \\ (como integraciones con C).\end{tabular}                                                            \\ \hline
 		C        & \begin{tabular}[c]{@{}l@{}}- Tiene un rendimiento superior ya que es un lenguaje \\ compilado de bajo nivel.\\ \\ - Ofrece un control sobre la memoria y el hardware.\end{tabular}                                                                                                                             & \begin{tabular}[c]{@{}l@{}}- Su complejidad es mucho mayor en cuando a implementación y \\ mantenimiento.\\ \\ - Tiene una alta probabilidad de fugas de memoria. \\ \\ - Requiere mucho más tiempo de desarrollo y es menos intuitivo.\\ \\ - No es tan flexible para realizar cambios rápidos en algoritmos.\end{tabular} \\ \hline
 	\end{tabular}}
-	\caption{Ventajas y desventajas de lenguajes de programación.}
+	\caption{Ventajas y desventajas de lenguajes de programación \cite{MatlabVsPython}.}
 	\label{cuadro:lenguajes_programacion}
 \end{table}
 
-Una vez comparados los lenguajes de programación se optó por seguir utilizando Python para el desarrollo de los controladores. Las razones principales fueron que es un lenguaje de código abierto y ofrece un buen equilibrio entre rendimiento computacional y facilidad de desarrollo. Además, ya se cuenta con todo el algoritmo previo desarrollado en Python funcionando en un entorno físico como el Robotat. Esto incluye el desarrollo de los controladores, funciones para cálculos propios del algoritmo de sincronización y control de formaciones y funciones de conexión con el servidor del Robotat y los Pololu 3Pi+. Por lo que, dado el poco tiempo disponible para utilizar el Robotat no era conveniente migrar a un nuevo lenguaje de programación para esta fase de la implementación del algoritmo. Asimismo, Python cuenta con librerías como NumPy que está basada en C y otras librerías de comunicación y procesamiento que permiten optimizar el rendimiento computacional.
+Una vez comparados los lenguajes de programación se optó por seguir utilizando Python para el desarrollo de los controladores. Las razones principales fueron que es un lenguaje de código abierto y ofrece un buen equilibrio entre rendimiento computacional y facilidad de desarrollo. Además, ya se cuenta con todo el algoritmo previo desarrollado en Python funcionando en un entorno físico como el Robotat. Esto incluye el desarrollo de los controladores, funciones para cálculos propios del algoritmo de sincronización y control de formaciones y funciones de conexión con el servidor del Robotat y los Pololu 3Pi+. Por lo que, dado el poco tiempo disponible para utilizar el Robotat no era conveniente migrar a un nuevo lenguaje de programación para esta fase de la implementación del algoritmo. Asimismo, Python cuenta con librerías como NumPy que está basada en C y otras librerías de comunicación y procesamiento que permiten optimizar el rendimiento computacional \cite{PythonVsC}.
 
 Finalmente, se realizó un proceso de limpieza y documentación del código para facilitar la interacción y entendimiento. Además, esto permitió eliminar segmentos de código obsoletos, así como identificar otras deficiencias que se mencionarán a continuación.
 
@@ -779,7 +779,7 @@ El primer paso fue definir las secciones del programa que se pueden ejecutar en 
 	\item La visualización en tiempo real con Webots del escenario físico.
 \end{itemize}
 
-Con esto, se decidió implementar dos hilos en paralelo a la ejecución del algoritmo de sincronización y control de formaciones tal como se observa en la Figura \ref{fig:hilos}.
+Dado que el controlador del agente realiza operaciones secuenciales y cálculos de velocidades que dependen de más instancias, se decidió implementar hilos únicamente al controlador del supervisor, en paralelo a la ejecución del algoritmo de sincronización y control de formaciones tal como se observa en la Figura \ref{fig:hilos}.
 
 \begin{figure}[H]
 	\centering
@@ -788,7 +788,23 @@ Con esto, se decidió implementar dos hilos en paralelo a la ejecución del algo
 	\label{fig:hilos}
 \end{figure}
 
-\subsection{title}
+\subsection{Creación de hilos en paralelo}
+
+Una vez identificadas las funcionalidades que se pueden ejecutar en paralelo, se definió la estructura de las tareas para cada hilo tal como se observa en la Figura \ref{fig:diagrama_hilos}. 
+
+Se implementó la ejecución de hilos en paralelo utilizando la librería ``threading'' de Python ya que resulta útil para manejar tareas que involucran tiempos de espera y no requieren una capacidad de procesamiento elevada \cite{PythonThreading}. En el caso de la obtención de las poses de los marcadores, es necesario un tiempo de espera entre la comunicación de la computadora y el servidor del Robotat. Este tiempo puede aprovecharse ejecutando otras tareas y cálculos esenciales del algoritmo en paralelo. Además, esto evita problemas de sincronización debido a los tiempos de espera altos por la latencia del servidor.
+
+En cuanto a la visualización en tiempo real en Webots, inicialmente ya se contaba con esta funcionalidad pero solo se mostraban la posición de los obstáculos y el objetivo. Por esto, se decidió agregar la funcionalidad de visualización para los agentes. Esta modificación aumentó el tiempo requerido para actualizar la visualización de los agentes que están en constante movimiento, adicional a que ahora se utilizan obstáculos móviles. Por esto, se agregó un hilo dedicado exclusivamente a la actualización de las posiciones de objetos en Webots que representa a los obstáculos, los agentes y el objetivo. Adicionalmente, se implementó un evento de sincronización para garantizar que la visualización se mantenga en sincronía con cada paso de la simulación. Este evento se activa al inicio de cada ciclo del supervisor que ya se encuentra sincronizado con el paso de la simulación, y el hilo queda a la espera de recibir el evento para ejecutar las tareas.
+
+Luego, para todos los hilos, se definió un evento de finalización que se activa cuando el líder llega al objetivo y el error de formación es menor al $10\%$. Finalmente, para terminar los hilos, se utilizó la función ``join'' de la librería ``threading'' para bloquear el programa principal y esperar a que cada hilo finalice de manera segura antes de detener el programa.
+
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=0.8\textwidth]{optimizacion/paralelismo/diagrama_threading_extendido.png}
+	\caption{Funcionalidades del algoritmo que se ejecutan en paralelo.}
+	\label{fig:diagrama_hilos}
+\end{figure}
 
 \section{Ajuste de parámetros del algoritmo}
 
