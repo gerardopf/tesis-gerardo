@@ -549,12 +549,12 @@ El primer paso para la optimización fue analizar el lenguaje de programación e
 	\label{cuadro:lenguajes_programacion}
 \end{table}
 
-Una vez comparados los lenguajes de programación se optó por seguir utilizando Python para el desarrollo de los controladores. Las razones principales fueron que es un lenguaje de código abierto y ofrece un buen equilibrio entre rendimiento computacional y facilidad de desarrollo. Además, ya se cuenta con todo el algoritmo previo desarrollado en Python funcionando en un entorno físico como el Robotat. Esto incluye el desarrollo de los controladores, funciones para cálculos propios del algoritmo de sincronización y control de formaciones y funciones de conexión con el servidor del Robotat y los Pololu 3Pi+. Por lo que, dado el poco tiempo disponible para utilizar el Robotat no es conveniente migrar a un nuevo lenguaje de programación para esta fase de la implementación del algoritmo. Asimismo, Python cuenta con librerías como NumPy que está basada en C y otras librerías de comunicación y procesamiento que permiten optimizar el rendimiento computacional.
+Una vez comparados los lenguajes de programación se optó por seguir utilizando Python para el desarrollo de los controladores. Las razones principales fueron que es un lenguaje de código abierto y ofrece un buen equilibrio entre rendimiento computacional y facilidad de desarrollo. Además, ya se cuenta con todo el algoritmo previo desarrollado en Python funcionando en un entorno físico como el Robotat. Esto incluye el desarrollo de los controladores, funciones para cálculos propios del algoritmo de sincronización y control de formaciones y funciones de conexión con el servidor del Robotat y los Pololu 3Pi+. Por lo que, dado el poco tiempo disponible para utilizar el Robotat no era conveniente migrar a un nuevo lenguaje de programación para esta fase de la implementación del algoritmo. Asimismo, Python cuenta con librerías como NumPy que está basada en C y otras librerías de comunicación y procesamiento que permiten optimizar el rendimiento computacional.
 
 Finalmente, se realizó un proceso de limpieza y documentación del código para facilitar la interacción y entendimiento. Además, esto permitió eliminar segmentos de código obsoletos, así como identificar otras deficiencias que se mencionarán a continuación.
 
 \section{Posición de cada agente según el grafo de formación}
-Durante la verificación de funcionalidad del algoritmo, al implementar la selección manual de marcadores para los agentes, se encontró que el número de marcador asignado a cada agente estaba directamente relacionado con la posición que este debe tomar según el grafo de formación. En la Figura \ref{fig:grafo_formacion1} se muestra la asignación de posiciones según el grafo de formación para una selección arbitraria de agentes con la implementación original del algoritmo.
+Durante la verificación de funcionalidad del algoritmo, al implementar la selección manual de marcadores para los agentes, se encontró que el número de marcador asignado a cada agente estaba directamente relacionado con la posición que este debe tomar según el grafo de formación. En la Figura \ref{fig:grafo_formacion1} se muestra la asignación de posiciones según el grafo de formación en triángulo para una selección arbitraria de agentes con la implementación original del algoritmo.
 
 \begin{figure}[H]
 	\centering
@@ -563,15 +563,7 @@ Durante la verificación de funcionalidad del algoritmo, al implementar la selec
 	\label{fig:grafo_formacion1}
 \end{figure}
 
------ INICIO EXPLICACIÓN ---
-
-Con esta asignación de posiciones se cuenta con limitantes de su eficiencia y flexibilidad. 
-
-
------ BORRAR -------
-Al tener una formación como la mostrada anteriormente se vuelve poco intuitiva su visualización a la hora de ejecutar el algoritmo. Por esto, se decidió cambiar la asignación de posición de cada agente a manera que siempre se mantenga la misma estructura del grafo de formación y los agentes se posicionen de manera ascendente tal como se observa en la figura \ref{fig:grafo_formacion2}.
-
------ FIN EXPLICACIÓN ---
+Al observar esto, se decidió optimizar la asignación de posición de cada agente a manera que siempre se mantenga la misma estructura del grafo de formación desde la posición cero y los agentes se posicionen de manera ascendente sin importar su número de marcador asignado, tal como se observa en la figura \ref{fig:grafo_formacion2}.
 
 \begin{figure}[H]
 	\centering
@@ -579,11 +571,13 @@ Al tener una formación como la mostrada anteriormente se vuelve poco intuitiva 
 	\caption{Posiciones de agentes según el grafo de formación con la implementación nueva del algoritmo.}
 	\label{fig:grafo_formacion2}
 \end{figure}
-	
+
+La versión optimizada vuelve al sistema consistente y robusto, independientemente del grupo de agentes seleccionado. Al estandarizar el proceso de selección de posiciones, se facilita tanto el diseño como la depuración. Además, es un sistema escalable, ya que la estructura fija de la formación permite la integración y reducción de agentes de forma sencilla y ordenada. Asimismo, incorpora un esquema eficiente para sistemas con múltiples agentes, donde las decisiones en tiempo real se simplifican gracias a una lógica más sencilla para gestionar las posiciones de los agentes en la formación.
+
 \section{Mejora de la eficiencia computacional con NumPy}
 NumPy es una librería de Python especializada para el cálculo numérico y científico. Destaca por su soporte para trabajar con operaciones vectorizadas o vectores multidimensionales sin realizar bucles. También cuenta con una amplia variedad de funciones matemáticas y estadísticas, así como integración con otras librerías como SciPy. Además, NumPy está implementado en C por lo que permite mejorar la eficiencia computacional para grandes cantidades de datos.
 
-Al revisar los programas de los controladores, se encontró varios segmentos de código que se realizan con bucles (ciclos \textit{for}) simples y otros anidados. Esto presenta una deficiencia al realizar los cálculos y solicitud de datos al servidor del Robotat por lo que se optó por optimizar dichos procesos utilizando funciones matemáticas y operaciones matriciales con NumPy. A continuación, se detallará los segmentos del algoritmo que se optimizaron implementando operaciones con NumPy y se mostrará la comparativa en cuanto a tiempos de ejecución utilizando la librería ``time'' de Python y análisis estadísticos.
+Al revisar los programas de los controladores, se encontró varios segmentos de código que se realizan con bucles (ciclos \textit{for}) simples y otros anidados. Esto representa una deficiencia al realizar los cálculos y solicitud de datos al servidor del Robotat, además que vuelve más compleja la depuración del programa, por lo que se decidió optimizar dichos procesos utilizando funciones matemáticas y operaciones matriciales con NumPy. A continuación, se detallará los segmentos del algoritmo que se optimizaron implementando operaciones con NumPy y se mostrará la comparativa en cuanto a tiempos de ejecución utilizando la función ``perf\_counter\_ns'' de la librería ``time'' de Python y análisis estadísticos.
 
 \subsection{Aplicación de desfases a los marcadores}
 A continuación se explica los pasos que anteriormente se realizaban para aplicar los desfases de la calibración de marcadores, donde $n$ es la cantidad de marcadores a utilizar.
@@ -621,7 +615,7 @@ Implementar bucles dentro del ciclo principal significa un aumento de tiempo com
 
 Una vez implementada la optimización, se realizó un análisis estadístico con mil muestras donde se tomó el tiempo que toma aplicar los desfases a los marcadores con bucles y con una resta de matrices con NumPy.
 
-Para la toma de muestras, se evaluaron diferentes cantidades de marcadores a los que se les aplicaría el desfase, siendo estos 5, 10, 15 y 20. En los Cuadros \ref{cuadro:tiempos_desfases_for} y \ref{cuadro:tiempos_desfases_numpy} se muestra la media y desviación estándar del tiempo que toma aplicar los desfases.
+Para la toma de muestras, se evaluaron diferentes cantidades de marcadores a los que se les aplicó el desfase, siendo estos 5, 10, 15 y 20. En los Cuadros \ref{cuadro:tiempos_desfases_for} y \ref{cuadro:tiempos_desfases_numpy} se muestra la media y desviación estándar del tiempo que tomó aplicar los desfases.
 
 En la Figura \ref{fig:grafica_tiempos_desfases} se observa que la optimización con NumPy presenta una reducción notable en el tiempo de procesamiento, la cual es aún más significativa a medida que aumenta la cantidad de marcadores a utilizar. Por otro lado, los tiempos al aplicar bucles incrementan de manera proporcional y más pronunciada con el aumento de los marcadores, mientras que con NumPy el crecimiento es más moderado ya que la pendiente de la curva es dos órdenes de magnitud menor.
 
@@ -663,7 +657,7 @@ En la Figura \ref{fig:grafica_tiempos_desfases} se observa que la optimización 
 \end{figure}
 
 \subsection{Cálculo de la distancia entre agentes}
-Para el cálculo de distancia entre agentes se tiene una función llamada ``DistBetweenAgents'' dentro del archivo ``funciones.py''. Esta utiliza bucles anidados para calcular la norma de distancia basada en la distancia en $x$ y $y$ de cada agente hacia sus vecinos más próximos. El cálculo de la distancia se realiza entre los agentes $i$ y $j$ y luego para $j$ e $i$, esto produce una matriz simétrica por lo que se puede realizar únicamente el cálculo de una mitad y luego duplicarla. Para esto, se creó una versión optimizada de la función llamada ``DistBetweenAgentsOptimized''. En esta, únicamente se calcula la diferencia de posiciones aprovechando el \textit{broadcasting} en NumPy y luego se obtiene la norma de la matriz de distancias utilizando la función ``linealg.norm''.
+Para el cálculo de distancia entre agentes se tenía una función llamada ``DistBetweenAgents'' dentro del archivo ``funciones.py''. Esta utiliza bucles anidados para calcular la norma de distancia basada en la distancia en $x$ y $y$ de cada agente hacia sus vecinos más próximos. El cálculo de la distancia se realiza entre los agentes $i$ y $j$ y luego para $j$ e $i$, esto produce una matriz simétrica por lo que se puede realizar únicamente el cálculo de una mitad y luego duplicarla. Para esto, se creó una versión optimizada de la función llamada ``DistBetweenAgentsOptimized''. En esta, únicamente se calcula la diferencia de posiciones aprovechando el \textit{broadcasting} en NumPy y luego se obtiene la norma de la matriz de distancias utilizando la función ``linealg.norm''.
 
 En los Cuadros \ref{cuadro:tiempos_distancias_for} y \ref{cuadro:tiempos_distancias_numpy} se muestra la media y desviación estándar del tiempo que toma en realizar los cálculos con la función original y la optimizada. Para esto, se tomó mil muestras aumentando la cantidad de agentes desde $1$ hasta $10$. 
 
@@ -719,8 +713,7 @@ En la Figura \ref{fig:grafica_tiempos_distancias} se observa un incremento expon
 \end{figure}
 
 \subsection{Cálculo del error de formación}
-Para calcular el error de formación se utiliza la función ``FormationError'' dentro del archivo ``funciones.py''. Esta función utiliza dos bucles anidados para calcular el error cuadrático medio entre la formación actual y la deseada utilizando como parámetros las matrices de adyacencia de ambas formaciones. Dado que ambas matrices son cuadradas y, al considerar únicamente los agentes de interés, se convierten en matrices del mismo tamaño, se desarrolló una versión optimizada de la función llamada ``FormationErrorOptimized''. Esta versión emplea la función ``square'' de NumPy que eleva al cuadrado cada elemento de la matriz y luego calcula la media utilizando la función ``mean''.
-
+Para calcular el error de formación se utilizaba la función ``FormationError'' dentro del archivo ``funciones.py''. Esta función utiliza dos bucles anidados para calcular el error cuadrático medio entre la formación actual y la deseada utilizando como parámetros las matrices de adyacencia de ambas formaciones. Dado que ambas matrices son cuadradas y, al considerar únicamente los agentes de interés, se convierten en matrices del mismo tamaño, se desarrolló una versión optimizada de la función llamada ``FormationErrorOptimized''. Esta versión emplea la función ``square'' de NumPy que eleva al cuadrado cada elemento de la matriz y luego calcula la media utilizando la función ``mean''.
 
 En los Cuadros \ref{cuadro:tiempos_error_for} y \ref{cuadro:tiempos_error_numpy} se muestra la media y desviación estándar del tiempo que toma en realizar el cálculo del error cuadrático medio con la función original y la optimizada. Para esto, se tomó mil muestras aumentando la cantidad de agentes desde $1$ hasta $10$. 
 
@@ -776,6 +769,26 @@ En la Figura \ref{fig:grafica_tiempos_error} se muestra una gráfica en la que s
 \end{figure}
 
 \section{Implementación de paralelismo computacional}
+En este capítulo, se explica cómo se modificó el programa para implementar paralelismo computacional utilizando hilos con la librería ``threading'' de Python.
+
+\subsection{Definición de funcionalidades que se ejecutarán en paralelo}
+El primer paso fue definir las secciones del programa que se pueden ejecutar en paralelo de manera autónoma sin depender de estados externos o recursos no sincronizados. Estas secciones fueron:
+\begin{itemize}
+	\item El algoritmo de sincronización y control de formaciones.
+	\item El proceso de obtener las poses de los marcadores del Robotat.
+	\item La visualización en tiempo real con Webots del escenario físico.
+\end{itemize}
+
+Con esto, se decidió implementar dos hilos en paralelo a la ejecución del algoritmo de sincronización y control de formaciones tal como se observa en la Figura \ref{fig:hilos}.
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=0.5\textwidth]{optimizacion/paralelismo/diagrama_threading.png}
+	\caption{Funcionalidades del algoritmo que se ejecutan en paralelo.}
+	\label{fig:hilos}
+\end{figure}
+
+\subsection{title}
 
 \section{Ajuste de parámetros del algoritmo}
 

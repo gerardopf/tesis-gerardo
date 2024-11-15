@@ -60,6 +60,7 @@
 \contentsline {figure}{\numberline {48}{\ignorespaces Gráfica con medias de tiempo para aplicar desfases de marcadores con bucles y operaciones con NumPy.}}{58}{figure.caption.179}%
 \contentsline {figure}{\numberline {49}{\ignorespaces Gráfica con medias de tiempo para calcular la distancia entre agentes con bucles y operaciones con NumPy.}}{59}{figure.caption.183}%
 \contentsline {figure}{\numberline {50}{\ignorespaces Gráfica con medias de tiempo para calcular el error de formación con bucles y operaciones con NumPy.}}{61}{figure.caption.187}%
+\contentsline {figure}{\numberline {51}{\ignorespaces Funcionalidades del algoritmo que se ejecutan en paralelo.}}{62}{figure.caption.190}%
 \addvspace {10\p@ }
 \addvspace {10\p@ }
 \addvspace {10\p@ }
