@@ -9,7 +9,7 @@ import math
 import os
 import re
 
-archivo = 'ObsMov_3A_moviles_f_10.npz'
+archivo = 'ObsMov_3A_moviles_f_13.npz'
 show_images = 0
 
 show_real_cycle = 0

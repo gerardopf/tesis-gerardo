@@ -779,7 +779,7 @@ El primer paso fue definir las secciones del programa que se pueden ejecutar en 
 	\item La visualización en tiempo real con Webots del escenario físico.
 \end{itemize}
 
-Dado que el controlador del agente realiza operaciones secuenciales y cálculos de velocidades que dependen de más instancias, se decidió implementar hilos únicamente al controlador del supervisor, en paralelo a la ejecución del algoritmo de sincronización y control de formaciones tal como se observa en la Figura \ref{fig:hilos}.
+Dado que el controlador del agente realiza operaciones secuenciales y cálculos de velocidades que dependen de más instancias, se decidió implementar hilos únicamente en el controlador del supervisor, en paralelo a la ejecución del algoritmo de sincronización y control de formaciones tal como se observa en la Figura \ref{fig:hilos}.
 
 \begin{figure}[H]
 	\centering
@@ -806,9 +806,69 @@ Luego, para todos los hilos, se definió un evento de finalización que se activ
 	\label{fig:diagrama_hilos}
 \end{figure}
 
-\section{Ajuste de parámetros del algoritmo}
+\subsection{Ajuste de parámetros y mejora de funcionalidades}
 
-\section{Validación de la optimización del algoritmo}
+Anteriormente, era necesario configurar manualmente el listado de marcadores para los agentes tanto en el controlador del supervisor como en el de los agentes. De la misma manera, se requería especificar el modo de operación (físico o simulado) y la velocidad máxima para los agentes. Esto implicaba realizar modificaciones en ambos controladores cada vez que se realizaban cambios en las condiciones del escenario y los agentes.
+
+Este enfoque ocasionaba problemas frecuentes, ya que a menudo se olvidaba actualizar ciertos parámetros en uno de los controladores, lo que complicaba la depuración y las pruebas. Para solucionar esto, se decidió implementar una memoria compartida adicional que centralizara las configuraciones en el controlador del supervisor. Dicha memoria se configuró para enviar parámetros como el modo de operación, la velocidad máxima de los agentes y el listado de marcadores a utilizar desde un único controlador. Esta solución no solo facilita la depuración y reduce la posibilidad de discrepancias en las configuraciones, sino que también proporciona un sistema más robusto y eficiente para la gestión de variables.
+
+Medición de tiempos y guardado en el archivo.... FALTA
+
+
+\subsection{Verificación del rendimiento del algoritmo optimizado}
+Una vez aplicadas todas las mejoras y optimizaciones al algoritmo, se realizó la verificación de su rendimiento utilizando obstáculos físicos. 
+
+Para esto, se utilizó el escenario de la Figura \ref{label} para realizar corridas con $2$, $3$, $4$ y $5$ agentes donde se midió el tiempo... FALTA
+
+\begin{table}[H]
+	\centering
+	\resizebox{\textwidth}{!} {
+	\begin{tabular}{|c|c|llcc|}
+		\hline
+		\multirow{2}{*}{\textbf{Agentes}} & \multirow{2}{*}{\textbf{Corrida}} & \multicolumn{4}{c|}{\textbf{Algoritmo optimizado}}                                                                                                                                                        \\ \cline{3-6} 
+		&                                   & \multicolumn{1}{c|}{\textbf{Tiempo total (s)}} & \multicolumn{1}{c|}{\textbf{Tiempo de ciclo promedio (ms)}} & \multicolumn{1}{c|}{\textbf{Tiempo total promedio (s)}} & \textbf{Desviación estándar (s)} \\ \hline
+		\multirow{3}{*}{\textbf{2}}       & 1                                 & \multicolumn{1}{l|}{72.846}                    & \multicolumn{1}{l|}{0.36}                                   & \multicolumn{1}{c|}{\multirow{3}{*}{72.1267}}           & \multirow{3}{*}{1.9777}          \\ \cline{2-4}
+		& 2                                 & \multicolumn{1}{l|}{69.89}                     & \multicolumn{1}{l|}{0.384}                                  & \multicolumn{1}{c|}{}                                   &                                  \\ \cline{2-4}
+		& 3                                 & \multicolumn{1}{l|}{73.644}                    & \multicolumn{1}{l|}{0.361}                                  & \multicolumn{1}{c|}{}                                   &                                  \\ \hline
+		\multirow{3}{*}{\textbf{3}}       & 1                                 & \multicolumn{1}{l|}{82.828}                    & \multicolumn{1}{l|}{0.386}                                  & \multicolumn{1}{c|}{\multirow{3}{*}{86.4270}}           & \multirow{3}{*}{6.7963}          \\ \cline{2-4}
+		& 2                                 & \multicolumn{1}{l|}{82.187}                    & \multicolumn{1}{l|}{0.391}                                  & \multicolumn{1}{c|}{}                                   &                                  \\ \cline{2-4}
+		& 3                                 & \multicolumn{1}{l|}{94.266}                    & \multicolumn{1}{l|}{0.395}                                  & \multicolumn{1}{c|}{}                                   &                                  \\ \hline
+		\multirow{3}{*}{\textbf{4}}       & 1                                 & \multicolumn{1}{l|}{79.064}                    & \multicolumn{1}{l|}{0.428}                                  & \multicolumn{1}{c|}{\multirow{3}{*}{78.7760}}           & \multirow{3}{*}{1.9302}          \\ \cline{2-4}
+		& 2                                 & \multicolumn{1}{l|}{76.718}                    & \multicolumn{1}{l|}{0.439}                                  & \multicolumn{1}{c|}{}                                   &                                  \\ \cline{2-4}
+		& 3                                 & \multicolumn{1}{l|}{80.546}                    & \multicolumn{1}{l|}{0.441}                                  & \multicolumn{1}{c|}{}                                   &                                  \\ \hline
+		\multirow{3}{*}{\textbf{5}}       & 1                                 & \multicolumn{1}{l|}{112.28}                    & \multicolumn{1}{l|}{0.504}                                  & \multicolumn{1}{c|}{\multirow{3}{*}{143.2237}}          & \multirow{3}{*}{44.0504}         \\ \cline{2-4}
+		& 2                                 & \multicolumn{1}{l|}{193.657}                   & \multicolumn{1}{l|}{0.504}                                  & \multicolumn{1}{c|}{}                                   &                                  \\ \cline{2-4}
+		& 3                                 & \multicolumn{1}{l|}{123.734}                   & \multicolumn{1}{l|}{0.503}                                  & \multicolumn{1}{c|}{}                                   &                                  \\ \hline
+	\end{tabular}}
+	\caption{Tiempos de ejecución del algoritmo optimizado con 2, 3, 4 y 5 agentes.}
+	\label{cuadro:tiempos_optim}
+\end{table}
+
+
+\begin{table}[H]
+	\centering
+	\resizebox{\textwidth}{!} {
+	\begin{tabular}{|c|c|llcc|}
+		\hline
+		\multirow{2}{*}{\textbf{Agentes}} & \multirow{2}{*}{\textbf{Corrida}} & \multicolumn{4}{c|}{\textbf{Algoritmo no optimizado}}                                                                                                                                                     \\ \cline{3-6} 
+		&                                   & \multicolumn{1}{c|}{\textbf{Tiempo total (s)}} & \multicolumn{1}{c|}{\textbf{Tiempo de ciclo promedio (ms)}} & \multicolumn{1}{c|}{\textbf{Tiempo total promedio (s)}} & \textbf{Desviación estándar (s)} \\ \hline
+		\multirow{3}{*}{\textbf{2}}       & 1                                 & \multicolumn{1}{l|}{69.793}                    & \multicolumn{1}{l|}{133.715}                                & \multicolumn{1}{c|}{\multirow{3}{*}{70.9800}}           & \multirow{3}{*}{2.4460}          \\ \cline{2-4}
+		& 2                                 & \multicolumn{1}{l|}{69.354}                    & \multicolumn{1}{l|}{107.867}                                & \multicolumn{1}{c|}{}                                   &                                  \\ \cline{2-4}
+		& 3                                 & \multicolumn{1}{l|}{73.793}                    & \multicolumn{1}{l|}{111.432}                                & \multicolumn{1}{c|}{}                                   &                                  \\ \hline
+		\multirow{3}{*}{\textbf{3}}       & 1                                 & \multicolumn{1}{l|}{113.666}                   & \multicolumn{1}{l|}{129.068}                                & \multicolumn{1}{c|}{\multirow{3}{*}{97.9450}}           & \multirow{3}{*}{13.8863}         \\ \cline{2-4}
+		& 2                                 & \multicolumn{1}{l|}{92.817}                    & \multicolumn{1}{l|}{139.81}                                 & \multicolumn{1}{c|}{}                                   &                                  \\ \cline{2-4}
+		& 3                                 & \multicolumn{1}{l|}{87.352}                    & \multicolumn{1}{l|}{121.345}                                & \multicolumn{1}{c|}{}                                   &                                  \\ \hline
+		\multirow{3}{*}{\textbf{4}}       & 1                                 & \multicolumn{1}{l|}{107.001}                   & \multicolumn{1}{l|}{167.707}                                & \multicolumn{1}{c|}{\multirow{3}{*}{112.4807}}          & \multirow{3}{*}{4.7548}          \\ \cline{2-4}
+		& 2                                 & \multicolumn{1}{l|}{115.518}                   & \multicolumn{1}{l|}{168.313}                                & \multicolumn{1}{c|}{}                                   &                                  \\ \cline{2-4}
+		& 3                                 & \multicolumn{1}{l|}{114.923}                   & \multicolumn{1}{l|}{160.484}                                & \multicolumn{1}{c|}{}                                   &                                  \\ \hline
+		\multirow{3}{*}{\textbf{5}}       & 1                                 & \multicolumn{1}{l|}{336.836}                   & \multicolumn{1}{l|}{236.169}                                & \multicolumn{1}{c|}{\multirow{3}{*}{335.3777}}          & \multirow{3}{*}{51.8439}         \\ \cline{2-4}
+		& 2                                 & \multicolumn{1}{l|}{386.477}                   & \multicolumn{1}{l|}{282.401}                                & \multicolumn{1}{c|}{}                                   &                                  \\ \cline{2-4}
+		& 3                                 & \multicolumn{1}{l|}{282.82}                    & \multicolumn{1}{l|}{226.396}                                & \multicolumn{1}{c|}{}                                   &                                  \\ \hline
+	\end{tabular}}
+	\caption{Tiempos de ejecución del algoritmo no optimizado con 2, 3, 4 y 5 agentes.}
+	\label{cuadro:tiempos_nooptim}
+\end{table}
+
 
 \chapter{Validación del algoritmo optimizado en escenarios físicos con obstáculos móviles}\label{cap:validacion}
 

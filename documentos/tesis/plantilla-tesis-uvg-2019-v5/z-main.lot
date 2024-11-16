@@ -19,6 +19,8 @@
 \contentsline {table}{\numberline {7}{\ignorespaces Media de tiempo y desviación estándar para calcular la distancia entre agentes con NumPy.}}{59}{table.caption.182}%
 \contentsline {table}{\numberline {8}{\ignorespaces Media de tiempo y desviación estándar para calcular el error de formación con bucles.}}{60}{table.caption.185}%
 \contentsline {table}{\numberline {9}{\ignorespaces Media de tiempo y desviación estándar para calcular el error de formación con NumPy.}}{60}{table.caption.186}%
+\contentsline {table}{\numberline {10}{\ignorespaces Tiempos de ejecución del algoritmo optimizado con 2, 3, 4 y 5 agentes.}}{64}{table.caption.195}%
+\contentsline {table}{\numberline {11}{\ignorespaces Tiempos de ejecución del algoritmo no optimizado con 2, 3, 4 y 5 agentes.}}{65}{table.caption.196}%
 \addvspace {10\p@ }
 \addvspace {10\p@ }
 \addvspace {10\p@ }

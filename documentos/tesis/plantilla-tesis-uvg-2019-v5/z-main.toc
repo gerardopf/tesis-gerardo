@@ -99,9 +99,9 @@
 \contentsline {section}{\numberline {10.4}Implementación de paralelismo computacional}{61}{section.188}%
 \contentsline {subsection}{\numberline {10.4.1}Definición de funcionalidades que se ejecutarán en paralelo}{61}{subsection.189}%
 \contentsline {subsection}{\numberline {10.4.2}Creación de hilos en paralelo}{62}{subsection.191}%
-\contentsline {section}{\numberline {10.5}Ajuste de parámetros del algoritmo}{64}{section.193}%
-\contentsline {section}{\numberline {10.6}Validación de la optimización del algoritmo}{64}{section.194}%
-\contentsline {chapter}{\numberline {11}Validación del algoritmo optimizado en escenarios físicos con obstáculos móviles}{65}{chapter.195}%
-\contentsline {chapter}{\numberline {12}Conclusiones}{66}{chapter.196}%
-\contentsline {chapter}{\numberline {13}Recomendaciones}{67}{chapter.197}%
-\contentsline {chapter}{\numberline {14}Bibliograf\'{\i }a}{68}{chapter.199}%
+\contentsline {subsection}{\numberline {10.4.3}Ajuste de parámetros y mejora de funcionalidades}{64}{subsection.193}%
+\contentsline {subsection}{\numberline {10.4.4}Verificación del rendimiento del algoritmo optimizado}{64}{subsection.194}%
+\contentsline {chapter}{\numberline {11}Validación del algoritmo optimizado en escenarios físicos con obstáculos móviles}{66}{chapter.197}%
+\contentsline {chapter}{\numberline {12}Conclusiones}{67}{chapter.198}%
+\contentsline {chapter}{\numberline {13}Recomendaciones}{68}{chapter.199}%
+\contentsline {chapter}{\numberline {14}Bibliograf\'{\i }a}{69}{chapter.201}%
