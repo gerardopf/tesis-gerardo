@@ -794,7 +794,7 @@ Una vez identificadas las funcionalidades que se pueden ejecutar en paralelo, se
 
 Se implementó la ejecución de hilos en paralelo utilizando la librería ``threading'' de Python ya que resulta útil para manejar tareas que involucran tiempos de espera y no requieren una capacidad de procesamiento elevada \cite{PythonThreading}. En el caso de la obtención de las poses de los marcadores, es necesario un tiempo de espera entre la comunicación de la computadora y el servidor del Robotat. Este tiempo puede aprovecharse ejecutando otras tareas y cálculos esenciales del algoritmo en paralelo. Además, esto evita problemas de sincronización debido a los tiempos de espera altos por la latencia del servidor.
 
-En cuanto a la visualización en tiempo real en Webots, inicialmente ya se contaba con esta funcionalidad pero solo se mostraban la posición de los obstáculos y el objetivo. Por esto, se decidió agregar la funcionalidad de visualización para los agentes. Esta modificación aumentó el tiempo requerido para actualizar la visualización de los agentes que están en constante movimiento, adicional a que ahora se utilizan obstáculos móviles. Por esto, se agregó un hilo dedicado exclusivamente a la actualización de las posiciones de objetos en Webots que representa a los obstáculos, los agentes y el objetivo. Adicionalmente, se implementó un evento de sincronización para garantizar que la visualización se mantenga en sincronía con cada paso de la simulación. Este evento se activa al inicio de cada ciclo del supervisor que ya se encuentra sincronizado con el paso de la simulación, y el hilo queda a la espera de recibir el evento para ejecutar las tareas.
+En cuanto a la visualización en tiempo real en Webots, inicialmente ya se contaba con esta funcionalidad implementada dentro del ciclo principal, sin embargo esta requiere recursos adicionales y se puede ejecutar en paralelo sin afectar al funcionamiento del algoritmo. Por esto, se agregó un hilo dedicado exclusivamente a la visualización en tiempo real del escenario en Webots. Adicionalmente, se implementó un evento de sincronización para garantizar que la visualización se mantenga en sincronía con cada paso de la simulación. Este evento se activa al inicio de cada ciclo del supervisor que ya se encuentra sincronizado con el paso de la simulación, y el hilo queda a la espera de recibir el evento para ejecutar las tareas.
 
 Luego, para todos los hilos, se definió un evento de finalización que se activa cuando el líder llega al objetivo y el error de formación es menor al $10\%$. Finalmente, para terminar los hilos, se utilizó la función ``join'' de la librería ``threading'' para bloquear el programa principal y esperar a que cada hilo finalice de manera segura antes de detener el programa.
 
@@ -827,6 +827,18 @@ Pr último, con el fin de monitorear el comportamiento del algoritmo durante su 
 	\item La norma de velocidades sobre la cuál se toman decisiones en el algoritmo.
 	\item El error de formación.
 	\item La latencia de comunicación con el servidor del Robotat.
+\end{itemize}
+
+\subsubsection{Visualización en tiempo real en Webots del escenario}
+Como se mencionó anteriormente, inicialmente ya se contaba con esta funcionalidad pero solo se mostraba la posición de los obstáculos y el objetivo. Por esto, se decidió agregar la funcionalidad de visualización para los agentes. En la Figura \ref{label} se observa un escenario físico y su visualización en tiempo real en Webots con la siguiente representación:
+
+\begin{itemize}
+	\item Círculos verdes: posiciones iniciales para los agentes.
+	\item Círculo amarillo: posición en tiempo real del agente líder de la formación.
+	\item Círculos azules: posiciones en tiempo real de los demás agentes.
+	\item Círculo rojo: posición en tiempo real del objetivo.
+	\item Toroides morados: posiciones en tiempo real de los obstáculos.
+	\item ePucks: posiciones en que se encontraban los agentes al momento de ejecutar el programa (antes de colocarse en sus posiciones iniciales).
 \end{itemize}
 
 

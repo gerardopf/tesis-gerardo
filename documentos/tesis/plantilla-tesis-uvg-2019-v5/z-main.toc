@@ -103,8 +103,9 @@
 \contentsline {subsubsection}{Configuración del escenario y marcadores}{64}{section*.194}%
 \contentsline {subsubsection}{Medición del tiempo de ejecución del algoritmo}{64}{section*.195}%
 \contentsline {subsubsection}{Monitoreo de variables}{64}{section*.196}%
-\contentsline {subsection}{\numberline {10.4.4}Verificación del rendimiento del algoritmo optimizado}{65}{subsection.197}%
-\contentsline {chapter}{\numberline {11}Validación del algoritmo optimizado en escenarios físicos con obstáculos móviles}{66}{chapter.200}%
-\contentsline {chapter}{\numberline {12}Conclusiones}{67}{chapter.201}%
-\contentsline {chapter}{\numberline {13}Recomendaciones}{68}{chapter.202}%
-\contentsline {chapter}{\numberline {14}Bibliograf\'{\i }a}{69}{chapter.204}%
+\contentsline {subsubsection}{Visualización en tiempo real en Webots del escenario}{65}{section*.197}%
+\contentsline {subsection}{\numberline {10.4.4}Verificación del rendimiento del algoritmo optimizado}{65}{subsection.198}%
+\contentsline {chapter}{\numberline {11}Validación del algoritmo optimizado en escenarios físicos con obstáculos móviles}{67}{chapter.201}%
+\contentsline {chapter}{\numberline {12}Conclusiones}{68}{chapter.202}%
+\contentsline {chapter}{\numberline {13}Recomendaciones}{69}{chapter.203}%
+\contentsline {chapter}{\numberline {14}Bibliograf\'{\i }a}{70}{chapter.205}%
