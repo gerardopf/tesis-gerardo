@@ -32,12 +32,12 @@ data_saving = 1 # ¿Guardar datos? | 0: No | 1: Si
 carpeta = 'escenarios_mov'
 
 # nombre para guardar la corrida
-nombre_file = 'ObsMov'
+nombre_file = 'prototipo'
 escenario_file = 'moviles'
-corrida_file = '27'
+corrida_file = '0'
 
 """ MARCADORES (AGENTES, OBSTÁCULOS Y OBJETIVO) """
-agents_marker_list = [2,3,4,5] # agentes (Máx. 10)
+agents_marker_list = [2,3,4,10] # agentes (Máx. 10)
 obj_marker_list = [11] # marker del objetivo (Máx. 1)
 obs_marker_list = [20,21,22] # obstáculos (Máx. 3)
 
@@ -61,7 +61,7 @@ rigidity_level = 8 # valores entre 1 y 8 (1 es el menos rígido)
 initial_pos_setup = 1 # posiciones iniciales | 0: Aleatorio | 1: Planificado
 setup_shape = 0         # formación inicial | 0: Línea Horizontal| 1: Círculo | 2: Línea vertical
 
-setup_starting_point = np.array([-1.5, 0]) # punto inicial para las posiciones iniciales
+setup_starting_point = np.array([-1, -1.5]) # punto inicial para las posiciones iniciales
 setup_shape_space = 1.5 # espacio a cubrir con las posiciones iniciales (m)
 
 agent_setup = 5 # configuración de agentes
@@ -90,7 +90,7 @@ elif fisico == 0:
     fisico_file = 'v'
 new_run_file = f'{carpeta}/{nombre_file}_{N}A_{escenario_file}_{fisico_file}_{corrida_file}.npz'
 
-# envío de comfiguración
+# envío de configuración
 config = [fisico, MAX_SPEED, TIME_STEP]
 lock.acquire()
 data_agents = pickle.dumps(agents_marker_list)

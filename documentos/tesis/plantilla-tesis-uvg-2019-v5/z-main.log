@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.25 (MiKTeX 24.1) (preloaded format=pdflatex 2024.1.31)  15 NOV 2024 17:57
+This is pdfTeX, Version 3.141592653-2.6-1.40.25 (MiKTeX 24.1) (preloaded format=pdflatex 2024.1.31)  17 NOV 2024 11:20
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -2031,11 +2031,11 @@ Package pdftex.def Info: figuras/optimizacion/paralelismo/diagrama_threading_ex
 tendido.png  used on input line 804.
 (pdftex.def)             Requested size: 346.89732pt x 617.46634pt.
  [62 <./figuras/optimizacion/paralelismo/diagrama_threading.png>] [63 <./figura
-s/optimizacion/paralelismo/diagrama_threading_extendido.png>]
+s/optimizacion/paralelismo/diagrama_threading_extendido.png>] [64]
 
-LaTeX Warning: Reference `label' on page 64 undefined on input line 821.
+LaTeX Warning: Reference `label' on page 65 undefined on input line 836.
 
-[64] [65]
+[65]
 Cap\'{\i }tulo 11.
 ) [66
 
@@ -2086,15 +2086,15 @@ L3 programming layer <2020/03/25>
 LaTeX Warning: There were undefined references.
 
 Package rerunfilecheck Info: File `z-main.out' has not changed.
-(rerunfilecheck)             Checksum: 728938B2B0C59FDB2D18AB2664D30D1C;22452.
+(rerunfilecheck)             Checksum: 71F4A9C04F23C58DA92B81CC306FE271;22452.
 Package logreq Info: Writing requests to 'z-main.run.xml'.
 \openout1 = `z-main.run.xml'.
 
  ) 
 Here is how much of TeX's memory you used:
- 30544 strings out of 474542
- 578691 string characters out of 5744446
- 1957978 words of memory out of 5000000
+ 30547 strings out of 474542
+ 578727 string characters out of 5744446
+ 1962978 words of memory out of 5000000
  51975 multiletter control sequences out of 15000+600000
  577067 words of font info for 80 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
@@ -2129,9 +2129,9 @@ ers/gerar/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr6.pfb
 mr8.pfb><C:/Users/gerar/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfon
 ts/cm/cmsy10.pfb><C:/Users/gerar/AppData/Local/Programs/MiKTeX/fonts/type1/publ
 ic/amsfonts/cm/cmsy8.pfb>
-Output written on z-main.pdf (82 pages, 53439983 bytes).
+Output written on z-main.pdf (82 pages, 53441572 bytes).
 PDF statistics:
- 2732 PDF objects out of 2984 (max. 8388607)
- 313 named destinations out of 1000 (max. 500000)
+ 2735 PDF objects out of 2984 (max. 8388607)
+ 316 named destinations out of 1000 (max. 500000)
  1150 words of extra memory for PDF output out of 10000 (max. 10000000)
 

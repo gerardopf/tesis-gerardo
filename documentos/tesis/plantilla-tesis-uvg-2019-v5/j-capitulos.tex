@@ -657,7 +657,7 @@ En la Figura \ref{fig:grafica_tiempos_desfases} se observa que la optimización 
 \end{figure}
 
 \subsection{Cálculo de la distancia entre agentes}
-Para el cálculo de distancia entre agentes se tenía una función llamada ``DistBetweenAgents'' dentro del archivo ``funciones.py''. Esta utiliza bucles anidados para calcular la norma de distancia basada en la distancia en $x$ y $y$ de cada agente hacia sus vecinos más próximos. El cálculo de la distancia se realiza entre los agentes $i$ y $j$ y luego para $j$ e $i$, esto produce una matriz simétrica por lo que se puede realizar únicamente el cálculo de una mitad y luego duplicarla. Para esto, se creó una versión optimizada de la función llamada ``DistBetweenAgentsOptimized''. En esta, únicamente se calcula la diferencia de posiciones aprovechando el \textit{broadcasting} en NumPy y luego se obtiene la norma de la matriz de distancias utilizando la función ``linealg.norm''.
+Para el cálculo de distancia entre agentes se tenía una función llamada ``DistBetweenAgents'' dentro del archivo ``funciones.py''. Esta utilizaba bucles anidados para calcular la norma de distancia basada en la distancia en $x$ y $y$ de cada agente hacia sus vecinos más próximos. El cálculo de la distancia se realiza entre los agentes $i$ y $j$ y luego para $j$ e $i$, esto produce una matriz simétrica por lo que se puede realizar únicamente el cálculo de una mitad y luego duplicarla. Para esto, se creó una versión optimizada de la función llamada ``DistBetweenAgentsOptimized''. En esta, únicamente se calcula la diferencia de posiciones aprovechando el \textit{broadcasting} en NumPy y luego se obtiene la norma de la matriz de distancias utilizando la función ``linealg.norm''.
 
 En los Cuadros \ref{cuadro:tiempos_distancias_for} y \ref{cuadro:tiempos_distancias_numpy} se muestra la media y desviación estándar del tiempo que toma en realizar los cálculos con la función original y la optimizada. Para esto, se tomó mil muestras aumentando la cantidad de agentes desde $1$ hasta $10$. 
 
@@ -807,12 +807,27 @@ Luego, para todos los hilos, se definió un evento de finalización que se activ
 \end{figure}
 
 \subsection{Ajuste de parámetros y mejora de funcionalidades}
+Durante la optimización del algoritmo, se encontró con nuevas oportunidades de mejora que se explican a continuación.
 
+\subsubsection{Configuración del escenario y marcadores}
 Anteriormente, era necesario configurar manualmente el listado de marcadores para los agentes tanto en el controlador del supervisor como en el de los agentes. De la misma manera, se requería especificar el modo de operación (físico o simulado) y la velocidad máxima para los agentes. Esto implicaba realizar modificaciones en ambos controladores cada vez que se realizaban cambios en las condiciones del escenario y los agentes.
 
 Este enfoque ocasionaba problemas frecuentes, ya que a menudo se olvidaba actualizar ciertos parámetros en uno de los controladores, lo que complicaba la depuración y las pruebas. Para solucionar esto, se decidió implementar una memoria compartida adicional que centralizara las configuraciones en el controlador del supervisor. Dicha memoria se configuró para enviar parámetros como el modo de operación, la velocidad máxima de los agentes y el listado de marcadores a utilizar desde un único controlador. Esta solución no solo facilita la depuración y reduce la posibilidad de discrepancias en las configuraciones, sino que también proporciona un sistema más robusto y eficiente para la gestión de variables.
 
-Medición de tiempos y guardado en el archivo.... FALTA
+\subsubsection{Medición del tiempo de ejecución del algoritmo}
+En la fase previa, no se tenía un sistema preciso para medir el tiempo de ejecución del algoritmo. En su lugar, se realizaba un cálculo aproximado basado en la cantidad de ciclos ejecutados y su conversión según el paso de tiempo configurado en la simulación. Sin embargo, este paso estaba fijado en $64$ milisegundos, mientras que cada ciclo en realidad tomaba más tiempo debido a la carga computacional del algoritmo y a la latencia de comunicación con el servidor dentro del ciclo principal, lo que generaba problemas de sincronización. 
+
+Para resolver esta limitación, se implementó un sistema de medición precisa utilizando la función ``perf\_counter\_ns'' de la librería ``time'' que permite medir el tiempo en nanosegundos para luego realizar la conversión a segundos. Este sistema se implementó para medir el tiempo desde el momento en que los agentes ya se encuentran en sus posiciones iniciales hasta el final del experimento, que para esta fase se definió como el momento en que el líder se ubica a $20$ centímetros del objetivo y el error de formación es menor al $10\%$. Esta solución permitió obtener mediciones de tiempo exactas y fue implementada tanto en el algoritmo optimizado como en el no optimizado, facilitando así una comparación precisa del rendimiento entre ambas versiones.
+
+\subsubsection{Monitoreo de variables}
+Pr último, con el fin de monitorear el comportamiento del algoritmo durante su ejecución, se añadió la visualización en la terminal de Webots de los siguientes factores:
+
+\begin{itemize}
+	\item La etapa en la que se encuentra el algoritmo.
+	\item La norma de velocidades sobre la cuál se toman decisiones en el algoritmo.
+	\item El error de formación.
+	\item La latencia de comunicación con el servidor del Robotat.
+\end{itemize}
 
 
 \subsection{Verificación del rendimiento del algoritmo optimizado}
