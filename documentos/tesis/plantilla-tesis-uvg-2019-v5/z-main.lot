@@ -15,12 +15,16 @@
 \contentsline {table}{\numberline {3}{\ignorespaces Ventajas y desventajas de lenguajes de programación \blx@tocontentsinit {0}\cite {MatlabVsPython}.}}{54}{table.caption.160}%
 \contentsline {table}{\numberline {4}{\ignorespaces Media de tiempo y desviación estándar para aplicar desfases de marcadores con bucles.}}{57}{table.caption.177}%
 \contentsline {table}{\numberline {5}{\ignorespaces Media de tiempo y desviación estándar para aplicar desfases de marcadores con NumPy.}}{57}{table.caption.178}%
-\contentsline {table}{\numberline {6}{\ignorespaces Media de tiempo y desviación estándar para calcular la distancia entre agentes con bucles.}}{59}{table.caption.181}%
-\contentsline {table}{\numberline {7}{\ignorespaces Media de tiempo y desviación estándar para calcular la distancia entre agentes con NumPy.}}{59}{table.caption.182}%
-\contentsline {table}{\numberline {8}{\ignorespaces Media de tiempo y desviación estándar para calcular el error de formación con bucles.}}{60}{table.caption.185}%
-\contentsline {table}{\numberline {9}{\ignorespaces Media de tiempo y desviación estándar para calcular el error de formación con NumPy.}}{60}{table.caption.186}%
-\contentsline {table}{\numberline {10}{\ignorespaces Tiempos de ejecución del algoritmo optimizado con 2, 3, 4 y 5 agentes.}}{65}{table.caption.199}%
-\contentsline {table}{\numberline {11}{\ignorespaces Tiempos de ejecución del algoritmo no optimizado con 2, 3, 4 y 5 agentes.}}{66}{table.caption.200}%
+\contentsline {table}{\numberline {6}{\ignorespaces Tiempo reducido al aplicar los desfases de marcadores utilizando NumPy.}}{58}{table.caption.179}%
+\contentsline {table}{\numberline {7}{\ignorespaces Media de tiempo y desviación estándar para calcular la distancia entre agentes con bucles.}}{59}{table.caption.182}%
+\contentsline {table}{\numberline {8}{\ignorespaces Media de tiempo y desviación estándar para calcular la distancia entre agentes con NumPy.}}{59}{table.caption.183}%
+\contentsline {table}{\numberline {9}{\ignorespaces Tiempo reducido al calcular la distancia entre agentes utilizando NumPy.}}{59}{table.caption.184}%
+\contentsline {table}{\numberline {10}{\ignorespaces Media de tiempo y desviación estándar para calcular el error de formación con bucles.}}{61}{table.caption.187}%
+\contentsline {table}{\numberline {11}{\ignorespaces Media de tiempo y desviación estándar para calcular el error de formación con NumPy.}}{61}{table.caption.188}%
+\contentsline {table}{\numberline {12}{\ignorespaces Tiempo reducido al calcular el error de formación utilizando NumPy.}}{61}{table.caption.189}%
+\addvspace {10\p@ }
+\contentsline {table}{\numberline {13}{\ignorespaces Tiempos de ejecución del algoritmo optimizado con 2, 3, 4 y 5 agentes.}}{70}{table.caption.207}%
+\contentsline {table}{\numberline {14}{\ignorespaces Tiempos de ejecución del algoritmo no optimizado con 2, 3, 4 y 5 agentes.}}{70}{table.caption.208}%
 \addvspace {10\p@ }
 \addvspace {10\p@ }
 \addvspace {10\p@ }

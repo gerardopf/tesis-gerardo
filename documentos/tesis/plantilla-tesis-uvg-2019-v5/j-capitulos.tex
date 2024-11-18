@@ -615,20 +615,22 @@ Implementar bucles dentro del ciclo principal significa un aumento de tiempo com
 
 Una vez implementada la optimización, se realizó un análisis estadístico con mil muestras donde se tomó el tiempo que toma aplicar los desfases a los marcadores con bucles y con una resta de matrices con NumPy.
 
-Para la toma de muestras, se evaluaron diferentes cantidades de marcadores a los que se les aplicó el desfase, siendo estos 5, 10, 15 y 20. En los Cuadros \ref{cuadro:tiempos_desfases_for} y \ref{cuadro:tiempos_desfases_numpy} se muestra la media y desviación estándar del tiempo que tomó aplicar los desfases.
+Para la toma de muestras, se evaluaron diferentes cantidades de marcadores a los que se les aplicó el desfase, siendo estos 5, 10, 15 y 20. En los Cuadros \ref{cuadro:tiempos_desfases_for} y \ref{cuadro:tiempos_desfases_numpy} se muestran la media y desviación estándar del tiempo que tomó aplicar los desfases.
 
 En la Figura \ref{fig:grafica_tiempos_desfases} se observa que la optimización con NumPy presenta una reducción notable en el tiempo de procesamiento, la cual es aún más significativa a medida que aumenta la cantidad de marcadores a utilizar. Por otro lado, los tiempos al aplicar bucles incrementan de manera proporcional y más pronunciada con el aumento de los marcadores, mientras que con NumPy el crecimiento es más moderado ya que la pendiente de la curva es dos órdenes de magnitud menor.
+
+Finalmente, en el Cuadro \ref{cuadro:tiempo_reducido_desfases} se presentan los resultados de la reducción de tiempo lograda con la versión optimizada con NumPy. La mayor reducción se obtuvo al aplicar el desfase a $20$ marcadores, alcanzando una disminución de $9.648$ microsegundos.
 
 \begin{table}[H]
 	\centering
 	\resizebox{\textwidth}{!} {
 	\begin{tabular}{|l|l|l|l|}
 		\hline
-		\textbf{Cantidad de marcadores} & \textbf{Número de muestras} & \textbf{Media de tiempo (ms)} & \textbf{Desviación estándar (ms)} \\ \hline
-		5 & 1000 & 0.002802 & 0.000308 \\ \hline
-		10 & 1000 & 0.005353 & 0.000469 \\ \hline
-		15 & 1000 & 0.008187 & 0.001654 \\ \hline
-		20 & 1000 & 0.010485 & 0.000843 \\ \hline
+		\textbf{Cantidad de marcadores} & \textbf{Número de muestras} & \textbf{Media de tiempo (us)} & \textbf{Desviación estándar (us)} \\ \hline
+		5                               & 1000                        & 2.802                         & 0.308                             \\ \hline
+		10                              & 1000                        & 5.353                         & 0.469                             \\ \hline
+		15                              & 1000                        & 8.187                         & 1.654                             \\ \hline
+		20                              & 1000                        & 10.485                        & 0.843                             \\ \hline
 	\end{tabular}}
 	\caption{Media de tiempo y desviación estándar para aplicar desfases de marcadores con bucles.}
 	\label{cuadro:tiempos_desfases_for}
@@ -639,14 +641,29 @@ En la Figura \ref{fig:grafica_tiempos_desfases} se observa que la optimización 
 	\resizebox{\textwidth}{!} {
 	\begin{tabular}{|l|l|l|l|}
 		\hline
-		\textbf{Cantidad de marcadores} & \textbf{Número de muestras} & \textbf{Media de tiempo (ms)} & \textbf{Desviación estándar (ms)} \\ \hline
-		5 & 1000 & 0.000734 & 0.000119 \\ \hline
-		10 & 1000 & 0.000756 & 0.000113 \\ \hline
-		15 & 1000 & 0.000794 & 0.000225 \\ \hline
-		20 & 1000 & 0.000837 & 0.000147 \\ \hline
+		\textbf{Cantidad de marcadores} & \textbf{Número de muestras} & \textbf{Media de tiempo (us)} & \textbf{Desviación estándar (us)} \\ \hline
+		5                               & 1000                        & 0.734                         & 0.119                             \\ \hline
+		10                              & 1000                        & 0.756                         & 0.113                             \\ \hline
+		15                              & 1000                        & 0.794                         & 0.225                             \\ \hline
+		20                              & 1000                        & 0.837                         & 0.147                             \\ \hline
 	\end{tabular}}
 	\caption{Media de tiempo y desviación estándar para aplicar desfases de marcadores con NumPy.}
 	\label{cuadro:tiempos_desfases_numpy}
+\end{table}
+
+\begin{table}[H]
+	\centering
+	\resizebox{0.5\textwidth}{!} {
+	\begin{tabular}{|l|l|}
+		\hline
+		\textbf{Cantidad de marcadores} & \textbf{Tiempo reducido (us)} \\ \hline
+		5                               & 2.068                         \\ \hline
+		10                              & 4.597                         \\ \hline
+		15                              & 7.393                         \\ \hline
+		20                              & 9.648                         \\ \hline
+	\end{tabular}}
+	\caption{Tiempo reducido al aplicar los desfases de marcadores utilizando NumPy.}
+	\label{cuadro:tiempo_reducido_desfases}
 \end{table}
 
 \begin{figure}[H]
@@ -659,26 +676,28 @@ En la Figura \ref{fig:grafica_tiempos_desfases} se observa que la optimización 
 \subsection{Cálculo de la distancia entre agentes}
 Para el cálculo de distancia entre agentes se tenía una función llamada ``DistBetweenAgents'' dentro del archivo ``funciones.py''. Esta utilizaba bucles anidados para calcular la norma de distancia basada en la distancia en $x$ y $y$ de cada agente hacia sus vecinos más próximos. El cálculo de la distancia se realiza entre los agentes $i$ y $j$ y luego para $j$ e $i$, esto produce una matriz simétrica por lo que se puede realizar únicamente el cálculo de una mitad y luego duplicarla. Para esto, se creó una versión optimizada de la función llamada ``DistBetweenAgentsOptimized''. En esta, únicamente se calcula la diferencia de posiciones aprovechando el \textit{broadcasting} en NumPy y luego se obtiene la norma de la matriz de distancias utilizando la función ``linealg.norm''.
 
-En los Cuadros \ref{cuadro:tiempos_distancias_for} y \ref{cuadro:tiempos_distancias_numpy} se muestra la media y desviación estándar del tiempo que toma en realizar los cálculos con la función original y la optimizada. Para esto, se tomó mil muestras aumentando la cantidad de agentes desde $1$ hasta $10$. 
+En los Cuadros \ref{cuadro:tiempos_distancias_for} y \ref{cuadro:tiempos_distancias_numpy} se muestran la media y desviación estándar del tiempo que toma en realizar los cálculos con la función original y la optimizada. Para esto, se tomó mil muestras aumentando la cantidad de agentes desde $1$ hasta $10$. 
 
 En la Figura \ref{fig:grafica_tiempos_distancias} se observa un incremento exponencial en el tiempo de procesamiento al calcular las distancias entre los agentes conforme se aumenta el número de estos en la formación. Además, la optimización con NumPy presenta un incremento significativamente menor. Esto se confirma al observar que el exponente de la ecuación que describe el comportamiento utilizando bucles es $1.6982$, mientras que el exponente al utilizar NumPy es $0.1775$.
+
+Finalmente, en el Cuadro \ref{cuadro:tiempo_reducido_distancia} se presentan los resultados de la reducción de tiempo lograda con la versión optimizada utilizando NumPy. Aunque la reducción de tiempo comienza a partir de los $3$ agentes, el ligero aumento de tiempo al utilizar NumPy con $1$ y $2$ agentes no fue significativo. La mayor reducción de tiempo se obtuvo al calcular la distancia con $10$ agentes, alcanzando una disminución de $88.705$ microsegundos.
 
 \begin{table}[H]
 	\centering
 	\resizebox{\textwidth}{!} {
 	\begin{tabular}{|l|l|l|l|}
 		\hline
-		\textbf{Cantidad de marcadores} & \textbf{Número de muestras} & \textbf{Media de tiempo (ms)} & \textbf{Desviación estándar (ms)} \\ \hline
-		1 & 1000 & 0.00213 & 0.000343 \\ \hline
-		2 & 1000 & 0.005569 & 0.006185 \\ \hline
-		3 & 1000 & 0.009883 & 0.000914 \\ \hline
-		4 & 1000 & 0.016406 & 0.001267 \\ \hline
-		5 & 1000 & 0.026257 & 0.005967 \\ \hline
-		6 & 1000 & 0.036697 & 0.00706 \\ \hline
-		7 & 1000 & 0.051342 & 0.003965 \\ \hline
-		8 & 1000 & 0.062752 & 0.012055 \\ \hline
-		9 & 1000 & 0.079696 & 0.009144 \\ \hline
-		10 & 1000 & 0.098319 & 0.009456 \\ \hline
+		\textbf{Cantidad de marcadores} & \textbf{Número de muestras} & \textbf{Media de tiempo (us)} & \textbf{Desviación estándar (us)} \\ \hline
+		1                               & 1000                        & 2.130                         & 0.343                             \\ \hline
+		2                               & 1000                        & 5.569                         & 6.185                             \\ \hline
+		3                               & 1000                        & 9.883                         & 0.914                             \\ \hline
+		4                               & 1000                        & 16.406                        & 1.267                             \\ \hline
+		5                               & 1000                        & 26.257                        & 5.967                             \\ \hline
+		6                               & 1000                        & 36.697                        & 7.060                             \\ \hline
+		7                               & 1000                        & 51.342                        & 3.965                             \\ \hline
+		8                               & 1000                        & 62.752                        & 12.055                            \\ \hline
+		9                               & 1000                        & 79.696                        & 9.144                             \\ \hline
+		10                              & 1000                        & 98.319                        & 9.456                             \\ \hline
 	\end{tabular}}
 	\caption{Media de tiempo y desviación estándar para calcular la distancia entre agentes con bucles.}
 	\label{cuadro:tiempos_distancias_for}
@@ -689,20 +708,41 @@ En la Figura \ref{fig:grafica_tiempos_distancias} se observa un incremento expon
 	\resizebox{\textwidth}{!} {
 	\begin{tabular}{|l|l|l|l|}
 		\hline
-		\textbf{Cantidad de marcadores} & \textbf{Número de muestras} & \textbf{Media de tiempo (ms)} & \textbf{Desviación estándar (ms)} \\ \hline
-		1 & 1000 & 0.0061 & 0.001477 \\ \hline
-		2 & 1000 & 0.008134 & 0.001457 \\ \hline
-		3 & 1000 & 0.008187 & 0.007005 \\ \hline
-		4 & 1000 & 0.008354 & 0.006599 \\ \hline
-		5 & 1000 & 0.008918 & 0.00158 \\ \hline
-		6 & 1000 & 0.008835 & 0.001695 \\ \hline
-		7 & 1000 & 0.009344 & 0.001726 \\ \hline
-		8 & 1000 & 0.009559 & 0.004158 \\ \hline
-		9 & 1000 & 0.009581 & 0.002898 \\ \hline
-		10 & 1000 & 0.009614 & 0.002514 \\ \hline
+		\textbf{Cantidad de marcadores} & \textbf{Número de muestras} & \textbf{Media de tiempo (us)} & \textbf{Desviación estándar (us)} \\ \hline
+		1                               & 1000                        & 6.100                         & 1.477                             \\ \hline
+		2                               & 1000                        & 8.134                         & 1.457                             \\ \hline
+		3                               & 1000                        & 8.187                         & 7.005                             \\ \hline
+		4                               & 1000                        & 8.354                         & 6.599                             \\ \hline
+		5                               & 1000                        & 8.918                         & 1.580                             \\ \hline
+		6                               & 1000                        & 8.835                         & 1.695                             \\ \hline
+		7                               & 1000                        & 9.344                         & 1.726                             \\ \hline
+		8                               & 1000                        & 9.559                         & 4.158                             \\ \hline
+		9                               & 1000                        & 9.581                         & 2.898                             \\ \hline
+		10                              & 1000                        & 9.614                         & 2.514                             \\ \hline
 	\end{tabular}}
 	\caption{Media de tiempo y desviación estándar para calcular la distancia entre agentes con NumPy.}
 	\label{cuadro:tiempos_distancias_numpy}
+\end{table}
+
+\begin{table}[H]
+	\centering
+	\resizebox{0.5\textwidth}{!} {
+	\begin{tabular}{|l|l|}
+		\hline
+		\textbf{Cantidad de marcadores} & \textbf{Tiempo reducido (us)} \\ \hline
+		1                               & -3.970                        \\ \hline
+		2                               & -2.565                        \\ \hline
+		3                               & 1.696                         \\ \hline
+		4                               & 8.052                         \\ \hline
+		5                               & 17.339                        \\ \hline
+		6                               & 27.862                        \\ \hline
+		7                               & 41.998                        \\ \hline
+		8                               & 53.193                        \\ \hline
+		9                               & 70.115                        \\ \hline
+		10                              & 88.705                        \\ \hline
+	\end{tabular}}
+	\caption{Tiempo reducido al calcular la distancia entre agentes utilizando NumPy.}
+	\label{cuadro:tiempo_reducido_distancia}
 \end{table}
 
 \begin{figure}[H]
@@ -715,26 +755,28 @@ En la Figura \ref{fig:grafica_tiempos_distancias} se observa un incremento expon
 \subsection{Cálculo del error de formación}
 Para calcular el error de formación se utilizaba la función ``FormationError'' dentro del archivo ``funciones.py''. Esta función utiliza dos bucles anidados para calcular el error cuadrático medio entre la formación actual y la deseada utilizando como parámetros las matrices de adyacencia de ambas formaciones. Dado que ambas matrices son cuadradas y, al considerar únicamente los agentes de interés, se convierten en matrices del mismo tamaño, se desarrolló una versión optimizada de la función llamada ``FormationErrorOptimized''. Esta versión emplea la función ``square'' de NumPy que eleva al cuadrado cada elemento de la matriz y luego calcula la media utilizando la función ``mean''.
 
-En los Cuadros \ref{cuadro:tiempos_error_for} y \ref{cuadro:tiempos_error_numpy} se muestra la media y desviación estándar del tiempo que toma en realizar el cálculo del error cuadrático medio con la función original y la optimizada. Para esto, se tomó mil muestras aumentando la cantidad de agentes desde $1$ hasta $10$. 
+En los Cuadros \ref{cuadro:tiempos_error_for} y \ref{cuadro:tiempos_error_numpy} se muestran la media y desviación estándar del tiempo que toma en realizar el cálculo del error cuadrático medio con la función original y la optimizada. Para esto, se tomó mil muestras aumentando la cantidad de agentes desde $1$ hasta $10$. 
 
 En la Figura \ref{fig:grafica_tiempos_error} se muestra una gráfica en la que se evidencia un crecimiento exponencial en el tiempo de procesamiento al calcular las distancias entre los agentes a medida que se aumenta el número de agentes en la formación. Por otro lado, la optimización con Numpy, presenta un aumento significativamente menor. Además, esto se demuestra ya que el exponente de la ecuación que describe el comportamiento utilizando bucles es $1.4753$, mientras que el exponente para la optimización con NumPy es $0.112$.
+
+Finalmente, en el Cuadro \ref{cuadro:tiempo_reducido_error} se presentan los resultados de la reducción de tiempo lograda con la versión optimizada utilizando NumPy. Aunque la reducción de tiempo comienza a partir de los $4$ agentes, el aumento de tiempo al utilizar NumPy con $1$, $2$ y $3$ agentes no fue significativo. La mayor reducción de tiempo se obtuvo al calcular el error de formación con $10$ agentes, alcanzando una disminución de $127.378$ microsegundos.
 
 \begin{table}[H]
 	\centering
 	\resizebox{\textwidth}{!} {
 	\begin{tabular}{|l|l|l|l|}
 		\hline
-		\textbf{Cantidad de marcadores} & \textbf{Número de muestras} & \textbf{Media de tiempo (ms)} & \textbf{Desviación estándar (ms)} \\ \hline
-		1 & 1000 & 0.005665 & 0.000809 \\ \hline
-		2 & 1000 & 0.01101 & 0.000895 \\ \hline
-		3 & 1000 & 0.018721 & 0.008085 \\ \hline
-		4 & 1000 & 0.029093 & 0.00714 \\ \hline
-		5 & 1000 & 0.043071 & 0.003761 \\ \hline
-		6 & 1000 & 0.058559 & 0.008292 \\ \hline
-		7 & 1000 & 0.075147 & 0.010952 \\ \hline
-		8 & 1000 & 0.103554 & 0.008648 \\ \hline
-		9 & 1000 & 0.128032 & 0.011905 \\ \hline
-		10 & 1000 & 0.149833 & 0.013256 \\ \hline
+		\textbf{Cantidad de marcadores} & \textbf{Número de muestras} & \textbf{Media de tiempo (us)} & \textbf{Desviación estándar (us)} \\ \hline
+		1                               & 1000                        & 5.665                         & 0.809                             \\ \hline
+		2                               & 1000                        & 11.010                        & 0.895                             \\ \hline
+		3                               & 1000                        & 18.721                        & 8.085                             \\ \hline
+		4                               & 1000                        & 29.093                        & 7.140                             \\ \hline
+		5                               & 1000                        & 43.071                        & 3.761                             \\ \hline
+		6                               & 1000                        & 58.559                        & 8.292                             \\ \hline
+		7                               & 1000                        & 75.147                        & 10.952                            \\ \hline
+		8                               & 1000                        & 103.554                       & 8.648                             \\ \hline
+		9                               & 1000                        & 128.032                       & 11.905                            \\ \hline
+		10                              & 1000                        & 149.833                       & 13.256                            \\ \hline
 	\end{tabular}}
 	\caption{Media de tiempo y desviación estándar para calcular el error de formación con bucles.}
 	\label{cuadro:tiempos_error_for}
@@ -745,20 +787,41 @@ En la Figura \ref{fig:grafica_tiempos_error} se muestra una gráfica en la que s
 	\resizebox{\textwidth}{!} {
 	\begin{tabular}{|l|l|l|l|}
 		\hline
-		\textbf{Cantidad de marcadores} & \textbf{Número de muestras} & \textbf{Media de tiempo (ms)} & \textbf{Desviación estándar (ms)} \\ \hline
-		1 & 1000 & 0.016538 & 0.007916 \\ \hline
-		2 & 1000 & 0.020229 & 0.002389 \\ \hline
-		3 & 1000 & 0.020081 & 0.003186 \\ \hline
-		4 & 1000 & 0.020134 & 0.003423 \\ \hline
-		5 & 1000 & 0.020714 & 0.003501 \\ \hline
-		6 & 1000 & 0.021065 & 0.00453 \\ \hline
-		7 & 1000 & 0.021143 & 0.005589 \\ \hline
-		8 & 1000 & 0.022082 & 0.003146 \\ \hline
-		9 & 1000 & 0.022348 & 0.00473 \\ \hline
-		10 & 1000 & 0.022455 & 0.024888 \\ \hline
+		\textbf{Cantidad de marcadores} & \textbf{Número de muestras} & \textbf{Media de tiempo (us)} & \textbf{Desviación estándar (us)} \\ \hline
+		1                               & 1000                        & 16.538                        & 7.916                             \\ \hline
+		2                               & 1000                        & 20.229                        & 2.389                             \\ \hline
+		3                               & 1000                        & 20.081                        & 3.186                             \\ \hline
+		4                               & 1000                        & 20.134                        & 3.423                             \\ \hline
+		5                               & 1000                        & 20.714                        & 3.501                             \\ \hline
+		6                               & 1000                        & 21.065                        & 4.530                             \\ \hline
+		7                               & 1000                        & 21.143                        & 5.589                             \\ \hline
+		8                               & 1000                        & 22.082                        & 3.146                             \\ \hline
+		9                               & 1000                        & 22.348                        & 4.730                             \\ \hline
+		10                              & 1000                        & 22.455                        & 24.888                            \\ \hline
 	\end{tabular}}
 	\caption{Media de tiempo y desviación estándar para calcular el error de formación con NumPy.}
 	\label{cuadro:tiempos_error_numpy}
+\end{table}
+
+\begin{table}[H]
+	\centering
+	\resizebox{0.5\textwidth}{!} {
+	\begin{tabular}{|l|l|}
+		\hline
+		\textbf{Cantidad de marcadores} & \textbf{Tiempo reducido (us)} \\ \hline
+		1                               & -10.873                       \\ \hline
+		2                               & -9.219                        \\ \hline
+		3                               & -1.360                        \\ \hline
+		4                               & 8.959                         \\ \hline
+		5                               & 22.357                        \\ \hline
+		6                               & 37.494                        \\ \hline
+		7                               & 54.004                        \\ \hline
+		8                               & 81.472                        \\ \hline
+		9                               & 105.684                       \\ \hline
+		10                              & 127.378                       \\ \hline
+	\end{tabular}}
+	\caption{Tiempo reducido al calcular el error de formación utilizando NumPy.}
+	\label{cuadro:tiempo_reducido_error}
 \end{table}
 
 \begin{figure}[H]
@@ -806,30 +869,20 @@ Luego, para todos los hilos, se definió un evento de finalización que se activ
 	\label{fig:diagrama_hilos}
 \end{figure}
 
-\subsection{Ajuste de parámetros y mejora de funcionalidades}
+\section{Ajuste de parámetros y mejora de funcionalidades}
 Durante la optimización del algoritmo, se encontró con nuevas oportunidades de mejora que se explican a continuación.
 
-\subsubsection{Configuración del escenario y marcadores}
+\subsection{Configuración del escenario y marcadores}
 Anteriormente, era necesario configurar manualmente el listado de marcadores para los agentes tanto en el controlador del supervisor como en el de los agentes. De la misma manera, se requería especificar el modo de operación (físico o simulado) y la velocidad máxima para los agentes. Esto implicaba realizar modificaciones en ambos controladores cada vez que se realizaban cambios en las condiciones del escenario y los agentes.
 
 Este enfoque ocasionaba problemas frecuentes, ya que a menudo se olvidaba actualizar ciertos parámetros en uno de los controladores, lo que complicaba la depuración y las pruebas. Para solucionar esto, se decidió implementar una memoria compartida adicional que centralizara las configuraciones en el controlador del supervisor. Dicha memoria se configuró para enviar parámetros como el modo de operación, la velocidad máxima de los agentes y el listado de marcadores a utilizar desde un único controlador. Esta solución no solo facilita la depuración y reduce la posibilidad de discrepancias en las configuraciones, sino que también proporciona un sistema más robusto y eficiente para la gestión de variables.
 
-\subsubsection{Medición del tiempo de ejecución del algoritmo}
+\subsection{Medición del tiempo de ejecución del algoritmo}
 En la fase previa, no se tenía un sistema preciso para medir el tiempo de ejecución del algoritmo. En su lugar, se realizaba un cálculo aproximado basado en la cantidad de ciclos ejecutados y su conversión según el paso de tiempo configurado en la simulación. Sin embargo, este paso estaba fijado en $64$ milisegundos, mientras que cada ciclo en realidad tomaba más tiempo debido a la carga computacional del algoritmo y a la latencia de comunicación con el servidor dentro del ciclo principal, lo que generaba problemas de sincronización. 
 
 Para resolver esta limitación, se implementó un sistema de medición precisa utilizando la función ``perf\_counter\_ns'' de la librería ``time'' que permite medir el tiempo en nanosegundos para luego realizar la conversión a segundos. Este sistema se implementó para medir el tiempo desde el momento en que los agentes ya se encuentran en sus posiciones iniciales hasta el final del experimento, que para esta fase se definió como el momento en que el líder se ubica a $20$ centímetros del objetivo y el error de formación es menor al $10\%$. Esta solución permitió obtener mediciones de tiempo exactas y fue implementada tanto en el algoritmo optimizado como en el no optimizado, facilitando así una comparación precisa del rendimiento entre ambas versiones.
 
-\subsubsection{Monitoreo de variables}
-Pr último, con el fin de monitorear el comportamiento del algoritmo durante su ejecución, se añadió la visualización en la terminal de Webots de los siguientes factores:
-
-\begin{itemize}
-	\item La etapa en la que se encuentra el algoritmo.
-	\item La norma de velocidades sobre la cuál se toman decisiones en el algoritmo.
-	\item El error de formación.
-	\item La latencia de comunicación con el servidor del Robotat.
-\end{itemize}
-
-\subsubsection{Visualización en tiempo real en Webots del escenario}
+\subsection{Visualización en tiempo real en Webots del escenario}
 Como se mencionó anteriormente, inicialmente ya se contaba con esta funcionalidad pero solo se mostraba la posición de los obstáculos y el objetivo. Por esto, se decidió agregar la funcionalidad de visualización para los agentes. En la Figura \ref{label} se observa un escenario físico y su visualización en tiempo real en Webots con la siguiente representación:
 
 \begin{itemize}
@@ -841,11 +894,65 @@ Como se mencionó anteriormente, inicialmente ya se contaba con esta funcionalid
 	\item ePucks: posiciones en que se encontraban los agentes al momento de ejecutar el programa (antes de colocarse en sus posiciones iniciales).
 \end{itemize}
 
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=0.45\textwidth]{/mejoras/real_time_v_fisico.JPEG}
+	\includegraphics[width=0.45\textwidth]{/mejoras/real_time_v_webots.png}
+	\caption{Visualización en tiempo real del escenario. A la izquierda está el escenario físico y a la derecha su visualización en tiempo real en Webots.}
+	\label{fig:visualizacion}
+\end{figure}
 
-\subsection{Verificación del rendimiento del algoritmo optimizado}
-Una vez aplicadas todas las mejoras y optimizaciones al algoritmo, se realizó la verificación de su rendimiento utilizando obstáculos físicos. 
+\subsection{Monitoreo de variables}
+Por último, para monitorear el comportamiento del algoritmo durante su ejecución, se incorporó la visualización en tiempo real de los siguientes factores, los cuales se muestran en la terminal de Webots, como se observa en la Figura \ref{fig:variables}.
 
-Para esto, se utilizó el escenario de la Figura \ref{label} para realizar corridas con $2$, $3$, $4$ y $5$ agentes donde se midió el tiempo... FALTA
+\begin{itemize}
+	\item La etapa en la que se encuentra el algoritmo.
+	\item La norma de velocidades sobre la cuál se toman decisiones en el algoritmo.
+	\item El error de formación.
+	\item La latencia de comunicación con el servidor del Robotat.
+\end{itemize}
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=0.5\textwidth]{/mejoras/terminal.png}
+	\caption{Monitoreo de variables en tiempo real con la terminal de Webots.}
+	\label{fig:variables}
+\end{figure}
+
+\chapter{Verificación del rendimiento del algoritmo optimizado}
+En este capítulo, se explica como se realizó la verificación del rendimiento del algoritmo optimizado realizando un total de $24$ experimentos, con el fin de comparar el tiempo de ejecución entre el algoritmo optimizado y el no optimizado.
+
+\section{Configuración del escenario}
+Una vez aplicadas todas las mejoras al algoritmo, se realizó la verificación de su rendimiento utilizando el escenario de la Figura \ref{fig:escenario_optimizacion}, que está definido de la siguiente manera:
+\begin{itemize}
+	\item Estrella roja: representa el objetivo y se encuentra a $1$ metro hacia arriba del centro del escenario.
+	\item Círculos morados: representan los obstáculos y se encuentran sobre el eje $X$ al centro del escenario.
+	\item Círculos verdes: representan las posiciones iniciales para los agentes. El primer agente (círculo verde más a la izquierda) se encuentra a $1$ metro por debajo del centro del escenario y $1.5$ metros a la izquierda. Las posiciones se ocupan de izquierda a derecha según la cantidad de agentes a utilizar y hay $15$ centímetros entre cada posición inicial.
+\end{itemize}
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=0.8\textwidth]{/optimizacion/tiempos/escenario.png}
+	\caption{Escenario utilizado para la verificación del rendimiento del algoritmo optimizado. A la izquierda se observa la representación en coordenadas del escenario y a la derecha su representación visual con el objetivo, obstáculos y posiciones iniciales de los agentes.}
+	\label{fig:escenario_optimizacion}
+\end{figure}
+
+\section{Medición de tiempos de ejecución}
+En este escenario, se tomó el tiempo de ejecución del algoritmo optimizado y se comparó con el tiempo de ejecución del algoritmo no optimizado. Para esto, se procuró tener igualdad de condiciones donde se definió lo siguiente:
+
+\begin{itemize}
+	\item Momento de inicio del experimento: cuando todos los agentes ya se encuentran dentro de un radio de $10$ centímetros de sus posiciones iniciales.
+	\item  Momento de finalización del experimento: cuando el líder se encuentra dentro de un radio de $20$ centímetros del objetivo y los agentes cumplen con un error de formación menor a $10\%$. 
+	\item Formación a utilizar: triángulo.
+	\item Números de marcadores para los agentes: $2$, $3$, $4$, $5$ y $6$.
+	\item Números de marcadores para los obstáculos: $10$, $11$ y $12$.
+	\item Número de marcador para el objetivo: $8$.
+	\item Condiciones externas: que ninguna persona esté conectada al servidor del Robotat.
+\end{itemize}
+
+A continuación, se llevaron a cabo $24$ experimentos, divididos en dos grupos: $12$ utilizando el algoritmo optimizado y $12$ con el algoritmo no optimizado. Cada conjunto de $12$ experimentos se organizó a manera que incluyera $3$ experimentos para configuraciones con $2$, $3$, $4$ y $5$ agentes. Luego, se calculó el tiempo de ejecución promedio para la cantidad de agentes involucrados en cada configuración.
+
+Los tiempos obtenidos con el algoritmo optimizado se presentan en el Cuadro \ref{cuadro:tiempos_optim} y los tiempos correspondientes al algoritmo no optimizado se encuentran en el Cuadro \ref{cuadro:tiempos_nooptim}.
 
 \begin{table}[H]
 	\centering
@@ -854,23 +961,22 @@ Para esto, se utilizó el escenario de la Figura \ref{label} para realizar corri
 		\hline
 		\multirow{2}{*}{\textbf{Agentes}} & \multirow{2}{*}{\textbf{Corrida}} & \multicolumn{4}{c|}{\textbf{Algoritmo optimizado}}                                                                                                                                                        \\ \cline{3-6} 
 		&                                   & \multicolumn{1}{c|}{\textbf{Tiempo total (s)}} & \multicolumn{1}{c|}{\textbf{Tiempo de ciclo promedio (ms)}} & \multicolumn{1}{c|}{\textbf{Tiempo total promedio (s)}} & \textbf{Desviación estándar (s)} \\ \hline
-		\multirow{3}{*}{\textbf{2}}       & 1                                 & \multicolumn{1}{l|}{72.846}                    & \multicolumn{1}{l|}{0.36}                                   & \multicolumn{1}{c|}{\multirow{3}{*}{72.1267}}           & \multirow{3}{*}{1.9777}          \\ \cline{2-4}
+		\multirow{3}{*}{\textbf{2}}       & 1                                 & \multicolumn{1}{l|}{72.846}                    & \multicolumn{1}{l|}{0.36}                                   & \multicolumn{1}{c|}{\multirow{3}{*}{72.127}}            & \multirow{3}{*}{1.978}           \\ \cline{2-4}
 		& 2                                 & \multicolumn{1}{l|}{69.89}                     & \multicolumn{1}{l|}{0.384}                                  & \multicolumn{1}{c|}{}                                   &                                  \\ \cline{2-4}
 		& 3                                 & \multicolumn{1}{l|}{73.644}                    & \multicolumn{1}{l|}{0.361}                                  & \multicolumn{1}{c|}{}                                   &                                  \\ \hline
-		\multirow{3}{*}{\textbf{3}}       & 1                                 & \multicolumn{1}{l|}{82.828}                    & \multicolumn{1}{l|}{0.386}                                  & \multicolumn{1}{c|}{\multirow{3}{*}{86.4270}}           & \multirow{3}{*}{6.7963}          \\ \cline{2-4}
+		\multirow{3}{*}{\textbf{3}}       & 1                                 & \multicolumn{1}{l|}{82.828}                    & \multicolumn{1}{l|}{0.386}                                  & \multicolumn{1}{c|}{\multirow{3}{*}{86.427}}            & \multirow{3}{*}{6.796}           \\ \cline{2-4}
 		& 2                                 & \multicolumn{1}{l|}{82.187}                    & \multicolumn{1}{l|}{0.391}                                  & \multicolumn{1}{c|}{}                                   &                                  \\ \cline{2-4}
 		& 3                                 & \multicolumn{1}{l|}{94.266}                    & \multicolumn{1}{l|}{0.395}                                  & \multicolumn{1}{c|}{}                                   &                                  \\ \hline
-		\multirow{3}{*}{\textbf{4}}       & 1                                 & \multicolumn{1}{l|}{79.064}                    & \multicolumn{1}{l|}{0.428}                                  & \multicolumn{1}{c|}{\multirow{3}{*}{78.7760}}           & \multirow{3}{*}{1.9302}          \\ \cline{2-4}
+		\multirow{3}{*}{\textbf{4}}       & 1                                 & \multicolumn{1}{l|}{79.064}                    & \multicolumn{1}{l|}{0.428}                                  & \multicolumn{1}{c|}{\multirow{3}{*}{78.776}}            & \multirow{3}{*}{1.930}           \\ \cline{2-4}
 		& 2                                 & \multicolumn{1}{l|}{76.718}                    & \multicolumn{1}{l|}{0.439}                                  & \multicolumn{1}{c|}{}                                   &                                  \\ \cline{2-4}
 		& 3                                 & \multicolumn{1}{l|}{80.546}                    & \multicolumn{1}{l|}{0.441}                                  & \multicolumn{1}{c|}{}                                   &                                  \\ \hline
-		\multirow{3}{*}{\textbf{5}}       & 1                                 & \multicolumn{1}{l|}{112.28}                    & \multicolumn{1}{l|}{0.504}                                  & \multicolumn{1}{c|}{\multirow{3}{*}{143.2237}}          & \multirow{3}{*}{44.0504}         \\ \cline{2-4}
+		\multirow{3}{*}{\textbf{5}}       & 1                                 & \multicolumn{1}{l|}{112.28}                    & \multicolumn{1}{l|}{0.504}                                  & \multicolumn{1}{c|}{\multirow{3}{*}{143.224}}           & \multirow{3}{*}{44.050}          \\ \cline{2-4}
 		& 2                                 & \multicolumn{1}{l|}{193.657}                   & \multicolumn{1}{l|}{0.504}                                  & \multicolumn{1}{c|}{}                                   &                                  \\ \cline{2-4}
 		& 3                                 & \multicolumn{1}{l|}{123.734}                   & \multicolumn{1}{l|}{0.503}                                  & \multicolumn{1}{c|}{}                                   &                                  \\ \hline
 	\end{tabular}}
 	\caption{Tiempos de ejecución del algoritmo optimizado con 2, 3, 4 y 5 agentes.}
 	\label{cuadro:tiempos_optim}
 \end{table}
-
 
 \begin{table}[H]
 	\centering
@@ -879,16 +985,16 @@ Para esto, se utilizó el escenario de la Figura \ref{label} para realizar corri
 		\hline
 		\multirow{2}{*}{\textbf{Agentes}} & \multirow{2}{*}{\textbf{Corrida}} & \multicolumn{4}{c|}{\textbf{Algoritmo no optimizado}}                                                                                                                                                     \\ \cline{3-6} 
 		&                                   & \multicolumn{1}{c|}{\textbf{Tiempo total (s)}} & \multicolumn{1}{c|}{\textbf{Tiempo de ciclo promedio (ms)}} & \multicolumn{1}{c|}{\textbf{Tiempo total promedio (s)}} & \textbf{Desviación estándar (s)} \\ \hline
-		\multirow{3}{*}{\textbf{2}}       & 1                                 & \multicolumn{1}{l|}{69.793}                    & \multicolumn{1}{l|}{133.715}                                & \multicolumn{1}{c|}{\multirow{3}{*}{70.9800}}           & \multirow{3}{*}{2.4460}          \\ \cline{2-4}
+		\multirow{3}{*}{\textbf{2}}       & 1                                 & \multicolumn{1}{l|}{69.793}                    & \multicolumn{1}{l|}{133.715}                                & \multicolumn{1}{c|}{\multirow{3}{*}{70.980}}            & \multirow{3}{*}{2.446}           \\ \cline{2-4}
 		& 2                                 & \multicolumn{1}{l|}{69.354}                    & \multicolumn{1}{l|}{107.867}                                & \multicolumn{1}{c|}{}                                   &                                  \\ \cline{2-4}
 		& 3                                 & \multicolumn{1}{l|}{73.793}                    & \multicolumn{1}{l|}{111.432}                                & \multicolumn{1}{c|}{}                                   &                                  \\ \hline
-		\multirow{3}{*}{\textbf{3}}       & 1                                 & \multicolumn{1}{l|}{113.666}                   & \multicolumn{1}{l|}{129.068}                                & \multicolumn{1}{c|}{\multirow{3}{*}{97.9450}}           & \multirow{3}{*}{13.8863}         \\ \cline{2-4}
+		\multirow{3}{*}{\textbf{3}}       & 1                                 & \multicolumn{1}{l|}{113.666}                   & \multicolumn{1}{l|}{129.068}                                & \multicolumn{1}{c|}{\multirow{3}{*}{97.945}}            & \multirow{3}{*}{13.886}          \\ \cline{2-4}
 		& 2                                 & \multicolumn{1}{l|}{92.817}                    & \multicolumn{1}{l|}{139.81}                                 & \multicolumn{1}{c|}{}                                   &                                  \\ \cline{2-4}
 		& 3                                 & \multicolumn{1}{l|}{87.352}                    & \multicolumn{1}{l|}{121.345}                                & \multicolumn{1}{c|}{}                                   &                                  \\ \hline
-		\multirow{3}{*}{\textbf{4}}       & 1                                 & \multicolumn{1}{l|}{107.001}                   & \multicolumn{1}{l|}{167.707}                                & \multicolumn{1}{c|}{\multirow{3}{*}{112.4807}}          & \multirow{3}{*}{4.7548}          \\ \cline{2-4}
+		\multirow{3}{*}{\textbf{4}}       & 1                                 & \multicolumn{1}{l|}{107.001}                   & \multicolumn{1}{l|}{167.707}                                & \multicolumn{1}{c|}{\multirow{3}{*}{112.481}}           & \multirow{3}{*}{4.755}           \\ \cline{2-4}
 		& 2                                 & \multicolumn{1}{l|}{115.518}                   & \multicolumn{1}{l|}{168.313}                                & \multicolumn{1}{c|}{}                                   &                                  \\ \cline{2-4}
 		& 3                                 & \multicolumn{1}{l|}{114.923}                   & \multicolumn{1}{l|}{160.484}                                & \multicolumn{1}{c|}{}                                   &                                  \\ \hline
-		\multirow{3}{*}{\textbf{5}}       & 1                                 & \multicolumn{1}{l|}{336.836}                   & \multicolumn{1}{l|}{236.169}                                & \multicolumn{1}{c|}{\multirow{3}{*}{335.3777}}          & \multirow{3}{*}{51.8439}         \\ \cline{2-4}
+		\multirow{3}{*}{\textbf{5}}       & 1                                 & \multicolumn{1}{l|}{336.836}                   & \multicolumn{1}{l|}{236.169}                                & \multicolumn{1}{c|}{\multirow{3}{*}{335.378}}           & \multirow{3}{*}{51.844}          \\ \cline{2-4}
 		& 2                                 & \multicolumn{1}{l|}{386.477}                   & \multicolumn{1}{l|}{282.401}                                & \multicolumn{1}{c|}{}                                   &                                  \\ \cline{2-4}
 		& 3                                 & \multicolumn{1}{l|}{282.82}                    & \multicolumn{1}{l|}{226.396}                                & \multicolumn{1}{c|}{}                                   &                                  \\ \hline
 	\end{tabular}}
@@ -896,6 +1002,19 @@ Para esto, se utilizó el escenario de la Figura \ref{label} para realizar corri
 	\label{cuadro:tiempos_nooptim}
 \end{table}
 
+Al analizar los resultados, se observó que, en ambas versiones del algoritmo, los tiempos de ejecución aumentaron a medida que se incrementó el número de agentes en los experimentos. Para el algoritmo no optimizado, los experimentos con $2$ agentes tuvieron un tiempo promedio de $70.980$ segundos, mientras que, para la versión optimizada, el tiempo promedio fue de $72.127$ segundos. Por otro lado, en los experimentos con $5$ agentes, el tiempo promedio fue de $335.378$ segundos para el algoritmo no optimizado y $143.224$ segundos para la versión optimizada.
+
+Estos resultados demuestran que el algoritmo optimizado logró una reducción significativa en el tiempo de ejecución en comparación con la versión no optimizada. Además, esta mejora fue más notable a medida que se incrementaba la cantidad de agentes en el experimento.
+
+También se identificó que la desviación estándar alcanzó su valor más alto en los experimentos con $5$ agentes. En la versión no optimizada, la desviación estándar fue de $51.844$ segundos, mientras que, en la optimizada, fue de $44.050$ segundos. Etas desviaciones se atribuyen principalmente al número limitado de experimentos realizados debido a las limitantes de tiempo y disponibilidad del Robotat. Otro factor importante fue la comunicación constante con el servidor del Robotat durante los experimentos para obtener las poses de los marcadores en todo momento. Esta comunicación se vio afectada por una latencia variable que dependía de la saturación del servidor y la estabilidad de la conexión inalámbrica, que se reflejó en los tiempos medidos.
+
+Otra variable analizada, fue el tiempo promedio de cada ciclo principal del algoritmo. Para la versión optimizada, se tuvo un tiempo promedio de ciclo cercano o menor a $0.5$ milisegundos, mientras que en la versión no optimizada, los tiempos de ciclo oscilaron entre $100$ y $300$ milisegundos. Además, en la versión no optimizada, este tiempo de ciclo aumentó conforme se incrementó el número de agentes en el experimento.
+
+Este comportamiento se debe principalmente a que, en la versión no optimizada, la latencia de conexión con el Robotat afecta directamente al ciclo principal del algoritmo, ya que este se ejecuta de forma secuencial. Por otro lado, con la versión optimizada, se empleó un hilo independiente para la comunicación con el servidor del Robotat, lo que permitió mantener una consistencia en los tiempos de ejecución de cada ciclo, independientemente de la cantidad de agentes utilizados. 
+
+Adicionalmente, las optimizaciones realizadas con NumPy contribuyeron a reducir el tiempo de procesamiento de los cálculos. Como resultado, todos los tiempos registrados con la versión optimizada fueron consistentemente más bajos que los de la versión no optimizada.
+
+En conclusión, la implementación de todas las optimizaciones en conjunto, fue exitosa y permitió mejorar el rendimiento del algoritmo de manera notable.
 
 \chapter{Validación del algoritmo optimizado en escenarios físicos con obstáculos móviles}\label{cap:validacion}
 

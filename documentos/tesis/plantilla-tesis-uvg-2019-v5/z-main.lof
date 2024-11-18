@@ -57,11 +57,15 @@
 \addvspace {10\p@ }
 \contentsline {figure}{\numberline {46}{\ignorespaces Posiciones de agentes según el grafo de formación con la implementación original del algoritmo.}}{55}{figure.caption.162}%
 \contentsline {figure}{\numberline {47}{\ignorespaces Posiciones de agentes según el grafo de formación con la implementación nueva del algoritmo.}}{55}{figure.caption.163}%
-\contentsline {figure}{\numberline {48}{\ignorespaces Gráfica con medias de tiempo para aplicar desfases de marcadores con bucles y operaciones con NumPy.}}{58}{figure.caption.179}%
-\contentsline {figure}{\numberline {49}{\ignorespaces Gráfica con medias de tiempo para calcular la distancia entre agentes con bucles y operaciones con NumPy.}}{59}{figure.caption.183}%
-\contentsline {figure}{\numberline {50}{\ignorespaces Gráfica con medias de tiempo para calcular el error de formación con bucles y operaciones con NumPy.}}{61}{figure.caption.187}%
-\contentsline {figure}{\numberline {51}{\ignorespaces Funcionalidades del algoritmo que se ejecutan en paralelo.}}{62}{figure.caption.190}%
-\contentsline {figure}{\numberline {52}{\ignorespaces Funcionalidades del algoritmo que se ejecutan en paralelo.}}{63}{figure.caption.192}%
+\contentsline {figure}{\numberline {48}{\ignorespaces Gráfica con medias de tiempo para aplicar desfases de marcadores con bucles y operaciones con NumPy.}}{58}{figure.caption.180}%
+\contentsline {figure}{\numberline {49}{\ignorespaces Gráfica con medias de tiempo para calcular la distancia entre agentes con bucles y operaciones con NumPy.}}{60}{figure.caption.185}%
+\contentsline {figure}{\numberline {50}{\ignorespaces Gráfica con medias de tiempo para calcular el error de formación con bucles y operaciones con NumPy.}}{62}{figure.caption.190}%
+\contentsline {figure}{\numberline {51}{\ignorespaces Funcionalidades del algoritmo que se ejecutan en paralelo.}}{63}{figure.caption.193}%
+\contentsline {figure}{\numberline {52}{\ignorespaces Funcionalidades del algoritmo que se ejecutan en paralelo.}}{64}{figure.caption.195}%
+\contentsline {figure}{\numberline {53}{\ignorespaces Visualización en tiempo real del escenario. A la izquierda está el escenario físico y a la derecha su visualización en tiempo real en Webots.}}{66}{figure.caption.200}%
+\contentsline {figure}{\numberline {54}{\ignorespaces Monitoreo de variables en tiempo real con la terminal de Webots.}}{67}{figure.caption.202}%
+\addvspace {10\p@ }
+\contentsline {figure}{\numberline {55}{\ignorespaces Escenario utilizado para la verificación del rendimiento del algoritmo optimizado. A la izquierda se observa la representación en coordenadas del escenario y a la derecha su representación visual con el objetivo, obstáculos y posiciones iniciales de los agentes.}}{69}{figure.caption.205}%
 \addvspace {10\p@ }
 \addvspace {10\p@ }
 \addvspace {10\p@ }

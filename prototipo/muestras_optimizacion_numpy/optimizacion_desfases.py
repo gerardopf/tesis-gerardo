@@ -51,7 +51,7 @@ for iteracion in range (0,n):
         poses_for[index, 3] = poses_for[index,3] - desfases_for[marker-1,3]
         index = index + 1
     toc = time.perf_counter_ns()
-    t1 = (toc - tic)*(10**-6)
+    t1 = (toc - tic)
     
     #print(f"tiempo for (ms): {t1: .6f}")
     #print(f"prueba\n {poses_for} \n")
@@ -68,7 +68,7 @@ for iteracion in range (0,n):
     tic = time.perf_counter_ns()
     poses_numpy = poses_numpy - desfases_numpy
     toc = time.perf_counter_ns()
-    t2 = (toc - tic)*(10**-6)
+    t2 = (toc - tic)
     
     #print(f"tiempo NumPy (ms): {t2: .6f}")
     #print(f"prueba\n {poses_numpy} \n")

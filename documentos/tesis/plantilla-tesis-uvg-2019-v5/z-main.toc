@@ -94,18 +94,20 @@
 \contentsline {section}{\numberline {10.2}Posición de cada agente según el grafo de formación}{54}{section.161}%
 \contentsline {section}{\numberline {10.3}Mejora de la eficiencia computacional con NumPy}{56}{section.164}%
 \contentsline {subsection}{\numberline {10.3.1}Aplicación de desfases a los marcadores}{56}{subsection.165}%
-\contentsline {subsection}{\numberline {10.3.2}Cálculo de la distancia entre agentes}{58}{subsection.180}%
-\contentsline {subsection}{\numberline {10.3.3}Cálculo del error de formación}{59}{subsection.184}%
-\contentsline {section}{\numberline {10.4}Implementación de paralelismo computacional}{61}{section.188}%
-\contentsline {subsection}{\numberline {10.4.1}Definición de funcionalidades que se ejecutarán en paralelo}{61}{subsection.189}%
-\contentsline {subsection}{\numberline {10.4.2}Creación de hilos en paralelo}{62}{subsection.191}%
-\contentsline {subsection}{\numberline {10.4.3}Ajuste de parámetros y mejora de funcionalidades}{64}{subsection.193}%
-\contentsline {subsubsection}{Configuración del escenario y marcadores}{64}{section*.194}%
-\contentsline {subsubsection}{Medición del tiempo de ejecución del algoritmo}{64}{section*.195}%
-\contentsline {subsubsection}{Monitoreo de variables}{64}{section*.196}%
-\contentsline {subsubsection}{Visualización en tiempo real en Webots del escenario}{65}{section*.197}%
-\contentsline {subsection}{\numberline {10.4.4}Verificación del rendimiento del algoritmo optimizado}{65}{subsection.198}%
-\contentsline {chapter}{\numberline {11}Validación del algoritmo optimizado en escenarios físicos con obstáculos móviles}{67}{chapter.201}%
-\contentsline {chapter}{\numberline {12}Conclusiones}{68}{chapter.202}%
-\contentsline {chapter}{\numberline {13}Recomendaciones}{69}{chapter.203}%
-\contentsline {chapter}{\numberline {14}Bibliograf\'{\i }a}{70}{chapter.205}%
+\contentsline {subsection}{\numberline {10.3.2}Cálculo de la distancia entre agentes}{58}{subsection.181}%
+\contentsline {subsection}{\numberline {10.3.3}Cálculo del error de formación}{60}{subsection.186}%
+\contentsline {section}{\numberline {10.4}Implementación de paralelismo computacional}{62}{section.191}%
+\contentsline {subsection}{\numberline {10.4.1}Definición de funcionalidades que se ejecutarán en paralelo}{62}{subsection.192}%
+\contentsline {subsection}{\numberline {10.4.2}Creación de hilos en paralelo}{63}{subsection.194}%
+\contentsline {section}{\numberline {10.5}Ajuste de parámetros y mejora de funcionalidades}{65}{section.196}%
+\contentsline {subsection}{\numberline {10.5.1}Configuración del escenario y marcadores}{65}{subsection.197}%
+\contentsline {subsection}{\numberline {10.5.2}Medición del tiempo de ejecución del algoritmo}{65}{subsection.198}%
+\contentsline {subsection}{\numberline {10.5.3}Visualización en tiempo real en Webots del escenario}{65}{subsection.199}%
+\contentsline {subsection}{\numberline {10.5.4}Monitoreo de variables}{66}{subsection.201}%
+\contentsline {chapter}{\numberline {11}Verificación del rendimiento del algoritmo optimizado}{68}{chapter.203}%
+\contentsline {section}{\numberline {11.1}Configuración del escenario}{68}{section.204}%
+\contentsline {section}{\numberline {11.2}Medición de tiempos de ejecución}{69}{section.206}%
+\contentsline {chapter}{\numberline {12}Validación del algoritmo optimizado en escenarios físicos con obstáculos móviles}{72}{chapter.209}%
+\contentsline {chapter}{\numberline {13}Conclusiones}{73}{chapter.210}%
+\contentsline {chapter}{\numberline {14}Recomendaciones}{74}{chapter.216}%
+\contentsline {chapter}{\numberline {15}Bibliograf\'{\i }a}{75}{chapter.223}%
