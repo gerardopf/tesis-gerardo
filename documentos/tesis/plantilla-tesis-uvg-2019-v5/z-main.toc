@@ -1,10 +1,10 @@
 \babel@toc {spanish}{}\relax 
 \babel@toc {spanish}{}\relax 
 \contentsline {chapter}{Prefacio}{\es@scroman {iii}}{section*.6}%
-\contentsline {chapter}{Lista de figuras}{\es@scroman {viii}}{section*.8}%
-\contentsline {chapter}{Lista de cuadros}{\es@scroman {ix}}{section*.9}%
-\contentsline {chapter}{Resumen}{\es@scroman {x}}{section*.10}%
-\contentsline {chapter}{Abstract}{\es@scroman {xi}}{section*.11}%
+\contentsline {chapter}{Lista de figuras}{\es@scroman {ix}}{section*.8}%
+\contentsline {chapter}{Lista de cuadros}{\es@scroman {x}}{section*.9}%
+\contentsline {chapter}{Resumen}{\es@scroman {xi}}{section*.10}%
+\contentsline {chapter}{Abstract}{\es@scroman {xii}}{section*.11}%
 \contentsline {chapter}{\numberline {1}Introducción}{1}{chapter.12}%
 \contentsline {chapter}{\numberline {2}Antecedentes}{3}{chapter.13}%
 \contentsline {section}{\numberline {2.1}Robótica de enjambre}{3}{section.14}%
@@ -109,6 +109,15 @@
 \contentsline {section}{\numberline {11.2}Medición de tiempos de ejecución}{69}{section.206}%
 \contentsline {chapter}{\numberline {12}Validación del algoritmo optimizado en escenarios físicos con obstáculos móviles}{72}{chapter.209}%
 \contentsline {section}{\numberline {12.1}Escenario 1}{73}{section.210}%
-\contentsline {chapter}{\numberline {13}Conclusiones}{74}{chapter.213}%
-\contentsline {chapter}{\numberline {14}Recomendaciones}{75}{chapter.219}%
-\contentsline {chapter}{\numberline {15}Bibliograf\'{\i }a}{76}{chapter.226}%
+\contentsline {section}{\numberline {12.2}Escenario 2}{74}{section.211}%
+\contentsline {section}{\numberline {12.3}Escenario 3}{75}{section.212}%
+\contentsline {section}{\numberline {12.4}Escenario 4}{76}{section.213}%
+\contentsline {section}{\numberline {12.5}Escenario 5}{77}{section.214}%
+\contentsline {section}{\numberline {12.6}Escenario 6}{78}{section.215}%
+\contentsline {section}{\numberline {12.7}Escenario 7}{79}{section.216}%
+\contentsline {section}{\numberline {12.8}Escenario 8}{80}{section.217}%
+\contentsline {section}{\numberline {12.9}Escenario 9}{81}{section.218}%
+\contentsline {section}{\numberline {12.10}Escenario 10}{82}{section.219}%
+\contentsline {chapter}{\numberline {13}Conclusiones}{83}{chapter.220}%
+\contentsline {chapter}{\numberline {14}Recomendaciones}{84}{chapter.226}%
+\contentsline {chapter}{\numberline {15}Bibliograf\'{\i }a}{85}{chapter.233}%
