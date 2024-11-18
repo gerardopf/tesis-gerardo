@@ -19,6 +19,33 @@
 
 \refsection{0}
   \datalist[entry]{none/global//global/global}
+    \entry{robotica_enjambre2}{misc}{}
+      \name{author}{1}{}{%
+        {{hash=fca679d00789370e3eea89cc26565ec2}{%
+           family={Gómez},
+           familyi={G\bibinitperiod},
+           given={Gerardo},
+           giveni={G\bibinitperiod}}}%
+      }
+      \strng{namehash}{fca679d00789370e3eea89cc26565ec2}
+      \strng{fullhash}{fca679d00789370e3eea89cc26565ec2}
+      \strng{bibnamehash}{fca679d00789370e3eea89cc26565ec2}
+      \strng{authorbibnamehash}{fca679d00789370e3eea89cc26565ec2}
+      \strng{authornamehash}{fca679d00789370e3eea89cc26565ec2}
+      \strng{authorfullhash}{fca679d00789370e3eea89cc26565ec2}
+      \field{sortinit}{1}
+      \field{sortinithash}{4f6aaa89bab872aa0999fec09ff8e98a}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{title}{Enjambres robóticos en la naturaleza}
+      \field{year}{2024}
+      \verb{urlraw}
+      \verb https://ctecicti.com/index.php/CTec/article/view/221
+      \endverb
+      \verb{url}
+      \verb https://ctecicti.com/index.php/CTec/article/view/221
+      \endverb
+    \endentry
     \entry{UNIDIRswarm}{misc}{}
       \name{author}{2}{}{%
         {{hash=85f4b638fe7af0d6e11cb2f146c506a7}{%
@@ -92,8 +119,8 @@
       \strng{authorbibnamehash}{9ebc871c0f144f83579724ee7492741f}
       \strng{authornamehash}{9ebc871c0f144f83579724ee7492741f}
       \strng{authorfullhash}{9ebc871c0f144f83579724ee7492741f}
-      \field{sortinit}{1}
-      \field{sortinithash}{4f6aaa89bab872aa0999fec09ff8e98a}
+      \field{sortinit}{2}
+      \field{sortinithash}{8b555b3791beccb63322c22f3320aa9a}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{title}{Robotic swarm swims like a school of fish}
@@ -230,8 +257,8 @@
       \strng{authorbibnamehash}{ed34f2546404c6c49cc58e39c538df26}
       \strng{authornamehash}{ed34f2546404c6c49cc58e39c538df26}
       \strng{authorfullhash}{ed34f2546404c6c49cc58e39c538df26}
-      \field{sortinit}{2}
-      \field{sortinithash}{8b555b3791beccb63322c22f3320aa9a}
+      \field{sortinit}{3}
+      \field{sortinithash}{ad6fe7482ffbd7b9f99c9e8b5dccd3d7}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{note}{Tesis de licenciatura}
@@ -288,6 +315,33 @@
       \endverb
       \verb{url}
       \verb https://csoham.com/2017/08/09/part-1-swarm-robots-definition-system-and-cycles/
+      \endverb
+    \endentry
+    \entry{robotica_enjambre3}{misc}{}
+      \name{author}{1}{}{%
+        {{hash=bacb989b0f537929e1cfcf68be7780d7}{%
+           family={Barral},
+           familyi={B\bibinitperiod},
+           given={Miguel},
+           giveni={M\bibinitperiod}}}%
+      }
+      \strng{namehash}{bacb989b0f537929e1cfcf68be7780d7}
+      \strng{fullhash}{bacb989b0f537929e1cfcf68be7780d7}
+      \strng{bibnamehash}{bacb989b0f537929e1cfcf68be7780d7}
+      \strng{authorbibnamehash}{bacb989b0f537929e1cfcf68be7780d7}
+      \strng{authornamehash}{bacb989b0f537929e1cfcf68be7780d7}
+      \strng{authorfullhash}{bacb989b0f537929e1cfcf68be7780d7}
+      \field{sortinit}{3}
+      \field{sortinithash}{ad6fe7482ffbd7b9f99c9e8b5dccd3d7}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{title}{Enjambres de minirrobots: de la ciencia ficción a objetivo de la robótica}
+      \field{year}{2023}
+      \verb{urlraw}
+      \verb https://cidt.utp.edu.co/articulos/enjambres-de-minirrobots-de-la-ciencia-ficcion-a-objetivo-de-la-robotica/
+      \endverb
+      \verb{url}
+      \verb https://cidt.utp.edu.co/articulos/enjambres-de-minirrobots-de-la-ciencia-ficcion-a-objetivo-de-la-robotica/
       \endverb
     \endentry
     \entry{definiciones_robotica_enjambre}{misc}{}
@@ -428,8 +482,8 @@
       \strng{authorbibnamehash}{b26b4b3e0d059563fe359ff2a07c98f3}
       \strng{authornamehash}{b26b4b3e0d059563fe359ff2a07c98f3}
       \strng{authorfullhash}{b26b4b3e0d059563fe359ff2a07c98f3}
-      \field{sortinit}{4}
-      \field{sortinithash}{9381316451d1b9788675a07e972a12a7}
+      \field{sortinit}{5}
+      \field{sortinithash}{20e9b4b0b173788c5dace24730f47d8c}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{note}{Tesis de licenciatura}
@@ -450,8 +504,8 @@
       \strng{authorbibnamehash}{17bd689957ad8ea180d41b18a84a5ff6}
       \strng{authornamehash}{17bd689957ad8ea180d41b18a84a5ff6}
       \strng{authorfullhash}{17bd689957ad8ea180d41b18a84a5ff6}
-      \field{sortinit}{4}
-      \field{sortinithash}{9381316451d1b9788675a07e972a12a7}
+      \field{sortinit}{5}
+      \field{sortinithash}{20e9b4b0b173788c5dace24730f47d8c}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{title}{Matroides y rigidez de grafos}
@@ -644,8 +698,8 @@
       \strng{authorbibnamehash}{002bf30bb11f0d37643a3f9bd83f7811}
       \strng{authornamehash}{002bf30bb11f0d37643a3f9bd83f7811}
       \strng{authorfullhash}{002bf30bb11f0d37643a3f9bd83f7811}
-      \field{sortinit}{6}
-      \field{sortinithash}{b33bc299efb3c36abec520a4c896a66d}
+      \field{sortinit}{7}
+      \field{sortinithash}{108d0be1b1bee9773a1173443802c0a3}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{isbn}{980-12-0752-3}
@@ -723,8 +777,8 @@
       \strng{authornamehash}{a7f5f35426b927411fc9231b56382173}
       \strng{authorfullhash}{a7f5f35426b927411fc9231b56382173}
       \field{extraname}{1}
-      \field{sortinit}{7}
-      \field{sortinithash}{108d0be1b1bee9773a1173443802c0a3}
+      \field{sortinit}{8}
+      \field{sortinithash}{a231b008ebf0ecbe0b4d96dcc159445f}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{title}{MatLab vs. Python vs. R}

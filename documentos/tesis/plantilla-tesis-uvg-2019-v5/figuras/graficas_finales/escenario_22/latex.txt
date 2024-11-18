@@ -1,0 +1,77 @@
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.8\textwidth]{/graficas_finales/escenario_22/traj_Final_5A_moviles_f_22.eps}
+    \caption{Trayectorias de los 5 agentes y 3 obstáculos en el escenario 22, en físico.}
+    \label{fig:escenario22_trajTodos}
+\end{figure}
+
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.8\textwidth]{/graficas_finales/escenario_22/traj_agents_Final_5A_moviles_f_22.eps}
+    \caption{Trayectorias de los 5 agentes en el escenario 22, en físico.}
+    \label{fig:escenario22_trajAgentes}
+\end{figure}
+
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.8\textwidth]{/graficas_finales/escenario_22/traj_obs_Final_5A_moviles_f_22.eps}
+    \caption{Trayectoria de los 3 obstáculos en el escenario 22, en físico.}
+    \label{fig:escenario22_trajObstaculos}
+\end{figure}
+
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.32\textwidth]{/graficas_finales/escenario_22/traj_agents_Final_5A_moviles_f_22.eps}
+    \includegraphics[width=0.32\textwidth]{/graficas_finales/escenario_22/traj_obs_Final_5A_moviles_f_22.eps}
+    \includegraphics[width=0.32\textwidth]{/graficas_finales/escenario_22/traj_Final_5A_moviles_f_22.eps}
+    \caption{Trayectorias de los 5 agentes y 3 obstáculos en el escenario 22, en físico}
+    \label{fig3:escenario22_trajTodos}
+\end{figure}
+
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.8\textwidth]{/graficas_finales/escenario_22/cm_Final_5A_moviles_f_22.eps}
+    \caption{Trayectoria del centro de masa de la formación en el escenario 22, en físico.}
+    \label{fig:escenario22_cm}
+\end{figure}
+
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.49\textwidth]{/graficas_finales/escenario_22/normV_Final_5A_moviles_f_22.eps}
+    \includegraphics[width=0.49\textwidth]{/graficas_finales/escenario_22/mse_Final_5A_moviles_f_22.eps}
+    \caption{Historial de la norma de velocidad y error cuadrático medio de la formación en el escenario 22, en físico.}
+    \label{fig2:escenario22_normVmse}
+\end{figure}
+
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.5\textwidth]{/graficas_finales/escenario_22/vel_Final_5A_moviles_f_22.eps}
+    \caption{Historial de las velocidades de los agentes en el escenario 22, en físico.}
+    \label{fig:escenario22_vel}
+\end{figure}
+
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.49\textwidth]{/graficas_finales/escenario_22/xvel_Final_5A_moviles_f_22.eps}
+    \includegraphics[width=0.49\textwidth]{/graficas_finales/escenario_22/yvel_Final_5A_moviles_f_22.eps}
+    \caption{Historial de velocidades de los agentes en el escenario 22, en físico.}
+    \label{fig2:escenario22_xyvel}
+\end{figure}
+
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=fig_size_2x_graph\textwidth]{/graficas_finales/escenario_22/phiL_Final_5A_moviles_f_22.eps}
+    \includegraphics[width=fig_size_2x_graph\textwidth]{/graficas_finales/escenario_22/phiR_Final_5A_moviles_f_22.eps}
+    \caption{Historial de velocidades en las ruedas de los agentes en el escenario 22, en físico.}
+    \label{fig2:escenario22_phiLR}
+\end{figure}
+

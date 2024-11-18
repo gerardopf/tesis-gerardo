@@ -1,0 +1,77 @@
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.8\textwidth]{/graficas_finales/escenario_26/traj_Final_4A_moviles_f_26.eps}
+    \caption{Trayectorias de los 4 agentes y 3 obstáculos en el escenario 26, en físico.}
+    \label{fig:escenario26_trajTodos}
+\end{figure}
+
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.8\textwidth]{/graficas_finales/escenario_26/traj_agents_Final_4A_moviles_f_26.eps}
+    \caption{Trayectorias de los 4 agentes en el escenario 26, en físico.}
+    \label{fig:escenario26_trajAgentes}
+\end{figure}
+
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.8\textwidth]{/graficas_finales/escenario_26/traj_obs_Final_4A_moviles_f_26.eps}
+    \caption{Trayectoria de los 3 obstáculos en el escenario 26, en físico.}
+    \label{fig:escenario26_trajObstaculos}
+\end{figure}
+
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.32\textwidth]{/graficas_finales/escenario_26/traj_agents_Final_4A_moviles_f_26.eps}
+    \includegraphics[width=0.32\textwidth]{/graficas_finales/escenario_26/traj_obs_Final_4A_moviles_f_26.eps}
+    \includegraphics[width=0.32\textwidth]{/graficas_finales/escenario_26/traj_Final_4A_moviles_f_26.eps}
+    \caption{Trayectorias de los 4 agentes y 3 obstáculos en el escenario 26, en físico}
+    \label{fig3:escenario26_trajTodos}
+\end{figure}
+
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.8\textwidth]{/graficas_finales/escenario_26/cm_Final_4A_moviles_f_26.eps}
+    \caption{Trayectoria del centro de masa de la formación en el escenario 26, en físico.}
+    \label{fig:escenario26_cm}
+\end{figure}
+
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.49\textwidth]{/graficas_finales/escenario_26/normV_Final_4A_moviles_f_26.eps}
+    \includegraphics[width=0.49\textwidth]{/graficas_finales/escenario_26/mse_Final_4A_moviles_f_26.eps}
+    \caption{Historial de la norma de velocidad y error cuadrático medio de la formación en el escenario 26, en físico.}
+    \label{fig2:escenario26_normVmse}
+\end{figure}
+
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.5\textwidth]{/graficas_finales/escenario_26/vel_Final_4A_moviles_f_26.eps}
+    \caption{Historial de las velocidades de los agentes en el escenario 26, en físico.}
+    \label{fig:escenario26_vel}
+\end{figure}
+
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.49\textwidth]{/graficas_finales/escenario_26/xvel_Final_4A_moviles_f_26.eps}
+    \includegraphics[width=0.49\textwidth]{/graficas_finales/escenario_26/yvel_Final_4A_moviles_f_26.eps}
+    \caption{Historial de velocidades de los agentes en el escenario 26, en físico.}
+    \label{fig2:escenario26_xyvel}
+\end{figure}
+
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=fig_size_2x_graph\textwidth]{/graficas_finales/escenario_26/phiL_Final_4A_moviles_f_26.eps}
+    \includegraphics[width=fig_size_2x_graph\textwidth]{/graficas_finales/escenario_26/phiR_Final_4A_moviles_f_26.eps}
+    \caption{Historial de velocidades en las ruedas de los agentes en el escenario 26, en físico.}
+    \label{fig2:escenario26_phiLR}
+\end{figure}
+

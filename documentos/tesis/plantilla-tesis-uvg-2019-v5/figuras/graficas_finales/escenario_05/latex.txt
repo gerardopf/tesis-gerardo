@@ -1,0 +1,77 @@
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.8\textwidth]{/graficas_finales/escenario_05/traj_Final_3A_moviles_f_05.eps}
+    \caption{Trayectorias de los 3 agentes y 3 obstáculos en el escenario 05, en físico.}
+    \label{fig:escenario05_trajTodos}
+\end{figure}
+
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.8\textwidth]{/graficas_finales/escenario_05/traj_agents_Final_3A_moviles_f_05.eps}
+    \caption{Trayectorias de los 3 agentes en el escenario 05, en físico.}
+    \label{fig:escenario05_trajAgentes}
+\end{figure}
+
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.8\textwidth]{/graficas_finales/escenario_05/traj_obs_Final_3A_moviles_f_05.eps}
+    \caption{Trayectoria de los 3 obstáculos en el escenario 05, en físico.}
+    \label{fig:escenario05_trajObstaculos}
+\end{figure}
+
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.32\textwidth]{/graficas_finales/escenario_05/traj_agents_Final_3A_moviles_f_05.eps}
+    \includegraphics[width=0.32\textwidth]{/graficas_finales/escenario_05/traj_obs_Final_3A_moviles_f_05.eps}
+    \includegraphics[width=0.32\textwidth]{/graficas_finales/escenario_05/traj_Final_3A_moviles_f_05.eps}
+    \caption{Trayectorias de los 3 agentes y 3 obstáculos en el escenario 05, en físico}
+    \label{fig3:escenario05_trajTodos}
+\end{figure}
+
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.8\textwidth]{/graficas_finales/escenario_05/cm_Final_3A_moviles_f_05.eps}
+    \caption{Trayectoria del centro de masa de la formación en el escenario 05, en físico.}
+    \label{fig:escenario05_cm}
+\end{figure}
+
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.49\textwidth]{/graficas_finales/escenario_05/normV_Final_3A_moviles_f_05.eps}
+    \includegraphics[width=0.49\textwidth]{/graficas_finales/escenario_05/mse_Final_3A_moviles_f_05.eps}
+    \caption{Historial de la norma de velocidad y error cuadrático medio de la formación en el escenario 05, en físico.}
+    \label{fig2:escenario05_normVmse}
+\end{figure}
+
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.5\textwidth]{/graficas_finales/escenario_05/vel_Final_3A_moviles_f_05.eps}
+    \caption{Historial de las velocidades de los agentes en el escenario 05, en físico.}
+    \label{fig:escenario05_vel}
+\end{figure}
+
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.49\textwidth]{/graficas_finales/escenario_05/xvel_Final_3A_moviles_f_05.eps}
+    \includegraphics[width=0.49\textwidth]{/graficas_finales/escenario_05/yvel_Final_3A_moviles_f_05.eps}
+    \caption{Historial de velocidades de los agentes en el escenario 05, en físico.}
+    \label{fig2:escenario05_xyvel}
+\end{figure}
+
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=fig_size_2x_graph\textwidth]{/graficas_finales/escenario_05/phiL_Final_3A_moviles_f_05.eps}
+    \includegraphics[width=fig_size_2x_graph\textwidth]{/graficas_finales/escenario_05/phiR_Final_3A_moviles_f_05.eps}
+    \caption{Historial de velocidades en las ruedas de los agentes en el escenario 05, en físico.}
+    \label{fig2:escenario05_phiLR}
+\end{figure}
+
