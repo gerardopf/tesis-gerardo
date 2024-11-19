@@ -1,7 +1,9 @@
 \begin{enumerate}
-	\item 
-	\item 
-	\item 
-	\item 
-	\item 
+	\item Durante el proceso de optimización del algoritmo original, se identificó que una de las principales limitaciones radica en la comunicación TCP con el servidor del Robotat. Esto se debe a que la actualización en tiempo real de las posiciones de los marcadores depende directamente de la latencia de dicha comunicación.
+	\item La optimización en la asignación de posiciones de los agentes dentro del grafo de formación, resultó en un sistema más robusto y escalable. Esto fue especialmente significativo en el caso del grafo de formación triangular, ya que facilita la implementación de mejoras que permitan expandir las formaciones para incluir más de diez agentes.
+	\item La optimización del algoritmo, basada en las deficiencias identificadas, permitió desarrollar una versión más robusta y eficiente. Esta nueva versión no solo está mejor preparada para aplicaciones más demandantes, si no que también facilita la experimentación y mejora su escalabilidad.
+	\item La optimización del algoritmo implementando operaciones matriciales y paralelismo computacional fue exitosa ya que resultó en una reducción significativa en los tiempos de ejecución, especialmente al incrementar el número de agentes en la formación.
+	\item El diseño del algoritmo permite ajustar las trayectorias de los agentes en tiempo real, respondiendo a cambios en las posiciones de los obstáculos y evitando las colisiones.
+	\item Con $26$ pruebas físicas controladas, se demostró que el algoritmo optimizado es válido para su uso en entornos dinámicos y controlados, lo que le da potencial a su aplicación en escenarios más complejos para futuras investigaciones.
+	\item La modificación en la asignación de marcadores para cada agente, permitiendo el uso libre de cualquier marcador sin importar el orden de selección, facilitó significativamente la depuración y ejecución de los experimentos. Especialmente en los casos donde se tuvo que compartir los marcadores y agentes con otros compañeros.
 \end{enumerate}

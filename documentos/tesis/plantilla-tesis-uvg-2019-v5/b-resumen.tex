@@ -1,0 +1,9 @@
+En este trabajo de graduación se optimizó la implementación del algoritmo de inteligencia de enjambre enfocado en sincronización y control de formaciones de sistemas robóticos. Para su desarrollo, se emplearon robots diferenciales Pololu 3Pi+ dentro del ecosistema del Robotat de la Universidad del Valle de Guatemala.
+
+El proceso comenzó verificando el funcionamiento del algoritmo original, utilizando simulaciones con Webots y en escenarios físicos. Luego, se identificaron áreas de mejora en su implementación, enfocándose en incrementar la escalabilidad, robustez y eficiencia computacional mediante el uso de operaciones matriciales, paralelismo, ajustes en la asignación de posiciones y mejorando otras funcionalidades.
+
+Como parte de la validación, se llevaron a cabo $24$ experimentos que permitieron verificar el rendimiento del algoritmo optimizado. Los resultados mostraron una reducción significativa en los tiempos de ejecución, particularmente al incrementar el número de agentes en la formación. Como ejemplo, en experimentos con $5$ agentes, el tiempo promedio fue de $143.224$ segundos con la versión optimizada, en comparación con $335.378$ segundos de la versión original, utilizando escenarios con igualdad de condiciones.
+
+Finalmente, se demostró que el algoritmo optimizado es adecuado para generar trayectorias en escenarios con obstáculos móviles. Esto se validó con $26$ experimentos físicos controlados, en los que los agentes ajustaron sus trayectorias en tiempo real, respondieron a cambios en las posiciones de los obstáculos y evitaron colisiones, confirmando la efectividad y adaptabilidad del algoritmo.
+
+ 

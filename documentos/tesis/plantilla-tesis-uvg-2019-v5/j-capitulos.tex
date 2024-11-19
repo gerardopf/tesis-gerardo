@@ -577,7 +577,7 @@ La versión optimizada vuelve al sistema consistente y robusto, independientemen
 \section{Mejora de la eficiencia computacional con NumPy}
 NumPy es una librería de Python especializada para el cálculo numérico y científico. Destaca por su soporte para trabajar con operaciones vectorizadas o vectores multidimensionales sin realizar bucles. También cuenta con una amplia variedad de funciones matemáticas y estadísticas, así como integración con otras librerías como SciPy. Además, NumPy está implementado en C por lo que permite mejorar la eficiencia computacional para grandes cantidades de datos.
 
-Al revisar los programas de los controladores, se encontró varios segmentos de código que se realizan con bucles (ciclos \textit{for}) simples y otros anidados. Esto representa una deficiencia al realizar los cálculos y solicitud de datos al servidor del Robotat, además que vuelve más compleja la depuración del programa, por lo que se decidió optimizar dichos procesos utilizando funciones matemáticas y operaciones matriciales con NumPy. A continuación, se detallará los segmentos del algoritmo que se optimizaron implementando operaciones con NumPy y se mostrará la comparativa en cuanto a tiempos de ejecución utilizando la función ``perf\_counter\_ns'' de la librería ``time'' de Python y análisis estadísticos.
+Al revisar los programas de los controladores, se encontró varios segmentos de código que se realizan con bucles (ciclos \textit{for}) simples y otros anidados. Esto representa una deficiencia al realizar los cálculos y solicitud de datos al servidor del Robotat, además que vuelve más compleja la depuración del programa, por lo que se decidió optimizar dichos procesos utilizando funciones matemáticas y operaciones matriciales con NumPy. A continuación, se detallará los segmentos del algoritmo que se optimizaron implementando operaciones con NumPy y se mostrará la comparativa en cuanto a tiempos de ejecución utilizando análisis estadísticos y la función ``perf\_counter\_ns'' de la librería ``time'' de Python, que permite medir tiempos en nanosegundos de manera precisa y luego realizar la conversión a otras unidades según sea necesario.
 
 \subsection{Aplicación de desfases a los marcadores}
 A continuación se explica los pasos que anteriormente se realizaban para aplicar los desfases de la calibración de marcadores, donde $n$ es la cantidad de marcadores a utilizar.
@@ -842,7 +842,7 @@ El primer paso fue definir las secciones del programa que se pueden ejecutar en 
 	\item La visualización en tiempo real con Webots del escenario físico.
 \end{itemize}
 
-Dado que el controlador del agente realiza operaciones secuenciales y cálculos de velocidades que dependen de más instancias, se decidió implementar hilos únicamente en el controlador del supervisor, en paralelo a la ejecución del algoritmo de sincronización y control de formaciones tal como se observa en la Figura \ref{fig:hilos}.
+Dado que el controlador del agente realiza operaciones secuenciales y cálculos de velocidades que dependen de más instancias, se decidió implementar hilos únicamente en el controlador del supervisor, en paralelo a la ejecución del algoritmo de sincronización y control de formaciones, tal como se observa en la Figura \ref{fig:hilos}.
 
 \begin{figure}[H]
 	\centering
@@ -853,7 +853,7 @@ Dado que el controlador del agente realiza operaciones secuenciales y cálculos 
 
 \subsection{Creación de hilos en paralelo}
 
-Una vez identificadas las funcionalidades que se pueden ejecutar en paralelo, se definió la estructura de las tareas para cada hilo tal como se observa en la Figura \ref{fig:diagrama_hilos}. 
+Una vez identificadas las funcionalidades que se pueden ejecutar en paralelo, se definió la estructura de las tareas para cada hilo, tal como se observa en la Figura \ref{fig:diagrama_hilos}. 
 
 Se implementó la ejecución de hilos en paralelo utilizando la librería ``threading'' de Python ya que resulta útil para manejar tareas que involucran tiempos de espera y no requieren una capacidad de procesamiento elevada \cite{PythonThreading}. En el caso de la obtención de las poses de los marcadores, es necesario un tiempo de espera entre la comunicación de la computadora y el servidor del Robotat. Este tiempo puede aprovecharse ejecutando otras tareas y cálculos esenciales del algoritmo en paralelo. Además, esto evita problemas de sincronización debido a los tiempos de espera altos por la latencia del servidor.
 
@@ -883,7 +883,7 @@ En la fase previa, no se tenía un sistema preciso para medir el tiempo de ejecu
 Para resolver esta limitación, se implementó un sistema de medición precisa utilizando la función ``perf\_counter\_ns'' de la librería ``time'' que permite medir el tiempo en nanosegundos para luego realizar la conversión a segundos. Este sistema se implementó para medir el tiempo desde el momento en que los agentes ya se encuentran en sus posiciones iniciales hasta el final del experimento, que para esta fase se definió como el momento en que el líder se ubica a $20$ centímetros del objetivo y el error de formación es menor al $10\%$. Esta solución permitió obtener mediciones de tiempo exactas y fue implementada tanto en el algoritmo optimizado como en el no optimizado, facilitando así una comparación precisa del rendimiento entre ambas versiones.
 
 \subsection{Visualización en tiempo real en Webots del escenario}
-Como se mencionó anteriormente, inicialmente ya se contaba con esta funcionalidad pero solo se mostraba la posición de los obstáculos y el objetivo. Por esto, se decidió agregar la funcionalidad de visualización para los agentes. En la Figura \ref{label} se observa un escenario físico y su visualización en tiempo real en Webots con la siguiente representación:
+Como se mencionó anteriormente, inicialmente ya se contaba con esta funcionalidad pero solo se mostraba la posición de los obstáculos y el objetivo. Por esto, se decidió agregar la funcionalidad de visualización para los agentes. En la Figura \ref{visualizacion} se observa un escenario físico y su visualización en tiempo real en Webots con la siguiente representación:
 
 \begin{itemize}
 	\item Círculos verdes: posiciones iniciales para los agentes.
@@ -919,7 +919,7 @@ Por último, para monitorear el comportamiento del algoritmo durante su ejecuci�
 	\label{fig:variables}
 \end{figure}
 
-\chapter{Verificación del rendimiento del algoritmo optimizado}
+\chapter{Verificación del rendimiento del algoritmo optimizado} \label{cap:verificacion_optim}
 En este capítulo, se explica como se realizó la verificación del rendimiento del algoritmo optimizado realizando un total de $24$ experimentos, con el fin de comparar el tiempo de ejecución entre el algoritmo optimizado y el no optimizado.
 
 \section{Configuración del escenario}
@@ -944,6 +944,7 @@ En este escenario, se tomó el tiempo de ejecución del algoritmo optimizado y s
 	\item Momento de inicio del experimento: cuando todos los agentes ya se encuentran dentro de un radio de $10$ centímetros de sus posiciones iniciales.
 	\item  Momento de finalización del experimento: cuando el líder se encuentra dentro de un radio de $20$ centímetros del objetivo y los agentes cumplen con un error de formación menor a $10\%$. 
 	\item Formación a utilizar: triángulo.
+	\item Velocidad máxima de las ruedas: $30$ rpm, ya que con este límite de velocidad los agentes demostraron un mejor rendimiento.
 	\item Números de marcadores para los agentes: $2$, $3$, $4$, $5$ y $6$.
 	\item Números de marcadores para los obstáculos: $10$, $11$ y $12$.
 	\item Número de marcador para el objetivo: $8$.
@@ -1014,39 +1015,153 @@ Este comportamiento se debe principalmente a que, en la versión no optimizada, 
 
 Adicionalmente, las optimizaciones realizadas con NumPy contribuyeron a reducir el tiempo de procesamiento de los cálculos. Como resultado, todos los tiempos registrados con la versión optimizada fueron consistentemente más bajos que los de la versión no optimizada.
 
-En conclusión, la implementación de todas las optimizaciones en conjunto, fue exitosa y permitió mejorar el rendimiento del algoritmo de manera notable. \ref{anexo:git} \ref{anexo:2}
+En conclusión, la implementación de todas las optimizaciones en conjunto fue exitosa, logrando una mejora en el rendimiento del algoritmo, lo cual se reflejó claramente en la reducción significativa de los tiempos de ejecución.
 
 \chapter{Validación del algoritmo optimizado en escenarios físicos con obstáculos móviles}\label{cap:validacion}
+Para validar el algoritmo optimizado, se diseñaron y ejecutaron un total de 26 experimentos en escenarios diferentes, utilizando obstáculos móviles y variando la cantidad de agentes involucrados. En este capítulo se presentan los escenarios más relevantes, junto a una explicación detallada de las pruebas controladas realizadas en cada uno. 
+
+En todos los escenarios se incluyen tres figuras que, de izquierda a derecha, muestran las trayectorias de los agentes, las trayectorias de los obstáculos y las trayectorias combinadas de ambos.
+
+Es importante mencionar que, en los experimentos, se estableció un límite de velocidad de $30$ rpm para truncar la velocidad máxima de cada rueda. Además, se utilizó el mismo criterio para definir el momento de inicio y finalización del experimento que se utilizó durante la validación del rendimiento del algoritmo optimizado en el Capítulo \ref{cap:verificacion_optim}.
+
+Para facilitar el entendimiento de cada escenario, se recomienda complementar la lectura con los videos y animaciones de cada uno, disponibles en la carpeta indicada en el Anexo \ref{anexo:multimedia}.
 
 \newpage
 \section{Escenario 1}
+En el primer escenario, se utilizaron 3 agentes cuyas posiciones iniciales se ubicaron en la esquina inferior izquierda del escenario, mientras que 3 obstáculos se colocaron inicialmente en una posición vertical en el centro del escenario.
 
-\newpage
-\section{Escenario 2}
+En este experimento, los agentes iniciaron su formación y avanzaron hacia el objetivo. Durante su trayectoria, se simuló un cambio en el entorno moviendo uno de los obstáculos, representando una situación dinámica como una persona desplazándose de un lugar a otro. Este obstáculo fue posicionado de manera que interfiriera directamente con la trayectoria de los agentes, forzándolos a reajustar su trayectoria.
 
-\newpage
-\section{Escenario 3}
+Como se observa en la Figura \ref{fig3:escenario01_trajTodos}, los agentes lograron adaptarse exitosamente al cambio en el escenario, ajustando sus trayectorias para evitar colisionar con los obstáculos y alcanzar el objetivo.
+
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=0.32\textwidth]{/graficas_finales/escenario_01/traj_agents_Final_3A_moviles_f_01.eps}
+	\includegraphics[width=0.32\textwidth]{/graficas_finales/escenario_01/traj_obs_Final_3A_moviles_f_01.eps}
+	\includegraphics[width=0.32\textwidth]{/graficas_finales/escenario_01/traj_Final_3A_moviles_f_01.eps}
+	\caption{Trayectorias de los 3 agentes y 3 obstáculos en el escenario 01, en físico}
+	\label{fig3:escenario01_trajTodos}
+\end{figure}
+
 
 \newpage
 \section{Escenario 4}
+Para este escenario, se utilizaron 3 agentes cuyas posiciones iniciales se encuentran en la esquina inferior izquierda, mientras que 3 obstáculos se posicionaron alineados verticalmente sobre la parte baja del centro del escenario. Este experimento fue similar al escenario 1, con la diferencia de que el objetivo se posicionó al centro de la mesa de pruebas para que los agentes no siguieran una trayectoria en línea recta.
 
-\newpage
-\section{Escenario 5}
+Durante el experimento, los agentes comenzaron a formarse y se movilizaron hacia el objetivo. Durante su trayectoria, un obstáculo se desplazó a manera que este interfiriera con la trayectoria de los agentes, forzándolos a cambiar su trayectoria. En este caso, los agentes rodearon el obstáculo por el lado derecho y siguieron su recorrido hacia el objetivo.
 
-\newpage
-\section{Escenario 6}
+Como se observa en la Figura \ref{fig3:escenario04_trajTodos}, los agentes lograron adaptarse exitosamente al cambio en el escenario, ajustando sus trayectorias para evitar colisionar con los obstáculos y alcanzar el objetivo.
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=0.32\textwidth]{/graficas_finales/escenario_04/traj_agents_Final_3A_moviles_f_04.eps}
+	\includegraphics[width=0.32\textwidth]{/graficas_finales/escenario_04/traj_obs_Final_3A_moviles_f_04.eps}
+	\includegraphics[width=0.32\textwidth]{/graficas_finales/escenario_04/traj_Final_3A_moviles_f_04.eps}
+	\caption{Trayectorias de los 3 agentes y 3 obstáculos en el escenario 04, en físico}
+	\label{fig3:escenario04_trajTodos}
+\end{figure}
+
 
 \newpage
 \section{Escenario 7}
+En este escenario, se utilizaron 3 agentes con posiciones iniciales en la parte inferior izquierda y 3 obstáculos ubicados en posiciones aleatorias. El experimento se llevó a cabo en un espacio mayor a los anteriores escenarios, con el objetivo situado a una distancia más alejada de los agentes, procurando que al menos uno de los obstáculos estuviera sobre la trayectoria en línea recta de los agentes hacia el objetivo.
+
+Durante el experimento, los agentes realizaron su formación y comenzaron a movilizarse hacia el objetivo. En su recorrido, primero encontraron un obstáculo que evadieron exitosamente por el lado izquierdo. Luego, se movió otro obstáculo para que interfiriera temporalmente en su trayectoria. Sin embargo, este obstáculo no permaneció sobre el camino, sino que se detuvo momentáneamente y luego continuó desplazándose hacia otro punto. 
+
+Cuando el obstáculo bloqueó la trayectoria de los agentes, estos disminuyeron su velocidad de manera segura, evitando la colisión y retomaron su movimiento una vez que el obstáculo se retiró, completando así su recorrido hacia el objetivo de manera satisfactoria, tal como se observa en la Figura \ref{fig3:escenario07_trajTodos}.
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=0.32\textwidth]{/graficas_finales/escenario_07/traj_agents_Final_3A_moviles_f_07.eps}
+	\includegraphics[width=0.32\textwidth]{/graficas_finales/escenario_07/traj_obs_Final_3A_moviles_f_07.eps}
+	\includegraphics[width=0.32\textwidth]{/graficas_finales/escenario_07/traj_Final_3A_moviles_f_07.eps}
+	\caption{Trayectorias de los 3 agentes y 3 obstáculos en el escenario 07, en físico}
+	\label{fig3:escenario07_trajTodos}
+\end{figure}
+
 
 \newpage
 \section{Escenario 8}
+En este escenario, se utilizaron 3 agentes con posiciones iniciales en la parte inferior izquierda y 3 obstáculos ubicados de forma en que los agentes tuvieran un camino libre en línea recta hacia el objetivo, a través de un espacio despejado entre los obstáculos.
+
+Durante este experimento, los agentes realizaron su formación y comenzaron a movilizarse hacia el objetivo. Sin embargo, los obstáculos se movieron de forma estratégica para bloquear el espacio libre entre ellos, forzando a los agentes a modificar su trayectoria. La formación logro rodear poco a poco los obstáculos por la parte superior, ajustándose de forma dinámica hasta encontrar una nueva trayectoria libre hacia el objetivo. 
+
+En la figura \ref{fig3:escenario08_trajTodos} se observa que los agentes lograron llegar de forma exitosa al objetivo evitando los obstáculos dinámicos.
+
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=0.32\textwidth]{/graficas_finales/escenario_08/traj_agents_Final_3A_moviles_f_08.eps}
+	\includegraphics[width=0.32\textwidth]{/graficas_finales/escenario_08/traj_obs_Final_3A_moviles_f_08.eps}
+	\includegraphics[width=0.32\textwidth]{/graficas_finales/escenario_08/traj_Final_3A_moviles_f_08.eps}
+	\caption{Trayectorias de los 3 agentes y 3 obstáculos en el escenario 08, en físico}
+	\label{fig3:escenario08_trajTodos}
+\end{figure}
 
 \newpage
-\section{Escenario 9}
+\section{Escenario 17}
+En este escenario, se utilizaron 3 agentes con posiciones iniciales en la parte inferior izquierda y 3 obstáculos ubicados de forma en que los agentes tuvieran un camino libre en línea recta hacia el objetivo, a través de un espacio despejado entre los obstáculos.
+
+En este experimento, los agentes realizaron su formación inicial y comenzaron a movilizarse hacia el objetivo. Durante su trayecto, el obstáculo situado en el lado izquierdo se desplazó de forma repetitiva, oscilando de izquierda a derecha con movimientos constantes, sin parar. Estas oscilaciones generaron un bloqueo intermitente en la trayectoria en línea recta hacia el objetivo.
+
+Como resultado, los agentes redujeron sus velocidades y la formación se separaba y se volvía a unir para evitar colisionar con el obstáculo. A pesar de estas dificultades, los agentes lograron alcanzar el objetivo de manera exitosa, tal como se observa en la Figura \ref{fig3:escenario17_trajTodos}.
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=0.32\textwidth]{/graficas_finales/escenario_17/traj_agents_Final_3A_moviles_f_17.eps}
+	\includegraphics[width=0.32\textwidth]{/graficas_finales/escenario_17/traj_obs_Final_3A_moviles_f_17.eps}
+	\includegraphics[width=0.32\textwidth]{/graficas_finales/escenario_17/traj_Final_3A_moviles_f_17.eps}
+	\caption{Trayectorias de los 3 agentes y 3 obstáculos en el escenario 17, en físico}
+	\label{fig3:escenario17_trajTodos}
+\end{figure}
 
 \newpage
-\section{Escenario 10}
+\section{Escenario 19}
+En este escenario, se utilizaron 4 agentes con posiciones iniciales en la parte inferior izquierda, de forma vertical, y 3 obstáculos ubicados de forma en que los agentes tuvieran dos caminos libres hacia el objetivo, a través de un espacio despejado entre los obstáculos.
+
+En este experimento, los agentes realizaron su formación inicial y comenzaron a movilizarse hacia el objetivo. Durante su trayecto, el obstáculo situado en la parte superior se desplazó de forma estratégica para empujar a la formación desde su lado izquierdo. Mientras los agentes ajustaban su trayectoria para evadir este obstáculo, el obstáculo central se desplazó, empujando a la formación desde atrás. Estas situaciones simularon posibles interferencias provenientes de direcciones diferentes al frente de la formación. Aún con estas condiciones desafiantes, los obstáculos lograron reajustar sus posiciones y evitar colisiones, alcanzando el objetivo de manera exitosa, tal como se muestra em la Figura \ref{fig3:escenario19_trajTodos}.
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=0.32\textwidth]{/graficas_finales/escenario_19/traj_agents_Final_4A_moviles_f_19.eps}
+	\includegraphics[width=0.32\textwidth]{/graficas_finales/escenario_19/traj_obs_Final_4A_moviles_f_19.eps}
+	\includegraphics[width=0.32\textwidth]{/graficas_finales/escenario_19/traj_Final_4A_moviles_f_19.eps}
+	\caption{Trayectorias de los 4 agentes y 3 obstáculos en el escenario 19, en físico}
+	\label{fig3:escenario19_trajTodos}
+\end{figure}
+
+\newpage
+\section{Escenario 21}
+En este escenario, se utilizaron 5 agentes con posiciones iniciales en la parte inferior izquierda, de forma vertical, y 3 obstáculos ubicados de forma en que los agentes tuvieran dos caminos libres hacia el objetivo, a través de un espacio despejado entre los obstáculos.
+
+Este experimento tuvo como finalidad replicar la situación del escenario 19, pero ahora con un agente extra. Los agentes comenzaron realizando su formación inicial y se movilizaron hacia el objetivo. Durante su trayecto, el obstáculo situado en la parte superior se desplazó de forma estratégica para empujar a la formación desde su lado derecho. Con esto, lo agentes ajustaron su trayectoria para evitar colisionar con este obstáculo. Luego, un segundo obstáculo replicó el movimiento del primero, intentando nuevamente interferir con la formación desde la misma dirección. A pesar de estas interferencias los agentes lograron evadir ambos obstáculos de manera efectiva y continuaron su trayecto hacia el objetivo, tal como se muestra en la Figura \ref{fig3:escenario21_trajTodos}. 
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=0.32\textwidth]{/graficas_finales/escenario_21/traj_agents_Final_5A_moviles_f_21.eps}
+	\includegraphics[width=0.32\textwidth]{/graficas_finales/escenario_21/traj_obs_Final_5A_moviles_f_21.eps}
+	\includegraphics[width=0.32\textwidth]{/graficas_finales/escenario_21/traj_Final_5A_moviles_f_21.eps}
+	\caption{Trayectorias de los 5 agentes y 3 obstáculos en el escenario 21, en físico}
+	\label{fig3:escenario21_trajTodos}
+\end{figure}
+
+\newpage
+\section{Escenario 23}
+En este escenario, se utilizaron 6 agentes con posiciones iniciales en la parte inferior izquierda, de forma vertical, y 3 obstáculos ubicados lejos de los agentes para que no interfirieran en su trayectoria hacia el objetivo.
+
+En este experimento, los agentes realizaron su formación inicial y comenzaron a movilizarse hacia el objetivo. Durante su trayecto, un obstáculo se desplazó de manera que atravesó la formación por completo, desde su lado izquierdo. Esto simuló un escenario externo en el que, por ejemplo, una persona cruza entre los agentes, forzándolos a esquivarla. Ante esta situación, los agentes se separaron para permitir el paso del obstáculo, evitando colisionar tanto entre ellos como con el propio obstáculo. Una vez que este completó su desplazamiento, los agentes retomaron su trayectoria hacia el objetivo de manera satisfactoria, tal como se observa en la figura \ref{fig3:escenario23_trajTodos}. 
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=0.32\textwidth]{/graficas_finales/escenario_23/traj_agents_Final_6A_moviles_f_23.eps}
+	\includegraphics[width=0.32\textwidth]{/graficas_finales/escenario_23/traj_obs_Final_6A_moviles_f_23.eps}
+	\includegraphics[width=0.32\textwidth]{/graficas_finales/escenario_23/traj_Final_6A_moviles_f_23.eps}
+	\caption{Trayectorias de los 6 agentes y 3 obstáculos en el escenario 23, en físico}
+	\label{fig3:escenario23_trajTodos}
+\end{figure}
+
+Finalmente, la optimización del algoritmo dio como resultado una versión más robusta y eficiente, que logró una reducción significativa en los tiempos de ejecución de los experimentos. Esto permitió la realización de $26$ experimentos físicos controlados, demostrando que el algoritmo optimizado es válido para su uso en entornos dinámicos y controlados.
 
 
 

@@ -10,63 +10,71 @@
 \addvspace {10\p@ }
 \addvspace {10\p@ }
 \addvspace {10\p@ }
-\contentsline {figure}{\numberline {5}{\ignorespaces Ejemplo de enjambre de robots \blx@tocontentsinit {0}\cite {imgEnjambre}.}}{10}{figure.caption.34}%
-\contentsline {figure}{\numberline {6}{\ignorespaces Ejemplo de un control centralizado y descentralizado \blx@tocontentsinit {0}\cite {Control_centralizado_descentralizado}.}}{12}{figure.caption.38}%
-\contentsline {figure}{\numberline {7}{\ignorespaces Ejemplo de un grafo \blx@tocontentsinit {0}\cite {PenaAM_2019_tesis}.}}{12}{figure.caption.41}%
-\contentsline {figure}{\numberline {8}{\ignorespaces Ejemplo de algunos tipos de grafos. a: completo, b: simple, c: árbol, d: dígrafo, e: estrella, f: no conexo, g: de celosía, h: de mundo pequeño \blx@tocontentsinit {0}\cite {tipos_de_grafos}.}}{14}{figure.caption.44}%
-\contentsline {figure}{\numberline {9}{\ignorespaces Grafos de formación en triángulo y hexágono \blx@tocontentsinit {0}\cite {PenaAM_2019_tesis}.}}{16}{figure.caption.48}%
-\contentsline {figure}{\numberline {10}{\ignorespaces Sistema de control en lazo cerrado \blx@tocontentsinit {0}\cite {control_lazo_cerrado}.}}{17}{figure.caption.56}%
-\contentsline {figure}{\numberline {11}{\ignorespaces Modelo de uniciclo \blx@tocontentsinit {0}\cite {ZeaM_modelo_uniciclo}.}}{18}{figure.caption.61}%
-\contentsline {figure}{\numberline {12}{\ignorespaces Entorno de simulación en Webots \blx@tocontentsinit {0}\cite {webots}.}}{20}{figure.caption.76}%
-\contentsline {figure}{\numberline {13}{\ignorespaces Ejemplo de dependencia de tareas \blx@tocontentsinit {0}\cite {libro_paralelismo}.}}{21}{figure.caption.78}%
-\contentsline {figure}{\numberline {14}{\ignorespaces Cámara de captura de movimiento Prime$^x$ 41 de OptiTrack \blx@tocontentsinit {0}\cite {primex41}.}}{22}{figure.caption.82}%
-\contentsline {figure}{\numberline {15}{\ignorespaces Sensores y componentes del Pololu 3pi+ 32U4 OLED Robot \blx@tocontentsinit {0}\cite {pololu3pi+}.}}{23}{figure.caption.86}%
+\contentsline {figure}{\numberline {5}{\ignorespaces Ejemplo de enjambre de robots \blx@tocontentsinit {0}\cite {imgEnjambre}.}}{11}{figure.caption.34}%
+\contentsline {figure}{\numberline {6}{\ignorespaces Ejemplo de un control centralizado y descentralizado \blx@tocontentsinit {0}\cite {Control_centralizado_descentralizado}.}}{13}{figure.caption.38}%
+\contentsline {figure}{\numberline {7}{\ignorespaces Ejemplo de un grafo \blx@tocontentsinit {0}\cite {PenaAM_2019_tesis}.}}{13}{figure.caption.41}%
+\contentsline {figure}{\numberline {8}{\ignorespaces Ejemplo de algunos tipos de grafos. a: completo, b: simple, c: árbol, d: dígrafo, e: estrella, f: no conexo, g: de celosía, h: de mundo pequeño \blx@tocontentsinit {0}\cite {tipos_de_grafos}.}}{15}{figure.caption.44}%
+\contentsline {figure}{\numberline {9}{\ignorespaces Grafos de formación en triángulo y hexágono \blx@tocontentsinit {0}\cite {PenaAM_2019_tesis}.}}{17}{figure.caption.48}%
+\contentsline {figure}{\numberline {10}{\ignorespaces Sistema de control en lazo cerrado \blx@tocontentsinit {0}\cite {control_lazo_cerrado}.}}{18}{figure.caption.56}%
+\contentsline {figure}{\numberline {11}{\ignorespaces Modelo de uniciclo \blx@tocontentsinit {0}\cite {ZeaM_modelo_uniciclo}.}}{19}{figure.caption.61}%
+\contentsline {figure}{\numberline {12}{\ignorespaces Entorno de simulación en Webots \blx@tocontentsinit {0}\cite {webots}.}}{21}{figure.caption.76}%
+\contentsline {figure}{\numberline {13}{\ignorespaces Ejemplo de dependencia de tareas \blx@tocontentsinit {0}\cite {libro_paralelismo}.}}{22}{figure.caption.78}%
+\contentsline {figure}{\numberline {14}{\ignorespaces Cámara de captura de movimiento Prime$^x$ 41 de OptiTrack \blx@tocontentsinit {0}\cite {primex41}.}}{23}{figure.caption.82}%
+\contentsline {figure}{\numberline {15}{\ignorespaces Sensores y componentes del Pololu 3pi+ 32U4 OLED Robot \blx@tocontentsinit {0}\cite {pololu3pi+}.}}{24}{figure.caption.86}%
 \addvspace {10\p@ }
-\contentsline {figure}{\numberline {16}{\ignorespaces Diagrama de flujo para el supervisor.}}{26}{figure.caption.96}%
-\contentsline {figure}{\numberline {17}{\ignorespaces Diagrama de flujo para el programa de los agentes.}}{27}{figure.caption.97}%
+\contentsline {figure}{\numberline {16}{\ignorespaces Diagrama de flujo para el supervisor.}}{27}{figure.caption.96}%
+\contentsline {figure}{\numberline {17}{\ignorespaces Diagrama de flujo para el programa de los agentes.}}{28}{figure.caption.97}%
 \addvspace {10\p@ }
-\contentsline {figure}{\numberline {18}{\ignorespaces Ejecución de la primera simulación en Webots 2023b.}}{29}{figure.caption.101}%
-\contentsline {figure}{\numberline {19}{\ignorespaces Ejecución del algoritmo en la primera simulación}}{30}{figure.caption.104}%
-\contentsline {figure}{\numberline {20}{\ignorespaces Ejecución del algoritmo en la segunda simulación}}{31}{figure.caption.106}%
-\contentsline {figure}{\numberline {21}{\ignorespaces Ejecución del algoritmo en la tercera simulación}}{32}{figure.caption.108}%
-\contentsline {figure}{\numberline {22}{\ignorespaces Error de conexión con Pololu 3Pi+.}}{33}{figure.caption.111}%
-\contentsline {figure}{\numberline {23}{\ignorespaces Marcadores del OptiTrack disponibles para su uso.}}{34}{figure.caption.113}%
-\contentsline {figure}{\numberline {24}{\ignorespaces Marcadores alineados sobre el eje $y$ de la mesa de pruebas del Robotat.}}{34}{figure.caption.114}%
-\contentsline {figure}{\numberline {25}{\ignorespaces Problema de funcionamiento en físico, agentes permanecen inmóviles.}}{36}{figure.caption.117}%
-\contentsline {figure}{\numberline {26}{\ignorespaces Selección de marcadores para cada agente. A la izquierda se observa como era la asignación anteriormente y a la derecha como es una selección arbitraria actualmente.}}{37}{figure.caption.118}%
-\contentsline {figure}{\numberline {27}{\ignorespaces Problema de funcionamiento en físico, agentes divergen hacia posiciones iniciales. }}{37}{figure.caption.120}%
-\contentsline {figure}{\numberline {28}{\ignorespaces Problema de funcionamiento en físico, agentes divergen luego de colocarse en sus posiciones iniciales.}}{38}{figure.caption.121}%
-\contentsline {figure}{\numberline {29}{\ignorespaces Mesa de pruebas con 2 agentes en el escenario AAA, corrida 1, en físico.}}{40}{figure.caption.126}%
-\contentsline {figure}{\numberline {30}{\ignorespaces Trayectoria de los 2 agentes en el escenario AAA, corrida 1, en físico.}}{40}{figure.caption.127}%
-\contentsline {figure}{\numberline {31}{\ignorespaces Mesa de pruebas con 6 agentes en el escenario AAA, corrida 1, en físico.}}{41}{figure.caption.129}%
-\contentsline {figure}{\numberline {32}{\ignorespaces Trayectoria de los 6 agentes en el escenario AAA, corrida 1, en físico.}}{41}{figure.caption.130}%
-\contentsline {figure}{\numberline {33}{\ignorespaces Mesa de pruebas con 6 agentes en el escenario ACA, corrida 1, en físico.}}{42}{figure.caption.132}%
-\contentsline {figure}{\numberline {34}{\ignorespaces Trayectoria de los 6 agentes en el escenario ACA, corrida 1, en físico.}}{42}{figure.caption.133}%
-\contentsline {figure}{\numberline {35}{\ignorespaces Mesa de pruebas con 3 agentes en el escenario ACC, corrida 1, en físico.}}{43}{figure.caption.135}%
-\contentsline {figure}{\numberline {36}{\ignorespaces Trayectoria de los 3 agentes en el escenario ACC, corrida 1, en físico.}}{43}{figure.caption.136}%
-\contentsline {figure}{\numberline {37}{\ignorespaces Mesa de pruebas con 3 agentes en el escenario ACA, corrida 1, en físico.}}{44}{figure.caption.138}%
-\contentsline {figure}{\numberline {38}{\ignorespaces Trayectoria de los 3 agentes en el escenario ACA, corrida 1, en físico.}}{44}{figure.caption.139}%
+\contentsline {figure}{\numberline {18}{\ignorespaces Ejecución de la primera simulación en Webots 2023b.}}{30}{figure.caption.101}%
+\contentsline {figure}{\numberline {19}{\ignorespaces Ejecución del algoritmo en la primera simulación}}{31}{figure.caption.104}%
+\contentsline {figure}{\numberline {20}{\ignorespaces Ejecución del algoritmo en la segunda simulación}}{32}{figure.caption.106}%
+\contentsline {figure}{\numberline {21}{\ignorespaces Ejecución del algoritmo en la tercera simulación}}{33}{figure.caption.108}%
+\contentsline {figure}{\numberline {22}{\ignorespaces Error de conexión con Pololu 3Pi+.}}{34}{figure.caption.111}%
+\contentsline {figure}{\numberline {23}{\ignorespaces Marcadores del OptiTrack disponibles para su uso.}}{35}{figure.caption.113}%
+\contentsline {figure}{\numberline {24}{\ignorespaces Marcadores alineados sobre el eje $y$ de la mesa de pruebas del Robotat.}}{35}{figure.caption.114}%
+\contentsline {figure}{\numberline {25}{\ignorespaces Problema de funcionamiento en físico, agentes permanecen inmóviles.}}{37}{figure.caption.117}%
+\contentsline {figure}{\numberline {26}{\ignorespaces Selección de marcadores para cada agente. A la izquierda se observa como era la asignación anteriormente y a la derecha como es una selección arbitraria actualmente.}}{38}{figure.caption.118}%
+\contentsline {figure}{\numberline {27}{\ignorespaces Problema de funcionamiento en físico, agentes divergen hacia posiciones iniciales. }}{38}{figure.caption.120}%
+\contentsline {figure}{\numberline {28}{\ignorespaces Problema de funcionamiento en físico, agentes divergen luego de colocarse en sus posiciones iniciales.}}{39}{figure.caption.121}%
+\contentsline {figure}{\numberline {29}{\ignorespaces Mesa de pruebas con 2 agentes en el escenario AAA, corrida 1, en físico.}}{41}{figure.caption.126}%
+\contentsline {figure}{\numberline {30}{\ignorespaces Trayectoria de los 2 agentes en el escenario AAA, corrida 1, en físico.}}{41}{figure.caption.127}%
+\contentsline {figure}{\numberline {31}{\ignorespaces Mesa de pruebas con 6 agentes en el escenario AAA, corrida 1, en físico.}}{42}{figure.caption.129}%
+\contentsline {figure}{\numberline {32}{\ignorespaces Trayectoria de los 6 agentes en el escenario AAA, corrida 1, en físico.}}{42}{figure.caption.130}%
+\contentsline {figure}{\numberline {33}{\ignorespaces Mesa de pruebas con 6 agentes en el escenario ACA, corrida 1, en físico.}}{43}{figure.caption.132}%
+\contentsline {figure}{\numberline {34}{\ignorespaces Trayectoria de los 6 agentes en el escenario ACA, corrida 1, en físico.}}{43}{figure.caption.133}%
+\contentsline {figure}{\numberline {35}{\ignorespaces Mesa de pruebas con 3 agentes en el escenario ACC, corrida 1, en físico.}}{44}{figure.caption.135}%
+\contentsline {figure}{\numberline {36}{\ignorespaces Trayectoria de los 3 agentes en el escenario ACC, corrida 1, en físico.}}{44}{figure.caption.136}%
+\contentsline {figure}{\numberline {37}{\ignorespaces Mesa de pruebas con 3 agentes en el escenario ACA, corrida 1, en físico.}}{45}{figure.caption.138}%
+\contentsline {figure}{\numberline {38}{\ignorespaces Trayectoria de los 3 agentes en el escenario ACA, corrida 1, en físico.}}{45}{figure.caption.139}%
 \addvspace {10\p@ }
-\contentsline {figure}{\numberline {39}{\ignorespaces Trayectoria de los 6 agentes en el escenario ADA, corrida 1, en simulación.}}{46}{figure.caption.144}%
-\contentsline {figure}{\numberline {40}{\ignorespaces Trayectoria de los 6 agentes en el escenario ADA, corrida 2, en simulación.}}{47}{figure.caption.146}%
-\contentsline {figure}{\numberline {41}{\ignorespaces Trayectoria de los 6 agentes en el escenario ADA, corrida 3, en simulación.}}{48}{figure.caption.148}%
-\contentsline {figure}{\numberline {42}{\ignorespaces Trayectoria de los 3 agentes en el escenario ADB, corrida 1, en físico.}}{49}{figure.caption.151}%
-\contentsline {figure}{\numberline {43}{\ignorespaces Trayectoria de los 3 agentes en el escenario ADC, corrida 1, en físico.}}{50}{figure.caption.153}%
-\contentsline {figure}{\numberline {44}{\ignorespaces Trayectoria de los 3 agentes en el escenario ADC, corrida 3, en físico.}}{51}{figure.caption.155}%
-\contentsline {figure}{\numberline {45}{\ignorespaces Trayectoria de los 3 agentes en el escenario ADC, corrida 2, en físico.}}{52}{figure.caption.157}%
+\contentsline {figure}{\numberline {39}{\ignorespaces Trayectoria de los 6 agentes en el escenario ADA, corrida 1, en simulación.}}{47}{figure.caption.144}%
+\contentsline {figure}{\numberline {40}{\ignorespaces Trayectoria de los 6 agentes en el escenario ADA, corrida 2, en simulación.}}{48}{figure.caption.146}%
+\contentsline {figure}{\numberline {41}{\ignorespaces Trayectoria de los 6 agentes en el escenario ADA, corrida 3, en simulación.}}{49}{figure.caption.148}%
+\contentsline {figure}{\numberline {42}{\ignorespaces Trayectoria de los 3 agentes en el escenario ADB, corrida 1, en físico.}}{50}{figure.caption.151}%
+\contentsline {figure}{\numberline {43}{\ignorespaces Trayectoria de los 3 agentes en el escenario ADC, corrida 1, en físico.}}{51}{figure.caption.153}%
+\contentsline {figure}{\numberline {44}{\ignorespaces Trayectoria de los 3 agentes en el escenario ADC, corrida 3, en físico.}}{52}{figure.caption.155}%
+\contentsline {figure}{\numberline {45}{\ignorespaces Trayectoria de los 3 agentes en el escenario ADC, corrida 2, en físico.}}{53}{figure.caption.157}%
 \addvspace {10\p@ }
-\contentsline {figure}{\numberline {46}{\ignorespaces Posiciones de agentes según el grafo de formación con la implementación original del algoritmo.}}{55}{figure.caption.162}%
-\contentsline {figure}{\numberline {47}{\ignorespaces Posiciones de agentes según el grafo de formación con la implementación nueva del algoritmo.}}{55}{figure.caption.163}%
-\contentsline {figure}{\numberline {48}{\ignorespaces Gráfica con medias de tiempo para aplicar desfases de marcadores con bucles y operaciones con NumPy.}}{58}{figure.caption.180}%
-\contentsline {figure}{\numberline {49}{\ignorespaces Gráfica con medias de tiempo para calcular la distancia entre agentes con bucles y operaciones con NumPy.}}{60}{figure.caption.185}%
-\contentsline {figure}{\numberline {50}{\ignorespaces Gráfica con medias de tiempo para calcular el error de formación con bucles y operaciones con NumPy.}}{62}{figure.caption.190}%
-\contentsline {figure}{\numberline {51}{\ignorespaces Funcionalidades del algoritmo que se ejecutan en paralelo.}}{63}{figure.caption.193}%
-\contentsline {figure}{\numberline {52}{\ignorespaces Funcionalidades del algoritmo que se ejecutan en paralelo.}}{64}{figure.caption.195}%
-\contentsline {figure}{\numberline {53}{\ignorespaces Visualización en tiempo real del escenario. A la izquierda está el escenario físico y a la derecha su visualización en tiempo real en Webots.}}{66}{figure.caption.200}%
-\contentsline {figure}{\numberline {54}{\ignorespaces Monitoreo de variables en tiempo real con la terminal de Webots.}}{67}{figure.caption.202}%
+\contentsline {figure}{\numberline {46}{\ignorespaces Posiciones de agentes según el grafo de formación con la implementación original del algoritmo.}}{56}{figure.caption.162}%
+\contentsline {figure}{\numberline {47}{\ignorespaces Posiciones de agentes según el grafo de formación con la implementación nueva del algoritmo.}}{56}{figure.caption.163}%
+\contentsline {figure}{\numberline {48}{\ignorespaces Gráfica con medias de tiempo para aplicar desfases de marcadores con bucles y operaciones con NumPy.}}{59}{figure.caption.180}%
+\contentsline {figure}{\numberline {49}{\ignorespaces Gráfica con medias de tiempo para calcular la distancia entre agentes con bucles y operaciones con NumPy.}}{61}{figure.caption.185}%
+\contentsline {figure}{\numberline {50}{\ignorespaces Gráfica con medias de tiempo para calcular el error de formación con bucles y operaciones con NumPy.}}{63}{figure.caption.190}%
+\contentsline {figure}{\numberline {51}{\ignorespaces Funcionalidades del algoritmo que se ejecutan en paralelo.}}{64}{figure.caption.193}%
+\contentsline {figure}{\numberline {52}{\ignorespaces Funcionalidades del algoritmo que se ejecutan en paralelo.}}{65}{figure.caption.195}%
+\contentsline {figure}{\numberline {53}{\ignorespaces Visualización en tiempo real del escenario. A la izquierda está el escenario físico y a la derecha su visualización en tiempo real en Webots.}}{67}{figure.caption.200}%
+\contentsline {figure}{\numberline {54}{\ignorespaces Monitoreo de variables en tiempo real con la terminal de Webots.}}{68}{figure.caption.202}%
 \addvspace {10\p@ }
-\contentsline {figure}{\numberline {55}{\ignorespaces Escenario utilizado para la verificación del rendimiento del algoritmo optimizado. A la izquierda se observa la representación en coordenadas del escenario y a la derecha su representación visual con el objetivo, obstáculos y posiciones iniciales de los agentes.}}{69}{figure.caption.205}%
+\contentsline {figure}{\numberline {55}{\ignorespaces Escenario utilizado para la verificación del rendimiento del algoritmo optimizado. A la izquierda se observa la representación en coordenadas del escenario y a la derecha su representación visual con el objetivo, obstáculos y posiciones iniciales de los agentes.}}{70}{figure.caption.205}%
 \addvspace {10\p@ }
+\contentsline {figure}{\numberline {56}{\ignorespaces Trayectorias de los 3 agentes y 3 obstáculos en el escenario 01, en físico}}{74}{figure.caption.211}%
+\contentsline {figure}{\numberline {57}{\ignorespaces Trayectorias de los 3 agentes y 3 obstáculos en el escenario 04, en físico}}{75}{figure.caption.213}%
+\contentsline {figure}{\numberline {58}{\ignorespaces Trayectorias de los 3 agentes y 3 obstáculos en el escenario 07, en físico}}{76}{figure.caption.215}%
+\contentsline {figure}{\numberline {59}{\ignorespaces Trayectorias de los 3 agentes y 3 obstáculos en el escenario 08, en físico}}{77}{figure.caption.217}%
+\contentsline {figure}{\numberline {60}{\ignorespaces Trayectorias de los 3 agentes y 3 obstáculos en el escenario 17, en físico}}{78}{figure.caption.219}%
+\contentsline {figure}{\numberline {61}{\ignorespaces Trayectorias de los 4 agentes y 3 obstáculos en el escenario 19, en físico}}{79}{figure.caption.221}%
+\contentsline {figure}{\numberline {62}{\ignorespaces Trayectorias de los 5 agentes y 3 obstáculos en el escenario 21, en físico}}{80}{figure.caption.223}%
+\contentsline {figure}{\numberline {63}{\ignorespaces Trayectorias de los 6 agentes y 3 obstáculos en el escenario 23, en físico}}{81}{figure.caption.225}%
 \addvspace {10\p@ }
 \addvspace {10\p@ }
 \addvspace {10\p@ }
