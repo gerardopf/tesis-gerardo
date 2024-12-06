@@ -2,7 +2,7 @@
 
 # Optimización de un algoritmo de inteligencia de enjambre enfocado en sincronización y control de formaciones de sistemas robóticos multi-agente para escenarios con obstáculos móviles
 
-![Static Badge](https://img.shields.io/badge/Estado-en%20desarrollo-purple)
+![Static Badge](https://img.shields.io/badge/Estado-finalizado-green)
 ![Static Badge](https://img.shields.io/badge/Fase-3-white)
 ![Static Badge](https://img.shields.io/badge/Python-v3.10.4-blue)
 ![Static Badge](https://img.shields.io/badge/Webots-vR2023b-darkred)
@@ -38,7 +38,7 @@ Correo institucional: [larivera@uvg.edu.gt](mailto:larivera@uvg.edu.gt)
 
 El objetivo principal de este trabajo de graduación fue optimizar la implementación del algoritmo de inteligencia de enjambre enfocado en sincronización y control de formaciones de sistemas robóticos.
 
-Este trabajo es la tercera fase de la línea de investicación: `inteligencia computacional y robótica de enjambre`. 
+Este trabajo fue la tercera fase de desarrollo de la línea de investicación: `inteligencia computacional y robótica de enjambre`. 
 
 Visita los [recursos adicionales](#clipboard-recursos-adicionales) para más información sobre las fases anteriores de esta línea de investigación.
 
