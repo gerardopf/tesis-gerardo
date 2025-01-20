@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.25 (MiKTeX 24.1) (preloaded format=pdflatex 2024.1.31)  19 NOV 2024 03:10
+This is pdfTeX, Version 3.141592653-2.6-1.40.25 (MiKTeX 24.1) (preloaded format=pdflatex 2024.1.31)  19 JAN 2025 22:25
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1973,149 +1973,109 @@ erted-to.pdf  used on input line 526.
 
 [53 <./figuras/test_fisico_ObsM/traj_test_3A_ADC_f_2-eps-converted-to.pdf>]
 Cap\'{\i }tulo 10.
+<figuras/optimizacion/comparacion_lenguajes.png, id=1885, 3942.73pt x 2372.865p
+t>
+File: figuras/optimizacion/comparacion_lenguajes.png Graphic file (type png)
+<use figuras/optimizacion/comparacion_lenguajes.png>
+Package pdftex.def Info: figuras/optimizacion/comparacion_lenguajes.png  used o
+n input line 540.
+(pdftex.def)             Requested size: 433.62001pt x 260.94354pt.
 [54
 
 ]
-<figuras/optimizacion/grafo_formacion1.png, id=1893, 693.59125pt x 402.50375pt>
+<figuras/optimizacion/grafo_formacion1.png, id=1894, 693.59125pt x 402.50375pt>
 
 File: figuras/optimizacion/grafo_formacion1.png Graphic file (type png)
 <use figuras/optimizacion/grafo_formacion1.png>
 Package pdftex.def Info: figuras/optimizacion/grafo_formacion1.png  used on inp
-ut line 561.
+ut line 555.
 (pdftex.def)             Requested size: 346.89732pt x 201.31279pt.
- [55]
-<figuras/optimizacion/grafo_formacion2.png, id=1900, 648.4225pt x 398.48875pt>
+ [55 <./figuras/optimizacion/comparacion_lenguajes.png>]
+<figuras/optimizacion/grafo_formacion2.png, id=1902, 648.4225pt x 398.48875pt>
 File: figuras/optimizacion/grafo_formacion2.png Graphic file (type png)
 <use figuras/optimizacion/grafo_formacion2.png>
 Package pdftex.def Info: figuras/optimizacion/grafo_formacion2.png  used on inp
-ut line 570.
+ut line 564.
 (pdftex.def)             Requested size: 346.89732pt x 213.18633pt.
  [56 <./figuras/optimizacion/grafo_formacion1.png> <./figuras/optimizacion/graf
-o_formacion2.png>] [57] [58]
-<figuras/optimizacion/tiempos_desfases.png, id=1930, 517.935pt x 250.536pt>
+o_formacion2.png>]
+[57] [58]
+<figuras/optimizacion/tiempos_desfases.png, id=1932, 517.935pt x 250.536pt>
 File: figuras/optimizacion/tiempos_desfases.png Graphic file (type png)
 <use figuras/optimizacion/tiempos_desfases.png>
 Package pdftex.def Info: figuras/optimizacion/tiempos_desfases.png  used on inp
-ut line 671.
+ut line 665.
 (pdftex.def)             Requested size: 433.62001pt x 209.76067pt.
  [59 <./figuras/optimizacion/tiempos_desfases.png>]
-<figuras/optimizacion/tiempos_distancias.png, id=1941, 517.935pt x 250.755pt>
+<figuras/optimizacion/tiempos_distancias.png, id=1943, 517.935pt x 250.755pt>
 File: figuras/optimizacion/tiempos_distancias.png Graphic file (type png)
 <use figuras/optimizacion/tiempos_distancias.png>
 Package pdftex.def Info: figuras/optimizacion/tiempos_distancias.png  used on i
-nput line 750.
+nput line 744.
 (pdftex.def)             Requested size: 433.62001pt x 209.94405pt.
  [60] [61 <./figuras/optimizacion/tiempos_distancias.png>]
-<figuras/optimizacion/tiempos_error.png, id=1955, 517.935pt x 250.536pt>
+<figuras/optimizacion/tiempos_error.png, id=1957, 517.935pt x 250.536pt>
 File: figuras/optimizacion/tiempos_error.png Graphic file (type png)
 <use figuras/optimizacion/tiempos_error.png>
 Package pdftex.def Info: figuras/optimizacion/tiempos_error.png  used on input 
-line 829.
+line 823.
 (pdftex.def)             Requested size: 433.62001pt x 209.76067pt.
  [62]
-<figuras/optimizacion/paralelismo/diagrama_threading.png, id=1961, 397.485pt x 
-191.71625pt>
-File: figuras/optimizacion/paralelismo/diagrama_threading.png Graphic file (typ
-e png)
-<use figuras/optimizacion/paralelismo/diagrama_threading.png>
-Package pdftex.def Info: figuras/optimizacion/paralelismo/diagrama_threading.pn
-g  used on input line 849.
-(pdftex.def)             Requested size: 216.81pt x 104.57542pt.
-
-[63 <./figuras/optimizacion/tiempos_error.png>]
-<figuras/optimizacion/paralelismo/diagrama_threading_extendido.png, id=1969, 76
+<figuras/optimizacion/paralelismo/diagrama_threading2.png, id=1963, 413.545pt x
+ 192.72pt>
+File: figuras/optimizacion/paralelismo/diagrama_threading2.png Graphic file (ty
+pe png)
+<use figuras/optimizacion/paralelismo/diagrama_threading2.png>
+Package pdftex.def Info: figuras/optimizacion/paralelismo/diagrama_threading2.p
+ng  used on input line 843.
+(pdftex.def)             Requested size: 216.81pt x 101.03835pt.
+ [63 <./figuras/optimizacion/tiempos_error.png>]
+<figuras/optimizacion/paralelismo/diagrama_threading_extendido.png, id=1971, 76
 1.84625pt x 1356.06625pt>
 File: figuras/optimizacion/paralelismo/diagrama_threading_extendido.png Graphic
  file (type png)
 <use figuras/optimizacion/paralelismo/diagrama_threading_extendido.png>
 Package pdftex.def Info: figuras/optimizacion/paralelismo/diagrama_threading_ex
-tendido.png  used on input line 867.
+tendido.png  used on input line 861.
 (pdftex.def)             Requested size: 346.89732pt x 617.46634pt.
- [64 <./figuras/optimizacion/paralelismo/diagrama_threading.png>] [65 <./figura
-s/optimizacion/paralelismo/diagrama_threading_extendido.png>]
-
-LaTeX Warning: Reference `label' on page 66 undefined on input line 886.
-
+ [64 <./figuras/optimizacion/paralelismo/diagrama_threading2.png>] [65 <./figur
+as/optimizacion/paralelismo/diagrama_threading_extendido.png>]
 [66]
-<figuras//mejoras/real_time_v_fisico.JPEG, id=1986, 779.91376pt x 779.91376pt>
+<figuras//mejoras/real_time_v_fisico.JPEG, id=1989, 779.91376pt x 779.91376pt>
 File: figuras//mejoras/real_time_v_fisico.JPEG Graphic file (type jpg)
 <use figuras//mejoras/real_time_v_fisico.JPEG>
 Package pdftex.def Info: figuras//mejoras/real_time_v_fisico.JPEG  used on inpu
-t line 899.
+t line 893.
 (pdftex.def)             Requested size: 195.12767pt x 195.12076pt.
-<figuras//mejoras/real_time_v_webots.png, id=1987, 423.08063pt x 423.08063pt>
+<figuras//mejoras/real_time_v_webots.png, id=1990, 423.08063pt x 423.08063pt>
 File: figuras//mejoras/real_time_v_webots.png Graphic file (type png)
 <use figuras//mejoras/real_time_v_webots.png>
 Package pdftex.def Info: figuras//mejoras/real_time_v_webots.png  used on input
- line 900.
+ line 894.
 (pdftex.def)             Requested size: 195.12767pt x 195.12299pt.
-<figuras//mejoras/terminal.png, id=1989, 250.68657pt x 88.83188pt>
+<figuras//mejoras/terminal.png, id=1992, 250.68657pt x 88.83188pt>
 File: figuras//mejoras/terminal.png Graphic file (type png)
 <use figuras//mejoras/terminal.png>
-Package pdftex.def Info: figuras//mejoras/terminal.png  used on input line 917.
+Package pdftex.def Info: figuras//mejoras/terminal.png  used on input line 911.
 
 (pdftex.def)             Requested size: 216.81pt x 76.83173pt.
  [67 <./figuras//mejoras/real_time_v_fisico.JPEG> <./figuras//mejoras/real_time
 _v_webots.png>] [68 <./figuras//mejoras/terminal.png>]
 Cap\'{\i }tulo 11.
-<figuras//optimizacion/tiempos/escenario.png, id=2001, 636.12656pt x 422.32782p
-t>
-File: figuras//optimizacion/tiempos/escenario.png Graphic file (type png)
-<use figuras//optimizacion/tiempos/escenario.png>
-Package pdftex.def Info: figuras//optimizacion/tiempos/escenario.png  used on i
-nput line 935.
-(pdftex.def)             Requested size: 346.89732pt x 230.30264pt.
+<figuras//optimizacion/tiempos/escenario2.png, id=2004, 1601.985pt x 1039.885pt
+>
+File: figuras//optimizacion/tiempos/escenario2.png Graphic file (type png)
+<use figuras//optimizacion/tiempos/escenario2.png>
+Package pdftex.def Info: figuras//optimizacion/tiempos/escenario2.png  used on 
+input line 929.
+(pdftex.def)             Requested size: 346.89732pt x 225.17352pt.
 [69
 
-] [70 <./figuras//optimizacion/tiempos/escenario.png>] [71] [72]
+] [70 <./figuras//optimizacion/tiempos/escenario2.png>] [71] [72]
 Cap\'{\i }tulo 12.
 [73
 
 ]
-Package epstopdf Info: Source file: <figuras//graficas_finales/escenario_01/tra
-j_agents_Final_3A_moviles_f_01.eps>
-(epstopdf)                    date: 2024-11-18 13:21:43
-(epstopdf)                    size: 42942 bytes
-(epstopdf)             Output file: <figuras//graficas_finales/escenario_01/tra
-j_agents_Final_3A_moviles_f_01-eps-converted-to.pdf>
-(epstopdf)                    date: 2024-11-18 22:43:35
-(epstopdf)                    size: 20718 bytes
-(epstopdf)             Command: <miktex-epstopdf --outfile=figuras//graficas_fi
-nales/escenario_01/traj_agents_Final_3A_moviles_f_01-eps-converted-to.pdf figur
-as//graficas_finales/escenario_01/traj_agents_Final_3A_moviles_f_01.eps>
-(epstopdf)             \includegraphics on input line 1040.
-Package epstopdf Info: Output file is already uptodate.
-<figuras//graficas_finales/escenario_01/traj_agents_Final_3A_moviles_f_01-eps-c
-onverted-to.pdf, id=2030, 409.53pt x 453.695pt>
-File: figuras//graficas_finales/escenario_01/traj_agents_Final_3A_moviles_f_01-
-eps-converted-to.pdf Graphic file (type pdf)
-<use figuras//graficas_finales/escenario_01/traj_agents_Final_3A_moviles_f_01-e
-ps-converted-to.pdf>
-Package pdftex.def Info: figuras//graficas_finales/escenario_01/traj_agents_Fin
-al_3A_moviles_f_01-eps-converted-to.pdf  used on input line 1040.
-(pdftex.def)             Requested size: 138.76157pt x 153.72812pt.
-Package epstopdf Info: Source file: <figuras//graficas_finales/escenario_01/tra
-j_obs_Final_3A_moviles_f_01.eps>
-(epstopdf)                    date: 2024-11-18 13:21:43
-(epstopdf)                    size: 35865 bytes
-(epstopdf)             Output file: <figuras//graficas_finales/escenario_01/tra
-j_obs_Final_3A_moviles_f_01-eps-converted-to.pdf>
-(epstopdf)                    date: 2024-11-18 22:43:36
-(epstopdf)                    size: 18477 bytes
-(epstopdf)             Command: <miktex-epstopdf --outfile=figuras//graficas_fi
-nales/escenario_01/traj_obs_Final_3A_moviles_f_01-eps-converted-to.pdf figuras/
-/graficas_finales/escenario_01/traj_obs_Final_3A_moviles_f_01.eps>
-(epstopdf)             \includegraphics on input line 1041.
-Package epstopdf Info: Output file is already uptodate.
-<figuras//graficas_finales/escenario_01/traj_obs_Final_3A_moviles_f_01-eps-conv
-erted-to.pdf, id=2031, 409.53pt x 453.695pt>
-File: figuras//graficas_finales/escenario_01/traj_obs_Final_3A_moviles_f_01-eps
--converted-to.pdf Graphic file (type pdf)
-<use figuras//graficas_finales/escenario_01/traj_obs_Final_3A_moviles_f_01-eps-
-converted-to.pdf>
-Package pdftex.def Info: figuras//graficas_finales/escenario_01/traj_obs_Final_
-3A_moviles_f_01-eps-converted-to.pdf  used on input line 1041.
-(pdftex.def)             Requested size: 138.76157pt x 153.72812pt.
 Package epstopdf Info: Source file: <figuras//graficas_finales/escenario_01/tra
 j_Final_3A_moviles_f_01.eps>
 (epstopdf)                    date: 2024-11-18 13:21:42
@@ -2127,65 +2087,19 @@ j_Final_3A_moviles_f_01-eps-converted-to.pdf>
 (epstopdf)             Command: <miktex-epstopdf --outfile=figuras//graficas_fi
 nales/escenario_01/traj_Final_3A_moviles_f_01-eps-converted-to.pdf figuras//gra
 ficas_finales/escenario_01/traj_Final_3A_moviles_f_01.eps>
-(epstopdf)             \includegraphics on input line 1042.
+(epstopdf)             \includegraphics on input line 1033.
 Package epstopdf Info: Output file is already uptodate.
 <figuras//graficas_finales/escenario_01/traj_Final_3A_moviles_f_01-eps-converte
-d-to.pdf, id=2032, 409.53pt x 453.695pt>
+d-to.pdf, id=2033, 409.53pt x 453.695pt>
 File: figuras//graficas_finales/escenario_01/traj_Final_3A_moviles_f_01-eps-con
 verted-to.pdf Graphic file (type pdf)
 <use figuras//graficas_finales/escenario_01/traj_Final_3A_moviles_f_01-eps-conv
 erted-to.pdf>
 Package pdftex.def Info: figuras//graficas_finales/escenario_01/traj_Final_3A_m
-oviles_f_01-eps-converted-to.pdf  used on input line 1042.
-(pdftex.def)             Requested size: 138.76157pt x 153.72812pt.
- [74 <./figuras//graficas_finales/escenario_01/traj_agents_Final_3A_moviles_f_0
-1-eps-converted-to.pdf> <./figuras//graficas_finales/escenario_01/traj_obs_Fina
-l_3A_moviles_f_01-eps-converted-to.pdf> <./figuras//graficas_finales/escenario_
-01/traj_Final_3A_moviles_f_01-eps-converted-to.pdf>]
-Package epstopdf Info: Source file: <figuras//graficas_finales/escenario_04/tra
-j_agents_Final_3A_moviles_f_04.eps>
-(epstopdf)                    date: 2024-11-18 13:22:56
-(epstopdf)                    size: 43653 bytes
-(epstopdf)             Output file: <figuras//graficas_finales/escenario_04/tra
-j_agents_Final_3A_moviles_f_04-eps-converted-to.pdf>
-(epstopdf)                    date: 2024-11-18 22:43:38
-(epstopdf)                    size: 20813 bytes
-(epstopdf)             Command: <miktex-epstopdf --outfile=figuras//graficas_fi
-nales/escenario_04/traj_agents_Final_3A_moviles_f_04-eps-converted-to.pdf figur
-as//graficas_finales/escenario_04/traj_agents_Final_3A_moviles_f_04.eps>
-(epstopdf)             \includegraphics on input line 1058.
-Package epstopdf Info: Output file is already uptodate.
-<figuras//graficas_finales/escenario_04/traj_agents_Final_3A_moviles_f_04-eps-c
-onverted-to.pdf, id=2166, 409.53pt x 453.695pt>
-File: figuras//graficas_finales/escenario_04/traj_agents_Final_3A_moviles_f_04-
-eps-converted-to.pdf Graphic file (type pdf)
-<use figuras//graficas_finales/escenario_04/traj_agents_Final_3A_moviles_f_04-e
-ps-converted-to.pdf>
-Package pdftex.def Info: figuras//graficas_finales/escenario_04/traj_agents_Fin
-al_3A_moviles_f_04-eps-converted-to.pdf  used on input line 1058.
-(pdftex.def)             Requested size: 138.76157pt x 153.72812pt.
-Package epstopdf Info: Source file: <figuras//graficas_finales/escenario_04/tra
-j_obs_Final_3A_moviles_f_04.eps>
-(epstopdf)                    date: 2024-11-18 13:22:57
-(epstopdf)                    size: 35923 bytes
-(epstopdf)             Output file: <figuras//graficas_finales/escenario_04/tra
-j_obs_Final_3A_moviles_f_04-eps-converted-to.pdf>
-(epstopdf)                    date: 2024-11-18 22:43:39
-(epstopdf)                    size: 18562 bytes
-(epstopdf)             Command: <miktex-epstopdf --outfile=figuras//graficas_fi
-nales/escenario_04/traj_obs_Final_3A_moviles_f_04-eps-converted-to.pdf figuras/
-/graficas_finales/escenario_04/traj_obs_Final_3A_moviles_f_04.eps>
-(epstopdf)             \includegraphics on input line 1059.
-Package epstopdf Info: Output file is already uptodate.
-<figuras//graficas_finales/escenario_04/traj_obs_Final_3A_moviles_f_04-eps-conv
-erted-to.pdf, id=2167, 409.53pt x 453.695pt>
-File: figuras//graficas_finales/escenario_04/traj_obs_Final_3A_moviles_f_04-eps
--converted-to.pdf Graphic file (type pdf)
-<use figuras//graficas_finales/escenario_04/traj_obs_Final_3A_moviles_f_04-eps-
-converted-to.pdf>
-Package pdftex.def Info: figuras//graficas_finales/escenario_04/traj_obs_Final_
-3A_moviles_f_04-eps-converted-to.pdf  used on input line 1059.
-(pdftex.def)             Requested size: 138.76157pt x 153.72812pt.
+oviles_f_01-eps-converted-to.pdf  used on input line 1033.
+(pdftex.def)             Requested size: 260.17465pt x 288.25235pt.
+ [74 <./figuras//graficas_finales/escenario_01/traj_Final_3A_moviles_f_01-eps-c
+onverted-to.pdf>]
 Package epstopdf Info: Source file: <figuras//graficas_finales/escenario_04/tra
 j_Final_3A_moviles_f_04.eps>
 (epstopdf)                    date: 2024-11-18 13:22:55
@@ -2197,65 +2111,19 @@ j_Final_3A_moviles_f_04-eps-converted-to.pdf>
 (epstopdf)             Command: <miktex-epstopdf --outfile=figuras//graficas_fi
 nales/escenario_04/traj_Final_3A_moviles_f_04-eps-converted-to.pdf figuras//gra
 ficas_finales/escenario_04/traj_Final_3A_moviles_f_04.eps>
-(epstopdf)             \includegraphics on input line 1060.
+(epstopdf)             \includegraphics on input line 1049.
 Package epstopdf Info: Output file is already uptodate.
 <figuras//graficas_finales/escenario_04/traj_Final_3A_moviles_f_04-eps-converte
-d-to.pdf, id=2168, 409.53pt x 453.695pt>
+d-to.pdf, id=2083, 409.53pt x 453.695pt>
 File: figuras//graficas_finales/escenario_04/traj_Final_3A_moviles_f_04-eps-con
 verted-to.pdf Graphic file (type pdf)
 <use figuras//graficas_finales/escenario_04/traj_Final_3A_moviles_f_04-eps-conv
 erted-to.pdf>
 Package pdftex.def Info: figuras//graficas_finales/escenario_04/traj_Final_3A_m
-oviles_f_04-eps-converted-to.pdf  used on input line 1060.
-(pdftex.def)             Requested size: 138.76157pt x 153.72812pt.
- [75 <./figuras//graficas_finales/escenario_04/traj_agents_Final_3A_moviles_f_0
-4-eps-converted-to.pdf> <./figuras//graficas_finales/escenario_04/traj_obs_Fina
-l_3A_moviles_f_04-eps-converted-to.pdf> <./figuras//graficas_finales/escenario_
-04/traj_Final_3A_moviles_f_04-eps-converted-to.pdf>]
-Package epstopdf Info: Source file: <figuras//graficas_finales/escenario_07/tra
-j_agents_Final_3A_moviles_f_07.eps>
-(epstopdf)                    date: 2024-11-18 13:23:51
-(epstopdf)                    size: 45796 bytes
-(epstopdf)             Output file: <figuras//graficas_finales/escenario_07/tra
-j_agents_Final_3A_moviles_f_07-eps-converted-to.pdf>
-(epstopdf)                    date: 2024-11-18 22:43:42
-(epstopdf)                    size: 21567 bytes
-(epstopdf)             Command: <miktex-epstopdf --outfile=figuras//graficas_fi
-nales/escenario_07/traj_agents_Final_3A_moviles_f_07-eps-converted-to.pdf figur
-as//graficas_finales/escenario_07/traj_agents_Final_3A_moviles_f_07.eps>
-(epstopdf)             \includegraphics on input line 1076.
-Package epstopdf Info: Output file is already uptodate.
-<figuras//graficas_finales/escenario_07/traj_agents_Final_3A_moviles_f_07-eps-c
-onverted-to.pdf, id=2302, 409.53pt x 453.695pt>
-File: figuras//graficas_finales/escenario_07/traj_agents_Final_3A_moviles_f_07-
-eps-converted-to.pdf Graphic file (type pdf)
-<use figuras//graficas_finales/escenario_07/traj_agents_Final_3A_moviles_f_07-e
-ps-converted-to.pdf>
-Package pdftex.def Info: figuras//graficas_finales/escenario_07/traj_agents_Fin
-al_3A_moviles_f_07-eps-converted-to.pdf  used on input line 1076.
-(pdftex.def)             Requested size: 138.76157pt x 153.72812pt.
-Package epstopdf Info: Source file: <figuras//graficas_finales/escenario_07/tra
-j_obs_Final_3A_moviles_f_07.eps>
-(epstopdf)                    date: 2024-11-18 13:23:51
-(epstopdf)                    size: 37674 bytes
-(epstopdf)             Output file: <figuras//graficas_finales/escenario_07/tra
-j_obs_Final_3A_moviles_f_07-eps-converted-to.pdf>
-(epstopdf)                    date: 2024-11-18 22:43:43
-(epstopdf)                    size: 19120 bytes
-(epstopdf)             Command: <miktex-epstopdf --outfile=figuras//graficas_fi
-nales/escenario_07/traj_obs_Final_3A_moviles_f_07-eps-converted-to.pdf figuras/
-/graficas_finales/escenario_07/traj_obs_Final_3A_moviles_f_07.eps>
-(epstopdf)             \includegraphics on input line 1077.
-Package epstopdf Info: Output file is already uptodate.
-<figuras//graficas_finales/escenario_07/traj_obs_Final_3A_moviles_f_07-eps-conv
-erted-to.pdf, id=2303, 409.53pt x 453.695pt>
-File: figuras//graficas_finales/escenario_07/traj_obs_Final_3A_moviles_f_07-eps
--converted-to.pdf Graphic file (type pdf)
-<use figuras//graficas_finales/escenario_07/traj_obs_Final_3A_moviles_f_07-eps-
-converted-to.pdf>
-Package pdftex.def Info: figuras//graficas_finales/escenario_07/traj_obs_Final_
-3A_moviles_f_07-eps-converted-to.pdf  used on input line 1077.
-(pdftex.def)             Requested size: 138.76157pt x 153.72812pt.
+oviles_f_04-eps-converted-to.pdf  used on input line 1049.
+(pdftex.def)             Requested size: 260.17465pt x 288.25235pt.
+ [75 <./figuras//graficas_finales/escenario_04/traj_Final_3A_moviles_f_04-eps-c
+onverted-to.pdf>]
 Package epstopdf Info: Source file: <figuras//graficas_finales/escenario_07/tra
 j_Final_3A_moviles_f_07.eps>
 (epstopdf)                    date: 2024-11-18 13:23:50
@@ -2267,65 +2135,19 @@ j_Final_3A_moviles_f_07-eps-converted-to.pdf>
 (epstopdf)             Command: <miktex-epstopdf --outfile=figuras//graficas_fi
 nales/escenario_07/traj_Final_3A_moviles_f_07-eps-converted-to.pdf figuras//gra
 ficas_finales/escenario_07/traj_Final_3A_moviles_f_07.eps>
-(epstopdf)             \includegraphics on input line 1078.
+(epstopdf)             \includegraphics on input line 1065.
 Package epstopdf Info: Output file is already uptodate.
 <figuras//graficas_finales/escenario_07/traj_Final_3A_moviles_f_07-eps-converte
-d-to.pdf, id=2304, 409.53pt x 453.695pt>
+d-to.pdf, id=2133, 409.53pt x 453.695pt>
 File: figuras//graficas_finales/escenario_07/traj_Final_3A_moviles_f_07-eps-con
 verted-to.pdf Graphic file (type pdf)
 <use figuras//graficas_finales/escenario_07/traj_Final_3A_moviles_f_07-eps-conv
 erted-to.pdf>
 Package pdftex.def Info: figuras//graficas_finales/escenario_07/traj_Final_3A_m
-oviles_f_07-eps-converted-to.pdf  used on input line 1078.
-(pdftex.def)             Requested size: 138.76157pt x 153.72812pt.
- [76 <./figuras//graficas_finales/escenario_07/traj_agents_Final_3A_moviles_f_0
-7-eps-converted-to.pdf> <./figuras//graficas_finales/escenario_07/traj_obs_Fina
-l_3A_moviles_f_07-eps-converted-to.pdf> <./figuras//graficas_finales/escenario_
-07/traj_Final_3A_moviles_f_07-eps-converted-to.pdf>]
-Package epstopdf Info: Source file: <figuras//graficas_finales/escenario_08/tra
-j_agents_Final_3A_moviles_f_08.eps>
-(epstopdf)                    date: 2024-11-18 13:24:09
-(epstopdf)                    size: 63364 bytes
-(epstopdf)             Output file: <figuras//graficas_finales/escenario_08/tra
-j_agents_Final_3A_moviles_f_08-eps-converted-to.pdf>
-(epstopdf)                    date: 2024-11-18 22:43:45
-(epstopdf)                    size: 24138 bytes
-(epstopdf)             Command: <miktex-epstopdf --outfile=figuras//graficas_fi
-nales/escenario_08/traj_agents_Final_3A_moviles_f_08-eps-converted-to.pdf figur
-as//graficas_finales/escenario_08/traj_agents_Final_3A_moviles_f_08.eps>
-(epstopdf)             \includegraphics on input line 1095.
-Package epstopdf Info: Output file is already uptodate.
-<figuras//graficas_finales/escenario_08/traj_agents_Final_3A_moviles_f_08-eps-c
-onverted-to.pdf, id=2438, 409.53pt x 453.695pt>
-File: figuras//graficas_finales/escenario_08/traj_agents_Final_3A_moviles_f_08-
-eps-converted-to.pdf Graphic file (type pdf)
-<use figuras//graficas_finales/escenario_08/traj_agents_Final_3A_moviles_f_08-e
-ps-converted-to.pdf>
-Package pdftex.def Info: figuras//graficas_finales/escenario_08/traj_agents_Fin
-al_3A_moviles_f_08-eps-converted-to.pdf  used on input line 1095.
-(pdftex.def)             Requested size: 138.76157pt x 153.72812pt.
-Package epstopdf Info: Source file: <figuras//graficas_finales/escenario_08/tra
-j_obs_Final_3A_moviles_f_08.eps>
-(epstopdf)                    date: 2024-11-18 13:24:10
-(epstopdf)                    size: 36318 bytes
-(epstopdf)             Output file: <figuras//graficas_finales/escenario_08/tra
-j_obs_Final_3A_moviles_f_08-eps-converted-to.pdf>
-(epstopdf)                    date: 2024-11-18 22:43:46
-(epstopdf)                    size: 18644 bytes
-(epstopdf)             Command: <miktex-epstopdf --outfile=figuras//graficas_fi
-nales/escenario_08/traj_obs_Final_3A_moviles_f_08-eps-converted-to.pdf figuras/
-/graficas_finales/escenario_08/traj_obs_Final_3A_moviles_f_08.eps>
-(epstopdf)             \includegraphics on input line 1096.
-Package epstopdf Info: Output file is already uptodate.
-<figuras//graficas_finales/escenario_08/traj_obs_Final_3A_moviles_f_08-eps-conv
-erted-to.pdf, id=2439, 409.53pt x 453.695pt>
-File: figuras//graficas_finales/escenario_08/traj_obs_Final_3A_moviles_f_08-eps
--converted-to.pdf Graphic file (type pdf)
-<use figuras//graficas_finales/escenario_08/traj_obs_Final_3A_moviles_f_08-eps-
-converted-to.pdf>
-Package pdftex.def Info: figuras//graficas_finales/escenario_08/traj_obs_Final_
-3A_moviles_f_08-eps-converted-to.pdf  used on input line 1096.
-(pdftex.def)             Requested size: 138.76157pt x 153.72812pt.
+oviles_f_07-eps-converted-to.pdf  used on input line 1065.
+(pdftex.def)             Requested size: 260.17465pt x 288.25235pt.
+ [76 <./figuras//graficas_finales/escenario_07/traj_Final_3A_moviles_f_07-eps-c
+onverted-to.pdf>]
 Package epstopdf Info: Source file: <figuras//graficas_finales/escenario_08/tra
 j_Final_3A_moviles_f_08.eps>
 (epstopdf)                    date: 2024-11-18 13:24:09
@@ -2337,65 +2159,19 @@ j_Final_3A_moviles_f_08-eps-converted-to.pdf>
 (epstopdf)             Command: <miktex-epstopdf --outfile=figuras//graficas_fi
 nales/escenario_08/traj_Final_3A_moviles_f_08-eps-converted-to.pdf figuras//gra
 ficas_finales/escenario_08/traj_Final_3A_moviles_f_08.eps>
-(epstopdf)             \includegraphics on input line 1097.
+(epstopdf)             \includegraphics on input line 1082.
 Package epstopdf Info: Output file is already uptodate.
 <figuras//graficas_finales/escenario_08/traj_Final_3A_moviles_f_08-eps-converte
-d-to.pdf, id=2440, 409.53pt x 453.695pt>
+d-to.pdf, id=2183, 409.53pt x 453.695pt>
 File: figuras//graficas_finales/escenario_08/traj_Final_3A_moviles_f_08-eps-con
 verted-to.pdf Graphic file (type pdf)
 <use figuras//graficas_finales/escenario_08/traj_Final_3A_moviles_f_08-eps-conv
 erted-to.pdf>
 Package pdftex.def Info: figuras//graficas_finales/escenario_08/traj_Final_3A_m
-oviles_f_08-eps-converted-to.pdf  used on input line 1097.
-(pdftex.def)             Requested size: 138.76157pt x 153.72812pt.
- [77 <./figuras//graficas_finales/escenario_08/traj_agents_Final_3A_moviles_f_0
-8-eps-converted-to.pdf> <./figuras//graficas_finales/escenario_08/traj_obs_Fina
-l_3A_moviles_f_08-eps-converted-to.pdf> <./figuras//graficas_finales/escenario_
-08/traj_Final_3A_moviles_f_08-eps-converted-to.pdf>]
-Package epstopdf Info: Source file: <figuras//graficas_finales/escenario_17/tra
-j_agents_Final_3A_moviles_f_17.eps>
-(epstopdf)                    date: 2024-11-18 13:27:52
-(epstopdf)                    size: 51190 bytes
-(epstopdf)             Output file: <figuras//graficas_finales/escenario_17/tra
-j_agents_Final_3A_moviles_f_17-eps-converted-to.pdf>
-(epstopdf)                    date: 2024-11-18 22:43:50
-(epstopdf)                    size: 22243 bytes
-(epstopdf)             Command: <miktex-epstopdf --outfile=figuras//graficas_fi
-nales/escenario_17/traj_agents_Final_3A_moviles_f_17-eps-converted-to.pdf figur
-as//graficas_finales/escenario_17/traj_agents_Final_3A_moviles_f_17.eps>
-(epstopdf)             \includegraphics on input line 1112.
-Package epstopdf Info: Output file is already uptodate.
-<figuras//graficas_finales/escenario_17/traj_agents_Final_3A_moviles_f_17-eps-c
-onverted-to.pdf, id=2575, 409.53pt x 453.695pt>
-File: figuras//graficas_finales/escenario_17/traj_agents_Final_3A_moviles_f_17-
-eps-converted-to.pdf Graphic file (type pdf)
-<use figuras//graficas_finales/escenario_17/traj_agents_Final_3A_moviles_f_17-e
-ps-converted-to.pdf>
-Package pdftex.def Info: figuras//graficas_finales/escenario_17/traj_agents_Fin
-al_3A_moviles_f_17-eps-converted-to.pdf  used on input line 1112.
-(pdftex.def)             Requested size: 138.76157pt x 153.72812pt.
-Package epstopdf Info: Source file: <figuras//graficas_finales/escenario_17/tra
-j_obs_Final_3A_moviles_f_17.eps>
-(epstopdf)                    date: 2024-11-18 13:27:53
-(epstopdf)                    size: 38565 bytes
-(epstopdf)             Output file: <figuras//graficas_finales/escenario_17/tra
-j_obs_Final_3A_moviles_f_17-eps-converted-to.pdf>
-(epstopdf)                    date: 2024-11-18 22:43:51
-(epstopdf)                    size: 19187 bytes
-(epstopdf)             Command: <miktex-epstopdf --outfile=figuras//graficas_fi
-nales/escenario_17/traj_obs_Final_3A_moviles_f_17-eps-converted-to.pdf figuras/
-/graficas_finales/escenario_17/traj_obs_Final_3A_moviles_f_17.eps>
-(epstopdf)             \includegraphics on input line 1113.
-Package epstopdf Info: Output file is already uptodate.
-<figuras//graficas_finales/escenario_17/traj_obs_Final_3A_moviles_f_17-eps-conv
-erted-to.pdf, id=2576, 409.53pt x 453.695pt>
-File: figuras//graficas_finales/escenario_17/traj_obs_Final_3A_moviles_f_17-eps
--converted-to.pdf Graphic file (type pdf)
-<use figuras//graficas_finales/escenario_17/traj_obs_Final_3A_moviles_f_17-eps-
-converted-to.pdf>
-Package pdftex.def Info: figuras//graficas_finales/escenario_17/traj_obs_Final_
-3A_moviles_f_17-eps-converted-to.pdf  used on input line 1113.
-(pdftex.def)             Requested size: 138.76157pt x 153.72812pt.
+oviles_f_08-eps-converted-to.pdf  used on input line 1082.
+(pdftex.def)             Requested size: 260.17465pt x 288.25235pt.
+ [77 <./figuras//graficas_finales/escenario_08/traj_Final_3A_moviles_f_08-eps-c
+onverted-to.pdf>]
 Package epstopdf Info: Source file: <figuras//graficas_finales/escenario_17/tra
 j_Final_3A_moviles_f_17.eps>
 (epstopdf)                    date: 2024-11-18 13:27:52
@@ -2407,65 +2183,20 @@ j_Final_3A_moviles_f_17-eps-converted-to.pdf>
 (epstopdf)             Command: <miktex-epstopdf --outfile=figuras//graficas_fi
 nales/escenario_17/traj_Final_3A_moviles_f_17-eps-converted-to.pdf figuras//gra
 ficas_finales/escenario_17/traj_Final_3A_moviles_f_17.eps>
-(epstopdf)             \includegraphics on input line 1114.
+(epstopdf)             \includegraphics on input line 1097.
 Package epstopdf Info: Output file is already uptodate.
 <figuras//graficas_finales/escenario_17/traj_Final_3A_moviles_f_17-eps-converte
-d-to.pdf, id=2577, 409.53pt x 453.695pt>
+d-to.pdf, id=2234, 409.53pt x 453.695pt>
 File: figuras//graficas_finales/escenario_17/traj_Final_3A_moviles_f_17-eps-con
 verted-to.pdf Graphic file (type pdf)
 <use figuras//graficas_finales/escenario_17/traj_Final_3A_moviles_f_17-eps-conv
 erted-to.pdf>
 Package pdftex.def Info: figuras//graficas_finales/escenario_17/traj_Final_3A_m
-oviles_f_17-eps-converted-to.pdf  used on input line 1114.
-(pdftex.def)             Requested size: 138.76157pt x 153.72812pt.
- [78 <./figuras//graficas_finales/escenario_17/traj_agents_Final_3A_moviles_f_1
-7-eps-converted-to.pdf> <./figuras//graficas_finales/escenario_17/traj_obs_Fina
-l_3A_moviles_f_17-eps-converted-to.pdf> <./figuras//graficas_finales/escenario_
-17/traj_Final_3A_moviles_f_17-eps-converted-to.pdf>]
-Package epstopdf Info: Source file: <figuras//graficas_finales/escenario_19/tra
-j_agents_Final_4A_moviles_f_19.eps>
-(epstopdf)                    date: 2024-11-18 13:28:36
-(epstopdf)                    size: 50102 bytes
-(epstopdf)             Output file: <figuras//graficas_finales/escenario_19/tra
-j_agents_Final_4A_moviles_f_19-eps-converted-to.pdf>
-(epstopdf)                    date: 2024-11-18 22:43:52
-(epstopdf)                    size: 22888 bytes
-(epstopdf)             Command: <miktex-epstopdf --outfile=figuras//graficas_fi
-nales/escenario_19/traj_agents_Final_4A_moviles_f_19-eps-converted-to.pdf figur
-as//graficas_finales/escenario_19/traj_agents_Final_4A_moviles_f_19.eps>
-(epstopdf)             \includegraphics on input line 1127.
-Package epstopdf Info: Output file is already uptodate.
-<figuras//graficas_finales/escenario_19/traj_agents_Final_4A_moviles_f_19-eps-c
-onverted-to.pdf, id=2711, 409.53pt x 453.695pt>
-File: figuras//graficas_finales/escenario_19/traj_agents_Final_4A_moviles_f_19-
-eps-converted-to.pdf Graphic file (type pdf)
-<use figuras//graficas_finales/escenario_19/traj_agents_Final_4A_moviles_f_19-e
-ps-converted-to.pdf>
-Package pdftex.def Info: figuras//graficas_finales/escenario_19/traj_agents_Fin
-al_4A_moviles_f_19-eps-converted-to.pdf  used on input line 1127.
-(pdftex.def)             Requested size: 138.76157pt x 153.72812pt.
-Package epstopdf Info: Source file: <figuras//graficas_finales/escenario_19/tra
-j_obs_Final_4A_moviles_f_19.eps>
-(epstopdf)                    date: 2024-11-18 13:28:37
-(epstopdf)                    size: 37290 bytes
-(epstopdf)             Output file: <figuras//graficas_finales/escenario_19/tra
-j_obs_Final_4A_moviles_f_19-eps-converted-to.pdf>
-(epstopdf)                    date: 2024-11-18 22:43:53
-(epstopdf)                    size: 19298 bytes
-(epstopdf)             Command: <miktex-epstopdf --outfile=figuras//graficas_fi
-nales/escenario_19/traj_obs_Final_4A_moviles_f_19-eps-converted-to.pdf figuras/
-/graficas_finales/escenario_19/traj_obs_Final_4A_moviles_f_19.eps>
-(epstopdf)             \includegraphics on input line 1128.
-Package epstopdf Info: Output file is already uptodate.
-<figuras//graficas_finales/escenario_19/traj_obs_Final_4A_moviles_f_19-eps-conv
-erted-to.pdf, id=2712, 409.53pt x 453.695pt>
-File: figuras//graficas_finales/escenario_19/traj_obs_Final_4A_moviles_f_19-eps
--converted-to.pdf Graphic file (type pdf)
-<use figuras//graficas_finales/escenario_19/traj_obs_Final_4A_moviles_f_19-eps-
-converted-to.pdf>
-Package pdftex.def Info: figuras//graficas_finales/escenario_19/traj_obs_Final_
-4A_moviles_f_19-eps-converted-to.pdf  used on input line 1128.
-(pdftex.def)             Requested size: 138.76157pt x 153.72812pt.
+oviles_f_17-eps-converted-to.pdf  used on input line 1097.
+(pdftex.def)             Requested size: 260.17465pt x 288.25235pt.
+
+[78 <./figuras//graficas_finales/escenario_17/traj_Final_3A_moviles_f_17-eps-co
+nverted-to.pdf>]
 Package epstopdf Info: Source file: <figuras//graficas_finales/escenario_19/tra
 j_Final_4A_moviles_f_19.eps>
 (epstopdf)                    date: 2024-11-18 13:28:36
@@ -2477,65 +2208,19 @@ j_Final_4A_moviles_f_19-eps-converted-to.pdf>
 (epstopdf)             Command: <miktex-epstopdf --outfile=figuras//graficas_fi
 nales/escenario_19/traj_Final_4A_moviles_f_19-eps-converted-to.pdf figuras//gra
 ficas_finales/escenario_19/traj_Final_4A_moviles_f_19.eps>
-(epstopdf)             \includegraphics on input line 1129.
+(epstopdf)             \includegraphics on input line 1110.
 Package epstopdf Info: Output file is already uptodate.
 <figuras//graficas_finales/escenario_19/traj_Final_4A_moviles_f_19-eps-converte
-d-to.pdf, id=2713, 409.53pt x 453.695pt>
+d-to.pdf, id=2284, 409.53pt x 453.695pt>
 File: figuras//graficas_finales/escenario_19/traj_Final_4A_moviles_f_19-eps-con
 verted-to.pdf Graphic file (type pdf)
 <use figuras//graficas_finales/escenario_19/traj_Final_4A_moviles_f_19-eps-conv
 erted-to.pdf>
 Package pdftex.def Info: figuras//graficas_finales/escenario_19/traj_Final_4A_m
-oviles_f_19-eps-converted-to.pdf  used on input line 1129.
-(pdftex.def)             Requested size: 138.76157pt x 153.72812pt.
- [79 <./figuras//graficas_finales/escenario_19/traj_agents_Final_4A_moviles_f_1
-9-eps-converted-to.pdf> <./figuras//graficas_finales/escenario_19/traj_obs_Fina
-l_4A_moviles_f_19-eps-converted-to.pdf> <./figuras//graficas_finales/escenario_
-19/traj_Final_4A_moviles_f_19-eps-converted-to.pdf>]
-Package epstopdf Info: Source file: <figuras//graficas_finales/escenario_21/tra
-j_agents_Final_5A_moviles_f_21.eps>
-(epstopdf)                    date: 2024-11-18 13:29:24
-(epstopdf)                    size: 61737 bytes
-(epstopdf)             Output file: <figuras//graficas_finales/escenario_21/tra
-j_agents_Final_5A_moviles_f_21-eps-converted-to.pdf>
-(epstopdf)                    date: 2024-11-18 22:43:55
-(epstopdf)                    size: 26160 bytes
-(epstopdf)             Command: <miktex-epstopdf --outfile=figuras//graficas_fi
-nales/escenario_21/traj_agents_Final_5A_moviles_f_21-eps-converted-to.pdf figur
-as//graficas_finales/escenario_21/traj_agents_Final_5A_moviles_f_21.eps>
-(epstopdf)             \includegraphics on input line 1142.
-Package epstopdf Info: Output file is already uptodate.
-<figuras//graficas_finales/escenario_21/traj_agents_Final_5A_moviles_f_21-eps-c
-onverted-to.pdf, id=2849, 409.53pt x 453.695pt>
-File: figuras//graficas_finales/escenario_21/traj_agents_Final_5A_moviles_f_21-
-eps-converted-to.pdf Graphic file (type pdf)
-<use figuras//graficas_finales/escenario_21/traj_agents_Final_5A_moviles_f_21-e
-ps-converted-to.pdf>
-Package pdftex.def Info: figuras//graficas_finales/escenario_21/traj_agents_Fin
-al_5A_moviles_f_21-eps-converted-to.pdf  used on input line 1142.
-(pdftex.def)             Requested size: 138.76157pt x 153.72812pt.
-Package epstopdf Info: Source file: <figuras//graficas_finales/escenario_21/tra
-j_obs_Final_5A_moviles_f_21.eps>
-(epstopdf)                    date: 2024-11-18 13:29:24
-(epstopdf)                    size: 38424 bytes
-(epstopdf)             Output file: <figuras//graficas_finales/escenario_21/tra
-j_obs_Final_5A_moviles_f_21-eps-converted-to.pdf>
-(epstopdf)                    date: 2024-11-18 22:43:56
-(epstopdf)                    size: 19736 bytes
-(epstopdf)             Command: <miktex-epstopdf --outfile=figuras//graficas_fi
-nales/escenario_21/traj_obs_Final_5A_moviles_f_21-eps-converted-to.pdf figuras/
-/graficas_finales/escenario_21/traj_obs_Final_5A_moviles_f_21.eps>
-(epstopdf)             \includegraphics on input line 1143.
-Package epstopdf Info: Output file is already uptodate.
-<figuras//graficas_finales/escenario_21/traj_obs_Final_5A_moviles_f_21-eps-conv
-erted-to.pdf, id=2850, 409.53pt x 453.695pt>
-File: figuras//graficas_finales/escenario_21/traj_obs_Final_5A_moviles_f_21-eps
--converted-to.pdf Graphic file (type pdf)
-<use figuras//graficas_finales/escenario_21/traj_obs_Final_5A_moviles_f_21-eps-
-converted-to.pdf>
-Package pdftex.def Info: figuras//graficas_finales/escenario_21/traj_obs_Final_
-5A_moviles_f_21-eps-converted-to.pdf  used on input line 1143.
-(pdftex.def)             Requested size: 138.76157pt x 153.72812pt.
+oviles_f_19-eps-converted-to.pdf  used on input line 1110.
+(pdftex.def)             Requested size: 260.17465pt x 288.25235pt.
+ [79 <./figuras//graficas_finales/escenario_19/traj_Final_4A_moviles_f_19-eps-c
+onverted-to.pdf>]
 Package epstopdf Info: Source file: <figuras//graficas_finales/escenario_21/tra
 j_Final_5A_moviles_f_21.eps>
 (epstopdf)                    date: 2024-11-18 13:29:23
@@ -2547,65 +2232,19 @@ j_Final_5A_moviles_f_21-eps-converted-to.pdf>
 (epstopdf)             Command: <miktex-epstopdf --outfile=figuras//graficas_fi
 nales/escenario_21/traj_Final_5A_moviles_f_21-eps-converted-to.pdf figuras//gra
 ficas_finales/escenario_21/traj_Final_5A_moviles_f_21.eps>
-(epstopdf)             \includegraphics on input line 1144.
+(epstopdf)             \includegraphics on input line 1123.
 Package epstopdf Info: Output file is already uptodate.
 <figuras//graficas_finales/escenario_21/traj_Final_5A_moviles_f_21-eps-converte
-d-to.pdf, id=2851, 409.53pt x 453.695pt>
+d-to.pdf, id=2335, 409.53pt x 453.695pt>
 File: figuras//graficas_finales/escenario_21/traj_Final_5A_moviles_f_21-eps-con
 verted-to.pdf Graphic file (type pdf)
 <use figuras//graficas_finales/escenario_21/traj_Final_5A_moviles_f_21-eps-conv
 erted-to.pdf>
 Package pdftex.def Info: figuras//graficas_finales/escenario_21/traj_Final_5A_m
-oviles_f_21-eps-converted-to.pdf  used on input line 1144.
-(pdftex.def)             Requested size: 138.76157pt x 153.72812pt.
-[80 <./figuras//graficas_finales/escenario_21/traj_agents_Final_5A_moviles_f_21
--eps-converted-to.pdf> <./figuras//graficas_finales/escenario_21/traj_obs_Final
-_5A_moviles_f_21-eps-converted-to.pdf> <./figuras//graficas_finales/escenario_2
-1/traj_Final_5A_moviles_f_21-eps-converted-to.pdf>]
-Package epstopdf Info: Source file: <figuras//graficas_finales/escenario_23/tra
-j_agents_Final_6A_moviles_f_23.eps>
-(epstopdf)                    date: 2024-11-18 13:30:11
-(epstopdf)                    size: 87504 bytes
-(epstopdf)             Output file: <figuras//graficas_finales/escenario_23/tra
-j_agents_Final_6A_moviles_f_23-eps-converted-to.pdf>
-(epstopdf)                    date: 2024-11-18 22:43:58
-(epstopdf)                    size: 33720 bytes
-(epstopdf)             Command: <miktex-epstopdf --outfile=figuras//graficas_fi
-nales/escenario_23/traj_agents_Final_6A_moviles_f_23-eps-converted-to.pdf figur
-as//graficas_finales/escenario_23/traj_agents_Final_6A_moviles_f_23.eps>
-(epstopdf)             \includegraphics on input line 1157.
-Package epstopdf Info: Output file is already uptodate.
-<figuras//graficas_finales/escenario_23/traj_agents_Final_6A_moviles_f_23-eps-c
-onverted-to.pdf, id=2987, 409.53pt x 453.695pt>
-File: figuras//graficas_finales/escenario_23/traj_agents_Final_6A_moviles_f_23-
-eps-converted-to.pdf Graphic file (type pdf)
-<use figuras//graficas_finales/escenario_23/traj_agents_Final_6A_moviles_f_23-e
-ps-converted-to.pdf>
-Package pdftex.def Info: figuras//graficas_finales/escenario_23/traj_agents_Fin
-al_6A_moviles_f_23-eps-converted-to.pdf  used on input line 1157.
-(pdftex.def)             Requested size: 138.76157pt x 153.72812pt.
-Package epstopdf Info: Source file: <figuras//graficas_finales/escenario_23/tra
-j_obs_Final_6A_moviles_f_23.eps>
-(epstopdf)                    date: 2024-11-18 13:30:12
-(epstopdf)                    size: 38186 bytes
-(epstopdf)             Output file: <figuras//graficas_finales/escenario_23/tra
-j_obs_Final_6A_moviles_f_23-eps-converted-to.pdf>
-(epstopdf)                    date: 2024-11-18 22:43:59
-(epstopdf)                    size: 20105 bytes
-(epstopdf)             Command: <miktex-epstopdf --outfile=figuras//graficas_fi
-nales/escenario_23/traj_obs_Final_6A_moviles_f_23-eps-converted-to.pdf figuras/
-/graficas_finales/escenario_23/traj_obs_Final_6A_moviles_f_23.eps>
-(epstopdf)             \includegraphics on input line 1158.
-Package epstopdf Info: Output file is already uptodate.
-<figuras//graficas_finales/escenario_23/traj_obs_Final_6A_moviles_f_23-eps-conv
-erted-to.pdf, id=2988, 409.53pt x 453.695pt>
-File: figuras//graficas_finales/escenario_23/traj_obs_Final_6A_moviles_f_23-eps
--converted-to.pdf Graphic file (type pdf)
-<use figuras//graficas_finales/escenario_23/traj_obs_Final_6A_moviles_f_23-eps-
-converted-to.pdf>
-Package pdftex.def Info: figuras//graficas_finales/escenario_23/traj_obs_Final_
-6A_moviles_f_23-eps-converted-to.pdf  used on input line 1158.
-(pdftex.def)             Requested size: 138.76157pt x 153.72812pt.
+oviles_f_21-eps-converted-to.pdf  used on input line 1123.
+(pdftex.def)             Requested size: 260.17465pt x 288.25235pt.
+ [80 <./figuras//graficas_finales/escenario_21/traj_Final_5A_moviles_f_21-eps-c
+onverted-to.pdf>]
 Package epstopdf Info: Source file: <figuras//graficas_finales/escenario_23/tra
 j_Final_6A_moviles_f_23.eps>
 (epstopdf)                    date: 2024-11-18 13:30:11
@@ -2617,21 +2256,19 @@ j_Final_6A_moviles_f_23-eps-converted-to.pdf>
 (epstopdf)             Command: <miktex-epstopdf --outfile=figuras//graficas_fi
 nales/escenario_23/traj_Final_6A_moviles_f_23-eps-converted-to.pdf figuras//gra
 ficas_finales/escenario_23/traj_Final_6A_moviles_f_23.eps>
-(epstopdf)             \includegraphics on input line 1159.
+(epstopdf)             \includegraphics on input line 1136.
 Package epstopdf Info: Output file is already uptodate.
 <figuras//graficas_finales/escenario_23/traj_Final_6A_moviles_f_23-eps-converte
-d-to.pdf, id=2989, 409.53pt x 453.695pt>
+d-to.pdf, id=2386, 409.53pt x 453.695pt>
 File: figuras//graficas_finales/escenario_23/traj_Final_6A_moviles_f_23-eps-con
 verted-to.pdf Graphic file (type pdf)
 <use figuras//graficas_finales/escenario_23/traj_Final_6A_moviles_f_23-eps-conv
 erted-to.pdf>
 Package pdftex.def Info: figuras//graficas_finales/escenario_23/traj_Final_6A_m
-oviles_f_23-eps-converted-to.pdf  used on input line 1159.
-(pdftex.def)             Requested size: 138.76157pt x 153.72812pt.
-) [81 <./figuras//graficas_finales/escenario_23/traj_agents_Final_6A_moviles_f_
-23-eps-converted-to.pdf> <./figuras//graficas_finales/escenario_23/traj_obs_Fin
-al_6A_moviles_f_23-eps-converted-to.pdf> <./figuras//graficas_finales/escenario
-_23/traj_Final_6A_moviles_f_23-eps-converted-to.pdf>]
+oviles_f_23-eps-converted-to.pdf  used on input line 1136.
+(pdftex.def)             Requested size: 260.17465pt x 288.25235pt.
+) [81 <./figuras//graficas_finales/escenario_23/traj_Final_6A_moviles_f_23-eps-
+converted-to.pdf>]
 Cap\'{\i }tulo 13.
 (k-conclusiones.tex) [82
 
@@ -2683,16 +2320,21 @@ L3 programming layer <2020/03/25>
 LaTeX Warning: There were undefined references.
 
 Package rerunfilecheck Info: File `z-main.out' has not changed.
-(rerunfilecheck)             Checksum: 426B5ADA628AE96CBD5CDD10D734D93E;25010.
+(rerunfilecheck)             Checksum: B533BC0904444D70F485CFB6E34DC259;25010.
+
+Package biblatex Warning: Please (re)run Biber on the file:
+(biblatex)                z-main
+(biblatex)                and rerun LaTeX afterwards.
+
 Package logreq Info: Writing requests to 'z-main.run.xml'.
 \openout1 = `z-main.run.xml'.
 
  ) 
 Here is how much of TeX's memory you used:
- 30906 strings out of 474542
- 601059 string characters out of 5744446
- 1965978 words of memory out of 5000000
- 52270 multiletter control sequences out of 15000+600000
+ 30769 strings out of 474542
+ 588614 string characters out of 5744446
+ 1966978 words of memory out of 5000000
+ 52134 multiletter control sequences out of 15000+600000
  577067 words of font info for 80 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  94i,15n,93p,2343b,2750s stack positions out of 10000i,1000n,20000p,200000b,200000s
@@ -2726,9 +2368,9 @@ ers/gerar/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr6.pfb
 mr8.pfb><C:/Users/gerar/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfon
 ts/cm/cmsy10.pfb><C:/Users/gerar/AppData/Local/Programs/MiKTeX/fonts/type1/publ
 ic/amsfonts/cm/cmsy8.pfb>
-Output written on z-main.pdf (101 pages, 54565229 bytes).
+Output written on z-main.pdf (101 pages, 54756620 bytes).
 PDF statistics:
- 4042 PDF objects out of 4296 (max. 8388607)
- 377 named destinations out of 1000 (max. 500000)
- 1410 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 3351 PDF objects out of 3580 (max. 8388607)
+ 376 named destinations out of 1000 (max. 500000)
+ 1335 words of extra memory for PDF output out of 10000 (max. 10000000)
 
